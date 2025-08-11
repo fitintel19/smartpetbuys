@@ -32,7 +32,7 @@ def main():
         return
 
     print(f"Successfully found {keywords_file}. Opening and reading rows...")
-    with open(keywords_file, 'r', newline='') as csvfile:
+    with open(keywords_file, 'r', newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             print(f"Processing row: {row}")
