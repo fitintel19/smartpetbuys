@@ -1,23 +1,54 @@
 import os
 import csv
+import openai
 from datetime import datetime
 
-# This script is a placeholder based on Handoff.MD.
 # Set the OPENAI_API_KEY in your GitHub repository secrets.
-# client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+def prompt_for(keyword: str) -> str:
+    return f"""
+You are writing an SEO-optimized affiliate blog post for SmartPetBuys.
+
+Keyword: "{keyword}"
+
+Write 1200–1500 words in Markdown, but **do NOT include an H1**. The H1 comes from front matter.
+Start with a short intro paragraph, then use H2/H3 sections.
+
+Include 3–5 product sections using this shortcode format exactly:
+{{{{< product id="toy-01" >}}}} (IDs are mapped via data/products.json; use existing IDs if relevant.)
+
+Include:
+- Skimmable subheads (H2/H3)
+- Pros/cons bullets where helpful
+- 3-question FAQ
+- Clear CTA in the conclusion
+
+Avoid prices. Keep tone trustworthy and concise.
+""".strip()
 
 def generate_post_content(keyword):
-    """
-    Generates blog post content using an AI model.
-    This is a mock function. Replace with a real OpenAI API call.
-    """
-    print(f"Generating content for keyword: {keyword}")
-    # Mock content generation
+    """Generates blog post content using the OpenAI API."""
+    print(f"Generating prompt for keyword: {keyword}")
+    prompt = prompt_for(keyword)
+
+    print("Calling OpenAI API...")
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4-turbo",  # Or another powerful model
+            messages=[
+                {"role": "system", "content": "You are an expert affiliate blog post writer."},
+                {"role": "user", "content": prompt}
+            ]
+        )
+        ai_content = response.choices[0].message.content
+    except Exception as e:
+        print(f"Error calling OpenAI API: {e}")
+        ai_content = f"<p>Error generating content for {keyword}. Please check API key and configuration.</p>"
+
+    # The title is now separate from the body content's H1
     title = f"The Best {keyword.title()} of {datetime.now().year}"
-    content = f"<p>This is an AI-generated guide on the best {keyword}.</p>"
-    content += "<p>When choosing a product, consider factors like quality, durability, and user reviews.</p>"
-    content += "{{< product id=\"toy-01\" >}}" # Example shortcode
-    return title, content
+    return title, ai_content.strip()
 
 def read_keywords(path="keywords.csv"):
     """Reads keywords from a CSV, handling BOMs and cleaning headers."""
@@ -62,9 +93,8 @@ def write_post(keyword, posts_dir):
     
     title, content = generate_post_content(keyword)
     
-    front_matter = f"""
----
-title: \"{title}\"
+    front_matter = f"""---
+title: "{title}"
 date: {datetime.utcnow().isoformat()}Z
 draft: false
 ---
@@ -80,6 +110,8 @@ def main():
     posts_dir = 'content/posts'
     try:
         pairs = read_keywords()
+        # We need to install the openai package
+        # pip install openai
         to_publish = [kw for kw, pub in pairs if pub == "yes"]
         print(f"Keywords to publish: {to_publish}")
         for kw in to_publish:

@@ -34,7 +34,7 @@ jobs:
       - name: 'Install Dependencies'
         run: |
           python -m pip install --upgrade pip
-          # pip install openai # Uncomment when ready
+          pip install openai
 
       - name: 'Generate New Content'
         id: generate
