@@ -1,5 +1,5 @@
 +++
-title = "pet dental care products — SmartPetBuys"
+title = "Best Pet Dental Care Products — SmartPetBuys"
 date = "2025-08-11T19:27:50Z"
 slug = "pet-dental-care-products"
 tags = ["pet dental care products","pet products","reviews"]

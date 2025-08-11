@@ -1,10 +1,10 @@
 +++
-title = "cat litter box — SmartPetBuys"
+title = "Best Cat Litter Boxes — SmartPetBuys"
 date = "2025-08-11T19:28:15Z"
 slug = "cat-litter-box"
 tags = ["cat litter box","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best cat litter box for pets — tested picks and buying guide."
+description = "Best cat litter boxes for pets — tested picks and buying guide."
 draft = false
 +++
 

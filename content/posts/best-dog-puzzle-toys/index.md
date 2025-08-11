@@ -1,10 +1,10 @@
 +++
-title = "best dog puzzle toys — SmartPetBuys"
+title = "Best Dog Puzzle Toys — SmartPetBuys"
 date = "2025-08-11T19:25:11Z"
 slug = "best-dog-puzzle-toys"
 tags = ["best dog puzzle toys","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best best dog puzzle toys for pets — tested picks and buying guide."
+description = "Best dog puzzle toys for pets — tested picks and buying guide."
 draft = false
 +++
 

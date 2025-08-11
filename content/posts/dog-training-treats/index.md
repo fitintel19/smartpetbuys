@@ -1,5 +1,5 @@
 +++
-title = "dog training treats — SmartPetBuys"
+title = "Best Dog Training Treats — SmartPetBuys"
 date = "2025-08-11T19:26:36Z"
 slug = "dog-training-treats"
 tags = ["dog training treats","pet products","reviews"]

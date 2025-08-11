@@ -1,10 +1,10 @@
 +++
-title = "cat grooming brush — SmartPetBuys"
+title = "Best Cat Grooming Brushes — SmartPetBuys"
 date = "2025-08-11T19:25:31Z"
 slug = "cat-grooming-brush"
 tags = ["cat grooming brush","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best cat grooming brush for pets — tested picks and buying guide."
+description = "Best cat grooming brushes for pets — tested picks and buying guide."
 draft = false
 +++
 

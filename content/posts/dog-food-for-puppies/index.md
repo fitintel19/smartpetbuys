@@ -1,10 +1,10 @@
 +++
-title = "dog food for puppies — SmartPetBuys"
+title = "Best Dog Food for Puppies — SmartPetBuys"
 date = "2025-08-11T19:25:57Z"
 slug = "dog-food-for-puppies"
 tags = ["dog food for puppies","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best dog food for puppies for pets — tested picks and buying guide."
+description = "Best dog food for puppies — tested picks and buying guide."
 draft = false
 +++
 

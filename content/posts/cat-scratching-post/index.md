@@ -1,10 +1,10 @@
 +++
-title = "cat scratching post — SmartPetBuys"
+title = "Best Cat Scratching Posts — SmartPetBuys"
 date = "2025-08-11T19:26:55Z"
 slug = "cat-scratching-post"
 tags = ["cat scratching post","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best cat scratching post for pets — tested picks and buying guide."
+description = "Best cat scratching posts for pets — tested picks and buying guide."
 draft = false
 +++
 

@@ -1,10 +1,10 @@
 +++
-title = "dog bed for large breeds — SmartPetBuys"
+title = "Best Dog Beds for Large Breeds — SmartPetBuys"
 date = "2025-08-11T19:27:24Z"
 slug = "dog-bed-for-large-breeds"
 tags = ["dog bed for large breeds","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best dog bed for large breeds for pets — tested picks and buying guide."
+description = "Best dog beds for large breeds — tested picks and buying guide."
 draft = false
 +++
 

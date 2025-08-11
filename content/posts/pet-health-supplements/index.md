@@ -1,5 +1,5 @@
 +++
-title = "pet health supplements — SmartPetBuys"
+title = "Best Pet Health Supplements — SmartPetBuys"
 date = "2025-08-11T19:26:15Z"
 slug = "pet-health-supplements"
 tags = ["pet health supplements","pet products","reviews"]
