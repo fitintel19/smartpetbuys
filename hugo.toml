@@ -1,0 +1,14 @@
+baseURL = "https://smartpetbuys.com/"
+languageCode = "en-us"
+title = "SmartPetBuys"
+theme = "PaperMod"
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  defaultTheme = "auto"
+  description  = "Smart choices for your pets — reviews, guides, and deals."
+
+[outputs]
+  home = ["HTML","RSS","JSON"]
