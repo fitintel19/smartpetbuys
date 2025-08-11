@@ -1,4 +1,3 @@
-
 import os
 import csv
 # import openai # Uncomment when API key is set
@@ -52,13 +51,11 @@ def main():
                 
                 title, content = generate_post_content(keyword)
                 
-                front_matter = f"""
---- 
-title: \"{title}\" 
+                front_matter = f"""---
+title: \"{title}\"
 date: {datetime.utcnow().isoformat()}Z
 draft: false
---- 
-"""
+---"""
                 
                 with open(os.path.join(post_path, 'index.md'), 'w') as f:
                     f.write(front_matter + "\n" + content)
