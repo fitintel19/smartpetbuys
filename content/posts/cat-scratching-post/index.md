@@ -17,7 +17,7 @@ Cats need to scratch for several reasons, and providing a quality scratching pos
 ## Top Picks for Cat Scratching Posts
 
 ### Classic Vertical Post
-{{< product id="toy-01" >}}
+{{< product id="scratch-01" >}}
 
 Vertical scratching posts are the go-to choice for many cat owners. They mimic the natural objects cats would scratch in the wild, like tree trunks.
 
@@ -31,7 +31,7 @@ Vertical scratching posts are the go-to choice for many cat owners. They mimic t
 - Limited in features (no play areas or perches)
 
 ### Multi-Level Scratching Tree
-{{< product id="toy-02" >}}
+{{< product id="scratch-01" >}}
 
 For homes with more space and multiple cats, a multi-level scratching tree can be an excellent investment. It offers various heights and styles of scratching surfaces, along with perches and sometimes even hanging toys.
 
@@ -45,7 +45,7 @@ For homes with more space and multiple cats, a multi-level scratching tree can b
 - More complex to assemble
 
 ### Wall-Mounted Scratching Pad
-{{< product id="cat-toy-01" >}}
+{{< product id="scratch-01" >}}
 
 A wall-mounted scratching pad is a great space-saving alternative that can also add a stylish element to your home decor. It's perfect for smaller spaces or for adding additional scratching surfaces around your home.
 
