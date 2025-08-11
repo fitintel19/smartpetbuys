@@ -1,4 +1,4 @@
-baseURL = "https://smartpetbuys.com/"
+baseURL = "https://smartpetbuys.pages.dev/"
 languageCode = "en-us"
 title = "SmartPetBuys"
 theme = "PaperMod"
@@ -9,6 +9,21 @@ theme = "PaperMod"
 [params]
   defaultTheme = "auto"
   description  = "Smart choices for your pets — reviews, guides, and deals."
+  mainSections = ["posts"]
 
-[outputs]
-  home = ["HTML","RSS","JSON"]
+[params.homeInfoParams]
+  Title = "Smart choices for your pets"
+  Content = "Independent reviews, buying guides, and deals — updated automatically."
+
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 2
