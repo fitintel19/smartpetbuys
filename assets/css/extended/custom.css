@@ -71,7 +71,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 90px; /* Increase header height for bigger logo */
+  padding: 0.5rem 0; /* Add vertical padding */
 }
 
 .nav-logo {
@@ -86,7 +87,8 @@ p {
 }
 
 .brand-logo {
-  height: 60px; /* Much bigger logo */
+  height: 80px; /* Even bigger logo */
+  max-width: 250px; /* Add max width constraint */
   width: auto;
   object-fit: contain;
 }
@@ -313,6 +315,29 @@ a:hover {
   border-radius: 20px;
   display: inline-block;
   margin: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
 }
 
 /* Footer */
@@ -332,10 +357,22 @@ footer {
   
   .nav-menu {
     display: none;
+    /* TODO: Add mobile hamburger menu */
+  }
+  
+  /* Mobile menu toggle - you may want to add JavaScript for this */
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
   }
   
   .brand-logo {
-    height: 50px;
+    height: 65px; /* Bigger on mobile too */
+    max-width: 200px;
   }
   
   main {

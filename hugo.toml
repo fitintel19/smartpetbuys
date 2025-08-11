@@ -18,6 +18,11 @@ theme = "PaperMod"
   ShowRssButtonInSectionTermList = true
   ShowWordCount = true
   ShowFullTextinRSS = true
+  # SEO improvements
+  keywords = ["pet products", "dog supplies", "cat accessories", "pet reviews"]
+  author = "SmartPetBuys Team"
+  # Logo for schema markup
+  logo = "/images/smartpetbuys_logo.png"
 
 [params.homeInfoParams]
   Title = "Smart choices for your pets"
