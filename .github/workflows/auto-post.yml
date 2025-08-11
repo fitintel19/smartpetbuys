@@ -15,8 +15,16 @@ jobs:
     permissions:
       contents: write # Required to commit changes back to the repo
     steps:
+      - name: 'Clear Git Cache'
+        run: |
+          git config --global --unset-all http.https://github.com/.extraheader
+          git config --global --unset-all http.proxy
+
       - name: 'Checkout Repository'
         uses: actions/checkout@v4
+        with:
+          clean: true
+          fetch-depth: 1
 
       - name: 'Set up Python'
         uses: actions/setup-python@v5
