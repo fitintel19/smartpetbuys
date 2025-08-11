@@ -22,39 +22,50 @@ def generate_post_content(keyword):
     return title, content
 
 def main():
+    print("Script started.")
     keywords_file = 'keywords.csv'
     posts_dir = 'content/posts'
 
+    print(f"Checking for {keywords_file}...")
     if not os.path.exists(keywords_file):
         print(f"Error: {keywords_file} not found.")
         return
 
+    print(f"Successfully found {keywords_file}. Opening and reading rows...")
     with open(keywords_file, 'r', newline='') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
+            print(f"Processing row: {row}")
             if row.get('publish', '').lower() == 'yes':
+                print(f"Found keyword to publish: {row['keyword']}")
                 keyword = row['keyword']
                 slug = keyword.lower().replace(' ', '-')
                 post_path = os.path.join(posts_dir, slug)
                 
+                print(f"Checking if post already exists at {post_path}...")
                 if os.path.exists(post_path):
                     print(f"Post for '{keyword}' already exists. Skipping.")
                     continue
 
+                print("Post does not exist. Generating content...")
                 os.makedirs(post_path, exist_ok=True)
                 
                 title, content = generate_post_content(keyword)
                 
-                front_matter = f"""---
-title: \"{title}\"
+                front_matter = f"""
+--- 
+title: \"{title}\" 
 date: {datetime.utcnow().isoformat()}Z
 draft: false
----
+--- 
 """
                 
                 with open(os.path.join(post_path, 'index.md'), 'w') as f:
                     f.write(front_matter + "\n" + content)
-                    print(f"Created post: {post_path}/index.md")
+                    print(f"SUCCESS: Created post: {post_path}/index.md")
+
+    print("Script finished.")
+
 
 if __name__ == "__main__":
     main()
