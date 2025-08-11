@@ -25,7 +25,7 @@ Pet health supplements are designed to provide nutritional support that a pet mi
 Here’s a look at some of the most effective and safe supplements on the market today that could make a difference in your pet's life.
 
 ### 1. Comprehensive Multivitamin for Daily Health
-{{< product id="supp-01" >}}
+{{< product id="health-02" >}}
 
 Offering a broad spectrum of essential vitamins and minerals, this supplement ensures your pet receives a balanced diet, supporting overall health and vitality.
 
@@ -37,7 +37,7 @@ Offering a broad spectrum of essential vitamins and minerals, this supplement en
 - Some picky eaters might dislike the flavor.
 
 ### 2. Joint Strengthening Formula for Aging Pets
-{{< product id="supp-02" >}}
+{{< product id="health-05" >}}
 
 This powerful formula is tailored for older pets who suffer from joint pain or stiffness, aiming to enhance their mobility and reduce discomfort.
 
@@ -49,7 +49,7 @@ This powerful formula is tailored for older pets who suffer from joint pain or s
 - May take several weeks to see noticeable improvement.
 
 ### 3. Probiotic Blend for Digestive Health
-{{< product id="supp-03" >}}
+{{< product id="health-02" >}}
 
 Improve your pet’s digestive health with this blend of friendly bacteria, which helps to balance the gastrointestinal tract and support a healthy immune system.
 
@@ -61,7 +61,7 @@ Improve your pet’s digestive health with this blend of friendly bacteria, whic
 - Requires consistent use for best results.
 
 ### 4. Skin and Coat Enhancement Supplement
-{{< product id="supp-04" >}}
+{{< product id="health-03" >}}
 
 This supplement is rich in Omega-3 fatty acids, which are crucial for maintaining a shiny coat and healthy skin.
 
@@ -73,7 +73,7 @@ This supplement is rich in Omega-3 fatty acids, which are crucial for maintainin
 - Fishy smell may be off-putting to some pets.
 
 ### 5. Calming Aid for Stress and Anxiety
-{{< product id="supp-05" >}}
+{{< product id="health-04" >}}
 
 Ideal for pets experiencing anxiety or stress, this calming supplement can provide relief during stressful situations such as thunderstorms or vet visits.
 

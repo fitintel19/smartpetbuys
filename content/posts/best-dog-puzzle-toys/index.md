@@ -48,7 +48,7 @@ Each dog is unique, and finding the right puzzle toy that will captivate and cha
 - Not ideal for aggressive chewers
 
 ### 3. Advanced Brain Teaser: IQ Treat Maze
-{{< product id="toy-05" >}}
+{{< product id="toy-02" >}}
 
 #### Pros:
 - Enhances cognitive abilities

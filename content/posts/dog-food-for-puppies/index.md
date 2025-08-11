@@ -25,7 +25,7 @@ Puppies have unique nutritional requirements that differ significantly from adul
 When selecting food for your puppy, considering a brand that specifically tailors their formula to the needs of growing dogs can make a big difference in their development. Here are some of the top picks:
 
 ### Best Overall Puppy Food
-{{< product id="dogfood-01" >}}
+{{< product id="kibble-01" >}}
 
 #### Pros
 - Formulated with high-quality chicken and rice.
@@ -36,7 +36,7 @@ When selecting food for your puppy, considering a brand that specifically tailor
 - Not suitable for puppies with specific meat allergies.
 
 ### Best Grain-Free Option
-{{< product id="dogfood-02" >}}
+{{< product id="kibble-02" >}}
 
 #### Pros
 - Uses a variety of proteins to ensure a balanced diet.
@@ -47,7 +47,7 @@ When selecting food for your puppy, considering a brand that specifically tailor
 - May be more expensive than grain-inclusive options.
 
 ### Best for Large Breed Puppies
-{{< product id="dogfood-03" >}}
+{{< product id="kibble-03" >}}
 
 #### Pros
 - Enhanced with nutrients specific to the needs of large breed puppies.
@@ -58,7 +58,7 @@ When selecting food for your puppy, considering a brand that specifically tailor
 - Not ideal for smaller breeds as the kibble size is larger.
 
 ### Best Budget-Friendly Puppy Food
-{{< product id="dogfood-04" >}}
+{{< product id="kibble-01" >}}
 
 #### Pros
 - Provides balanced nutrition at an affordable price point.
@@ -68,7 +68,7 @@ When selecting food for your puppy, considering a brand that specifically tailor
 - Uses chicken by-product meal, which might not appeal to all pet owners.
 
 ### Best for Sensitive Stomachs
-{{< product id="dogfood-05" >}}
+{{< product id="kibble-02" >}}
 
 #### Pros
 - Easily digestible formula with prebiotics and probiotics.

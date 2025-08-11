@@ -36,7 +36,7 @@ Choosing the right grooming brush for your cat depends on their coat type and se
 - Not ideal for long-haired breeds
 
 ### Best for Long Hair
-{{< product id="brush-02" >}}
+{{< product id="groom-03" >}}
 **Pros:**
 - Designed to detangle without pulling
 - Long bristles reach deep into thick coats
@@ -46,7 +46,7 @@ Choosing the right grooming brush for your cat depends on their coat type and se
 - Requires gentle handling to avoid discomfort
 
 ### Best Multipurpose Brush
-{{< product id="brush-03" >}}
+{{< product id="brush-01" >}}
 **Pros:**
 - Versatile use for different coat types
 - Includes a side for detangling and a side for smoothing

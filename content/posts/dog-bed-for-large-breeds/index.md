@@ -25,7 +25,7 @@ Large dogs often suffer from joint problems as they age, so choosing a bed with 
 
 For owners of large breed dogs, choosing the right bed is crucial for their comfort and health. Here are some of the best options available:
 
-{{< product id="db-01" >}}
+{{< product id="bed-01" >}}
 
 The Dog's Bed Orthopedic Dog Bed is excellent for larger breeds needing extra joint support and comfort.
 
@@ -38,7 +38,7 @@ The Dog's Bed Orthopedic Dog Bed is excellent for larger breeds needing extra jo
 - Higher price point than standard beds
 - May be too firm for some dogs
 
-{{< product id="db-02" >}}
+{{< product id="bed-02" >}}
 
 PetFusion Ultimate Dog Bed & Lounge provides a combination of luxury and ergonomic support, ideal for larger dogs who love to lounge.
 
@@ -51,7 +51,7 @@ PetFusion Ultimate Dog Bed & Lounge provides a combination of luxury and ergonom
 - Takes up more space than simpler designs
 - The memory foam might take a day to fully expand
 
-{{< product id="db-03" >}}
+{{< product id="bed-03" >}}
 
 K9 Ballistics Tough Rectangle Orthopedic Bed is designed for the chewers and the roughhousers.
 

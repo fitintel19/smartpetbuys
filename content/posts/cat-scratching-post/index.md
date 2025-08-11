@@ -45,7 +45,7 @@ For homes with more space and multiple cats, a multi-level scratching tree can b
 - More complex to assemble
 
 ### Wall-Mounted Scratching Pad
-{{< product id="toy-09" >}}
+{{< product id="cat-toy-01" >}}
 
 A wall-mounted scratching pad is a great space-saving alternative that can also add a stylish element to your home decor. It's perfect for smaller spaces or for adding additional scratching surfaces around your home.
 

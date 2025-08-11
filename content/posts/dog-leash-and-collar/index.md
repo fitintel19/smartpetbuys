@@ -37,7 +37,7 @@ Reflective stitching for nighttime visibility, break-away buckles, and sturdy cl
 - Nylon material might not be suitable for all dogs, especially those with sensitive skin
 
 ### Best Eco-Friendly Choice
-{{< product id="collar-04" >}}
+{{< product id="leash-01" >}}
 
 #### Pros:
 - Made from sustainable materials

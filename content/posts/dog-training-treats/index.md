@@ -24,7 +24,7 @@ Dive into our curated list of the best treats that can make training your dog a 
 
 ### 1. Soft & Chewy Training Treats
 
-{{< product id="treat-softchewy-01" >}}
+{{< product id="treats-01" >}}
 
 #### **Pros:**
 - Soft texture ideal for quick consumption.
@@ -35,7 +35,7 @@ Dive into our curated list of the best treats that can make training your dog a 
 
 ### 2. Organic Mini Bites
 
-{{< product id="treat-organicmini-02" >}}
+{{< product id="treats-02" >}}
 
 #### **Pros:**
 - Certified organic ingredients ensure purity and safety.
@@ -46,7 +46,7 @@ Dive into our curated list of the best treats that can make training your dog a 
 
 ### 3. Crunchy Low-Calorie Delights
 
-{{< product id="treat-crunchy-03" >}}
+{{< product id="treats-03" >}}
 
 #### **Pros:**
 - Low calorie, making them perfect for frequent training sessions.

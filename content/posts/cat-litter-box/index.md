@@ -60,15 +60,15 @@ Self-cleaning litter boxes are designed to automate the cleaning process, using 
 
 When selecting a cat litter box, it's important to consider your cat’s size, your household’s needs, and the type of litter you prefer. Here are some top picks from SmartPetBuys that cater to a range of needs and preferences.
 
-{{< product id="catlitterbox-trad" >}}
+{{< product id="litter-01" >}}
 
 This traditional litter pan is excellent for those who prefer simplicity and affordability. It’s perfect for new kitten owners who are testing out their pet's preferences.
 
-{{< product id="catlitterbox-hooded" >}}
+{{< product id="litter-02" >}}
 
 For those looking for a bit more sophistication, this hooded litter box offers an elegant solution with added odor control and privacy for your cat.
 
-{{< product id="catlitterbox-selfclean" >}}
+{{< product id="litter-03" >}}
 
 If convenience is your top priority, consider this top-rated self-cleaning litter box. It’s an excellent choice for tech-savvy pet owners who prefer spending more quality time with their pets over scooping litter.
 

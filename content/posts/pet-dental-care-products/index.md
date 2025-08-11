@@ -40,7 +40,7 @@ Water additives are an effortless way to maintain oral hygiene in pets. Simply a
 2. **Effective Plaque Reduction:** Regular use helps in maintaining cleaner teeth and fresher breath.
 3. **Safe for Pets:** Specifically formulated to be safe for daily intake.
 
-{{< product id="water-additive-01" >}}
+{{< product id="water-01" >}}
 
 #### Pros:
 - Non-invasive dental care
@@ -60,7 +60,7 @@ Dental treats are not just tasty; they're designed to help clean your pet's teet
 2. **Ingredients:** Look for natural ingredients with no added sugars.
 3. **Size Options:** Available in various sizes to suit different breeds and sizes of dogs.
 
-{{< product id="dental-treats-01" >}}
+{{< product id="dental-02" >}}
 
 #### Pros:
 - Easy to incorporate into daily routines
@@ -80,7 +80,7 @@ For pets that need a bit more help with their teeth cleaning or those resistant 
 2. **Long-lasting:** Chews that take longer to eat can provide greater dental benefits.
 3. **Accepted by Veterinary Oral Health Council (VOHC):** Ensures the product meets specific dental efficacy standards.
 
-{{< product id="dental-chew-02" >}}
+{{< product id="dental-03" >}}
 
 #### Pros:
 - Actively engages your pet in dental care
