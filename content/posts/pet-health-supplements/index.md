@@ -24,17 +24,19 @@ Pet health supplements are designed to provide nutritional support that a pet mi
 
 Here’s a look at some of the most effective and safe supplements on the market today that could make a difference in your pet's life.
 
-### 1. Comprehensive Multivitamin for Daily Health
+### 1. Veterinary Probiotic for Digestive Health
 {{< product id="health-02" >}}
 
-Offering a broad spectrum of essential vitamins and minerals, this supplement ensures your pet receives a balanced diet, supporting overall health and vitality.
+This veterinary-recommended probiotic supplement supports healthy digestive function and helps maintain a balanced gut microbiome in dogs and cats.
 
 #### Pros:
-- Covers a wide range of vitamins and minerals.
-- Chewable form makes it easy for pets to consume.
+- Veterinarian recommended for digestive health.
+- Easy-to-administer powder form that mixes with food.
+- Proven to help with digestive upset and antibiotic recovery.
 
 #### Cons:
-- Some picky eaters might dislike the flavor.
+- Must be refrigerated to maintain potency.
+- Some pets may initially be sensitive to probiotic introduction.
 
 ### 2. Joint Strengthening Formula for Aging Pets
 {{< product id="health-05" >}}
@@ -48,14 +50,15 @@ This powerful formula is tailored for older pets who suffer from joint pain or s
 #### Cons:
 - May take several weeks to see noticeable improvement.
 
-### 3. Probiotic Blend for Digestive Health
-{{< product id="health-02" >}}
+### 3. Omega-3 Supplement for Skin and Coat
+{{< product id="health-03" >}}
 
-Improve your pet’s digestive health with this blend of friendly bacteria, which helps to balance the gastrointestinal tract and support a healthy immune system.
+These omega-3 soft chews provide essential fatty acids that promote healthy skin, a shiny coat, and support overall wellness in dogs.
 
 #### Pros:
-- Supports a healthy gut flora.
-- Can help reduce gastrointestinal upset like diarrhea or constipation.
+- Rich in omega-3 fatty acids for skin and coat health.
+- Soft chew format makes administration easy.
+- Also supports joint health and cognitive function.
 
 #### Cons:
 - Requires consistent use for best results.

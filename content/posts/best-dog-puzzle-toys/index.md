@@ -35,29 +35,29 @@ Each dog is unique, and finding the right puzzle toy that will captivate and cha
 - May not suit very large dogs
 - Initial setup might be slightly complex
 
-### 2. Treat-Seeking Fun: Hide-A-Treat Ball
+### 2. High-Bouncing Exercise Balls
 {{< product id="toy-03" >}}
 
 #### Pros:
-- Interactive fun that rewards with treats
-- Flexible difficulty settings
-- Safe for dishwasher cleaning
+- Durable rubber construction for outdoor play
+- High-bouncing action keeps dogs engaged
+- Compatible with Chuckit! launchers for extended play
 
 #### Cons:
-- Small pieces might get lost
-- Not ideal for aggressive chewers
+- May bounce too high for indoor use
+- Not suitable for unsupervised chewing
 
-### 3. Advanced Brain Teaser: IQ Treat Maze
+### 3. Interactive Treat-Stuffing Toy
 {{< product id="toy-02" >}}
 
 #### Pros:
-- Enhances cognitive abilities
-- Multiple chambers for treats to extend playtime
-- Strong, durable material suitable for most dog breeds
+- Can be stuffed with treats or food for mental engagement
+- Durable rubber construction withstands heavy chewing
+- Bounces unpredictably to maintain interest
 
 #### Cons:
-- More suitable for experienced puzzle solvers
-- Might be too challenging for some pets
+- Requires regular cleaning when used with food
+- May be too challenging for very young puppies
 
 ## How to Choose the Right Puzzle Toy for Your Dog
 
