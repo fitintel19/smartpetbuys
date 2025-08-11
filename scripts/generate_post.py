@@ -1,6 +1,5 @@
 import os
 import csv
-# import openai # Uncomment when API key is set
 from datetime import datetime
 
 # This script is a placeholder based on Handoff.MD.
@@ -20,49 +19,75 @@ def generate_post_content(keyword):
     content += "{{< product id=\"toy-01\" >}}" # Example shortcode
     return title, content
 
-def main():
-    print("Script started.")
-    keywords_file = 'keywords.csv'
-    posts_dir = 'content/posts'
+def read_keywords(path="keywords.csv"):
+    """Reads keywords from a CSV, handling BOMs and cleaning headers."""
+    # utf-8-sig strips BOM if present (common when saving from Excel)
+    try:
+        with open(path, newline="", encoding="utf-8-sig") as f:
+            rows = [r for r in csv.reader(f) if any(cell.strip() for cell in r)]
+    except FileNotFoundError:
+        raise RuntimeError(f"Error: {path} not found.")
 
-    print(f"Checking for {keywords_file}...")
-    if not os.path.exists(keywords_file):
-        print(f"Error: {keywords_file} not found.")
+    if not rows:
+        return []
+    
+    header = [h.strip().lower() for h in rows[0]]
+    try:
+        k_idx = header.index("keyword")
+        p_idx = header.index("publish")
+    except ValueError:
+        raise RuntimeError(f"keywords.csv must have 'keyword' and 'publish' headers. Got: {header}")
+    
+    out = []
+    for r in rows[1:]:
+        if len(r) <= max(k_idx, p_idx):
+            continue
+        kw = r[k_idx].strip()
+        pub = r[p_idx].strip().lower()
+        if kw:
+            out.append((kw, pub))
+    return out
+
+def write_post(keyword, posts_dir):
+    """Generates and writes a single post file."""
+    print(f"Processing keyword: {keyword}")
+    slug = keyword.lower().replace(' ', '-')
+    post_path = os.path.join(posts_dir, slug)
+
+    if os.path.exists(post_path):
+        print(f"Post for '{keyword}' already exists. Skipping.")
         return
 
-    print(f"Successfully found {keywords_file}. Opening and reading rows...")
-    with open(keywords_file, 'r', newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            print(f"Processing row: {row}")
-            if row.get('publish', '').lower() == 'yes':
-                print(f"Found keyword to publish: {row['keyword']}")
-                keyword = row['keyword']
-                slug = keyword.lower().replace(' ', '-')
-                post_path = os.path.join(posts_dir, slug)
-                
-                print(f"Checking if post already exists at {post_path}...")
-                if os.path.exists(post_path):
-                    print(f"Post for '{keyword}' already exists. Skipping.")
-                    continue
-
-                print("Post does not exist. Generating content...")
-                os.makedirs(post_path, exist_ok=True)
-                
-                title, content = generate_post_content(keyword)
-                
-                front_matter = f"""---
+    os.makedirs(post_path, exist_ok=True)
+    
+    title, content = generate_post_content(keyword)
+    
+    front_matter = f"""
+---
 title: \"{title}\"
 date: {datetime.utcnow().isoformat()}Z
 draft: false
----"""
-                
-                with open(os.path.join(post_path, 'index.md'), 'w') as f:
-                    f.write(front_matter + "\n" + content)
-                    print(f"SUCCESS: Created post: {post_path}/index.md")
+---
+"""
+    
+    with open(os.path.join(post_path, 'index.md'), 'w', encoding='utf-8') as f:
+        f.write(front_matter + "\n" + content)
+        print(f"SUCCESS: Created post: {post_path}/index.md")
 
+def main():
+    """Main function to run the script."""
+    print("Script started.")
+    posts_dir = 'content/posts'
+    try:
+        pairs = read_keywords()
+        to_publish = [kw for kw, pub in pairs if pub == "yes"]
+        print(f"Keywords to publish: {to_publish}")
+        for kw in to_publish:
+            write_post(kw, posts_dir)
+    except RuntimeError as e:
+        print(e)
+    
     print("Script finished.")
-
 
 if __name__ == "__main__":
     main()
