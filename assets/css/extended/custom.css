@@ -123,6 +123,52 @@ a:hover {
   box-shadow: 0 4px 12px rgba(255, 127, 50, 0.15);
 }
 
+/* Post entry styling */
+.post-entry {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.post-entry h2 a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+.post-entry h2 a:hover {
+  color: var(--primary-color);
+}
+
+/* Add orange accents to various elements */
+.post-meta {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.read-more {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  color: #e66a2b;
+}
+
+/* Home page styling */
+.home-info {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, #2a3a5a 100%);
+  color: var(--accent-color);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.home-info h1 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
 /* Tag styling */
 .tag {
   background-color: var(--primary-color);

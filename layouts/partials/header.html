@@ -1,13 +1,8 @@
-{{ $logo := resources.Get "images/smartpetbuys_logo.png" }}
 <header class="header">
     <nav class="nav">
         <div class="nav-wrapper">
             <a href="{{ .Site.BaseURL }}" class="nav-logo">
-                {{ if $logo }}
-                    <img src="{{ $logo.RelPermalink }}" alt="SmartPetBuys" class="brand-logo">
-                {{ else }}
-                    <span class="site-title">{{ .Site.Title }}</span>
-                {{ end }}
+                <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="brand-logo">
             </a>
             
             <div class="nav-menu">
