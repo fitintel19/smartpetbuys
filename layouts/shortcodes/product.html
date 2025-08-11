@@ -4,11 +4,11 @@
 {{ if not $p }}
 <p style="color:#b00">Product id '{{ $id }}' not found.</p>
 {{ else }}
-<div class="product-box" style="display:flex;gap:16px;align-items:center;">
-  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }}" style="width:120px;height:120px;object-fit:cover;border-radius:10px;">{{ end }}
-  <div>
-    <h3 style="margin:0 0 6px 0;font-family:'Montserrat',sans-serif;font-weight:700;color:#1A2A42;">{{ $p.name }}</h3>
-    {{ if $p.blurb }}<p style="margin:0 0 10px 0;font-family:'Open Sans',sans-serif;">{{ $p.blurb }}</p>{{ end }}
+<div class="product-box">
+  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }}">{{ end }}
+  <div class="product-box-content">
+    <h3>{{ $p.name }}</h3>
+    {{ if $p.blurb }}<p>{{ $p.blurb }}</p>{{ end }}
     <a href="{{ $p.url }}" rel="nofollow sponsored" target="_blank" class="cta-button">
        Check Price
     </a>

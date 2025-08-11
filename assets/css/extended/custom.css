@@ -1,189 +1,443 @@
-/* SmartPetBuys Custom Brand Colors */
+/* SmartPetBuys - Modern Professional Design */
 
 :root {
   --primary-color: #FF7F32;    /* Orange - Primary */
+  --primary-dark: #e66a2b;     /* Darker orange for hover */
   --secondary-color: #1A2A42;  /* Dark Blue - Secondary */
+  --secondary-light: #2a3a5a;  /* Lighter blue for gradients */
   --accent-color: #FFFFFF;     /* White - Accent */
-  --text-color: #333333;       /* Dark text for readability */
-  --background-color: #FFFFFF; /* White background */
+  --text-color: #2c3e50;       /* Dark text for readability */
+  --text-light: #7f8c8d;       /* Light text for meta */
+  --background-color: #f8f9fa; /* Light gray background */
+  --card-bg: #FFFFFF;          /* White card background */
+  --border-color: #e9ecef;     /* Light border color */
+  --shadow: 0 2px 10px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 20px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
 }
 
 /* Import brand fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
 
-/* Apply brand fonts */
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   color: var(--text-color);
   background-color: var(--background-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   color: var(--secondary-color);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
 }
 
-/* Navigation styling */
-nav {
-  background-color: var(--secondary-color);
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 { font-size: 2rem; font-weight: 700; }
+h3 { font-size: 1.5rem; font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 600; }
+
+p {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
 }
 
-nav a {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  color: var(--accent-color) !important;
+/* Header & Navigation */
+.header {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-nav a:hover {
-  color: var(--primary-color) !important;
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-/* Header styling */
-header {
-  background-color: var(--secondary-color);
-  color: var(--accent-color);
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
 }
 
-/* Footer styling */
-footer {
-  background-color: var(--secondary-color);
-  color: var(--accent-color);
-}
-
-/* Button styling */
-.btn, button, input[type="submit"] {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-  border: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-}
-
-.btn:hover, button:hover, input[type="submit"]:hover {
-  background-color: #e66a2b; /* Darker orange on hover */
-  color: var(--accent-color);
-}
-
-/* Link styling */
-a {
-  color: var(--primary-color);
-}
-
-a:hover {
-  color: #e66a2b;
-}
-
-/* Product shortcode styling */
-.product-box {
-  border: 2px solid var(--primary-color);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 18px 0;
-  background-color: var(--accent-color);
-}
-
-.product-box .cta-button {
-  background-color: var(--primary-color);
-  color: var(--accent-color);
-  padding: 10px 14px;
-  border-radius: 8px;
+.nav-logo {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
-.product-box .cta-button:hover {
-  background-color: #e66a2b;
-  color: var(--accent-color);
+.nav-logo:hover {
+  transform: scale(1.05);
 }
 
-/* Site title styling */
-.site-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: var(--accent-color);
-}
-
-/* Logo styling */
 .brand-logo {
-  max-height: 50px;
+  height: 45px;
   width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
-/* Card styling */
-.card {
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  transition: box-shadow 0.3s ease;
+.nav-menu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
 }
 
-.card:hover {
-  box-shadow: 0 4px 12px rgba(255, 127, 50, 0.15);
-}
-
-/* Post entry styling */
-.post-entry {
-  border-left: 4px solid var(--primary-color);
-  padding-left: 1rem;
-  margin-bottom: 2rem;
-}
-
-.post-entry h2 a {
-  color: var(--secondary-color);
-  text-decoration: none;
-}
-
-.post-entry h2 a:hover {
-  color: var(--primary-color);
-}
-
-/* Add orange accents to various elements */
-.post-meta {
-  color: var(--primary-color);
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-}
-
-.read-more {
-  color: var(--primary-color);
-  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent-color);
   text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  position: relative;
 }
 
-.read-more:hover {
-  color: #e66a2b;
+.nav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Home page styling */
-.home-info {
-  background: linear-gradient(135deg, var(--secondary-color) 0%, #2a3a5a 100%);
-  color: var(--accent-color);
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
-  border-radius: 12px;
-  margin-bottom: 2rem;
 }
 
-.home-info h1 {
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
   color: var(--accent-color);
+  padding: 4rem 2rem;
+  border-radius: var(--radius);
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.hero-section h1 {
+  color: var(--accent-color);
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-section p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Post Cards */
+.posts-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.post-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.post-card-content {
+  padding: 2rem;
+  padding-left: 2.5rem;
+}
+
+.post-card h2 {
   margin-bottom: 1rem;
 }
 
-/* Tag styling */
+.post-card h2 a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.post-card h2 a:hover {
+  color: var(--primary-color);
+}
+
+.post-card p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.post-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-meta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Product Boxes */
+.product-box {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.product-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-dark);
+}
+
+.product-box img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.product-box-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.product-box-content p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--accent-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 127, 50, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 127, 50, 0.4);
+  color: var(--accent-color);
+}
+
+/* Buttons */
+.btn {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: var(--accent-color);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 127, 50, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 127, 50, 0.4);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Tags */
 .tag {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
   color: var(--accent-color);
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0.25rem;
 }
 
-/* Search styling */
-.search-input {
-  border: 2px solid var(--primary-color);
-  border-radius: 8px;
+/* Footer */
+footer {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--secondary-light) 100%);
+  color: var(--accent-color);
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+  text-align: center;
 }
 
-.search-input:focus {
-  border-color: var(--secondary-color);
-  box-shadow: 0 0 0 2px rgba(255, 127, 50, 0.2);
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 1rem;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  main {
+    padding: 1rem;
+  }
+  
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .post-card-content {
+    padding: 1.5rem;
+    padding-left: 2rem;
+  }
+  
+  .product-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .product-box img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
 }
