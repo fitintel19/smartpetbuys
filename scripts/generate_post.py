@@ -16,7 +16,22 @@ Write 1200–1500 words in Markdown, but **do NOT include an H1**. The H1 comes 
 Start with a short intro paragraph, then use H2/H3 sections.
 
 Include 3–5 product sections using this shortcode format exactly:
-{{{{< product id="toy-01" >}}}} (IDs are mapped via data/products.json; use existing IDs if relevant.)
+{{{{< product id="toy-01" >}}}} 
+
+IMPORTANT: Only use these existing product IDs from data/products.json:
+- toy-01 (puzzle toy)
+- brush-01 (grooming brush) 
+- kibble-01 (dog food)
+- groom-03 (nail trimmer)
+- health-02 (supplements)
+- dental-kit-01 (dental care)
+- bed-01 (dog bed)
+- treats-01 (training treats)
+- litter-01 (cat litter box)
+- scratch-01 (cat scratching post)
+- leash-01 (leash and collar)
+
+Do NOT create new product IDs. Only use the ones listed above.
 
 Include:
 - Skimmable subheads (H2/H3)
