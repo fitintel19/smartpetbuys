@@ -96,8 +96,6 @@ def write_post(keyword, posts_dir):
     front_matter = f"""---
 title: "{title}"
 date: {datetime.utcnow().isoformat()}Z
-draft: false
----
 """
     
     with open(os.path.join(post_path, 'index.md'), 'w', encoding='utf-8') as f:
