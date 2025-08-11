@@ -239,5 +239,26 @@
     "url": "https://amzn.to/3H5wYOg",
     "image": "https://m.media-amazon.com/images/I/91-PUDF4KQL._AC_SL1500_.jpg",
     "blurb": "Folding metal dog crate with divider panel and dual doors."
+  },
+  
+  "leash-02": {
+    "name": "Flexi Classic Retractable Dog Leash",
+    "url": "https://amzn.to/YOURLINK",
+    "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+    "blurb": "Retractable leash with brake and lock system for control."
+  },
+  
+  "collar-02": {
+    "name": "Blue-9 Balance Harness",
+    "url": "https://amzn.to/YOURLINK", 
+    "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+    "blurb": "No-pull harness designed for balanced training."
+  },
+  
+  "collar-03": {
+    "name": "Ruffwear Front Range Dog Harness",
+    "url": "https://amzn.to/YOURLINK",
+    "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg", 
+    "blurb": "Everyday adventure harness with front and back attachment."
   }
 }

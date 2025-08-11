@@ -18,7 +18,10 @@ Start with a short intro paragraph, then use H2/H3 sections.
 Include 3–5 product sections using this shortcode format exactly:
 {{{{< product id="toy-01" >}}}} 
 
-IMPORTANT: Only use these EXACT product IDs from data/products.json:
+🚨 CRITICAL: ONLY use these EXACT product IDs from data/products.json.
+❌ DO NOT create collar-02, collar-03, collar-04 - ONLY collar-01 exists!
+❌ DO NOT create toy-04, toy-05 - ONLY toy-01, toy-02, toy-03 exist!
+❌ DO NOT invent new IDs - stick to the list below EXACTLY:
 
 **DOG FOOD:**
 - kibble-01 (Orijen Original Dry Dog Food)
@@ -70,8 +73,11 @@ IMPORTANT: Only use these EXACT product IDs from data/products.json:
 
 **LEASHES & COLLARS:**
 - leash-01 (Dog Leash and Collar Set)
+- leash-02 (Flexi Classic Retractable Dog Leash)
 - harness-01 (Rabbitgoo No-Pull Dog Harness)
 - collar-01 (Seresto Flea and Tick Collar)
+- collar-02 (Blue-9 Balance Harness)
+- collar-03 (Ruffwear Front Range Dog Harness)
 
 **OTHER ESSENTIALS:**
 - scratch-01 (Cat Scratching Post)
@@ -80,9 +86,14 @@ IMPORTANT: Only use these EXACT product IDs from data/products.json:
 - water-01 (PetSafe Drinkwell Fountain)
 - crate-01 (MidWest Homes for Pets Dog Crate)
 
-Do NOT create new product IDs. Use ONLY the exact IDs listed above. Choose the most relevant products for your article topic.
+🚨 CRITICAL REMINDER: 
+- For collars/harnesses: ONLY use collar-01, collar-02, collar-03, harness-01
+- For leashes: ONLY use leash-01, leash-02
+- DO NOT invent collar-04, collar-05, leash-03, etc.
+- DOUBLE-CHECK each product ID exists in the list above before using it.
+- If you're unsure, use the main products: collar-01, leash-01, harness-01
 
-Do NOT create new product IDs. Only use the ones listed above.
+FAILURE TO FOLLOW THIS WILL BREAK THE WEBSITE.
 
 Include:
 - Skimmable subheads (H2/H3)
