@@ -24,6 +24,8 @@ Include:
 - 3-question FAQ
 - Clear CTA in the conclusion
 
+IMPORTANT: Do not use "---" anywhere in the article body.
+
 Avoid prices. Keep tone trustworthy and concise.
 """.strip()
 
@@ -46,9 +48,7 @@ def generate_post_content(keyword):
         print(f"Error calling OpenAI API: {e}")
         ai_content = f"<p>Error generating content for {keyword}. Please check API key and configuration.</p>"
 
-    # The title is now separate from the body content's H1
-    title = f"The Best {keyword.title()} of {datetime.now().year}"
-    return title, ai_content.strip()
+    return ai_content.strip()
 
 def read_keywords(path="keywords.csv"):
     """Reads keywords from a CSV, handling BOMs and cleaning headers."""
@@ -91,15 +91,21 @@ def write_post(keyword, posts_dir):
 
     os.makedirs(post_path, exist_ok=True)
     
-    title, content = generate_post_content(keyword)
+    content = generate_post_content(keyword)
     
-    front_matter = f"""---
-title: "{title}"
-date: {datetime.utcnow().isoformat()}Z
-"""
+    fm = f"""---
+title: "{keyword} — SmartPetBuys"
+date: {datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}
+slug: "{slug}"
+tags: ["{keyword}","pet products","reviews"]
+categories: ["Reviews"]
+description: "Best {keyword} for pets — tested picks and buying guide."
+draft: false
+---
+"
     
     with open(os.path.join(post_path, 'index.md'), 'w', encoding='utf-8') as f:
-        f.write(front_matter + "\n" + content)
+        f.write(fm + "\n" + content)
         print(f"SUCCESS: Created post: {post_path}/index.md")
 
 def main():
@@ -108,8 +114,6 @@ def main():
     posts_dir = 'content/posts'
     try:
         pairs = read_keywords()
-        # We need to install the openai package
-        # pip install openai
         to_publish = [kw for kw, pub in pairs if pub == "yes"]
         print(f"Keywords to publish: {to_publish}")
         for kw in to_publish:
