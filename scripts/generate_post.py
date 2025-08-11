@@ -93,16 +93,16 @@ def write_post(keyword, posts_dir):
     
     content = generate_post_content(keyword)
     
-    fm = f"""---
-title: "{keyword} — SmartPetBuys"
-date: {datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}
-slug: "{slug}"
-tags: ["{keyword}","pet products","reviews"]
-categories: ["Reviews"]
-description: "Best {keyword} for pets — tested picks and buying guide."
-draft: false
----
-"
+    fm = f"""+++
+title = "{keyword} — SmartPetBuys"
+date = "{datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}"
+slug = "{slug}"
+tags = ["{keyword}","pet products","reviews"]
+categories = ["Reviews"]
+description = "Best {keyword} for pets — tested picks and buying guide."
+draft = false
++++
+"""
     
     with open(os.path.join(post_path, 'index.md'), 'w', encoding='utf-8') as f:
         f.write(fm + "\n" + content)

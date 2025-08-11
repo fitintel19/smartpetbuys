@@ -6,15 +6,27 @@
     "blurb": "High-protein, grain-free formula for active dogs."
   },
   "toy-01": {
-    "name": "Outward Hound Hide N’ Seek Puzzle Toy",
+    "name": "Outward Hound Hide N' Seek Puzzle Toy",
     "url": "https://amzn.to/3HptNku",
     "image": "https://m.media-amazon.com/images/I/91XO1wJn3AL._AC_SL1500_.jpg",
     "blurb": "Keeps dogs mentally stimulated and engaged."
   },
   "brush-01": {
-    "name": "Hartz Groomer’s Best Slicker Brush",
+    "name": "Hartz Groomer's Best Slicker Brush",
     "url": "https://amzn.to/4oDi5UF",
     "image": "https://m.media-amazon.com/images/I/61BXgZ7nQBL._SL1500_.jpg",
     "blurb": "Gentle detangling for cats and dogs."
+  },
+  "groom-03": {
+    "name": "GentlePaws Nail Trimmer",
+    "url": "https://amzn.to/3HptNku",
+    "image": "https://m.media-amazon.com/images/I/91XO1wJn3AL._AC_SL1500_.jpg",
+    "blurb": "Quiet motor nail trimmer with safety guard for stress-free grooming."
+  },
+  "health-02": {
+    "name": "HealthBoost Probiotic Supplement",
+    "url": "https://amzn.to/4LsOjvH",
+    "image": "https://m.media-amazon.com/images/I/61G8dG5M3ZL._AC_SL1200_.jpg",
+    "blurb": "Supports digestive and immune health for all breeds and sizes."
   }
 }

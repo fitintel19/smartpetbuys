@@ -1,0 +1,3 @@
+warning: in the working copy of 'data/products.json', LF will be replaced by CRLF the next time Git touches it
+content/posts/example-keyword-one/index.md
+data/products.json
