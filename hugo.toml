@@ -10,10 +10,30 @@ theme = "PaperMod"
   defaultTheme = "auto"
   description  = "Smart choices for your pets — reviews, guides, and deals."
   mainSections = ["posts"]
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowWordCount = true
+  ShowFullTextinRSS = true
 
 [params.homeInfoParams]
   Title = "Smart choices for your pets"
   Content = "Independent reviews, buying guides, and deals — updated automatically."
+
+[params.profileMode]
+  enabled = false
+
+[params.fuseOpts]
+  isCaseSensitive = false
+  shouldSort = true
+  location = 0
+  distance = 1000
+  threshold = 0.4
+  minMatchCharLength = 0
+  keys = ["title", "permalink", "summary", "content"]
 
 [menu]
   [[menu.main]]

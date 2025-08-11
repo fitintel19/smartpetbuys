@@ -1,0 +1,143 @@
+/* SmartPetBuys Custom Brand Colors */
+
+:root {
+  --primary-color: #FF7F32;    /* Orange - Primary */
+  --secondary-color: #1A2A42;  /* Dark Blue - Secondary */
+  --accent-color: #FFFFFF;     /* White - Accent */
+  --text-color: #333333;       /* Dark text for readability */
+  --background-color: #FFFFFF; /* White background */
+}
+
+/* Import brand fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Apply brand fonts */
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+/* Navigation styling */
+nav {
+  background-color: var(--secondary-color);
+}
+
+nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  color: var(--accent-color) !important;
+}
+
+nav a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Header styling */
+header {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+}
+
+/* Footer styling */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+}
+
+/* Button styling */
+.btn, button, input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.btn:hover, button:hover, input[type="submit"]:hover {
+  background-color: #e66a2b; /* Darker orange on hover */
+  color: var(--accent-color);
+}
+
+/* Link styling */
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  color: #e66a2b;
+}
+
+/* Product shortcode styling */
+.product-box {
+  border: 2px solid var(--primary-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+  background-color: var(--accent-color);
+}
+
+.product-box .cta-button {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.product-box .cta-button:hover {
+  background-color: #e66a2b;
+  color: var(--accent-color);
+}
+
+/* Site title styling */
+.site-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+/* Logo styling */
+.brand-logo {
+  max-height: 50px;
+  width: auto;
+}
+
+/* Card styling */
+.card {
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(255, 127, 50, 0.15);
+}
+
+/* Tag styling */
+.tag {
+  background-color: var(--primary-color);
+  color: var(--accent-color);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+/* Search styling */
+.search-input {
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+}
+
+.search-input:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(255, 127, 50, 0.2);
+}
