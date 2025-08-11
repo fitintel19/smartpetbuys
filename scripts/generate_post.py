@@ -18,18 +18,69 @@ Start with a short intro paragraph, then use H2/H3 sections.
 Include 3–5 product sections using this shortcode format exactly:
 {{{{< product id="toy-01" >}}}} 
 
-IMPORTANT: Only use these existing product IDs from data/products.json:
-- toy-01 (puzzle toy)
-- brush-01 (grooming brush) 
-- kibble-01 (dog food)
-- groom-03 (nail trimmer)
-- health-02 (supplements)
-- dental-kit-01 (dental care)
-- bed-01 (dog bed)
-- treats-01 (training treats)
-- litter-01 (cat litter box)
-- scratch-01 (cat scratching post)
-- leash-01 (leash and collar)
+IMPORTANT: Only use these EXACT product IDs from data/products.json:
+
+**DOG FOOD:**
+- kibble-01 (Orijen Original Dry Dog Food)
+- kibble-02 (Blue Buffalo Life Protection Formula)
+- kibble-03 (Hill's Science Diet Adult)
+
+**CAT FOOD:**
+- cat-food-01 (Royal Canin Indoor Adult Cat Food)
+- cat-food-02 (Purina Pro Plan SAVOR)
+
+**DOG TOYS:**
+- toy-01 (Outward Hound Hide N' Seek Puzzle Toy)
+- toy-02 (KONG Classic Dog Toy)
+- toy-03 (Chuckit! Ultra Ball 3-Pack)
+
+**CAT TOYS:**
+- cat-toy-01 (Feather Wand Cat Toy)
+- cat-toy-02 (SmartyKat Skitter Critters)
+
+**HEALTH & SUPPLEMENTS:**
+- health-02 (HealthBoost Probiotic Supplement)
+- health-03 (Zesty Paws Omega Bites)
+- health-04 (VetriScience Composure)
+- health-05 (NutraMax Cosequin DS)
+
+**GROOMING:**
+- brush-01 (Hartz Groomer's Best Slicker Brush)
+- groom-03 (GentlePaws Nail Trimmer)
+
+**DENTAL CARE:**
+- dental-kit-01 (Pet Dental Care Kit)
+- dental-02 (Greenies Original Dental Chews)
+- dental-03 (Virbac C.E.T. Enzymatic Toothpaste)
+
+**BEDS:**
+- bed-01 (Orthopedic Dog Bed)
+- bed-02 (Furhaven Memory Foam Dog Bed)
+- bed-03 (Best Friends by Sheri Calming Donut Bed)
+
+**LITTER:**
+- litter-01 (Cat Litter Box)
+- litter-02 (Dr. Elsey's Precious Cat Ultra)
+- litter-03 (World's Best Cat Litter)
+
+**TRAINING TREATS:**
+- treats-01 (Training Treats for Dogs)
+- treats-02 (Blue Buffalo Wilderness Treats)
+- treats-03 (Zuke's Mini Naturals)
+
+**LEASHES & COLLARS:**
+- leash-01 (Dog Leash and Collar Set)
+- harness-01 (Rabbitgoo No-Pull Dog Harness)
+- collar-01 (Seresto Flea and Tick Collar)
+
+**OTHER ESSENTIALS:**
+- scratch-01 (Cat Scratching Post)
+- carrier-01 (Sherpa Original Deluxe Pet Carrier)
+- waste-01 (Earth Rated Poop Bags)
+- water-01 (PetSafe Drinkwell Fountain)
+- crate-01 (MidWest Homes for Pets Dog Crate)
+
+Do NOT create new product IDs. Use ONLY the exact IDs listed above. Choose the most relevant products for your article topic.
 
 Do NOT create new product IDs. Only use the ones listed above.
 
