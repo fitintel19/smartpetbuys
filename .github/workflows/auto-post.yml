@@ -17,8 +17,8 @@ jobs:
     steps:
       - name: 'Clear Git Cache'
         run: |
-          git config --global --unset-all http.https://github.com/.extraheader
-          git config --global --unset-all http.proxy
+          git config --global --unset-all http.https://github.com/.extraheader || true
+          git config --global --unset-all http.proxy || true
 
       - name: 'Checkout Repository'
         uses: actions/checkout@v4
