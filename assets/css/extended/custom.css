@@ -1326,3 +1326,74 @@ footer {
 
 /* Inline background-image support */
 .post-featured-image { background-position: center center; background-repeat: no-repeat; background-size: cover; }
+
+/* Sticky, elevated, well-aligned header with active link styling */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.nav {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 24px;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 10px;
+  color: #1A2A42;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: #e67e22;
+  background-color: rgba(230, 126, 34, 0.08);
+}
+
+.nav-link.active {
+  color: #e67e22;
+  font-weight: 700;
+  background-color: rgba(230, 126, 34, 0.12);
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 16px; }
+  .brand-logo { height: 48px; }
+  .nav-menu { gap: 14px; }
+}
