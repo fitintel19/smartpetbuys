@@ -122,6 +122,13 @@ main {
   padding: 3rem 2rem;
 }
 
+/* Override main styles for post pages */
+.post-layout main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* Hero Section - Clean and Purposeful */
 .hero-section {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
@@ -653,11 +660,16 @@ footer {
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 /* Main Content Area - Widened */
 .post-main {
   min-width: 0; /* Prevents grid overflow */
+  width: 100%;
+  max-width: 100%;
 }
 
 .post-single {
@@ -875,6 +887,9 @@ footer {
   align-self: start;
   position: sticky;
   top: 2rem;
+  width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
 }
 
 .sidebar-widget {
