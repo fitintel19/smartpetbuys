@@ -1273,19 +1273,21 @@ footer {
 }
 .post-content p { line-height: 2.0; }
 
-/* Sidebar: stronger card grouping */
-.post-sidebar { gap: 2.25rem; }
+/* Sidebar: stronger card grouping and separation */
+.post-sidebar { gap: 2.5rem; }
 .sidebar-widget {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-top: 3px solid var(--primary-color);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  overflow: hidden;
 }
+.sidebar-widget + .sidebar-widget { margin-top: 1.75rem; }
 .sidebar-widget h3 {
-  margin-bottom: 1rem;
+  margin: -1.25rem -1.25rem 1rem -1.25rem;
+  padding: 0.9rem 1.25rem;
+  background: linear-gradient(180deg, rgba(255,127,50,0.08), rgba(255,127,50,0.03));
+  border-bottom: 2px solid var(--primary-color);
   font-weight: 700;
 }
-/* Extra separation fallback where gap is not applied */
-.sidebar-widget + .sidebar-widget { margin-top: 1.25rem; }
