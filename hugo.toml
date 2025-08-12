@@ -25,8 +25,8 @@ theme = "PaperMod"
     legal = 0.3
     about = 0.5
   [sitemap.exclude]
-    - "404.html"
-    - "search.html"
+    "404.html" = true
+    "search.html" = true
 
 # Enable robots.txt
 [outputFormats]
