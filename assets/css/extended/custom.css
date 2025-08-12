@@ -1480,6 +1480,23 @@ body, main, .post-single, .post-content, .post-content p,
   background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.16));
 }
 
+/* Force hero layering: overlay below text; lighten meta pill */
+.post-header.has-hero .post-featured-image::after {
+  z-index: 1 !important; /* overlay under text */
+  background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.14)) !important;
+}
+.post-header.has-hero .post-header-content {
+  position: absolute; inset: 0; z-index: 2 !important; /* text above overlay */
+}
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+.post-header.has-hero .post-meta {
+  background: rgba(0,0,0,0.12) !important;
+}
+
 /* =========================
    Readability + Hero System
    Append at END of CSS
