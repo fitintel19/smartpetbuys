@@ -2,6 +2,8 @@
 
 {{- $isLegalPage := or (eq .Section "terms") (eq .Section "privacy") (eq .Section "disclosure") }}
 
+<!-- DEBUG: Section={{ .Section }}, isLegalPage={{ $isLegalPage }}, Kind={{ .Kind }}, Type={{ .Type }} -->
+
 <div class="post-layout">
   <!-- Main Content Area -->
   <main class="post-main">
