@@ -24,6 +24,9 @@ theme = "PaperMod"
   # Logo for schema markup
   logo = "/images/smartpetbuys_logo.png"
 
+[params.ga4]
+  id = "G-HHVQX4ENNP"
+
 [params.homeInfoParams]
   Title = "Smart Choices for Your Pets 🐾"
   Content = "Discover the best products for your furry friends with our expert reviews, detailed buying guides, and unbeatable deals. From premium dog food to cozy cat beds — we've tested it all so you don't have to."
