@@ -6,6 +6,8 @@ tags = ["memory foam dog beds","pet products","reviews"]
 categories = ["Reviews"]
 description = "Best memory foam dog beds for pets — tested picks and buying guide."
 draft = false
+
+featured_image = "https://m.media-amazon.com/images/I/71USMB5fQkL._AC_SL1500_.jpg"
 +++
 
 As a dog owner, choosing the right bed for your furry friend is crucial for their comfort and health. Memory foam dog beds are a popular choice due to their ability to provide excellent support and alleviate pressure points, ensuring your pet has a restful sleep. Whether your dog is young and energetic or older with joint issues, a memory foam bed can make a significant difference in their quality of life. In this guide, we'll explore some of the best memory foam dog beds available from SmartPetBuys, helping you make an informed decision based on your dog’s specific needs.
