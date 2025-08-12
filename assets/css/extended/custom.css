@@ -1447,3 +1447,8 @@ body, main, .post-single, .post-content, .post-content p,
 .page-content p {
   color: #333333 !important; /* enforce dark text for legal/static pages */
 }
+
+/* Static pages: ensure description text is readable */
+.page-content .post-description {
+  color: #333333 !important;
+}
