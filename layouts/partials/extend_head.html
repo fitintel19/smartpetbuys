@@ -1,0 +1,11 @@
+{{- $ga := (or .Site.Params.ga4.id (getenv "GA_MEASUREMENT_ID")) | default "G-HHVQX4ENNP" -}}
+{{- if and $ga (eq hugo.Environment "production") -}}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date());
+  gtag('config', '{{ $ga }}');
+</script>
+{{- end -}}
