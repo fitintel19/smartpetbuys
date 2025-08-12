@@ -1323,3 +1323,6 @@ footer {
 /* To use a custom background without an <img>, set inline style on the page container, e.g.:
    <div class="post-featured-image" style="--hero-bg: url('/path/to/your-image.jpg')"></div>
 */
+
+/* Inline background-image support */
+.post-featured-image { background-position: center center; background-repeat: no-repeat; background-size: cover; }
