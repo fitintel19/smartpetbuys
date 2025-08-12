@@ -1429,8 +1429,16 @@ footer {
   border: none; background: transparent; color: #7a5600; font-size: 20px; line-height: 1; cursor: pointer;
 }
 
-/* Ensure content pages use readable text colors */
-.page, .single, .post-single, .content, main, .markdown { color: var(--text-color); background: #ffffff; }
-.page p, .single p, .markdown p { color: var(--text-color); }
-.page h1, .page h2, .page h3, .page h4, .page h5, .page h6,
-.single h1, .single h2, .single h3, .single h4, .single h5, .single h6 { color: var(--secondary-color); }
+/* Site-wide readable text for content areas */
+body, main, .post-single, .post-content, .post-content p,
+.markdown, .markdown p, .content, .content p,
+.page, .page p, .single, .single p {
+  color: #2c3e50 !important;      /* enforce dark text */
+  background-color: #ffffff;      /* ensure white background */
+}
+
+.post-content h1, .post-content h2, .post-content h3,
+.markdown h1, .markdown h2, .markdown h3,
+.page h1, .page h2, .page h3, .single h1, .single h2, .single h3 {
+  color: #1A2A42 !important;
+}
