@@ -1572,11 +1572,39 @@ main,
 }
 
 /* Legal page specific styling */
+.legal-page .post-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
 .legal-page .post-header {
   background: #ffffff;
   border-bottom: 2px solid var(--primary-color);
   padding: 2rem 0;
   margin-bottom: 2rem;
+  position: static !important;
+}
+
+.legal-page .post-header-content {
+  position: static !important;
+  padding: 0 !important;
+  color: var(--secondary-color) !important;
+}
+
+.legal-page .post-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: none !important;
+}
+
+.legal-page .post-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  text-shadow: none !important;
 }
 
 .legal-page .post-header .post-title {

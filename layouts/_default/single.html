@@ -107,7 +107,8 @@
     </article>
   </main>
 
-  <!-- Sidebar -->
+  <!-- Sidebar (skip for legal pages) -->
+  {{- if not $isLegalPage }}
   <aside class="post-sidebar">
     <div class="sidebar__inner">
       <!-- Author Info -->
@@ -163,6 +164,7 @@
       </div>
     </div>
   </aside>
+  {{- end }}
 </div>
 
 <!-- Sticky Sidebar library and init (single post only) -->
