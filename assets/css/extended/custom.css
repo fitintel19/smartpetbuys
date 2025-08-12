@@ -1467,6 +1467,19 @@ body, main, .post-single, .post-content, .post-content p,
   color: #ffffff !important; /* white text when header has hero */
 }
 
+/* Hero readability: stronger text contrast without heavy overlay */
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description {
+  color: #ffffff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.55), 0 1px 2px rgba(0,0,0,.4);
+}
+.post-header.has-hero .post-title { font-weight: 800; letter-spacing: .2px; }
+
+/* Soften overlay further but keep enough contrast */
+.post-header.has-hero .post-featured-image::after {
+  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.22));
+}
+
 /* =========================
    Readability + Hero System
    Append at END of CSS
