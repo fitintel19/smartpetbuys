@@ -1549,3 +1549,11 @@ main,
 .page-content a:hover,
 .markdown a:hover,
 .post-content a:hover { color: #d96f17; }
+
+/* Hero overlay/controls – lighten for more inviting look */
+.post-header.has-hero .post-featured-image::after {
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+}
+.post-header.has-hero .post-meta {
+  background: rgba(0,0,0,0.18);
+}
