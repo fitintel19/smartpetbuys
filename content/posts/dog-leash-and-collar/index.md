@@ -1,5 +1,5 @@
 +++
-title = "best dog harnesses and leashes — SmartPetBuys"
+title = "Best Dog Harnesses and Leashes — SmartPetBuys"
 date = "2025-08-11T19:28:35Z"
 slug = "dog-leash-and-collar"
 tags = ["dog leash and collar","pet products","reviews"]
