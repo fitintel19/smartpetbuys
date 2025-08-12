@@ -7,7 +7,7 @@
       
       <!-- Enhanced Header with Featured Image -->
       <header class="post-header">
-        <div class="post-featured-image">
+        <div class="post-featured-image" {{ with .Params.featured_image }}style="--hero-bg: url('{{ . }}')"{{ end }}>
           {{- with .Params.featured_image }}
           <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
           {{- end }}
