@@ -1442,3 +1442,8 @@ body, main, .post-single, .post-content, .post-content p,
 .page h1, .page h2, .page h3, .single h1, .single h2, .single h3 {
   color: #1A2A42 !important;
 }
+
+/* Static pages content readability */
+.page-content p {
+  color: #333333 !important; /* enforce dark text for legal/static pages */
+}
