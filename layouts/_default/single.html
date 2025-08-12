@@ -1,11 +1,14 @@
 {{- define "main" }}
 
+{{- $isLegalPage := or (eq .Section "terms") (eq .Section "privacy") (eq .Section "disclosure") }}
+
 <div class="post-layout">
   <!-- Main Content Area -->
   <main class="post-main">
-    <article class="post-single">
+    <article class="post-single{{ if $isLegalPage }} legal-page{{ end }}">
       
-      <!-- Enhanced Header with Featured Image -->
+      <!-- Enhanced Header with Featured Image (skip for legal pages) -->
+      {{- if not $isLegalPage }}
       <header class="post-header{{ with .Params.featured_image }} has-hero{{ end }}">
         <div class="post-featured-image" {{ with .Params.featured_image }}style="background-image: url('{{ . }}')"{{ end }}>
         </div>
@@ -53,6 +56,20 @@
           {{- end }}
         </div>
       </header>
+      {{- else }}
+      <!-- Simple header for legal pages -->
+      <header class="post-header legal-header">
+        <div class="post-header-content">
+          {{ partial "breadcrumbs.html" . }}
+          <h1 class="post-title">{{ .Title }}</h1>
+          {{- if .Description }}
+          <div class="post-description">
+            {{ .Description }}
+          </div>
+          {{- end }}
+        </div>
+      </header>
+      {{- end }}
 
       <!-- Enhanced Content Area -->
       {{- if .Content }}

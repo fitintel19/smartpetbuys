@@ -1529,6 +1529,102 @@ main,
   color: #333333 !important;
 }
 
+/* Terms page specific styling */
+.terms h1,
+.terms h2,
+.terms h3,
+.terms h4,
+.terms h5,
+.terms h6,
+.terms p,
+.terms ul,
+.terms ol,
+.terms li {
+  color: #333333 !important;
+}
+
+/* Ensure all content in single pages is visible */
+.single .post-content h1,
+.single .post-content h2,
+.single .post-content h3,
+.single .post-content h4,
+.single .post-content h5,
+.single .post-content h6,
+.single .post-content p,
+.single .post-content ul,
+.single .post-content ol,
+.single .post-content li {
+  color: #333333 !important;
+}
+
+/* Force visibility for any page content */
+.post-single h1,
+.post-single h2,
+.post-single h3,
+.post-single h4,
+.post-single h5,
+.post-single h6,
+.post-single p,
+.post-single ul,
+.post-single ol,
+.post-single li {
+  color: #333333 !important;
+}
+
+/* Legal page specific styling */
+.legal-page .post-header {
+  background: #ffffff;
+  border-bottom: 2px solid var(--primary-color);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.legal-page .post-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page .post-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.legal-page .post-content {
+  color: #333333 !important;
+  line-height: 1.8;
+}
+
+.legal-page .post-content h1,
+.legal-page .post-content h2,
+.legal-page .post-content h3,
+.legal-page .post-content h4,
+.legal-page .post-content h5,
+.legal-page .post-content h6 {
+  color: var(--secondary-color) !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.legal-page .post-content p {
+  color: #333333 !important;
+  margin-bottom: 1.5rem;
+}
+
+.legal-page .post-content ul,
+.legal-page .post-content ol {
+  color: #333333 !important;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.legal-page .post-content li {
+  color: #333333 !important;
+  margin-bottom: 0.5rem;
+}
+
 /* 2) Post header text system (default dark, optional white with .has-hero)
    Add class `has-hero` to .post-header when you render a hero image */
 .post-header .post-description,
