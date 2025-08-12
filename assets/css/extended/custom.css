@@ -13,6 +13,9 @@
   --shadow: 0 1px 3px rgba(0,0,0,0.1);
   --shadow-hover: 0 4px 12px rgba(0,0,0,0.15);
   --radius: 8px;
+  /* Override PaperMod CSS variables for wider layout */
+  --main-width: 1500px;
+  --nav-width: 1600px;
 }
 
 /* Import brand fonts */
@@ -30,6 +33,12 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+}
+
+/* Ensure PaperMod's parent container ('.main') is wide enough */
+.main {
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 /* Typography */
