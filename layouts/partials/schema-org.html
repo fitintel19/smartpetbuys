@@ -32,7 +32,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "{{ if findRE \"review|best|top\" .Title }}Review{{ else }}Article{{ end }}",
+  "@type": "{{ if findRE `review|best|top` .Title }}Review{{ else }}Article{{ end }}",
   "headline": "{{ .Title }}",
   "description": "{{ .Description | default .Summary }}",
   "image": "{{ with .Params.featured_image }}{{ . }}{{ end }}",
@@ -59,14 +59,14 @@
   "articleSection": "{{ .Section | title }}",
   "wordCount": "{{ .WordCount }}",
   "timeRequired": "PT{{ .ReadingTime }}M"
-  {{- if findRE "review|best|top" .Title -}},
+  {{- if findRE `review|best|top` .Title -}},
   "reviewRating": {
     "@type": "Rating",
     "ratingValue": "4.5",
     "bestRating": "5",
     "worstRating": "1"
   },
-  "reviewAspect": "{{ if findRE \"dog\" .Title }}Dog Products{{ else if findRE \"cat\" .Title }}Cat Products{{ else }}Pet Products{{ end }}"
+  "reviewAspect": "{{ if findRE `dog` .Title }}Dog Products{{ else if findRE `cat` .Title }}Cat Products{{ else }}Pet Products{{ end }}"
   {{- end -}}
 }
 </script>
@@ -103,21 +103,21 @@
 {{- end -}}
 
 {{- /* FAQ schema for FAQ sections */ -}}
-{{- if and .IsPage (findRE "## Frequently Asked Questions" .Content) -}}
+{{- if and .IsPage (findRE `## Frequently Asked Questions` .Content) -}}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {{- $faqContent := findRE "\\*\\*Q:.*?\\*\\*\\s*\\n\\s*A:.*?(?=\\n\\n|$)" .Content -}}
+    {{- $faqContent := findRE `\*\*Q:.*?\*\*\s*\n\s*A:.*?(?=\n\n|$)` .Content -}}
     {{- range $index, $faq := $faqContent -}}
     {{- if gt $index 0 }},{{ end -}}
     {
       "@type": "Question",
-      "name": "{{ replaceRE "\\*\\*Q: (.*?)\\*\\*.*" "$1" $faq }}",
+      "name": "{{ replaceRE `\*\*Q: (.*?)\*\*.*` "$1" $faq }}",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "{{ replaceRE ".*?\\*\\*A: (.*?)(?=\\n\\n|$)" "$1" $faq | safeJS }}"
+        "text": "{{ replaceRE `.*?\*\*A: (.*?)(?=\n\n|$)` "$1" $faq | safeJS }}"
       }
     }
     {{- end -}}
