@@ -35,12 +35,60 @@
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
 <div class="hero-section">
-  <h1>{{ site.Params.homeInfoParams.Title }}</h1>
-  <p>{{ site.Params.homeInfoParams.Content }}</p>
+  <div class="hero-content">
+    <h1>{{ site.Params.homeInfoParams.Title }}</h1>
+    <p class="hero-description">{{ site.Params.homeInfoParams.Content }}</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">{{ len (where site.RegularPages "Type" "posts") }}+</span>
+        <span class="stat-label">Expert Reviews</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">50+</span>
+        <span class="stat-label">Tested Products</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Honest Reviews</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="categories-section">
+  <h2>Shop by Category</h2>
+  <div class="categories-grid">
+    <a href="/posts/" class="category-card">
+      <div class="category-icon">🐕</div>
+      <h3>Dog Products</h3>
+      <p>Food, toys, beds & more</p>
+    </a>
+    <a href="/posts/" class="category-card">
+      <div class="category-icon">🐱</div>
+      <h3>Cat Essentials</h3>
+      <p>Litter, scratching posts & treats</p>
+    </a>
+    <a href="/posts/" class="category-card">
+      <div class="category-icon">💊</div>
+      <h3>Health & Wellness</h3>
+      <p>Supplements & dental care</p>
+    </a>
+    <a href="/posts/" class="category-card">
+      <div class="category-icon">🏃</div>
+      <h3>Training & Exercise</h3>
+      <p>Leashes, harnesses & toys</p>
+    </a>
+  </div>
 </div>
 {{- end }}
 
 {{- if $paginator.Pages }}
+{{- if .IsHome }}
+<div class="featured-posts-section">
+  <h2>Latest Reviews & Guides</h2>
+  <p>Our most recent expert reviews and buying guides to help you make the best choices for your pets.</p>
+</div>
+{{- end }}
 <div class="posts-grid">
   {{- range $paginator.Pages }}
   <article class="post-card">
