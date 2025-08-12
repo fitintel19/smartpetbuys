@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Ensure required elements exist
-  const sidebar = document.querySelector('.post-sidebar .sidebar__inner');
-  const container = document.querySelector('.post-layout');
-  if (!sidebar || !container || typeof StickySidebar === 'undefined') return;
+  // Elements
+  const sidebarEl = document.querySelector('.post-sidebar');
+  const innerEl = document.querySelector('.post-sidebar .sidebar__inner');
+  const containerEl = document.querySelector('.post-layout');
 
-  // Initialize StickySidebar
-  // parent container: .post-sidebar; inner: .sidebar__inner
-  new StickySidebar('.post-sidebar .sidebar__inner', {
+  // Guards
+  if (!sidebarEl || !innerEl || !containerEl) return;
+  if (typeof StickySidebar === 'undefined') return;
+
+  // Initialize with explicit selectors to avoid calculation glitches
+  new StickySidebar('.post-sidebar', {
     topSpacing: 20,
     bottomSpacing: 20,
     containerSelector: '.post-layout',

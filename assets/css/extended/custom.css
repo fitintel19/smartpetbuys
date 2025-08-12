@@ -1297,3 +1297,9 @@ footer {
 .post-sidebar .sidebar__inner {
   will-change: min-height, transform;
 }
+
+/* Ensure no ancestor clips the sticky sidebar */
+.post-layout, .post-main, .post-sidebar { overflow: visible; }
+
+/* Sticky library requires the sidebar container not to be position: sticky */
+.post-sidebar { position: relative; }
