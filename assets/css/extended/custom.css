@@ -62,7 +62,7 @@ p {
 }
 
 .nav {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -117,7 +117,7 @@ p {
 
 /* Main Content */
 main {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 3rem 2rem;
 }
@@ -657,7 +657,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 320px;
   gap: 3rem;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
   align-items: start;
