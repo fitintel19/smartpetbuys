@@ -58,26 +58,26 @@
 <div class="categories-section">
   <h2>Shop by Category</h2>
   <div class="categories-grid">
-    <a href="/posts/" class="category-card">
+    <div class="category-card" data-filter="dog">
       <div class="category-icon">🐕</div>
       <h3>Dog Products</h3>
       <p>Food, toys, beds & more</p>
-    </a>
-    <a href="/posts/" class="category-card">
+    </div>
+    <div class="category-card" data-filter="cat">
       <div class="category-icon">🐱</div>
       <h3>Cat Essentials</h3>
       <p>Litter, scratching posts & treats</p>
-    </a>
-    <a href="/posts/" class="category-card">
+    </div>
+    <div class="category-card" data-filter="health">
       <div class="category-icon">💊</div>
       <h3>Health & Wellness</h3>
       <p>Supplements & dental care</p>
-    </a>
-    <a href="/posts/" class="category-card">
+    </div>
+    <div class="category-card" data-filter="all">
       <div class="category-icon">🏃</div>
-      <h3>Training & Exercise</h3>
-      <p>Leashes, harnesses & toys</p>
-    </a>
+      <h3>All Products</h3>
+      <p>View all reviews & guides</p>
+    </div>
   </div>
 </div>
 {{- end }}
@@ -91,7 +91,15 @@
 {{- end }}
 <div class="posts-grid">
   {{- range $paginator.Pages }}
-  <article class="post-card">
+  {{- $category := "all" }}
+  {{- if or (in .Title "Dog") (in .Title "dog") (in (delimit .Params.tags " ") "dog") }}
+    {{- $category = "dog" }}
+  {{- else if or (in .Title "Cat") (in .Title "cat") (in (delimit .Params.tags " ") "cat") }}
+    {{- $category = "cat" }}
+  {{- else if or (in .Title "Health") (in .Title "health") (in .Title "Dental") (in .Title "dental") (in (delimit .Params.tags " ") "health") (in (delimit .Params.tags " ") "dental") }}
+    {{- $category = "health" }}
+  {{- end }}
+  <article class="post-card" data-category="{{ $category }}">
     <div class="post-card-content">
       <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       <p>{{ .Summary }}</p>
@@ -131,4 +139,9 @@
 {{- end }}
 
 {{- end }}
+
+{{- if .IsHome }}
+<script src="/js/category-filter.js"></script>
+{{- end }}
+
 {{- end }}
