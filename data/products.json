@@ -83,200 +83,508 @@
     "image": "https://m.media-amazon.com/images/I/71pAaCNakML._AC_SL1250_.jpg",
     "blurb": "Durable leash and collar set for daily walks."
   },
-  
   "kibble-02": {
     "name": "Blue Buffalo Life Protection Formula",
     "url": "https://amzn.to/4121sHx",
     "image": "https://m.media-amazon.com/images/I/71rO9VJGfxL._AC_SL1500_.jpg",
     "blurb": "Natural dog food with real chicken and LifeSource Bits."
   },
-  
   "kibble-03": {
     "name": "Hill's Science Diet Adult",
     "url": "https://amzn.to/4owEaU9",
     "image": "https://m.media-amazon.com/images/I/81e9mw9mOaL._AC_SL1500_.jpg",
     "blurb": "Veterinarian recommended nutrition for optimal health."
   },
-  
   "cat-food-01": {
     "name": "Royal Canin Indoor Adult Cat Food",
     "url": "https://amzn.to/4fzdXAj",
     "image": "https://m.media-amazon.com/images/I/71U1jloRvgL._AC_SL1500_.jpg",
     "blurb": "Specially formulated for indoor cats' unique needs."
   },
-  
   "cat-food-02": {
     "name": "Purina Pro Plan SAVOR",
     "url": "https://amzn.to/45tgJSX",
     "image": "https://m.media-amazon.com/images/I/71Y4zMf52bL._AC_SL1500_.jpg",
     "blurb": "Real chicken and rice formula with probiotics."
   },
-  
   "toy-02": {
     "name": "KONG Classic Dog Toy",
     "url": "https://amzn.to/45ud9Iy",
     "image": "https://m.media-amazon.com/images/I/6126sEl6Y4L._AC_SL1500_.jpg",
     "blurb": "Durable rubber toy perfect for stuffing with treats."
   },
-  
   "toy-03": {
     "name": "Chuckit! Ultra Ball 3-Pack",
     "url": "https://amzn.to/3H5vuUc",
     "image": "https://m.media-amazon.com/images/I/71Juw1nCYYL._AC_SL1500_.jpg",
     "blurb": "High-bouncing balls designed for the Chuckit! launcher."
   },
-  
   "cat-toy-01": {
     "name": "Feather Wand Cat Toy",
     "url": "https://amzn.to/4oy35Xt",
     "image": "https://m.media-amazon.com/images/I/615Ccf+wziL._AC_SL1300_.jpg",
     "blurb": "Interactive feather toy to stimulate hunting instincts."
   },
-  
   "cat-toy-02": {
     "name": "SmartyKat Skitter Critters",
     "url": "https://amzn.to/45L9CXt",
     "image": "https://m.media-amazon.com/images/I/71wpzfOzgYL._AC_SL1500_.jpg",
     "blurb": "Catnip-filled mice that encourage active play."
   },
-  
   "health-03": {
     "name": "Zesty Paws Omega Bites",
     "url": "https://amzn.to/3Hshxj8",
     "image": "https://m.media-amazon.com/images/I/61+Q817UrzL._AC_SL1080_.jpg",
     "blurb": "Omega-3 supplement for healthy skin and coat."
   },
-  
   "health-04": {
     "name": "VetriScience Composure",
     "url": "https://amzn.to/45vhqv4",
     "image": "https://m.media-amazon.com/images/I/71qddyQk7GL._AC_SL1500_.jpg",
     "blurb": "Calming supplement to reduce stress and anxiety."
   },
-  
   "health-05": {
     "name": "NutraMax Cosequin DS",
     "url": "https://amzn.to/47plMXe",
     "image": "https://m.media-amazon.com/images/I/711jhDj7dmL._AC_SL1500_.jpg",
     "blurb": "Joint health supplement with glucosamine and chondroitin."
   },
-  
   "litter-02": {
     "name": "Dr. Elsey's Precious Cat Ultra",
     "url": "https://amzn.to/46MP41P",
     "image": "https://m.media-amazon.com/images/I/71gV7T7iW-L._AC_SL1444_.jpg",
     "blurb": "Low-dust, hard clumping clay litter with superior odor control."
   },
-  
   "litter-03": {
     "name": "World's Best Cat Litter",
     "url": "https://amzn.to/45Auwr9",
     "image": "https://m.media-amazon.com/images/I/61RggrUaG+L._AC_SL1500_.jpg",
     "blurb": "Natural corn-based litter that's flushable and biodegradable."
   },
-  
   "bed-02": {
     "name": "Furhaven Memory Foam Dog Bed",
     "url": "https://amzn.to/3UrgXFj",
     "image": "https://m.media-amazon.com/images/I/51-+eZ44qVL._AC_SL1500_.jpg",
     "blurb": "Orthopedic memory foam bed with removable cover."
   },
-  
   "bed-03": {
     "name": "Best Friends by Sheri Calming Donut Bed",
     "url": "https://amzn.to/4meAc17",
     "image": "https://m.media-amazon.com/images/I/71w+9OXcpEL._AC_SL1500_.jpg",
     "blurb": "Anti-anxiety donut bed that provides comfort and security."
   },
-  
   "carrier-01": {
     "name": "Sherpa Original Deluxe Pet Carrier",
     "url": "https://amzn.to/3Hwnk7l",
     "image": "https://m.media-amazon.com/images/I/81gqQnt7waL._AC_SL1500_.jpg",
     "blurb": "Airline-approved soft-sided pet carrier."
   },
-  
   "collar-01": {
     "name": "Seresto Flea and Tick Collar",
     "url": "https://amzn.to/4maVdJR",
     "image": "https://m.media-amazon.com/images/I/71ul7uasPQL._AC_SL1500_.jpg",
     "blurb": "8-month protection against fleas and ticks."
   },
-  
   "treats-02": {
     "name": "Blue Buffalo Wilderness Treats",
     "url": "https://amzn.to/4owksbh",
     "image": "https://m.media-amazon.com/images/I/71306VxSGmL._AC_SL1500_.jpg",
     "blurb": "High-protein, grain-free training treats."
   },
-  
   "treats-03": {
     "name": "Zuke's Mini Naturals",
     "url": "https://amzn.to/3UUrHvV",
     "image": "https://m.media-amazon.com/images/I/819RhWn5RXL._AC_SL1500_.jpg",
     "blurb": "Small, soft training treats perfect for repetitive training."
   },
-  
   "dental-02": {
     "name": "Greenies Original Dental Chews",
     "url": "https://amzn.to/4oBcpKs",
     "image": "https://m.media-amazon.com/images/I/81VEmhZ8Y7L._AC_SL1500_.jpg",
     "blurb": "Vet-recommended dental chews that clean teeth and freshen breath."
   },
-  
   "dental-03": {
     "name": "Virbac C.E.T. Enzymatic Toothpaste",
     "url": "https://amzn.to/4fzeFNZ",
     "image": "https://m.media-amazon.com/images/I/71Hqtff17lL._AC_SL1500_.jpg",
     "blurb": "Poultry-flavored toothpaste formulated for dogs and cats."
   },
-  
   "harness-01": {
     "name": "Rabbitgoo No-Pull Dog Harness",
     "url": "https://amzn.to/4oxwmSd",
     "image": "https://m.media-amazon.com/images/I/71eROBTwkVL._AC_SL1500_.jpg",
     "blurb": "Adjustable, breathable harness with front and back clips."
   },
-  
   "waste-01": {
     "name": "Earth Rated Poop Bags",
     "url": "https://amzn.to/4or0HSl",
     "image": "https://m.media-amazon.com/images/I/71l4DqotI3L._AC_SL1500_.jpg",
     "blurb": "Extra strong, leak-proof waste bags with easy-tie handles."
   },
-  
   "water-01": {
     "name": "PetSafe Drinkwell Fountain",
     "url": "https://amzn.to/45fHCLz",
     "image": "https://m.media-amazon.com/images/I/71oAlF3v-3L._AC_SL1500_.jpg",
     "blurb": "Circulating water fountain encourages pets to drink more."
   },
-  
   "crate-01": {
     "name": "MidWest Homes for Pets Dog Crate",
     "url": "https://amzn.to/3H5wYOg",
     "image": "https://m.media-amazon.com/images/I/91-PUDF4KQL._AC_SL1500_.jpg",
     "blurb": "Folding metal dog crate with divider panel and dual doors."
   },
-  
   "leash-02": {
     "name": "Flexi Classic Retractable Dog Leash",
     "url": "https://amzn.to/45d7qrD",
     "image": "https://m.media-amazon.com/images/I/71R6UbTFHtL._AC_SL1500_.jpg",
     "blurb": "Retractable leash with brake and lock system for control."
   },
-  
   "collar-02": {
     "name": "Blue-9 Balance Harness",
     "url": "https://amzn.to/4llGb2Q", 
     "image": "https://m.media-amazon.com/images/I/7145y-KDTIL._AC_SL1500_.jpg",
     "blurb": "No-pull harness designed for balanced training."
   },
-  
   "collar-03": {
     "name": "Ruffwear Front Range Dog Harness",
     "url": "https://amzn.to/4mD0iKL",
     "image": "https://m.media-amazon.com/images/I/71e8q68Dz+L._AC_SL1500_.jpg", 
     "blurb": "Everyday adventure harness with front and back attachment."
+  },
+  "feeder-01": {
+    "name": "PetSafe Automatic Cat Feeder",
+    "url": "https://amzn.to/4m6Ixno",
+    "image": "https://m.media-amazon.com/images/I/71iskLYA6KL._AC_SL1500_.jpg",
+    "blurb": "Programmable automatic feeder with portion control for cats."
+  },
+  "cooling-01": {
+    "name": "K&H Pet Products Cooling Mat",
+    "url": "https://amzn.to/3JiJt9H",
+    "image": "https://m.media-amazon.com/images/I/61xAcMN3KJL._AC_SL1500_.jpg",
+    "blurb": "Self-cooling gel mat that provides relief from heat for dogs."
+  },
+  "perch-01": {
+    "name": "K&H Pet Products Window Perch",
+    "url": "https://amzn.to/3HwUNOW",
+    "image": "https://m.media-amazon.com/images/I/710UVYHvobL._AC_SL1500_.jpg",
+    "blurb": "Window-mounted perch for cats to enjoy outdoor views safely."
+  },
+  "insurance-01": {
+    "name": "Pet Insurance Comparison Guide",
+    "url": "https://amzn.to/3Jx6vcU",
+    "image": "https://m.media-amazon.com/images/I/51B5+J-GumL.jpg",
+    "blurb": "Comprehensive guide to choosing the best pet insurance for your needs."
+  },
+  "shampoo-01": {
+    "name": "Burt's Bees Dog Shampoo",
+    "url": "https://amzn.to/45fSDwr",
+    "image": "https://m.media-amazon.com/images/I/61BD+XMYG5L._AC_SL1500_.jpg",
+    "blurb": "Natural, gentle shampoo formulated for dogs with sensitive skin."
+  },
+  "behavior-01": {
+    "name": "Total Cat Mojo: The Ultimate Guide to Life with Your Cat",
+    "url": "https://amzn.to/4oEmp5I",
+    "image": "https://m.media-amazon.com/images/I/81iknyO25cL._SL1500_.jpg",
+    "blurb": "Comprehensive guide to understanding and training cat behavior."
+  },
+  "agility-01": {
+    "name": "Outward Hound Agility Set",
+    "url": "https://amzn.to/4oyAm4M",
+    "image": "https://m.media-amazon.com/images/I/71pk8oNE8LL._AC_SL1500_.jpg",
+    "blurb": "Complete backyard agility course for dog training and exercise."
+  },
+  "firstaid-01": {
+    "name": "RHINO RESCUE Pet First Aid Kit",
+    "url": "https://amzn.to/41z3ejy",
+    "image": "https://m.media-amazon.com/images/I/81urbR0roLL._AC_SL1500_.jpg",
+    "blurb": "Comprehensive first aid kit with essential supplies for pet emergencies."
+  },
+  "carrier-02": {
+    "name": "Petmate Two Door Top Load Carrier",
+    "url": "https://amzn.to/4oQgryL",
+    "image": "https://m.media-amazon.com/images/I/71AC0Sv6arL._AC_SL1500_.jpg",
+    "blurb": "Secure carrier with dual access doors for easy pet loading and unloading."
+  },
+  "anxiety-01": {
+    "name": "Thundershirt Classic Dog Anxiety Jacket",
+    "url": "https://amzn.to/3HiXUtT",
+    "image": "https://m.media-amazon.com/images/I/61eCSBB0znL._AC_SL1080_.jpg",
+    "blurb": "Calming pressure wrap that helps reduce anxiety and stress in dogs."
+  },
+  "grooming-01": {
+    "name": "36''Large Dog Grooming Table",
+    "url": "https://amzn.to/3Hymbw3",
+    "image": "https://m.media-amazon.com/images/I/81XSEB3+75L._AC_SL1500_.jpg",
+    "blurb": "Professional grooming table with adjustable height and safety features."
+  },
+  "microchip-01": {
+    "name": "Pet Microchip Scanner Rechargeable RFID EMID Micro Chip Reader Scanner",
+    "url": "https://amzn.to/4mAHawZ",
+    "image": "https://m.media-amazon.com/images/I/61f1BAX7TWL._AC_SL1500_.jpg",
+    "blurb": "Universal microchip scanner for reading pet identification chips."
+  },
+  "training-01": {
+    "name": "Zak George Dog Training Book",
+    "url": "https://amzn.to/4lomBms",
+    "image": "https://m.media-amazon.com/images/I/71WKG8BMijL._SL1200_.jpg",
+    "blurb": "Comprehensive guide to positive reinforcement dog training methods."
+  },
+  "allergies-01": {
+    "name": "Royal Canin Small Sensitive Skin Care Dry Dog Food",
+    "url": "https://amzn.to/4mCFdjA",
+    "image": "https://m.media-amazon.com/images/I/71yxyDDLYYL._AC_SL1500_.jpg",
+    "blurb": "Specialized formula for dogs with food allergies and sensitive skin."
+  },
+  "diabetes-01": {
+    "name": "Purina Pro Plan DM Diabetes Management",
+    "url": "https://amzn.to/4moWm0s",
+    "image": "https://m.media-amazon.com/images/I/71OsKhmxngL._AC_SL1500_.jpg",
+    "blurb": "Veterinary diet formulated to help manage diabetes in cats."
+  },
+  "travel-01": {
+    "name": "Complete - LG Deluxe Pet Airline Travel Kit",
+    "url": "https://amzn.to/45dbok2",
+    "image": "https://m.media-amazon.com/images/I/51daS10wYLL._AC_.jpg",
+    "blurb": "Complete travel kit with all essentials for pet airline travel."
+  },
+  "agility-02": {
+    "name": "SparklyPets Dog Agility Training Equipment",
+    "url": "https://amzn.to/45ujALx",
+    "image": "https://m.media-amazon.com/images/I/61LeHXcTaQL._AC_SL1500_.jpg",
+    "blurb": "Professional agility training equipment for backyard dog training."
+  },
+  "kidney-01": {
+    "name": "Royal Canin Renal Support Cat Food",
+    "url": "https://amzn.to/47rjOpi",
+    "image": "https://m.media-amazon.com/images/I/31eNseiSYKL._AC_.jpg",
+    "blurb": "Veterinary diet formulated to support kidney health in cats."
+  },
+  "weight-01": {
+    "name": "Hill's Science Diet Weight Management",
+    "url": "https://amzn.to/45vMLOp",
+    "image": "https://m.media-amazon.com/images/I/815oJ6g6u0L._AC_SL1500_.jpg",
+    "blurb": "Weight management formula to help pets achieve and maintain healthy weight."
+  },
+  "treats-04": {
+    "name": "Pupford Freeze Dried Training Treats",
+    "url": "https://amzn.to/41z4jb6",
+    "image": "https://m.media-amazon.com/images/I/7196VLMwNAL._AC_SL1500_.jpg",
+    "blurb": "High-quality freeze-dried treats perfect for training and rewards."
+  },
+  "urinary-01": {
+    "name": "Royal Canin Urinary SO Cat Food",
+    "url": "https://amzn.to/413ZDd9",
+    "image": "https://m.media-amazon.com/images/I/71bgAaMT+aL._AC_SL1500_.jpg",
+    "blurb": "Veterinary diet formulated to support urinary tract health in cats."
+  },
+  "senior-01": {
+    "name": "Hill's Science Diet Senior Dog Food",
+    "url": "https://amzn.to/3UZqR10",
+    "image": "https://m.media-amazon.com/images/I/71c2h50L-TL._AC_SL1500_.jpg",
+    "blurb": "Specially formulated nutrition for senior dogs' changing needs."
+  },
+  "separation-01": {
+    "name": "Furbo Dog Camera with Treat Dispenser",
+    "url": "https://amzn.to/4mIMuP3",
+    "image": "https://m.media-amazon.com/images/I/616ls3MuEGL._AC_SL1500_.jpg",
+    "blurb": "Smart camera with treat dispenser to help with separation anxiety."
+  },
+  "enrichment-01": {
+    "name": "ORSDA Cat Toys for Indoor Cats",
+    "url": "https://amzn.to/4mEYQYj",
+    "image": "https://m.media-amazon.com/images/I/710EZJ8ZFlL._AC_SL1500_.jpg",
+    "blurb": "Interactive toys designed to enrich indoor cats' environment."
+  },
+  "weightloss-01": {
+    "name": "Royal Canin Weight Control Dog Food",
+    "url": "https://amzn.to/4oyI9Q8",
+    "image": "https://m.media-amazon.com/images/I/71uX8b9NPeL._AC_SL1500_.jpg",
+    "blurb": "Weight control formula to help dogs achieve healthy weight loss."
+  },
+  "dental-04": {
+    "name": "Oxyfresh Premium Pet Dental Kit for Dogs & Cats",
+    "url": "https://amzn.to/45LUDwl",
+    "image": "https://m.media-amazon.com/images/I/61+pf55P2aL._AC_SL1500_.jpg",
+    "blurb": "Complete dental care kit for maintaining pet oral health."
+  },
+  "emergency-01": {
+    "name": "Dr Brahmsy's Pet First Aid Kit for Dogs",
+    "url": "https://amzn.to/4mK6Wzb",
+    "image": "https://m.media-amazon.com/images/I/71o5T0+vRsL._AC_SL1346_.jpg",
+    "blurb": "Emergency preparedness kit with essential first aid supplies for dogs."
+  },
+  "crate-02": {
+    "name": "Amazon Basics 2-Door Top-Load Hard-Sided Dogs, Cats Pet Travel Carrier",
+    "url": "https://amzn.to/40Zv0Wj",
+    "image": "https://m.media-amazon.com/images/I/71KLUcxRWML._AC_SL1500_.jpg",
+    "blurb": "Durable travel carrier with dual access doors for easy pet loading."
+  },
+  "behavior-02": {
+    "name": "CAT SCHOOL Clicker Training Kit",
+    "url": "https://amzn.to/3UmF8EV",
+    "image": "https://m.media-amazon.com/images/I/71xVAi9h1uL._AC_SL1500_.jpg",
+    "blurb": "Complete clicker training kit for modifying cat behavior."
+  },
+  "nutrition-01": {
+    "name": "The Pill Book Guide to Medication for Your Dog and Cat",
+    "url": "https://amzn.to/4meOFu1",
+    "image": "https://m.media-amazon.com/images/I/61DBcXPsfrL._SL1200_.jpg",
+    "blurb": "Comprehensive guide to pet medications and nutrition consultation."
+  },
+  "puppy-01": {
+    "name": "Blue Buffalo Puppy Food",
+    "url": "https://amzn.to/4fD6vUX",
+    "image": "https://m.media-amazon.com/images/I/717z2zjmNvL._AC_SL1500_.jpg",
+    "blurb": "Premium puppy food formulated for optimal growth and development."
+  },
+  "senior-02": {
+    "name": "Blue Buffalo Senior Dog Food",
+    "url": "https://amzn.to/47sNNNE",
+    "image": "https://m.media-amazon.com/images/I/71VW7X8VufL._AC_SL1500_.jpg",
+    "blurb": "Senior formula designed for aging dogs' nutritional needs."
+  },
+  "joint-01": {
+    "name": "Wuffes Advanced Dog Hip and Joint Supplement",
+    "url": "https://amzn.to/412njyA",
+    "image": "https://m.media-amazon.com/images/I/71TENeF-c5L._AC_SL1500_.jpg",
+    "blurb": "Advanced joint supplement for senior dogs with mobility issues."
+  },
+  "calming-01": {
+    "name": "Adaptil Calming Collar",
+    "url": "https://amzn.to/46PhwQE",
+    "image": "https://m.media-amazon.com/images/I/71836n7kBJL._AC_SL1500_.jpg",
+    "blurb": "Pheromone-based calming collar for anxious pets."
+  },
+  "flea-01": {
+    "name": "Frontline Plus Flea Treatment",
+    "url": "https://amzn.to/4oEoJts",
+    "image": "https://m.media-amazon.com/images/I/71cWyt6fBNL._AC_SL1500_.jpg",
+    "blurb": "Effective flea and tick prevention treatment for dogs and cats."
+  },
+  "waste-02": {
+    "name": "Biodegradable Poop Bags",
+    "url": "https://amzn.to/3UYA4qo",
+    "image": "https://m.media-amazon.com/images/I/81tojHkX5TL._AC_SL1500_.jpg",
+    "blurb": "Eco-friendly biodegradable waste bags for responsible pet ownership."
+  },
+  "fountain-01": {
+    "name": "Cat Water Fountain",
+    "url": "https://amzn.to/45KPGE6",
+    "image": "https://m.media-amazon.com/images/I/713sFYeDKJL._AC_SL1500_.jpg",
+    "blurb": "Circulating water fountain that encourages cats to drink more water."
+  },
+  "Minties-01": {
+    "name": "Minties Dental Chews for Dogs",
+    "url": "https://amzn.to/4myDYSC",
+    "image": "https://m.media-amazon.com/images/I/71eBeh9FhQL._AC_SL1500_.jpg",
+    "blurb": "Dental chews that clean teeth and freshen breath while dogs enjoy them."
+  },
+  "memory-01": {
+    "name": "Barkbox Orthopedic Dog Bed with Memory Foam",
+    "url": "https://amzn.to/45OvHnw",
+    "image": "https://m.media-amazon.com/images/I/51TMx03ocAL._AC_SL1200_.jpg",
+    "blurb": "Orthopedic memory foam bed providing comfort and support for dogs."
+  },
+  "feather-01": {
+    "name": "Interactive Feather Cat Toys",
+    "url": "https://amzn.to/4lw0gnb",
+    "image": "https://m.media-amazon.com/images/I/61KGy9p-fAL._AC_SL1500_.jpg",
+    "blurb": "Interactive feather toys that stimulate cats' natural hunting instincts."
+  },
+  "puzzle-01": {
+    "name": "Nina Ottosson Dog Puzzle Toys",
+    "url": "https://amzn.to/3HvIB0P",
+    "image": "https://m.media-amazon.com/images/I/81YiWtmTBEL._AC_SL1500_.jpg",
+    "blurb": "Interactive puzzle toys that challenge dogs mentally and physically."
+  },
+  "grooming-02": {
+    "name": "Tweezerman Dog and Cat Slicker Brush for Large Pets",
+    "url": "https://amzn.to/4lrDsVM",
+    "image": "https://m.media-amazon.com/images/I/81jkR4XTEbL._AC_SL1500_.jpg",
+    "blurb": "Professional slicker brush for effective grooming of large pets."
+  },
+  "supplements-01": {
+    "name": "Dog Multivitamin - 10 in 1 Dog Vitamins",
+    "url": "https://amzn.to/4lom8Rq",
+    "image": "https://m.media-amazon.com/images/I/61GeJYB8EwL._AC_SL1000_.jpg",
+    "blurb": "Comprehensive multivitamin supplement for overall dog health."
+  },
+  "training-02": {
+    "name": "ORIJEN Epic Bites Freeze",
+    "url": "https://amzn.to/41EOcsu",
+    "image": "https://m.media-amazon.com/images/I/81MAOE4-c8L._AC_SL1500_.jpg",
+    "blurb": "Premium freeze-dried training treats made with high-quality ingredients."
+  },
+  "scratching-01": {
+    "name": "Premium Cat Scratching Posts",
+    "url": "https://amzn.to/41GCZrs",
+    "image": "https://m.media-amazon.com/images/I/717LhjmdrhL._AC_SL1500_.jpg",
+    "blurb": "High-quality scratching posts that satisfy cats' natural scratching needs."
+  },
+  "largebed-01": {
+    "name": "Extra Large Dog Beds for Big Breeds",
+    "url": "https://amzn.to/3JaUABH",
+    "image": "https://m.media-amazon.com/images/I/71jjBYspvtL._AC_SL1500_.jpg",
+    "blurb": "Spacious orthopedic beds designed specifically for large breed dogs."
+  },
+  "dental-05": {
+    "name": "Professional Pet Dental Care Products",
+    "url": "https://amzn.to/3Jx9AcY",
+    "image": "https://m.media-amazon.com/images/I/71tgujdUgTL._AC_SL1500_.jpg",
+    "blurb": "Professional-grade dental care products for maintaining pet oral health."
+  },
+  "litterbox-01": {
+    "name": "Premium Cat Litter Boxes",
+    "url": "https://amzn.to/413NmFL",
+    "image": "https://m.media-amazon.com/images/I/71Q99GCPCNL._AC_SL1500_.jpg",
+    "blurb": "High-quality litter boxes with advanced features for cat comfort."
+  },
+  "leashcollar-01": {
+    "name": "Premium Dog Leash and Collar Sets",
+    "url": "https://amzn.to/4oDJPrO",
+    "image": "https://m.media-amazon.com/images/I/81RbM5x4T7S._AC_SL1500_.jpg",
+    "blurb": "Premium quality leash and collar combinations for style and safety."
+  },
+  "indoorcat-01": {
+    "name": "Premium Indoor Cat Food",
+    "url": "https://amzn.to/45rycLD",
+    "image": "https://m.media-amazon.com/images/I/71aULo7mmvL._AC_SL1500_.jpg",
+    "blurb": "Specialized nutrition formulated for indoor cats' unique lifestyle."
+  },
+  "kong-01": {
+    "name": "KONG Dog Toys Collection",
+    "url": "https://amzn.to/3J6sDLl",
+    "image": "https://m.media-amazon.com/images/I/716ORfD-dBL._AC_SL1200_.jpg",
+    "blurb": "Collection of durable KONG toys for interactive play and training."
+  },
+  "harnesscollar-01": {
+    "name": "Dog Harness vs Collar Comparison",
+    "url": "https://amzn.to/3UqvxNf",
+    "image": "https://m.media-amazon.com/images/I/7139Xa3+1kL._AC_SL1500_.jpg",
+    "blurb": "Comparison guide and products for choosing between harnesses and collars."
+  },
+  "clumping-01": {
+    "name": "Premium Clumping Cat Litter",
+    "url": "https://amzn.to/45xTQ0T",
+    "image": "https://m.media-amazon.com/images/I/71zlM2HWO0L._AC_SL1500_.jpg",
+    "blurb": "High-quality clumping litter with superior odor control and low dust."
+  },
+  "omega-01": {
+    "name": "Premium Omega 3 Supplements for Dogs",
+    "url": "https://amzn.to/4oNnTdU",
+    "image": "https://m.media-amazon.com/images/I/51bFXcHAjIL._AC_SL1000_.jpg",
+    "blurb": "Premium omega-3 supplements for healthy skin, coat, and joint support."
+  },
+  "crate-03": {
+    "name": "Professional Dog Training Crates",
+    "url": "https://amzn.to/4mCHZW2",
+    "image": "https://m.media-amazon.com/images/I/91-02z09PbL._AC_SL1500_.jpg",
+    "blurb": "Professional-grade crates designed for effective dog training."
+  },
+  "airline-01": {
+    "name": "Airline Approved Pet Carriers",
+    "url": "https://amzn.to/4fzW58A",
+    "image": "https://m.media-amazon.com/images/I/81gqQnt7waL._AC_SL1500_.jpg",
+    "blurb": "Airline-compliant carriers for safe and comfortable pet travel."
   }
 }
