@@ -92,11 +92,13 @@
 <div class="posts-grid">
   {{- range $paginator.Pages }}
   {{- $category := "all" }}
-  {{- if or (in .Title "Dog") (in .Title "dog") (in (delimit .Params.tags " ") "dog") }}
+  {{- $tags := .Params.tags | default slice }}
+  {{- $tagsString := delimit $tags " " }}
+  {{- if or (in .Title "Dog") (in .Title "dog") (in $tagsString "dog") }}
     {{- $category = "dog" }}
-  {{- else if or (in .Title "Cat") (in .Title "cat") (in (delimit .Params.tags " ") "cat") }}
+  {{- else if or (in .Title "Cat") (in .Title "cat") (in $tagsString "cat") }}
     {{- $category = "cat" }}
-  {{- else if or (in .Title "Health") (in .Title "health") (in .Title "Dental") (in .Title "dental") (in (delimit .Params.tags " ") "health") (in (delimit .Params.tags " ") "dental") }}
+  {{- else if or (in .Title "Health") (in .Title "health") (in .Title "Dental") (in .Title "dental") (in $tagsString "health") (in $tagsString "dental") }}
     {{- $category = "health" }}
   {{- end }}
   <article class="post-card" data-category="{{ $category }}">
