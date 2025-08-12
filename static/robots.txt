@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://smartpetbuys.pages.dev/sitemap.xml
+Sitemap: https://www.smartpetbuys.com/sitemap.xml
 
 # Disallow admin or private areas (if any)
 Disallow: /admin/

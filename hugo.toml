@@ -14,6 +14,21 @@ theme = "PaperMod"
   changefreq = "weekly"
   priority = 0.5
   filename = "sitemap.xml"
+  [sitemap.changefreq]
+    posts = "weekly"
+    categories = "monthly"
+    tags = "monthly"
+    legal = "yearly"
+    about = "yearly"
+  [sitemap.priority]
+    posts = 0.8
+    categories = 0.6
+    tags = 0.4
+    legal = 0.3
+    about = 0.5
+  [sitemap.exclude]
+    - "404.html"
+    - "search.html"
 
 # Enable robots.txt
 [outputFormats]
