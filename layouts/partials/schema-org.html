@@ -1,0 +1,115 @@
+{{- /* Schema.org structured data */ -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.Title }}",
+  "description": "{{ site.Params.description }}",
+  "url": "{{ site.BaseURL }}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.BaseURL }}search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.BaseURL }}{{ site.Params.logo }}"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "{{ site.Params.contact }}",
+      "contactType": "customer service"
+    }
+  }
+}
+</script>
+
+{{- /* Article schema for blog posts */ -}}
+{{- if .IsPage -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ .Title }}",
+  "description": "{{ .Description | default .Summary }}",
+  "image": "{{ with .Params.featured_image }}{{ . }}{{ end }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.Params.author }}",
+    "url": "{{ site.BaseURL }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.BaseURL }}{{ site.Params.logo }}"
+    }
+  },
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "keywords": "{{ with .Params.keywords }}{{ delimit . ", " }}{{ else }}{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}{{ end }}"
+}
+</script>
+{{- end -}}
+
+{{- /* Breadcrumb schema */ -}}
+{{- if .IsPage -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.BaseURL }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Section | title }}",
+      "item": "{{ site.BaseURL }}{{ .Section }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+  ]
+}
+</script>
+{{- end -}}
+
+{{- /* FAQ schema for FAQ sections */ -}}
+{{- if and .IsPage (findRE "## Frequently Asked Questions" .Content) -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{- $faqContent := findRE "\\*\\*Q:.*?\\*\\*\\s*\\n\\s*A:.*?(?=\\n\\n|$)" .Content -}}
+    {{- range $index, $faq := $faqContent -}}
+    {{- if gt $index 0 }},{{ end -}}
+    {
+      "@type": "Question",
+      "name": "{{ replaceRE "\\*\\*Q: (.*?)\\*\\*.*" "$1" $faq }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ replaceRE ".*?\\*\\*A: (.*?)(?=\\n\\n|$)" "$1" $faq | safeJS }}"
+      }
+    }
+    {{- end -}}
+  ]
+}
+</script>
+{{- end -}}

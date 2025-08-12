@@ -1,14 +1,34 @@
 baseURL = "https://smartpetbuys.pages.dev/"
 languageCode = "en-us"
-title = "SmartPetBuys"
+title = "SmartPetBuys - Expert Pet Product Reviews & Buying Guides"
 theme = "PaperMod"
+
+# Enable sitemap generation
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  page = ["HTML"]
+
+# Sitemap configuration
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# Enable robots.txt
+[outputFormats]
+  [outputFormats.robots]
+    mediaType = "text/plain"
+    baseName = "robots"
+    isPlainText = true
+    notAlternative = true
 
 [pagination]
   pagerSize = 10
 
 [params]
   defaultTheme = "auto"
-  description  = "Smart choices for your pets — reviews, guides, and deals."
+  description  = "Expert pet product reviews, buying guides, and deals. Find the best dog food, cat toys, pet beds, and more with our comprehensive testing and recommendations."
   mainSections = ["posts"]
   ShowReadingTime = true
   ShowShareButtons = true
@@ -18,11 +38,31 @@ theme = "PaperMod"
   ShowRssButtonInSectionTermList = true
   ShowWordCount = true
   ShowFullTextinRSS = true
-  # SEO improvements
-  keywords = ["pet products", "dog supplies", "cat accessories", "pet reviews"]
+  
+  # Enhanced SEO
+  keywords = ["pet products", "dog supplies", "cat accessories", "pet reviews", "best pet products", "dog food reviews", "cat toys", "pet beds", "pet health", "pet care"]
   author = "SmartPetBuys Team"
-  # Logo for schema markup
   logo = "/images/smartpetbuys_logo.png"
+  
+  # Social media
+  twitter = "@smartpetbuys"
+  facebook = "smartpetbuys"
+  instagram = "smartpetbuys"
+  
+  # Contact information for schema
+  contact = "contact@smartpetbuys.com"
+  phone = ""
+  address = ""
+  
+  # Business hours for schema
+  businessHours = "Monday-Friday 9AM-6PM EST"
+  
+  # Enable search
+  enableSearch = true
+  
+  # Performance
+  enableFingerprinting = true
+  enableMinify = true
 
 [params.ga4]
   id = "G-HHVQX4ENNP"
@@ -43,6 +83,12 @@ theme = "PaperMod"
   minMatchCharLength = 0
   keys = ["title", "permalink", "summary", "content"]
 
+# Taxonomies for better organization
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
 [menu]
   [[menu.main]]
     identifier = "home"
@@ -55,3 +101,15 @@ theme = "PaperMod"
     name = "Posts"
     url = "/posts/"
     weight = 2
+    
+  [[menu.main]]
+    identifier = "categories"
+    name = "Categories"
+    url = "/categories/"
+    weight = 3
+    
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 4
