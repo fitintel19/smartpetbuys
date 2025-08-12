@@ -1251,3 +1251,41 @@ footer {
 .meta-item svg {
   color: var(--primary-color);
 }
+
+/* Readability: keep container full width but limit text lines */
+.post-content {
+  padding: 3rem 2rem;
+  font-size: 1.1rem;
+  line-height: 1.95;
+  color: var(--text-color);
+}
+/* Constrain only typographic blocks for optimal measure */
+.post-content > p,
+.post-content > ul,
+.post-content > ol,
+.post-content > blockquote,
+.post-content > h2,
+.post-content > h3,
+.post-content > h4 {
+  max-width: 72ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-content p { line-height: 1.95; }
+
+/* Sidebar: stronger card grouping */
+.post-sidebar { gap: 2.25rem; }
+.sidebar-widget {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--primary-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+.sidebar-widget h3 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+/* Extra separation fallback where gap is not applied */
+.sidebar-widget + .sidebar-widget { margin-top: 1.25rem; }
