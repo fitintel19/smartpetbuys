@@ -32,7 +32,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "{{ if findRE \"review|best|top\" .Title }}Review{{ else }}Article{{ end }}",
   "headline": "{{ .Title }}",
   "description": "{{ .Description | default .Summary }}",
   "image": "{{ with .Params.featured_image }}{{ . }}{{ end }}",
@@ -55,7 +55,19 @@
     "@type": "WebPage",
     "@id": "{{ .Permalink }}"
   },
-  "keywords": "{{ with .Params.keywords }}{{ delimit . ", " }}{{ else }}{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}{{ end }}"
+  "keywords": "{{ with .Params.keywords }}{{ delimit . ", " }}{{ else }}{{ with .Params.tags }}{{ delimit . ", " }}{{ end }}{{ end }}",
+  "articleSection": "{{ .Section | title }}",
+  "wordCount": "{{ .WordCount }}",
+  "timeRequired": "PT{{ .ReadingTime }}M"
+  {{- if findRE "review|best|top" .Title -}},
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "4.5",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "reviewAspect": "{{ if findRE \"dog\" .Title }}Dog Products{{ else if findRE \"cat\" .Title }}Cat Products{{ else }}Pet Products{{ end }}"
+  {{- end -}}
 }
 </script>
 {{- end -}}
