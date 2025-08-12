@@ -12,7 +12,7 @@ Disallow: /private/
 Allow: /posts/
 Allow: /categories/
 Allow: /tags/
-Allow: /about/
+Allow: /legal/about/
 Allow: /privacy/
 Allow: /terms/
 Allow: /disclosure/

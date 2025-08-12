@@ -111,5 +111,5 @@ theme = "PaperMod"
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "/about/"
+    url = "/legal/about/"
     weight = 4
