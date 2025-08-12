@@ -57,7 +57,25 @@
     "name": "SmartCat Ultimate Scratching Post",
     "url": "https://amzn.to/3UkmXQa",
     "image": "https://m.media-amazon.com/images/I/61XQ3+a8VsL._AC_SL1500_.jpg",
-    "blurb": "Multi-level cat tree with scratching posts and perches."
+    "blurb": "Tall, vertical sisal post with a sturdy base for a full-body stretch."
+  },
+  "scratch-02": {
+    "name": "PetFusion Ultimate Cat Scratcher Lounge",
+    "url": "#",
+    "image": "https://via.placeholder.com/800x500?text=PetFusion+Ultimate+Cat+Scratcher+Lounge",
+    "blurb": "Reversible cardboard lounge scratcher that doubles as a nap spot; great for small spaces."
+  },
+  "scratch-03": {
+    "name": "Catit Vesper V-High Base Cat Tree",
+    "url": "#",
+    "image": "https://via.placeholder.com/800x500?text=Catit+Vesper+V-High+Base",
+    "blurb": "Modern multi-level cat tree with sisal-wrapped posts and cozy perches."
+  },
+  "scratch-04": {
+    "name": "4Claws Wall-Mounted Scratching Post",
+    "url": "#",
+    "image": "https://via.placeholder.com/800x500?text=4Claws+Wall+Mounted+Scratcher",
+    "blurb": "Space-saving wall-mounted sisal scratcher to protect high-traffic areas."
   },
   "leash-01": {
     "name": "PoyPet No Pull Dog Harness",
