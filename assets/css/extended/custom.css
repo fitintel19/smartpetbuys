@@ -1578,6 +1578,13 @@ main,
   margin: 0 auto !important;
 }
 
+/* About page specific styling (same as legal pages) */
+.post-single:has(.post-header.legal-header) .post-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
 .legal-page .post-header {
   background: #ffffff;
   border-bottom: 2px solid var(--primary-color);
@@ -1651,6 +1658,22 @@ main,
 .legal-page .post-content li {
   color: #333333 !important;
   margin-bottom: 0.5rem;
+}
+
+/* About page header styling */
+.legal-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: none !important;
+}
+
+.legal-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  text-shadow: none !important;
 }
 
 /* Legal pages sidebar styling */

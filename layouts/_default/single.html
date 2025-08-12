@@ -1,6 +1,6 @@
 {{- define "main" }}
 
-{{- $isLegalPage := or (eq .Section "legal") (eq .Section "privacy") (eq .Section "disclosure") }}
+{{- $isLegalPage := or (eq .Section "legal") (eq .Section "privacy") (eq .Section "disclosure") (eq .Section "about") }}
 
 <!-- DEBUG: Section={{ .Section }}, isLegalPage={{ $isLegalPage }}, Kind={{ .Kind }}, Type={{ .Type }} -->
 
