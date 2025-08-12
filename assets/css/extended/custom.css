@@ -1470,3 +1470,86 @@ body, main, .post-single, .post-content, .post-content p,
 .post-header.has-hero .post-description {
   color: #ffffff !important; /* white text when header has hero */
 }
+
+/* =========================
+   Readability + Hero System
+   Append at END of CSS
+   ========================= */
+
+/* 1) Global readable defaults (content areas) */
+body,
+main,
+.post-single,
+.post-content,
+.page-content,
+.markdown,
+.single,
+.page {
+  color: #2c3e50;
+  background: #ffffff;
+}
+
+.page-content p,
+.markdown p,
+.post-content p,
+.single p,
+.page p {
+  color: #2c3e50;
+}
+
+/* Static pages: guarantee paragraphs and description are dark */
+.page-content p,
+.page-content .post-description {
+  color: #333333 !important;
+}
+
+/* 2) Post header text system (default dark, optional white with .has-hero)
+   Add class `has-hero` to .post-header when you render a hero image */
+.post-header .post-description,
+.post-header .post-title {
+  color: #2c3e50 !important; /* default dark in headers */
+}
+
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description,
+.post-header.has-hero .post-meta {
+  color: #ffffff !important; /* white only when hero exists */
+}
+
+/* 3) Hero background mechanics (safe and consistent) */
+.post-featured-image {
+  position: relative;
+  min-height: 420px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.post-featured-image::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+}
+
+/* Ensure header content sits above the overlay */
+.post-header .post-header-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2.5rem 2rem;
+  z-index: 1;
+}
+
+/* 4) Constrain homepage hero-only styles to homepage context (prevents leaking) */
+.home .hero-section,
+.home .hero-section * {
+  color: #ffffff;
+}
+
+/* 5) Safety: links on light pages */
+.page-content a,
+.markdown a,
+.post-content a { color: #e67e22; }
+
+.page-content a:hover,
+.markdown a:hover,
+.post-content a:hover { color: #d96f17; }
