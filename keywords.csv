@@ -1,26 +1,58 @@
-keyword,publish
-"best dog puzzle toys",yes
-"cat grooming brush",yes
-"dog food for puppies",yes
-"pet health supplements",yes
-"dog training treats",yes
-"cat scratching post",yes
-"dog bed for large breeds",yes
-"pet dental care products",yes
-"cat litter box",yes
-"dog leash and collar",yes
-"best cat food for indoor cats",no
-"KONG dog toys review",yes
-"dog harness vs collar",yes
-"best cat litter clumping",yes
-"omega 3 supplements for dogs",no
-"calming supplements for anxious pets",no
-"best dog crate for training",no
-"pet carrier for airline travel",no
-"flea and tick prevention",yes
-"dog waste bags biodegradable",no
-"pet water fountain benefits",no
-"greenies dental chews review",no
-"memory foam dog beds",yes
-"cat feather toys interactive",no
-"joint supplements for senior dogs",no
+keyword,publish,priority,estimated_volume
+"best dog puzzle toys",yes,high,1200
+"cat grooming brush",yes,medium,800
+"dog food for puppies",yes,high,2000
+"pet health supplements",yes,high,1500
+"dog training treats",yes,medium,900
+"cat scratching post",yes,medium,700
+"dog bed for large breeds",yes,high,1100
+"pet dental care products",yes,high,1300
+"cat litter box",yes,medium,600
+"dog leash and collar",yes,high,1800
+"best cat food for indoor cats",yes,high,1600
+"KONG dog toys review",yes,medium,800
+"dog harness vs collar",yes,high,1400
+"best cat litter clumping",yes,medium,900
+"omega 3 supplements for dogs",yes,high,1200
+"calming supplements for anxious pets",yes,high,1100
+"best dog crate for training",yes,high,1300
+"pet carrier for airline travel",yes,medium,500
+"flea and tick prevention",yes,high,1700
+"dog waste bags biodegradable",yes,medium,400
+"pet water fountain benefits",yes,medium,300
+"greenies dental chews review",yes,medium,600
+"memory foam dog beds",yes,high,1400
+"cat feather toys interactive",yes,medium,400
+"joint supplements for senior dogs",yes,high,1000
+"best automatic cat feeder",no,high,800
+"dog cooling mat for summer",no,medium,600
+"cat window perch installation",no,medium,300
+"pet insurance comparison guide",no,high,2000
+"best dog shampoo for sensitive skin",no,medium,700
+"cat behavior training tips",no,medium,500
+"dog agility equipment backyard",no,medium,400
+"pet first aid kit essentials",no,high,900
+"best cat carrier for vet visits",no,medium,600
+"dog anxiety vest calming",no,medium,500
+"pet grooming table professional",no,medium,300
+"cat microchip registration guide",no,medium,400
+"dog obedience training classes",no,high,1200
+"pet emergency vet finder",no,medium,300
+"best dog food for allergies",no,high,1500
+"cat diabetes management products",no,medium,400
+"pet travel accessories checklist",no,medium,500
+"dog agility training equipment",no,medium,400
+"cat kidney disease diet",no,medium,300
+"pet weight management program",no,medium,600
+"best dog treats for training",no,high,1100
+"cat urinary health supplements",no,medium,500
+"pet senior care products",no,high,800
+"dog separation anxiety solutions",no,high,1000
+"cat environmental enrichment",no,medium,400
+"pet holiday safety guide",no,medium,300
+"best dog food for weight loss",no,high,1200
+"cat dental health products",no,medium,600
+"pet emergency preparedness kit",no,medium,400
+"dog crate training schedule",no,high,900
+"cat behavior modification tools",no,medium,400
+"pet nutrition consultation guide",no,medium,300
