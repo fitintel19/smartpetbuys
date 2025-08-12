@@ -1452,3 +1452,11 @@ body, main, .post-single, .post-content, .post-content p,
 .page-content .post-description {
   color: #333333 !important;
 }
+
+/* Limit white hero text to headers that actually have a hero image */
+.post-header.has-hero .post-description,
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-meta { color: #ffffff; }
+
+/* Non-hero descriptions default to dark for readability */
+.post-header:not(.has-hero) .post-description { color: #2c3e50 !important; }
