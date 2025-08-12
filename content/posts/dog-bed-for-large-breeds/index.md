@@ -6,6 +6,8 @@ tags = ["dog bed for large breeds","pet products","reviews"]
 categories = ["Reviews"]
 description = "Best dog beds for large breeds — tested picks and buying guide."
 draft = false
+
+featured_image = "https://m.media-amazon.com/images/I/51-+eZ44qVL._AC_SL1500_.jpg"
 +++
 
 Finding the perfect dog bed for your large breed can be a challenge. These gentle giants require beds that not only give them enough room to stretch out but also provide adequate support for their joints and comfort for a good night’s rest. Read on to discover the top picks for dog beds that cater specifically to the needs of large breed dogs, ensuring your beloved pet enjoys both comfort and durability.

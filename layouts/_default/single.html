@@ -1,66 +1,152 @@
 {{- define "main" }}
 
-<article class="post-single">
-  <header class="post-header">
-    {{ partial "breadcrumbs.html" . }}
-    <h1 class="post-title">{{ .Title }}</h1>
-    {{- if .Description }}
-    <div class="post-description">
-      {{ .Description }}
+<div class="post-layout">
+  <!-- Main Content Area -->
+  <main class="post-main">
+    <article class="post-single">
+      
+      <!-- Enhanced Header with Featured Image -->
+      <header class="post-header">
+        {{- if .Params.featured_image }}
+        <div class="post-featured-image">
+          <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
+        </div>
+        {{- end }}
+        
+        <div class="post-header-content">
+          {{ partial "breadcrumbs.html" . }}
+          
+          <h1 class="post-title">{{ .Title }}</h1>
+          
+          {{- if .Description }}
+          <div class="post-description">
+            {{ .Description }}
+          </div>
+          {{- end }}
+          
+          {{- if not (.Param "hideMeta") }}
+          <div class="post-meta">
+            <div class="meta-left">
+              <span class="meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2z"/>
+                  <path d="M14 5H2v9a1 1 0 0 0 1-1h10a1 1 0 0 0 1-1V5z"/>
+                </svg>
+                {{ .Date.Format "January 2, 2006" }}
+              </span>
+              <span class="meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
+                </svg>
+                {{ .ReadingTime }} min read
+              </span>
+              {{- if .WordCount }}
+              <span class="meta-item">{{ .WordCount }} words</span>
+              {{- end }}
+            </div>
+            
+            {{- if .Params.categories }}
+            <div class="meta-right">
+              <span class="category-badge">
+                {{ index .Params.categories 0 }}
+              </span>
+            </div>
+            {{- end }}
+          </div>
+          {{- end }}
+        </div>
+      </header>
+
+      <!-- Enhanced Content Area -->
+      {{- if .Content }}
+      <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}{{ .Content }}{{ end }}
+      </div>
+      {{- end }}
+
+      <!-- Enhanced Footer -->
+      <footer class="post-footer">
+        {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
+        {{- if .GetTerms $tags }}
+        <div class="post-tags">
+          <h4>Tags:</h4>
+          {{- range (.GetTerms $tags) }}
+          <span class="tag">{{ .LinkTitle }}</span>
+          {{- end }}
+        </div>
+        {{- end }}
+        
+        {{- if (.Param "ShowPostNavLinks") }}
+        {{- partial "post_nav_links.html" . }}
+        {{- end }}
+        
+        {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+        {{- partial "share_icons.html" . -}}
+        {{- end }}
+      </footer>
+
+      {{- if (.Param "comments") }}
+      {{- partial "comments.html" . }}
+      {{- end }}
+    </article>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="post-sidebar">
+    <!-- Author Info -->
+    <div class="sidebar-widget author-widget">
+      <h3>About SmartPetBuys</h3>
+      <div class="author-info">
+        <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="author-avatar">
+        <p>Expert pet product reviews and buying guides to help you make the best choices for your furry friends.</p>
+      </div>
     </div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2z"/>
-          <path d="M14 5H2v9a1 1 0 0 0 1-1h10a1 1 0 0 0 1-1V5z"/>
-        </svg>
-        {{ .Date.Format "January 2, 2006" }}
-      </span>
-      <span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
-        </svg>
-        {{ .ReadingTime }} min read
-      </span>
-      {{- if .WordCount }}
-      <span>{{ .WordCount }} words</span>
+
+    <!-- Related Posts -->
+    <div class="sidebar-widget related-posts">
+      <h3>Related Posts</h3>
+      {{- $related := where (where site.RegularPages "Type" "posts") "Title" "!=" .Title }}
+      {{- $related = first 5 $related }}
+      {{- range $related }}
+      <div class="related-post">
+        <a href="{{ .RelPermalink }}" class="related-post-link">
+          {{- if .Params.featured_image }}
+          <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
+          {{- end }}
+          <div class="related-post-content">
+            <h4>{{ .Title }}</h4>
+            <span class="related-post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          </div>
+        </a>
+      </div>
       {{- end }}
     </div>
-    {{- end }}
-  </header>
 
-  {{- if .Content }}
-  <div class="post-content">
-    {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
-  </div>
-  {{- end }}
-
-  <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    {{- if .GetTerms $tags }}
-    <div class="post-tags">
-      {{- range (.GetTerms $tags) }}
-      <span class="tag">{{ .LinkTitle }}</span>
-      {{- end }}
+    <!-- Categories -->
+    <div class="sidebar-widget categories-widget">
+      <h3>Categories</h3>
+      <ul class="categories-list">
+        <li><a href="/tags/dog/">🐕 Dog Products</a></li>
+        <li><a href="/tags/cat/">🐱 Cat Products</a></li>
+        <li><a href="/tags/health/">💊 Health & Wellness</a></li>
+        <li><a href="/tags/food/">🍖 Food & Nutrition</a></li>
+        <li><a href="/tags/toys/">🎾 Toys & Entertainment</a></li>
+        <li><a href="/tags/beds/">🛏️ Beds & Comfort</a></li>
+      </ul>
     </div>
-    {{- end }}
-    
-    {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
-    {{- end }}
-    
-    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
-    {{- end }}
-  </footer>
 
-  {{- if (.Param "comments") }}
-  {{- partial "comments.html" . }}
-  {{- end }}
-</article>
+    <!-- Newsletter Signup -->
+    <div class="sidebar-widget newsletter-widget">
+      <h3>Stay Updated</h3>
+      <p>Get the latest pet product reviews and deals delivered to your inbox.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+    </div>
+  </aside>
+</div>
 
 {{- end }}
