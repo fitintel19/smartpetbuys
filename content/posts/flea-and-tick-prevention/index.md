@@ -1,5 +1,5 @@
 +++
-title = "flea and tick prevention — SmartPetBuys"
+title = "Flea and Tick Prevention — SmartPetBuys"
 date = "2025-08-12T14:12:35Z"
 slug = "flea-and-tick-prevention"
 tags = ["flea and tick prevention","pet products","reviews"]

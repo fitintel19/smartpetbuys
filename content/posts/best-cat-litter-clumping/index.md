@@ -1,5 +1,5 @@
 +++
-title = "best cat litter clumping — SmartPetBuys"
+title = "Best Cat Litter Clumping — SmartPetBuys"
 date = "2025-08-12T14:12:19Z"
 slug = "best-cat-litter-clumping"
 tags = ["best cat litter clumping","pet products","reviews"]

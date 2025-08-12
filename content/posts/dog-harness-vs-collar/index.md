@@ -1,5 +1,5 @@
 +++
-title = "dog harness vs collar — SmartPetBuys"
+title = "Dog Harness vs Collar — SmartPetBuys"
 date = "2025-08-12T14:12:01Z"
 slug = "dog-harness-vs-collar"
 tags = ["dog harness vs collar","pet products","reviews"]

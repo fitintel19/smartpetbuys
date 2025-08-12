@@ -1,5 +1,5 @@
 +++
-title = "memory foam dog beds — SmartPetBuys"
+title = "Memory Foam Dog Beds — SmartPetBuys"
 date = "2025-08-12T14:12:53Z"
 slug = "memory-foam-dog-beds"
 tags = ["memory foam dog beds","pet products","reviews"]
