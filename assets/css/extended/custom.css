@@ -88,7 +88,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90px; /* Increase header height for bigger logo */
+  height: 120px; /* Increased header height for much bigger logo */
   padding: 0.5rem 0; /* Add vertical padding */
 }
 
@@ -104,10 +104,11 @@ p {
 }
 
 .brand-logo {
-  height: 80px; /* Even bigger logo */
-  max-width: 250px; /* Add max width constraint */
+  height: 120px; /* Much bigger logo for better visibility */
+  max-width: 300px; /* Increased max width constraint */
   width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
 }
 
 .nav-menu {
@@ -402,8 +403,8 @@ footer {
   }
   
   .brand-logo {
-    height: 65px; /* Bigger on mobile too */
-    max-width: 200px;
+    height: 100px; /* Much bigger on mobile too */
+    max-width: 250px;
   }
   
   main {
@@ -1362,9 +1363,10 @@ footer {
 }
 
 .brand-logo {
-  height: 56px;
+  height: 120px; /* Much larger logo for better visibility */
   width: auto;
   object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
 }
 
 .nav-menu {
@@ -1398,7 +1400,7 @@ footer {
 
 @media (max-width: 768px) {
   .nav { padding: 0 16px; }
-  .brand-logo { height: 48px; }
+  .brand-logo { height: 80px; /* Much larger on mobile too */ }
   .nav-menu { gap: 14px; }
 }
 
