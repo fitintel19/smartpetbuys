@@ -8,8 +8,6 @@ description = "Best dog food for puppies — tested picks and buying guide."
 draft = false
 
 featured_image = "https://m.media-amazon.com/images/I/71rO9VJGfxL._AC_SL1500_.jpg"
-
-featured_image = "https://m.media-amazon.com/images/I/71rO9VJGfxL._AC_SL1500_.jpg"
 +++
 
 Finding the right dog food for your puppy is crucial for their growth and health. Puppies require a balanced diet that supports their rapid growth phases and gives them the energy they need for their playful and active lives. In this guide, we’ll explore some of the best dog food options currently on the market for puppies, helping you make an informed choice for your furry friend.

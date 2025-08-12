@@ -8,8 +8,6 @@ description = "Best dog puzzle toys for pets — tested picks and buying guide."
 draft = false
 
 featured_image = "https://m.media-amazon.com/images/I/6126sEl6Y4L._AC_SL1500_.jpg"
-
-featured_image = "https://m.media-amazon.com/images/I/6126sEl6Y4L._AC_SL1500_.jpg"
 +++
 
 Keeping your dog mentally stimulated is just as important as providing them with physical exercise. Puzzle toys are an excellent way to engage your dog's brain, help them burn off extra energy, and even slow down their eating. But with so many options on the market, it can be overwhelming to choose the right one. In this post, we've rounded up the best dog puzzle toys that will keep your furry friend entertained and challenged.

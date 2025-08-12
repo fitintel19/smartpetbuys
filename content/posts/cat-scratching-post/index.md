@@ -8,8 +8,6 @@ description = "Best cat scratching posts for pets — tested picks and buying gu
 draft = false
 
 featured_image = "https://m.media-amazon.com/images/I/71gV7T7iW-L._AC_SL1444_.jpg"
-
-featured_image = "https://m.media-amazon.com/images/I/71gV7T7iW-L._AC_SL1444_.jpg"
 +++
 
 Cats are natural hunters and scratchers, employing their claws for hunting, marking territory, and expressing themselves. A **cat scratching post** not only provides a dedicated outlet for these instincts but also helps protect your furniture. Whether you're a new cat owner or looking to upgrade your cat’s play area, selecting the right scratching post is crucial for your cat's health and happiness.
