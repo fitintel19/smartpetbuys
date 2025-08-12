@@ -95,58 +95,64 @@
 
   <!-- Sidebar -->
   <aside class="post-sidebar">
-    <!-- Author Info -->
-    <div class="sidebar-widget author-widget">
-      <h3>About SmartPetBuys</h3>
-      <div class="author-info">
-        <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="author-avatar">
-        <p>Expert pet product reviews and buying guides to help you make the best choices for your furry friends.</p>
+    <div class="sidebar__inner">
+      <!-- Author Info -->
+      <div class="sidebar-widget author-widget">
+        <h3>About SmartPetBuys</h3>
+        <div class="author-info">
+          <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="author-avatar">
+          <p>Expert pet product reviews and buying guides to help you make the best choices for your furry friends.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- Related Posts -->
-    <div class="sidebar-widget related-posts">
-      <h3>Related Posts</h3>
-      {{- $related := where (where site.RegularPages "Type" "posts") "Title" "!=" .Title }}
-      {{- $related = first 5 $related }}
-      {{- range $related }}
-      <div class="related-post">
-        <a href="{{ .RelPermalink }}" class="related-post-link">
-          {{- if .Params.featured_image }}
-          <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
-          {{- end }}
-          <div class="related-post-content">
-            <h4>{{ .Title }}</h4>
-            <span class="related-post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
-          </div>
-        </a>
+      <!-- Related Posts -->
+      <div class="sidebar-widget related-posts">
+        <h3>Related Posts</h3>
+        {{- $related := where (where site.RegularPages "Type" "posts") "Title" "!=" .Title }}
+        {{- $related = first 5 $related }}
+        {{- range $related }}
+        <div class="related-post">
+          <a href="{{ .RelPermalink }}" class="related-post-link">
+            {{- if .Params.featured_image }}
+            <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
+            {{- end }}
+            <div class="related-post-content">
+              <h4>{{ .Title }}</h4>
+              <span class="related-post-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+            </div>
+          </a>
+        </div>
+        {{- end }}
       </div>
-      {{- end }}
-    </div>
 
-    <!-- Categories -->
-    <div class="sidebar-widget categories-widget">
-      <h3>Categories</h3>
-      <ul class="categories-list">
-        <li><a href="/tags/dog/">🐕 Dog Products</a></li>
-        <li><a href="/tags/cat/">🐱 Cat Products</a></li>
-        <li><a href="/tags/health/">💊 Health & Wellness</a></li>
-        <li><a href="/tags/food/">🍖 Food & Nutrition</a></li>
-        <li><a href="/tags/toys/">🎾 Toys & Entertainment</a></li>
-        <li><a href="/tags/beds/">🛏️ Beds & Comfort</a></li>
-      </ul>
-    </div>
+      <!-- Categories -->
+      <div class="sidebar-widget categories-widget">
+        <h3>Categories</h3>
+        <ul class="categories-list">
+          <li><a href="/tags/dog/">🐕 Dog Products</a></li>
+          <li><a href="/tags/cat/">🐱 Cat Products</a></li>
+          <li><a href="/tags/health/">💊 Health & Wellness</a></li>
+          <li><a href="/tags/food/">🍖 Food & Nutrition</a></li>
+          <li><a href="/tags/toys/">🎾 Toys & Entertainment</a></li>
+          <li><a href="/tags/beds/">🛏️ Beds & Comfort</a></li>
+        </ul>
+      </div>
 
-    <!-- Newsletter Signup -->
-    <div class="sidebar-widget newsletter-widget">
-      <h3>Stay Updated</h3>
-      <p>Get the latest pet product reviews and deals delivered to your inbox.</p>
-      <form class="newsletter-form">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit" class="btn">Subscribe</button>
-      </form>
+      <!-- Newsletter Signup -->
+      <div class="sidebar-widget newsletter-widget">
+        <h3>Stay Updated</h3>
+        <p>Get the latest pet product reviews and deals delivered to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
     </div>
   </aside>
 </div>
+
+<!-- Sticky Sidebar library and init (single post only) -->
+<script src="https://cdn.jsdelivr.net/npm/sticky-sidebar@3.3.1/dist/sticky-sidebar.min.js" defer></script>
+<script src="/js/sticky-init.js" defer></script>
 
 {{- end }}

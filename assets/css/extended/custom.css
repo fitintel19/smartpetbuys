@@ -1291,3 +1291,9 @@ footer {
   border-bottom: 2px solid var(--primary-color);
   font-weight: 700;
 }
+
+/* Allow sticky-sidebar-js to manage positioning */
+.post-sidebar { position: static; }
+.post-sidebar .sidebar__inner {
+  will-change: min-height, transform;
+}
