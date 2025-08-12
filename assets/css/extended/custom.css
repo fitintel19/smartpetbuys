@@ -41,6 +41,14 @@ body {
   margin: 0 auto;
 }
 
+/* Ensure the logo inside the flex header keeps a consistent size */
+.main-header img {
+  height: 40px;     /* explicit logo height */
+  width: auto;      /* preserve aspect ratio */
+  display: block;   /* prevents inline-gap issues in flex items */
+  object-fit: contain;
+}
+
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
