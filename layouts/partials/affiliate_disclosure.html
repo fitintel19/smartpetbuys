@@ -1,0 +1,14 @@
+<div class="affiliate-disclosure" role="region" aria-label="Affiliate Disclosure">
+  <div class="affiliate-disclosure__inner">
+    <p>
+      <strong>Affiliate Disclosure:</strong>
+      SmartPetBuys may earn a commission when you purchase through links on our site. This helps keep our reviews free. <a href="/disclosure/" class="affiliate-disclosure__link">Learn more</a>.
+    </p>
+    <button class="affiliate-disclosure__close" aria-label="Close disclosure" onclick="(function(b){b.parentNode.remove(); localStorage.setItem('spb_affiliate_disclosure','dismissed');})(this)">&times;</button>
+  </div>
+</div>
+<script>
+  (function(){
+    try { if (localStorage.getItem('spb_affiliate_disclosure') === 'dismissed') { var el=document.currentScript.previousElementSibling; if(el) el.remove(); } } catch(e){}
+  })();
+</script>

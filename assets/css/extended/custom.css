@@ -1405,3 +1405,26 @@ footer {
   .brand-logo { height: 48px; }
   .nav-menu { gap: 14px; }
 }
+
+/* Affiliate disclosure banner */
+.affiliate-disclosure {
+  position: sticky;
+  top: 0; /* sits under sticky header */
+  z-index: 999;
+  background: #fff7ed; /* light orange tint */
+  border-bottom: 1px solid rgba(230, 126, 34, 0.25);
+}
+.affiliate-disclosure__inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #7a5600;
+}
+.affiliate-disclosure__link { color: #e67e22; text-decoration: underline; }
+.affiliate-disclosure__close {
+  border: none; background: transparent; color: #7a5600; font-size: 20px; line-height: 1; cursor: pointer;
+}
