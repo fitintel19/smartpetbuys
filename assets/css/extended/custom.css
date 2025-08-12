@@ -1304,8 +1304,22 @@ footer {
 /* Sticky library requires the sidebar container not to be position: sticky */
 .post-sidebar { position: relative; }
 
-/* Reserve hero height even if no image is present */
-.post-featured-image { height: 420px; background: #0f172a; }
-.post-featured-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.75)); }
-.post-header-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem 2rem; z-index: 2; }
+/* Hero background image via ::before, image element, and dark overlay */
+.post-featured-image { position: relative; height: 420px; background: #0f172a; overflow: hidden; }
+.post-featured-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg, url('/images/hero-fallback.jpg'));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
 .post-featured-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.post-featured-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.75)); z-index: 2; }
+.post-header-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem 2rem; z-index: 3; }
+
+/* To use a custom background without an <img>, set inline style on the page container, e.g.:
+   <div class="post-featured-image" style="--hero-bg: url('/path/to/your-image.jpg')"></div>
+*/
