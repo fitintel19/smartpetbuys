@@ -11,8 +11,6 @@ theme = "PaperMod"
 
 # Sitemap configuration
 [sitemap]
-  changefreq = "weekly"
-  priority = 0.5
   filename = "sitemap.xml"
   [sitemap.changefreq]
     posts = "weekly"
