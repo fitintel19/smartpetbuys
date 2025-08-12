@@ -1,0 +1,64 @@
+{{- define "main" }}
+
+<div class="post-layout">
+  <!-- Main Content Area -->
+  <main class="post-main">
+    <article class="post-single legal-page">
+      
+      <!-- Simple header for legal pages -->
+      <header class="post-header legal-header">
+        <div class="post-header-content">
+          <h1 class="post-title">{{ .Title }}</h1>
+          {{- if .Description }}
+          <div class="post-description">
+            {{ .Description }}
+          </div>
+          {{- end }}
+        </div>
+      </header>
+
+      <!-- Content Area -->
+      {{- if .Content }}
+      <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}{{ .Content }}{{ end }}
+      </div>
+      {{- end }}
+
+    </article>
+  </main>
+
+  <!-- Sidebar -->
+  <aside class="post-sidebar">
+    <div class="sidebar__inner">
+      <!-- Author Info -->
+      <div class="sidebar-widget author-widget">
+        <h3>About SmartPetBuys</h3>
+        <div class="author-info">
+          <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="author-avatar">
+          <p>Your trusted source for honest pet product reviews and recommendations. We help you make informed decisions for your furry family members.</p>
+        </div>
+      </div>
+
+      <!-- Legal Pages Widget -->
+      <div class="sidebar-widget legal-pages-widget">
+        <h3>Legal Information</h3>
+        <ul class="legal-pages-list">
+          <li><a href="/terms/">Terms of Use</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/disclosure/">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Widget -->
+      <div class="sidebar-widget contact-widget">
+        <h3>Contact Us</h3>
+        <p>Questions about our terms or policies? We're here to help!</p>
+        <a href="mailto:contact@smartpetbuys.com" class="btn">Email Us</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+{{- end }}
