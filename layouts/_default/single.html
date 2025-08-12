@@ -7,11 +7,11 @@
       
       <!-- Enhanced Header with Featured Image -->
       <header class="post-header">
-        {{- if .Params.featured_image }}
         <div class="post-featured-image">
-          <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
+          {{- with .Params.featured_image }}
+          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+          {{- end }}
         </div>
-        {{- end }}
         
         <div class="post-header-content">
           {{ partial "breadcrumbs.html" . }}
