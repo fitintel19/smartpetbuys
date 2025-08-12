@@ -721,13 +721,9 @@ footer {
 }
 
 /* Make meta clearer like a pill bar */
-.post-header-content {
-  padding: 2.5rem 2rem 2rem 2rem;
-  position: relative;
-}
-.post-meta {
-  display: flex;
-  justify-content: space-between;
+.post-header.has-hero .post-meta {
+  display: inline-flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
@@ -1244,9 +1240,9 @@ footer {
 }
 .post-header-content .breadcrumbs { color: rgba(255,255,255,0.85); }
 
-/* Title and meta on unified area */
-.post-title { color: #fff; }
-.post-description { color: rgba(255,255,255,0.92); }
+/* Title and meta on unified area (scoped to hero only) */
+.post-header.has-hero .post-title { color: #fff; }
+.post-header.has-hero .post-description { color: rgba(255,255,255,0.92); }
 
 /* Reviews tag/button accented */
 .category-badge {
