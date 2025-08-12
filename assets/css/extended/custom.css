@@ -1460,3 +1460,13 @@ body, main, .post-single, .post-content, .post-content p,
 
 /* Non-hero descriptions default to dark for readability */
 .post-header:not(.has-hero) .post-description { color: #2c3e50 !important; }
+
+/* Hero text system: default dark; optional white when .has-hero is present */
+/* Add the class `has-hero` to your .post-header in the HTML when you want white text over a hero image */
+.post-header .post-description {
+  color: #2c3e50 !important; /* default dark text */
+}
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description {
+  color: #ffffff !important; /* white text when header has hero */
+}
