@@ -19,6 +19,23 @@ Start with a short intro paragraph, then use H2/H3 sections.
 Include 3–5 product sections using this shortcode format exactly:
 {{{{< product id="toy-01" >}}}} 
 
+**Why we like it**
+- [Key benefit 1]
+- [Key benefit 2]
+
+**Pros**
+- [Pro 1]
+- [Pro 2]
+- [Pro 3]
+
+**Cons**
+- [Con 1]
+- [Con 2]
+
+**Best for**
+- [Target audience 1]
+- [Target audience 2]
+
 🚨 CRITICAL: ONLY use these EXACT product IDs from data/products.json.
 ❌ DO NOT create collar-02, collar-03, collar-04 - ONLY collar-01 exists!
 ❌ DO NOT create toy-04, toy-05 - ONLY toy-01, toy-02, toy-03 exist!
@@ -173,7 +190,7 @@ FAILURE TO FOLLOW THIS WILL BREAK THE WEBSITE.
 Include:
 - Skimmable subheads (H2/H3)
 - Pros/cons bullets where helpful
-- 3-question FAQ
+- 3-question FAQ with **bold Q:** format
 - Clear CTA in the conclusion
 
 IMPORTANT: Do not use "---" anywhere in the article body.

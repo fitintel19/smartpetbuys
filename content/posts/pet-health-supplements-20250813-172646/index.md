@@ -105,20 +105,20 @@ We chose these standouts for quality, ingredients, and real-world usefulness acr
 
 {{< product id="health-02" >}}
 
-Why we like it
+**Why we like it**
 - A trusted probiotic to support normal digestive function during stress, diet transitions, boarding, or antibiotic use
 - Convenient daily administration with a palatable format most pets accept
 
-Pros
+**Pros**
 - Backed by veterinary professionals and widely used
 - Helps maintain stool quality and digestive balance
 - Easy to give; ideal for travel and post-antibiotic periods
 
-Cons
+**Cons**
 - Primarily focused on gut support, not an all-in-one
 - Pets with severe GI issues should be evaluated by a vet first
 
-Best for
+**Best for**
 - Pets with occasional tummy upsets or during routine transitions
 - Owners looking to build a foundational gut health routine
 
@@ -126,20 +126,20 @@ Best for
 
 {{< product id="omega-01" >}}
 
-Why we like it
+**Why we like it**
 - High-quality fish oil omega-3s (EPA/DHA) to support skin, coat luster, joint comfort, and cognitive health
 - A smart addition for seasonal skin issues and aging pets
 
-Pros
+**Pros**
 - Multi-system support in one ingredient category
 - Often helps reduce excessive shedding and dryness
 - Complements joint supplements for active or senior dogs
 
-Cons
+**Cons**
 - Fishy taste can be off-putting for some pets without gradual introduction
 - Must be dosed by weight; refrigeration and freshness matter
 
-Best for
+**Best for**
 - Dogs needing skin/coat support or extra joint comfort
 - Pet parents seeking a well-rounded wellness booster
 
@@ -147,20 +147,20 @@ Best for
 
 {{< product id="health-05" >}}
 
-Why we like it
+**Why we like it**
 - A respected joint formula featuring glucosamine and chondroitin to support cartilage and connective tissue
 - Popular choice for seniors and large breeds
 
-Pros
+**Pros**
 - Time-tested ingredients for joint health
 - Helps maintain mobility alongside weight management and exercise
 - Often recommended as a first-line joint supplement
 
-Cons
+**Cons**
 - Benefits are gradual and require consistent use
 - Not a replacement for veterinary care if your pet shows pain or lameness
 
-Best for
+**Best for**
 - Aging pets, large breeds, or active dogs showing early stiffness
 - Owners building a proactive mobility plan
 
@@ -168,20 +168,20 @@ Best for
 
 {{< product id="health-04" >}}
 
-Why we like it
+**Why we like it**
 - Uses well-known calming ingredients to promote relaxation without drowsiness
 - Helpful for thunderstorms, fireworks, travel, or changes in routine
 
-Pros
+**Pros**
 - Non-sedating approach to everyday anxieties
 - Can be paired with training and environmental enrichment
 - Useful as-needed or daily, depending on your vet’s advice
 
-Cons
+**Cons**
 - Response varies by pet and stressor intensity
 - Behavioral issues still require training and environmental management
 
-Best for
+**Best for**
 - Noise-sensitive pets, frequent travelers, and those adjusting to new environments
 - Pairing with desensitization and enrichment strategies
 
@@ -189,20 +189,20 @@ Best for
 
 {{< product id="supplements-01" >}}
 
-Why we like it
+**Why we like it**
 - All-in-one style support aimed at filling routine nutrient gaps
 - A practical option for busy pet parents who want a single daily step
 
-Pros
+**Pros**
 - Consolidates multiple wellness categories into one product
 - Simple routine encourages long-term consistency
 - Good companion to balanced diets that need a little boost
 
-Cons
+**Cons**
 - Not specialized; may be lighter in any one category
 - Check overlap if you’re using additional single-ingredient supplements
 
-Best for
+**Best for**
 - Healthy adult dogs needing a general wellness boost
 - Families who prefer a straightforward, once-daily routine
 
@@ -239,13 +239,13 @@ Best for
 
 ## Frequently asked questions
 
-Q: How long do pet health supplements take to work?
+**Q: How long do pet health supplements take to work?**
 A: It depends on the category. Probiotics may show benefits in a few days. Omega-3s and joint supplements often need 4–8 weeks of consistent use. Calming aids can work the same day but may improve with routine use.
 
-Q: Can I give my pet more than one supplement?
+**Q: Can I give my pet more than one supplement?**
 A: Yes, but coordinate with your vet to avoid overlapping ingredients and interactions. A common stack is a probiotic plus omega-3s, or a joint supplement plus omega-3s. Keep a simple schedule and introduce changes one at a time.
 
-Q: Are human supplements safe for pets?
+**Q: Are human supplements safe for pets?**
 A: Not by default. Some human products contain unsafe ingredients for pets. Always choose pet-formulated products and confirm dosing with your veterinarian.
 
 ## The bottom line
