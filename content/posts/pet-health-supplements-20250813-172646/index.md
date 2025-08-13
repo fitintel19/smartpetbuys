@@ -1,10 +1,11 @@
 +++
-title = "pet health supplements — SmartPetBuys"
+title = "Pet Health Supplements — SmartPetBuys"
 date = "2025-08-13T17:27:34Z"
 slug = "pet-health-supplements-20250813-172646"
 tags = ["pet health supplements","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best pet health supplements for pets — tested picks and buying guide."
+description = "Best Pet Health Supplements for pets — tested picks and buying guide."
+featured_image = "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=600&fit=crop"
 draft = false
 +++
 
