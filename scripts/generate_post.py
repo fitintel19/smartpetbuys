@@ -188,7 +188,7 @@ def generate_post_content(keyword):
     print("Calling OpenAI API...")
     try:
         response = client.chat.completions.create(
-            model="gpt-5-mini",  # Latest GPT-5 mini model
+            model="gpt-5",  # Latest GPT-5 model
             messages=[
                 {"role": "system", "content": "You are an expert affiliate blog post writer."},
                 {"role": "user", "content": prompt}
