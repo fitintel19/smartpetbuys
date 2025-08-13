@@ -2,6 +2,7 @@ import os
 import csv
 import openai
 from datetime import datetime
+import random
 
 # Set the OPENAI_API_KEY in your GitHub repository secrets.
 client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
@@ -201,6 +202,61 @@ def generate_post_content(keyword):
 
     return ai_content.strip()
 
+def to_title_case(text):
+    """Convert text to proper title case."""
+    # Common words that should remain lowercase unless they're the first word
+    minor_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'up', 'yet'}
+    
+    words = text.lower().split()
+    if not words:
+        return text
+    
+    # Capitalize the first word
+    result = [words[0].capitalize()]
+    
+    # Capitalize other words unless they're minor words
+    for word in words[1:]:
+        if word in minor_words:
+            result.append(word)
+        else:
+            result.append(word.capitalize())
+    
+    return ' '.join(result)
+
+def get_featured_image(keyword):
+    """Get a relevant featured image URL based on the keyword."""
+    # Define image URLs for different pet categories
+    image_urls = {
+        'dog': [
+            'https://images.unsplash.com/photo-1552053831-71594a27632d?w=1200&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=1200&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=600&fit=crop'
+        ],
+        'cat': [
+            'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1200&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1200&h=600&fit=crop'
+        ],
+        'pet': [
+            'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&h=600&fit=crop',
+            'https://images.unsplash.com/photo-1583511655826-05700d52c4e9?w=1200&h=600&fit=crop'
+        ]
+    }
+    
+    keyword_lower = keyword.lower()
+    
+    # Determine which category the keyword belongs to
+    if 'dog' in keyword_lower:
+        category = 'dog'
+    elif 'cat' in keyword_lower:
+        category = 'cat'
+    else:
+        category = 'pet'
+    
+    # Return a random image from the appropriate category
+    return random.choice(image_urls[category])
+
 def read_keywords(path="keywords.csv"):
     """Reads keywords from a CSV, handling BOMs and cleaning headers."""
     # utf-8-sig strips BOM if present (common when saving from Excel)
@@ -250,13 +306,20 @@ def write_post(keyword, posts_dir):
     
     content = generate_post_content(keyword)
     
+    # Convert keyword to proper title case
+    title_case_keyword = to_title_case(keyword)
+    
+    # Get a featured image
+    featured_image = get_featured_image(keyword)
+    
     fm = f"""+++
-title = "{keyword} — SmartPetBuys"
+title = "{title_case_keyword} — SmartPetBuys"
 date = "{datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}"
 slug = "{slug}"
 tags = ["{keyword}","pet products","reviews"]
 categories = ["Reviews"]
-description = "Best {keyword} for pets — tested picks and buying guide."
+description = "Best {title_case_keyword} for pets — tested picks and buying guide."
+featured_image = "{featured_image}"
 draft = false
 +++
 """
