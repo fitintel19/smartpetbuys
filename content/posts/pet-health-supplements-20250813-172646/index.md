@@ -240,12 +240,15 @@ We chose these standouts for quality, ingredients, and real-world usefulness acr
 ## Frequently asked questions
 
 **Q: How long do pet health supplements take to work?**
+
 A: It depends on the category. Probiotics may show benefits in a few days. Omega-3s and joint supplements often need 4–8 weeks of consistent use. Calming aids can work the same day but may improve with routine use.
 
 **Q: Can I give my pet more than one supplement?**
+
 A: Yes, but coordinate with your vet to avoid overlapping ingredients and interactions. A common stack is a probiotic plus omega-3s, or a joint supplement plus omega-3s. Keep a simple schedule and introduce changes one at a time.
 
 **Q: Are human supplements safe for pets?**
+
 A: Not by default. Some human products contain unsafe ingredients for pets. Always choose pet-formulated products and confirm dosing with your veterinarian.
 
 ## The bottom line

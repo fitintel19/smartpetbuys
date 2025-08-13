@@ -190,7 +190,17 @@ FAILURE TO FOLLOW THIS WILL BREAK THE WEBSITE.
 Include:
 - Skimmable subheads (H2/H3)
 - Pros/cons bullets where helpful
-- 3-question FAQ with **bold Q:** format
+- 3-question FAQ with **bold Q:** format and A: on new lines
+
+Example FAQ format:
+**Q: [Question here]?**
+
+A: [Answer here with proper spacing and formatting.]
+
+**Q: [Second question]?**
+
+A: [Second answer with proper spacing.]
+
 - Clear CTA in the conclusion
 
 IMPORTANT: Do not use "---" anywhere in the article body.
