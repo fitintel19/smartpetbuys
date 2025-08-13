@@ -27,69 +27,143 @@ Include 3–5 product sections using this shortcode format exactly:
 - kibble-01 (Orijen Original Dry Dog Food)
 - kibble-02 (Blue Buffalo Life Protection Formula)
 - kibble-03 (Hill's Science Diet Adult)
+- puppy-01 (Blue Buffalo Puppy Food)
+- senior-02 (Blue Buffalo Senior Dog Food)
+- weight-01 (Hill's Science Diet Weight Management)
+- weightloss-01 (Royal Canin Weight Control Dog Food)
+- senior-01 (Hill's Science Diet Senior Dog Food)
+- allergies-01 (Royal Canin Small Sensitive Skin Care Dry Dog Food)
 
 **CAT FOOD:**
 - cat-food-01 (Royal Canin Indoor Adult Cat Food)
 - cat-food-02 (Purina Pro Plan SAVOR)
+- indoorcat-01 (Premium Indoor Cat Food)
+- diabetes-01 (Purina Pro Plan DM Diabetes Management)
+- kidney-01 (Royal Canin Renal Support Cat Food)
+- urinary-01 (Royal Canin Urinary SO Cat Food)
 
 **DOG TOYS:**
 - toy-01 (Outward Hound Hide N' Seek Puzzle Toy)
 - toy-02 (KONG Classic Dog Toy)
 - toy-03 (Chuckit! Ultra Ball 3-Pack)
+- kong-01 (KONG Dog Toys Collection)
+- puzzle-01 (Nina Ottosson Dog Puzzle Toys)
 
 **CAT TOYS:**
 - cat-toy-01 (Feather Wand Cat Toy)
 - cat-toy-02 (SmartyKat Skitter Critters)
+- feather-01 (Interactive Feather Cat Toys)
+- enrichment-01 (ORSDA Cat Toys for Indoor Cats)
 
 **HEALTH & SUPPLEMENTS:**
-- health-02 (HealthBoost Probiotic Supplement)
+- health-02 (Purina Pro Plan Veterinary Diets FortiFlora)
 - health-03 (Zesty Paws Omega Bites)
 - health-04 (VetriScience Composure)
 - health-05 (NutraMax Cosequin DS)
+- joint-01 (Wuffes Advanced Dog Hip and Joint Supplement)
+- supplements-01 (Dog Multivitamin - 10 in 1 Dog Vitamins)
+- omega-01 (Premium Omega 3 Supplements for Dogs)
 
 **GROOMING:**
-- brush-01 (Hartz Groomer's Best Slicker Brush)
-- groom-03 (GentlePaws Nail Trimmer)
+- brush-01 (FURminator Undercoat Deshedding Tool for Cats)
+- groom-03 (Boshel Dog Nail Clippers and Trimmer)
+- grooming-01 (36''Large Dog Grooming Table)
+- grooming-02 (Tweezerman Dog and Cat Slicker Brush for Large Pets)
+- shampoo-01 (Burt's Bees Dog Shampoo)
 
 **DENTAL CARE:**
-- dental-kit-01 (Pet Dental Care Kit)
+- dental-kit-01 (Arm & Hammer Clinical Pet Care Dental Kit)
 - dental-02 (Greenies Original Dental Chews)
 - dental-03 (Virbac C.E.T. Enzymatic Toothpaste)
+- dental-04 (Oxyfresh Premium Pet Dental Kit for Dogs & Cats)
+- dental-05 (Professional Pet Dental Care Products)
+- Minties-01 (Minties Dental Chews for Dogs)
 
 **BEDS:**
-- bed-01 (Orthopedic Dog Bed)
+- bed-01 (Casper Dog Bed, Pressure-Relieving Memory Foam)
 - bed-02 (Furhaven Memory Foam Dog Bed)
 - bed-03 (Best Friends by Sheri Calming Donut Bed)
+- memory-01 (Barkbox Orthopedic Dog Bed with Memory Foam)
+- largebed-01 (Extra Large Dog Beds for Big Breeds)
 
-**LITTER:**
-- litter-01 (Cat Litter Box)
+**LITTER & LITTER BOXES:**
+- litter-01 (Nature's Miracle Hooded Corner Litter Box)
 - litter-02 (Dr. Elsey's Precious Cat Ultra)
 - litter-03 (World's Best Cat Litter)
+- litterbox-01 (Premium Cat Litter Boxes)
+- clumping-01 (Premium Clumping Cat Litter)
 
 **TRAINING TREATS:**
-- treats-01 (Training Treats for Dogs)
+- treats-01 (Wellness CORE Tiny Trainers Dog Treats)
 - treats-02 (Blue Buffalo Wilderness Treats)
 - treats-03 (Zuke's Mini Naturals)
+- treats-04 (Pupford Freeze Dried Training Treats)
+- training-02 (ORIJEN Epic Bites Freeze)
 
 **LEASHES & COLLARS:**
-- leash-01 (Dog Leash and Collar Set)
+- leash-01 (PoyPet No Pull Dog Harness)
 - leash-02 (Flexi Classic Retractable Dog Leash)
 - harness-01 (Rabbitgoo No-Pull Dog Harness)
 - collar-01 (Seresto Flea and Tick Collar)
 - collar-02 (Blue-9 Balance Harness)
 - collar-03 (Ruffwear Front Range Dog Harness)
+- leashcollar-01 (Premium Dog Leash and Collar Sets)
+- harnesscollar-01 (Dog Harness vs Collar Comparison)
 
-**OTHER ESSENTIALS:**
-- scratch-01 (Cat Scratching Post)
+**SCRATCHING POSTS:**
+- scratch-01 (SmartCat Ultimate Scratching Post)
+- scratch-02 (PetFusion Ultimate Cat Scratcher Lounge)
+- scratch-03 (Catit Vesper V-High Base Cat Tree)
+- scratch-04 (FUKUMARU Cat Activity Tree with Scratching Posts)
+- scratching-01 (Premium Cat Scratching Posts)
+
+**CARRIERS & TRAVEL:**
 - carrier-01 (Sherpa Original Deluxe Pet Carrier)
-- waste-01 (Earth Rated Poop Bags)
-- water-01 (PetSafe Drinkwell Fountain)
+- carrier-02 (Petmate Two Door Top Load Carrier)
 - crate-01 (MidWest Homes for Pets Dog Crate)
+- crate-02 (Amazon Basics 2-Door Top-Load Hard-Sided Dogs, Cats Pet Travel Carrier)
+- crate-03 (Professional Dog Training Crates)
+- airline-01 (Airline Approved Pet Carriers)
+- travel-01 (Complete - LG Deluxe Pet Airline Travel Kit)
+
+**ESSENTIALS:**
+- waste-01 (Earth Rated Poop Bags)
+- waste-02 (Biodegradable Poop Bags)
+- water-01 (PetSafe Drinkwell Fountain)
+- fountain-01 (Cat Water Fountain)
+- feeder-01 (PetSafe Automatic Cat Feeder)
+- cooling-01 (K&H Pet Products Cooling Mat)
+- perch-01 (K&H Pet Products Window Perch)
+
+**BEHAVIOR & TRAINING:**
+- behavior-01 (Total Cat Mojo: The Ultimate Guide to Life with Your Cat)
+- behavior-02 (CAT SCHOOL Clicker Training Kit)
+- training-01 (Zak George Dog Training Book)
+- agility-01 (Outward Hound Agility Set)
+- agility-02 (SparklyPets Dog Agility Training Equipment)
+
+**HEALTH & SAFETY:**
+- firstaid-01 (RHINO RESCUE Pet First Aid Kit)
+- emergency-01 (Dr Brahmsy's Pet First Aid Kit for Dogs)
+- microchip-01 (Pet Microchip Scanner Rechargeable RFID EMID Micro Chip Reader Scanner)
+- anxiety-01 (Thundershirt Classic Dog Anxiety Jacket)
+- separation-01 (Furbo Dog Camera with Treat Dispenser)
+- calming-01 (Adaptil Calming Collar)
+
+**HEALTH CONDITIONS:**
+- flea-01 (Frontline Plus Flea Treatment)
+- nutrition-01 (The Pill Book Guide to Medication for Your Dog and Cat)
+
+**GUIDES & RESOURCES:**
+- insurance-01 (Pet Insurance Comparison Guide)
 
 🚨 CRITICAL REMINDER: 
-- For collars/harnesses: ONLY use collar-01, collar-02, collar-03, harness-01
+- For collars/harnesses: ONLY use collar-01, collar-02, collar-03, harness-01, leashcollar-01, harnesscollar-01
 - For leashes: ONLY use leash-01, leash-02
-- DO NOT invent collar-04, collar-05, leash-03, etc.
+- For scratching posts: ONLY use scratch-01, scratch-02, scratch-03, scratch-04, scratching-01
+- For carriers: ONLY use carrier-01, carrier-02, airline-01
+- For crates: ONLY use crate-01, crate-02, crate-03
+- DO NOT invent new IDs - stick to the exact list above
 - DOUBLE-CHECK each product ID exists in the list above before using it.
 - If you're unsure, use the main products: collar-01, leash-01, harness-01
 
