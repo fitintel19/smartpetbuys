@@ -233,11 +233,17 @@ def read_keywords(path="keywords.csv"):
 def write_post(keyword, posts_dir):
     """Generates and writes a single post file."""
     print(f"Processing keyword: {keyword}")
-    slug = keyword.lower().replace(' ', '-')
+    
+    # Create unique slug with timestamp to avoid conflicts
+    base_slug = keyword.lower().replace(' ', '-')
+    timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
+    slug = f"{base_slug}-{timestamp}"
     post_path = os.path.join(posts_dir, slug)
 
-    if os.path.exists(post_path):
-        print(f"Post for '{keyword}' already exists. Skipping.")
+    # Check if we already have too many posts for this keyword (limit to 3)
+    existing_posts = [d for d in os.listdir(posts_dir) if d.startswith(base_slug)] if os.path.exists(posts_dir) else []
+    if len(existing_posts) >= 3:
+        print(f"Already have {len(existing_posts)} posts for '{keyword}'. Skipping to avoid spam.")
         return
 
     os.makedirs(post_path, exist_ok=True)
