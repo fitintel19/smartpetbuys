@@ -36,93 +36,133 @@
 
 <!-- Custom CSS for better readability -->
 <style>
-/* Fix footer text color for better readability */
-.site-footer {
-  background: #f8f9fa;
-  border-top: 1px solid #e9ecef;
-  margin-top: 40px;
+/* Fix footer text color for better readability - High Priority */
+footer.site-footer, 
+.site-footer,
+footer {
+  background: #f8f9fa !important;
+  border-top: 1px solid #e9ecef !important;
+  margin-top: 40px !important;
+  padding: 40px 0 20px 0 !important;
 }
 
-.site-footer h4 {
+footer.site-footer h4, 
+.site-footer h4,
+footer h4 {
   color: #333 !important;
-  font-weight: 600;
-  margin-bottom: 15px;
+  font-weight: 700 !important;
+  margin-bottom: 15px !important;
+  font-size: 1.1rem !important;
 }
 
-.site-footer p {
+footer.site-footer p, 
+.site-footer p,
+footer p {
   color: #555 !important;
-  line-height: 1.6;
+  line-height: 1.6 !important;
+  margin-bottom: 10px !important;
 }
 
-.site-footer a {
+footer.site-footer a, 
+.site-footer a,
+footer a {
   color: #1565c0 !important;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.site-footer a:hover {
-  color: #0277bd !important;
-  border-bottom: 1px solid #0277bd;
-}
-
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.footer-nav a {
-  font-size: 0.95rem;
-}
-
-.footer-bottom {
-  border-top: 1px solid #e9ecef;
-  margin-top: 30px;
-  padding-top: 20px;
-}
-
-.footer-bottom p {
-  color: #666 !important;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-/* Override PaperMod footer styles */
-.footer {
-  color: #555 !important;
-}
-
-.footer a {
-  color: #1565c0 !important;
+  text-decoration: none !important;
   border-bottom: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
 }
 
-.footer a:hover {
+footer.site-footer a:hover, 
+.site-footer a:hover,
+footer a:hover {
   color: #0277bd !important;
   border-bottom: 1px solid #0277bd !important;
 }
 
-/* Ensure custom footer has good contrast */
+.footer-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.footer-nav a {
+  font-size: 0.95rem !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e9ecef !important;
+  margin-top: 30px !important;
+  padding-top: 20px !important;
+  text-align: center !important;
+}
+
+.footer-bottom p {
+  color: #666 !important;
+  font-size: 0.9rem !important;
+  margin: 0 !important;
+}
+
+/* Override PaperMod footer styles with highest priority */
+body .footer,
+html .footer {
+  color: #555 !important;
+  background: #f8f9fa !important;
+  border-top: 1px solid #e9ecef !important;
+}
+
+body .footer a,
+html .footer a {
+  color: #1565c0 !important;
+  border-bottom: 1px solid transparent !important;
+}
+
+body .footer a:hover,
+html .footer a:hover {
+  color: #0277bd !important;
+  border-bottom: 1px solid #0277bd !important;
+}
+
+/* Ensure custom footer has good contrast and layout */
 .footer-section {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-bottom: 30px;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 30px !important;
+  margin-bottom: 30px !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 20px !important;
+}
+
+.footer-inner {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 20px !important;
+}
+
+/* Force override any theme variables */
+:root {
+  --footer-text: #555 !important;
+  --footer-link: #1565c0 !important;
+  --footer-link-hover: #0277bd !important;
 }
 
 @media (max-width: 768px) {
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
   
   .footer-nav {
-    gap: 6px;
+    gap: 6px !important;
+  }
+  
+  .footer-inner {
+    padding: 0 15px !important;
   }
 }
 </style>
