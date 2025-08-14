@@ -19,3 +19,8 @@
 
 <!-- Schema.org Structured Data -->
 {{ partial "schema-org.html" . }}
+
+<!-- Kit Exit-Intent Popup (only for blog posts) -->
+{{- if eq .Section "posts" }}
+{{ partial "kit-exit-intent.html" . }}
+{{- end }}
