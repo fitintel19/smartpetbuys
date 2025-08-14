@@ -8,100 +8,9 @@ ShowBreadCrumbs: false
 ShowPostNavLinks: false
 ShowToc: false
 comments: false
+featured_image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format"
 description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying Guide is on its way."
 ---
-
-<div class="thank-you-container">
-  <div class="success-header">
-    <div class="success-icon">🎉</div>
-    <h1>Email Confirmed Successfully!</h1>
-    <p class="success-subtitle">Welcome to the SmartPetBuys family!</p>
-  </div>
-
-  <div class="thank-you-content">
-    <div class="confirmation-message">
-      <h2>🎁 Your FREE Ultimate Pet Buying Guide is on its way!</h2>
-      <p>Check your inbox in the next few minutes - we're sending your comprehensive pet buying guide right now.</p>
-    </div>
-
-    <div class="whats-next">
-      <h3>📅 What happens next?</h3>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-icon">📧</div>
-          <div class="timeline-content">
-            <h4>Right Now</h4>
-            <p>Your FREE Ultimate Pet Buying Guide is being delivered to your inbox</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-icon">🌟</div>
-          <div class="timeline-content">
-            <h4>This Tuesday</h4>
-            <p>Get our first weekly newsletter with expert product reviews and money-saving tips</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-icon">💰</div>
-          <div class="timeline-content">
-            <h4>Ongoing</h4>
-            <p>Receive exclusive deals, safety alerts, and the latest product recommendations</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="benefits-recap">
-      <h3>🐾 As a SmartPetBuys subscriber, you'll get:</h3>
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon">📋</div>
-          <h4>Expert Reviews</h4>
-          <p>Honest, tested recommendations from real pet parents who've tried everything</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">💡</div>
-          <h4>Smart Buying Tips</h4>
-          <p>Learn how to avoid common mistakes and get the best value for your money</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🔔</div>
-          <h4>Safety Alerts</h4>
-          <p>Be the first to know about product recalls and safety warnings</p>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">🎯</div>
-          <h4>Personalized Recs</h4>
-          <p>Get product suggestions tailored to your pet's specific needs</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="immediate-actions">
-      <h3>🚀 Start exploring right away:</h3>
-      <div class="action-buttons">
-        <a href="/posts/" class="action-btn primary">📚 Browse Our Latest Reviews</a>
-        <a href="/tags/deals/" class="action-btn secondary">💰 See Current Deals</a>
-        <a href="/tags/health/" class="action-btn secondary">💊 Pet Health Products</a>
-      </div>
-    </div>
-
-    <div class="social-proof">
-      <h3>🌟 Join 1000+ happy pet parents</h3>
-      <div class="testimonial">
-        <blockquote>"SmartPetBuys helped me find the perfect food for my senior dog with allergies. The buying guide saved me hundreds of dollars and weeks of trial and error!"</blockquote>
-        <cite>- Sarah M., Golden Retriever Mom</cite>
-      </div>
-    </div>
-
-    <div class="contact-section">
-      <h3>📞 Questions? We're here to help!</h3>
-      <p>Have a specific product question or need personalized recommendations?</p>
-      <a href="/contact/" class="contact-btn">Get in Touch</a>
-      <p class="contact-note">We typically respond within 24 hours (usually much faster!)</p>
-    </div>
-  </div>
-</div>
 
 <style>
 .thank-you-container {
@@ -137,18 +46,13 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   margin: 0;
 }
 
-.thank-you-content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
 .confirmation-message {
   background: #fff3e0;
   border-left: 4px solid #FF7F32;
   padding: 25px;
   border-radius: 0 12px 12px 0;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .confirmation-message h2 {
@@ -157,23 +61,12 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   margin-bottom: 15px;
 }
 
-.whats-next h3,
-.benefits-recap h3,
-.immediate-actions h3,
-.social-proof h3,
-.contact-section h3 {
-  color: #1565c0;
-  font-size: 1.3rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
 .timeline {
   display: flex;
   flex-direction: column;
   gap: 20px;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
 }
 
 .timeline-item {
@@ -208,7 +101,7 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  margin-top: 25px;
+  margin: 40px 0;
 }
 
 .benefit-card {
@@ -226,7 +119,7 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   border-color: #e3f2fd;
 }
 
-.benefit-card .benefit-icon {
+.benefit-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
   display: block;
@@ -250,7 +143,7 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
-  margin-top: 25px;
+  margin: 40px 0;
 }
 
 .action-btn {
@@ -293,6 +186,7 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   padding: 30px;
   border-radius: 12px;
   text-align: center;
+  margin: 40px 0;
 }
 
 .testimonial blockquote {
@@ -315,6 +209,7 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   padding: 30px;
   border-radius: 12px;
   text-align: center;
+  margin: 40px 0;
 }
 
 .contact-btn {
@@ -338,6 +233,13 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   color: #666;
   font-size: 0.9rem;
   margin-top: 10px;
+}
+
+.section-header {
+  color: #1565c0;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -374,3 +276,97 @@ description: "Thank you for confirming your email! Your FREE Ultimate Pet Buying
   }
 }
 </style>
+
+<div class="thank-you-container">
+
+<div class="success-header">
+<div class="success-icon">🎉</div>
+<h1>Email Confirmed Successfully!</h1>
+<p class="success-subtitle">Welcome to the SmartPetBuys family!</p>
+</div>
+
+<div class="confirmation-message">
+<h2>🎁 Your FREE Ultimate Pet Buying Guide is on its way!</h2>
+<p>Check your inbox in the next few minutes - we're sending your comprehensive pet buying guide right now.</p>
+</div>
+
+<h3 class="section-header">📅 What happens next?</h3>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-icon">📧</div>
+<div class="timeline-content">
+<h4>Right Now</h4>
+<p>Your FREE Ultimate Pet Buying Guide is being delivered to your inbox</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-icon">🌟</div>
+<div class="timeline-content">
+<h4>This Tuesday</h4>
+<p>Get our first weekly newsletter with expert product reviews and money-saving tips</p>
+</div>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-icon">💰</div>
+<div class="timeline-content">
+<h4>Ongoing</h4>
+<p>Receive exclusive deals, safety alerts, and the latest product recommendations</p>
+</div>
+</div>
+</div>
+
+<h3 class="section-header">🐾 As a SmartPetBuys subscriber, you'll get:</h3>
+
+<div class="benefits-grid">
+<div class="benefit-card">
+<div class="benefit-icon">📋</div>
+<h4>Expert Reviews</h4>
+<p>Honest, tested recommendations from real pet parents who've tried everything</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">💡</div>
+<h4>Smart Buying Tips</h4>
+<p>Learn how to avoid common mistakes and get the best value for your money</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">🔔</div>
+<h4>Safety Alerts</h4>
+<p>Be the first to know about product recalls and safety warnings</p>
+</div>
+
+<div class="benefit-card">
+<div class="benefit-icon">🎯</div>
+<h4>Personalized Recs</h4>
+<p>Get product suggestions tailored to your pet's specific needs</p>
+</div>
+</div>
+
+<h3 class="section-header">🚀 Start exploring right away:</h3>
+
+<div class="action-buttons">
+<a href="/posts/" class="action-btn primary">📚 Browse Our Latest Reviews</a>
+<a href="/tags/deals/" class="action-btn secondary">💰 See Current Deals</a>
+<a href="/tags/health/" class="action-btn secondary">💊 Pet Health Products</a>
+</div>
+
+<div class="social-proof">
+<h3 class="section-header">🌟 Join 1000+ happy pet parents</h3>
+<div class="testimonial">
+<blockquote>"SmartPetBuys helped me find the perfect food for my senior dog with allergies. The buying guide saved me hundreds of dollars and weeks of trial and error!"</blockquote>
+<cite>- Sarah M., Golden Retriever Mom</cite>
+</div>
+</div>
+
+<div class="contact-section">
+<h3 class="section-header">📞 Questions? We're here to help!</h3>
+<p>Have a specific product question or need personalized recommendations?</p>
+<a href="/contact/" class="contact-btn">Get in Touch</a>
+<p class="contact-note">We typically respond within 24 hours (usually much faster!)</p>
+</div>
+
+</div>
