@@ -16,8 +16,16 @@ Keyword: "{keyword}"
 Write 1200–1500 words in Markdown, but **do NOT include an H1**. The H1 comes from front matter.
 Start with a short intro paragraph, then use H2/H3 sections.
 
-Include 3–5 product sections using this shortcode format exactly:
-{{{{< product id="toy-01" >}}}} 
+🎯 CONTENT FOCUS: The entire article must be focused on "{keyword}". Every section, product recommendation, and piece of advice should directly relate to this specific topic.
+
+ONLY include product sections if they are DIRECTLY relevant to the keyword topic. For example:
+- Insurance guides = firstaid-01, emergency-01, health products
+- Food reviews = kibble-01, kibble-02, cat-food-01, etc.
+- Toy reviews = toy-01, toy-02, cat-toy-01, etc.
+- Training topics = treats-01, training-01, crate-01, etc.
+
+If products are relevant, use this shortcode format exactly:
+{{{{< product id="relevant-product-id" >}}}} 
 
 **Why we like it**
 - [Key benefit 1]
@@ -35,6 +43,18 @@ Include 3–5 product sections using this shortcode format exactly:
 **Best for**
 - [Target audience 1]
 - [Target audience 2]
+
+🚨 CRITICAL: DO NOT include random products. Only use products that DIRECTLY relate to the article topic.
+
+**TOPIC-SPECIFIC PRODUCT GUIDANCE:**
+- **Insurance/Emergency topics**: firstaid-01, emergency-01, microchip-01
+- **Health/Medical topics**: health-02, health-03, joint-01, supplements-01, omega-01
+- **Food topics**: kibble-01, kibble-02, cat-food-01, puppy-01, senior-01, weight-01
+- **Training topics**: treats-01, treats-02, training-01, crate-01, crate-02
+- **Toy topics**: toy-01, toy-02, toy-03, cat-toy-01, cat-toy-02, puzzle-01
+- **Grooming topics**: brush-01, groom-03, grooming-01, shampoo-01
+- **Dental topics**: dental-kit-01, dental-02, dental-03, Minties-01
+- **Behavior topics**: behavior-01, anxiety-01, calming-01, separation-01
 
 🚨 CRITICAL: ONLY use these EXACT product IDs from data/products.json.
 ❌ DO NOT create collar-02, collar-03, collar-04 - ONLY collar-01 exists!
