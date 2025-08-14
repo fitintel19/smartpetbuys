@@ -80,8 +80,34 @@
   margin-top: 20px;
 }
 
-/* MailerLite form styling overrides */
-.mailerlite-inline-form .ml-embedded {
+/* MailerLite form styling overrides - Strong overrides for better readability */
+.mailerlite-inline-form .ml-embedded,
+.mailerlite-inline-form .ml-embedded *,
+.mailerlite-inline-form .ml-embedded div,
+.mailerlite-inline-form .ml-embedded form {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #333 !important;
+}
+
+/* Force override Mailerlite's dark background */
+.mailerlite-inline-form .ml-embedded .ml-form-embedContainer,
+.mailerlite-inline-form .ml-embedded .ml-form-embedWrapper,
+.mailerlite-inline-form .ml-embedded .ml-form-embedBody,
+.mailerlite-inline-form .ml-embedded .ml-form-embedContent {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Override any Mailerlite text styling */
+.mailerlite-inline-form .ml-embedded h1,
+.mailerlite-inline-form .ml-embedded h2,
+.mailerlite-inline-form .ml-embedded h3,
+.mailerlite-inline-form .ml-embedded h4,
+.mailerlite-inline-form .ml-embedded p,
+.mailerlite-inline-form .ml-embedded span,
+.mailerlite-inline-form .ml-embedded div {
+  color: #333 !important;
   background: transparent !important;
 }
 
@@ -93,6 +119,15 @@
   font-size: 16px !important;
   width: 100% !important;
   margin-bottom: 15px !important;
+  background: white !important;
+  color: #333 !important;
+}
+
+.mailerlite-inline-form .ml-embedded input[type="email"]:focus,
+.mailerlite-inline-form .ml-embedded input[type="text"]:focus {
+  border-color: #1565c0 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1) !important;
 }
 
 .mailerlite-inline-form .ml-embedded button[type="submit"],
