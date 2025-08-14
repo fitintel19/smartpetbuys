@@ -60,9 +60,15 @@
   "wordCount": "{{ .WordCount }}",
   "timeRequired": "PT{{ .ReadingTime }}M"
   {{- if findRE `review|best|top` .Title -}},
+  "itemReviewed": {
+    "@type": "Product",
+    "name": "{{ replaceRE `(?i)(review:?\\s*|best\\s+|top\\s+)` "" .Title | strings.TrimSpace }}",
+    "description": "{{ .Description | default .Summary }}",
+    "image": "{{ with .Params.featured_image }}{{ . }}{{ end }}"
+  },
   "reviewRating": {
     "@type": "Rating",
-    "ratingValue": "4.5",
+    "ratingValue": "{{ .Params.rating | default "4.5" }}",
     "bestRating": "5",
     "worstRating": "1"
   },
