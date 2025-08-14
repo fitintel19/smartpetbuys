@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Confirm Your Email - SmartPetBuys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #FF7F32 0%, #e66a2b 100%);
+            padding: 30px 40px;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .tagline {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+        
+        .emoji {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .welcome-message h1 {
+            color: #1565c0;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .welcome-message p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .confirmation-section {
+            background: #f8f9ff;
+            border: 2px solid #e3f2fd;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .confirmation-text {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .confirm-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF7F32 0%, #e66a2b 100%);
+            color: white !important;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(255,127,50,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .confirm-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,127,50,0.4);
+            background: linear-gradient(135deg, #e66a2b 0%, #d96f17 100%);
+        }
+        
+        .benefits {
+            margin: 35px 0;
+        }
+        
+        .benefits h3 {
+            color: #1565c0;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 8px 0;
+        }
+        
+        .benefit-icon {
+            color: #2e7d32;
+            font-size: 1.2rem;
+            margin-right: 12px;
+            min-width: 25px;
+        }
+        
+        .benefit-text {
+            color: #333;
+            font-size: 0.95rem;
+        }
+        
+        .security-note {
+            background: #fff3e0;
+            border-left: 4px solid #FF7F32;
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .security-note p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer p {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+        }
+        
+        .social-links {
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: #FF7F32;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .header, .content, .footer {
+                padding: 25px 20px;
+            }
+            
+            .confirmation-section {
+                padding: 20px;
+            }
+            
+            .welcome-message h1 {
+                font-size: 1.4rem;
+            }
+            
+            .confirm-button {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🐾 SmartPetBuys</div>
+            <div class="tagline">Expert Pet Product Reviews & Buying Guides</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Welcome Message -->
+            <div class="welcome-message">
+                <span class="emoji">📧</span>
+                <h1>Almost There!</h1>
+                <p>Please confirm your email address to start receiving our expert pet product guides and money-saving tips.</p>
+            </div>
+            
+            <!-- Confirmation Section -->
+            <div class="confirmation-section">
+                <div class="confirmation-text">
+                    <strong>Click the button below to confirm your subscription:</strong><br>
+                    This ensures you'll receive our valuable content and helps us keep your inbox secure.
+                </div>
+                
+                <a href="[confirmation_link]" class="confirm-button">
+                    ✅ Confirm My Email
+                </a>
+            </div>
+            
+            <!-- Benefits Preview -->
+            <div class="benefits">
+                <h3>🎁 Here's what you'll get:</h3>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📋</span>
+                    <span class="benefit-text"><strong>FREE Ultimate Pet Buying Guide</strong> - Complete checklist for smart pet purchases</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">⭐</span>
+                    <span class="benefit-text"><strong>Expert Product Reviews</strong> - Honest, tested recommendations from real pet parents</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <span class="benefit-text"><strong>Money-Saving Deals</strong> - Exclusive discounts and promotional offers</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🔔</span>
+                    <span class="benefit-text"><strong>Safety Alerts</strong> - Product recalls and safety warnings to protect your pets</span>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📅</span>
+                    <span class="benefit-text"><strong>Weekly Tips</strong> - Practical advice delivered every Tuesday</span>
+                </div>
+            </div>
+            
+            <!-- Security Note -->
+            <div class="security-note">
+                <p><strong>Security Note:</strong> This confirmation helps protect you from spam and ensures you actually want to receive our emails. We'll never share your email address with third parties.</p>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>SmartPetBuys</strong> - Making pet parenting easier, one product at a time</p>
+            <p>If you didn't sign up for this list, you can safely ignore this email.</p>
+            
+            <div class="social-links">
+                <a href="https://www.smartpetbuys.com">Visit Our Website</a> • 
+                <a href="https://www.smartpetbuys.com/contact">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

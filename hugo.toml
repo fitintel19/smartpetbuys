@@ -26,6 +26,12 @@ theme = "PaperMod"
 [pagination]
   pagerSize = 10
 
+# Markup configuration to allow HTML in markdown
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   defaultTheme = "auto"
   description  = "Expert pet product reviews, buying guides, and deals. Find the best dog food, cat toys, pet beds, and more with our comprehensive testing and recommendations."
