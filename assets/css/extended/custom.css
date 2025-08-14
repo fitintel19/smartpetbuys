@@ -549,6 +549,24 @@ footer {
   }
 }
 
+/* Kit Sticky Bar Override - Ensure full visibility */
+.formkit-sticky-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+  width: 100% !important;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2) !important;
+}
+
+/* Ensure sticky bar form is visible */
+.formkit-sticky-bar .formkit-form {
+  position: relative !important;
+  z-index: 99999 !important;
+  display: block !important;
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {
