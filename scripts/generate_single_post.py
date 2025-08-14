@@ -272,29 +272,50 @@ def to_title_case(text):
 
 def get_featured_image(keyword):
     """Get a relevant featured image URL based on the keyword."""
-    # Define image URLs for different pet categories
+    # Define reliable image URLs with quality parameters for better loading
     image_urls = {
         'dog': [
-            'https://images.unsplash.com/photo-1552053831-71594a27632d?w=1200&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=1200&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=600&fit=crop'
+            'https://images.unsplash.com/photo-1552053831-71594a27632d?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=600&fit=crop&q=80&auto=format'
         ],
         'cat': [
-            'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1200&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1200&h=600&fit=crop'
+            'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=1200&h=600&fit=crop&q=80&auto=format'
         ],
         'pet': [
-            'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&h=600&fit=crop',
-            'https://images.unsplash.com/photo-1583511655826-05700d52c4e9?w=1200&h=600&fit=crop'
+            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1415369629372-26f2fe60c467?w=1200&h=600&fit=crop&q=80&auto=format'
+        ],
+        'insurance': [
+            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=600&fit=crop&q=80&auto=format'
+        ],
+        'health': [
+            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=600&fit=crop&q=80&auto=format'
+        ],
+        'food': [
+            'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=1200&h=600&fit=crop&q=80&auto=format',
+            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format'
         ]
     }
     
     keyword_lower = keyword.lower()
     
-    # Determine which category the keyword belongs to
-    if 'dog' in keyword_lower:
+    # Determine which category the keyword belongs to (most specific first)
+    if 'insurance' in keyword_lower or 'emergency' in keyword_lower:
+        category = 'insurance'
+    elif 'health' in keyword_lower or 'supplement' in keyword_lower or 'medical' in keyword_lower:
+        category = 'health'
+    elif 'food' in keyword_lower or 'kibble' in keyword_lower or 'treat' in keyword_lower or 'nutrition' in keyword_lower:
+        category = 'food'
+    elif 'dog' in keyword_lower:
         category = 'dog'
     elif 'cat' in keyword_lower:
         category = 'cat'

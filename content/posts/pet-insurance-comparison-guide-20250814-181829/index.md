@@ -5,7 +5,7 @@ slug = "pet-insurance-comparison-guide-20250814-181829"
 tags = ["pet insurance comparison guide","pet products","reviews"]
 categories = ["Reviews"]
 description = "Best Pet Insurance Comparison Guide for pets — tested picks and buying guide."
-featured_image = "https://images.unsplash.com/photo-1583511655826-05700d52c4e9?w=1200&h=600&fit=crop"
+featured_image = "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80"
 draft = false
 +++
 
