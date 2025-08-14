@@ -80,6 +80,11 @@
         {{- partial "anchored_headings.html" .Content -}}
         {{- else }}{{ .Content }}{{ end }}
       </div>
+      
+      <!-- Inline Email Signup (only for non-legal pages) -->
+      {{- if not $isLegalPage }}
+      {{< email-signup type="inline" >}}
+      {{- end }}
       {{- end }}
 
       <!-- Enhanced Footer -->
@@ -155,14 +160,11 @@
         </ul>
       </div>
 
-      <!-- Newsletter Signup -->
+      <!-- Simple Sidebar Info (Sticky Bar handles main signups) -->
       <div class="sidebar-widget newsletter-widget">
-        <h3>Stay Updated</h3>
-        <p>Get the latest pet product reviews and deals delivered to your inbox.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Your email address" required>
-          <button type="submit" class="btn">Subscribe</button>
-        </form>
+        <h3>📧 Free Pet Buying Guide</h3>
+        <p>Get our expert pet product reviews and money-saving tips delivered to your inbox.</p>
+        <p><small>💡 <em>Sticky bar appears after 10 seconds with signup form!</em></small></p>
       </div>
     </div>
   </aside>

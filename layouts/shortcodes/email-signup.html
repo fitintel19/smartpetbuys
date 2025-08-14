@@ -1,0 +1,338 @@
+{{- $type := .Get "type" | default "sidebar" -}}
+{{- $offer := .Get "offer" | default "guide" -}}
+
+{{- if eq $type "sidebar" -}}
+<!-- Sidebar Email Signup -->
+<div class="email-signup sidebar-signup">
+  <h3>🐾 Get Our Free Pet Buying Guide!</h3>
+  <p>Make smarter choices for your furry friend with our comprehensive buying guide.</p>
+  
+  <!-- Kit Form Embed - Replace with your actual Kit form -->
+  <form class="kit-form" data-kit-form="YOUR_KIT_FORM_ID">
+    <div class="form-group">
+      <input 
+        type="email" 
+        name="email_address" 
+        placeholder="Enter your email" 
+        required
+        class="email-input"
+      >
+    </div>
+    <button type="submit" class="signup-btn">
+      Get Free Guide →
+    </button>
+  </form>
+  
+  <p class="privacy-note">
+    <small>We respect your privacy. Unsubscribe anytime.</small>
+  </p>
+</div>
+
+{{- else if eq $type "inline" -}}
+<!-- Inline Content Email Signup -->
+<div class="email-signup inline-signup">
+  <div class="signup-content">
+    <h3>📧 Love these pet product tips?</h3>
+    <p>Get our <strong>FREE Ultimate Pet Buying Guide</strong> plus weekly product recommendations sent to your inbox!</p>
+    
+    <!-- Kit Form Embed -->
+    <form class="kit-form" data-kit-form="YOUR_KIT_FORM_ID">
+      <div class="form-row">
+        <input 
+          type="email" 
+          name="email_address" 
+          placeholder="Enter your email address" 
+          required
+          class="email-input"
+        >
+        <button type="submit" class="signup-btn">
+          Get Free Guide
+        </button>
+      </div>
+    </form>
+    
+    <p class="benefits">
+      ✅ Expert product reviews &nbsp;&nbsp; ✅ Money-saving deals &nbsp;&nbsp; ✅ Safety alerts
+    </p>
+  </div>
+</div>
+
+{{- else if eq $type "exit-intent" -}}
+<!-- Exit Intent Popup -->
+<div id="exit-intent-popup" class="email-popup" style="display: none;">
+  <div class="popup-overlay"></div>
+  <div class="popup-content">
+    <div class="popup-close">&times;</div>
+    <div class="popup-body">
+      <h2>Wait! Don't Leave Empty-Handed 🐾</h2>
+      <p>Get our <strong>FREE Ultimate Pet Buying Guide</strong> before you go!</p>
+      
+      <ul class="popup-benefits">
+        <li>✅ Save money on pet products</li>
+        <li>✅ Avoid dangerous products</li>
+        <li>✅ Find the best deals</li>
+        <li>✅ Expert buying advice</li>
+      </ul>
+      
+      <!-- Kit Form Embed -->
+      <form class="kit-form popup-form" data-kit-form="YOUR_KIT_FORM_ID">
+        <div class="form-group">
+          <input 
+            type="email" 
+            name="email_address" 
+            placeholder="Enter your email to get the guide" 
+            required
+            class="email-input"
+          >
+        </div>
+        <button type="submit" class="signup-btn large">
+          Send Me The Free Guide!
+        </button>
+      </form>
+      
+      <p class="popup-privacy">
+        <small>We respect your privacy. No spam, unsubscribe anytime.</small>
+      </p>
+    </div>
+  </div>
+</div>
+
+{{- else if eq $type "footer" -}}
+<!-- Footer Newsletter Signup -->
+<div class="email-signup footer-signup">
+  <h4>📬 Smart Pet Parent Newsletter</h4>
+  <p>Weekly product reviews, deals, and pet care tips</p>
+  
+  <!-- Kit Form Embed -->
+  <form class="kit-form footer-form" data-kit-form="YOUR_KIT_FORM_ID">
+    <div class="form-row">
+      <input 
+        type="email" 
+        name="email_address" 
+        placeholder="Your email" 
+        required
+        class="email-input compact"
+      >
+      <button type="submit" class="signup-btn compact">
+        Subscribe
+      </button>
+    </div>
+  </form>
+</div>
+
+{{- end -}}
+
+<style>
+/* Email Signup Styles */
+.email-signup {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.sidebar-signup {
+  position: sticky;
+  top: 20px;
+  margin-bottom: 30px;
+}
+
+.inline-signup {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  margin: 30px 0;
+}
+
+.inline-signup h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.form-group, .form-row {
+  margin-bottom: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.email-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #FF7F32;
+  box-shadow: 0 0 0 3px rgba(255, 127, 50, 0.1);
+}
+
+.signup-btn {
+  background: #FF7F32;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: #e66a2b;
+}
+
+.signup-btn.large {
+  padding: 15px 30px;
+  font-size: 18px;
+  width: 100%;
+}
+
+.signup-btn.compact {
+  padding: 10px 16px;
+  font-size: 14px;
+}
+
+.privacy-note, .popup-privacy {
+  margin-top: 10px;
+  color: #666;
+}
+
+.benefits {
+  font-size: 14px;
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.popup-benefits {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.popup-benefits li {
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+/* Exit Intent Popup */
+.email-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.popup-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #666;
+}
+
+.popup-body {
+  padding: 40px 30px 30px;
+  text-align: center;
+}
+
+/* Footer Signup */
+.footer-signup {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+.footer-form .form-row {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .popup-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .popup-body {
+    padding: 30px 20px 20px;
+  }
+}
+</style>
+
+{{- if eq $type "exit-intent" -}}
+<script>
+// Exit Intent Popup Logic
+let exitIntentShown = false;
+
+function showExitIntentPopup() {
+  if (!exitIntentShown && !localStorage.getItem('exitIntentShown')) {
+    document.getElementById('exit-intent-popup').style.display = 'block';
+    exitIntentShown = true;
+    localStorage.setItem('exitIntentShown', 'true');
+  }
+}
+
+// Show popup when mouse leaves viewport
+document.addEventListener('mouseleave', function(e) {
+  if (e.clientY <= 0) {
+    showExitIntentPopup();
+  }
+});
+
+// Close popup functionality
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('popup-close') || e.target.classList.contains('popup-overlay')) {
+    document.getElementById('exit-intent-popup').style.display = 'none';
+  }
+});
+
+// Show popup after 30 seconds as backup
+setTimeout(function() {
+  if (!exitIntentShown) {
+    showExitIntentPopup();
+  }
+}, 30000);
+</script>
+{{- end -}}

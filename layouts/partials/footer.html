@@ -1,10 +1,30 @@
 <footer class="site-footer">
   <div class="footer-inner">
-    <p>&copy; {{ now.Year }} SmartPetBuys</p>
-    <nav class="footer-nav">
-      <a href="/legal/disclosure/">Affiliate Disclosure</a>
-      <a href="/legal/privacy/">Privacy Policy</a>
-      <a href="/legal/terms/">Terms</a>
-    </nav>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>SmartPetBuys</h4>
+        <p>Expert pet product reviews and buying guides to help you make the best choices for your furry friends.</p>
+      </div>
+      
+      <div class="footer-section">
+        {{< email-signup type="footer" >}}
+      </div>
+      
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <nav class="footer-nav">
+          <a href="/legal/disclosure/">Affiliate Disclosure</a>
+          <a href="/legal/privacy/">Privacy Policy</a>
+          <a href="/legal/terms/">Terms</a>
+        </nav>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ now.Year }} SmartPetBuys. All rights reserved.</p>
+    </div>
   </div>
 </footer>
+
+<!-- Kit Sticky Bar - Loads on all pages -->
+{{ partial "kit-sticky-bar.html" . }}

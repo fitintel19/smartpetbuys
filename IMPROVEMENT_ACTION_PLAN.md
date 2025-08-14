@@ -58,17 +58,18 @@
 
 ## 🚀 **PHASE 2: MONETIZATION OPTIMIZATION (Week 2-3)**
 
-### Task 2.1: Diversify Affiliate Programs
+### Task 2.1: Diversify Affiliate Programs 🔄 IN PROGRESS
 **Priority**: HIGH  
 **Estimated Time**: 4 hours  
 **Revenue Impact**: Very High
 
 **Sub-tasks:**
-- [ ] **2.1.1** Sign up for additional affiliate programs:
-  - Chewy.com affiliate program
-  - Petco affiliate network
-  - PetSmart affiliate program
-  - Wag.com partner program
+- [x] **2.1.1** Sign up for additional affiliate programs:
+  - ✅ Impact Affiliate Marketing platform (verified)
+  - 🔄 Chewy.com affiliate program (pending approval - 48-72 hours)
+  - 🔄 Petco affiliate network (pending approval - 48-72 hours)
+  - [ ] PetSmart affiliate program
+  - [ ] Wag.com partner program
 
 - [ ] **2.1.2** Update `data/products.json` to include multiple retailer options:
   ```json
@@ -96,31 +97,36 @@
 
 **Expected Outcome**: 3-4x increase in conversion rates through price comparison and retailer choice
 
-### Task 2.2: Implement Email Marketing System
+### Task 2.2: Implement Email Marketing System 🔄 IN PROGRESS
 **Priority**: HIGH  
 **Estimated Time**: 3 hours  
 **Revenue Impact**: Very High
 
 **Sub-tasks:**
-- [ ] **2.2.1** Set up ConvertKit or Mailchimp account
+- [x] **2.2.1** Set up Kit (ConvertKit) account ✅
 
-- [ ] **2.2.2** Create lead magnets:
-  - "Ultimate Pet Product Buying Guide" PDF
-  - "Seasonal Pet Care Checklist" 
-  - "Pet Emergency Kit Essentials" guide
+- [x] **2.2.2** Create lead magnets:
+  - ✅ "Ultimate Pet Product Buying Guide" (comprehensive 6-chapter guide)
+  - ✅ "Seasonal Pet Care Checklist" (month-by-month care guide)
+  - [ ] "Pet Emergency Kit Essentials" guide
 
-- [ ] **2.2.3** Add email capture forms to blog:
-  - Sidebar opt-in widget
-  - In-content forms after product recommendations
-  - Exit-intent popup (ConvertKit)
-  - Footer newsletter signup
+- [x] **2.2.3** Add email capture forms to blog:
+  - ✅ Sidebar opt-in widget
+  - ✅ In-content forms after product recommendations  
+  - ✅ Exit-intent popup functionality
+  - ✅ Footer newsletter signup
 
-- [ ] **2.2.4** Create automated email sequences:
-  - Welcome series (5 emails)
-  - Product recommendation series by pet type
-  - Seasonal care tips and product promotions
+- [x] **2.2.4** Create automated email sequences:
+  - ✅ Welcome series (5 emails) template created
+  - ✅ Product recommendation email template
+  - [ ] Seasonal care tips automation
 
-- [ ] **2.2.5** Update `layouts/_default/single.html` to include email forms
+- [x] **2.2.5** Update `layouts/_default/single.html` to include email forms ✅
+
+**NEXT STEPS:** 
+- [ ] **2.2.6** Configure Kit forms and get embed codes
+- [ ] **2.2.7** Replace placeholder form IDs with actual Kit form IDs
+- [ ] **2.2.8** Test email capture and automation
 
 **Expected Outcome**: Build email list for recurring revenue and higher lifetime value
 
