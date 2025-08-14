@@ -8,8 +8,15 @@
 <!-- Pinterest Site Verification -->
 <meta name="p:domain_verify" content="06dada1659a02925f28a921a1723ba78"/>
 
-<!-- Kit Email Marketing Script -->
-<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1736326');
+</script>
+<!-- End MailerLite Universal -->
 
 {{- $ga := (.Site.Params.ga4.id | default "G-HHVQX4ENNP") -}}
 {{- if and $ga (eq hugo.Environment "production") -}}
@@ -27,7 +34,7 @@
 <!-- Schema.org Structured Data -->
 {{ partial "schema-org.html" . }}
 
-<!-- Kit Exit-Intent Popup (only for blog posts) -->
+<!-- MailerLite Exit-Intent Popup (only for blog posts) -->
 {{- if eq .Section "posts" }}
-{{ partial "kit-exit-intent.html" . }}
+{{ partial "mailerlite-exit-intent.html" . }}
 {{- end }}

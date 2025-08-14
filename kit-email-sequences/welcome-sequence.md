@@ -140,32 +140,36 @@ My golden retriever Max and rescue cat Luna are basically my co-reviewers. 😊
 **Here are the products that have earned permanent spots in our home:**
 
 **🐕 For Dogs:**
-- **Food:** [Specific product with affiliate link]
-- **Toy:** Kong Classic (15 years and still going!)  
-- **Bed:** [Specific product] (Max sleeps 12+ hours on this)
-- **Treats:** [Specific product] (Luna steals these!)
+- **Food:** [Orijen Original Dry Dog Food](https://amzn.to/4LsOjvH) (Max thrives on this high-protein formula!)  
+- **Toy:** [KONG Classic Dog Toy](https://amzn.to/45ud9Iy) (15 years and still going strong!)  
+- **Bed:** [Casper Dog Bed, Pressure-Relieving Memory Foam](https://amzn.to/4ftYRfs) (Max sleeps 12+ hours on this orthopedic heaven)
+- **Treats:** [Wellness CORE Tiny Trainers Dog Treats](https://amzn.to/45pdCvu) (Luna actually steals these from Max!)
 
 **🐱 For Cats:**
-- **Litter:** [Specific product] (odor control = game changer)
-- **Scratching Post:** [Specific product] (saved my furniture!)
-- **Toy:** Simple cardboard boxes (Luna's favorite, seriously!)
+- **Litter:** [Dr. Elsey's Precious Cat Ultra](https://amzn.to/46MP41P) (odor control = absolute game changer)
+- **Scratching Post:** [SmartCat Ultimate Scratching Post](https://amzn.to/3UkmXQa) (saved my furniture AND Luna loves the full-body stretch!)
+- **Toy:** Simple cardboard boxes (Luna's favorite, seriously!) + [SmartyKat Skitter Critters](https://amzn.to/45L9CXt)
 
 **💊 For Both:**
-- **Dental Chews:** [Specific product] (vet-approved)
-- **Nail Clippers:** [Specific product] (stress-free grooming)
+- **Dental Chews:** [Greenies Original Dental Chews](https://amzn.to/4oBcpKs) (vet-approved and they actually work!)
+- **Nail Clippers:** [Boshel Dog Nail Clippers and Trimmer](https://amzn.to/4oOibsj) (stress-free grooming with the safety guard)
 
 **The Real Test:** Would I buy these again with my own money? 
 ABSOLUTELY. ✅
 
+**Quick Story:** Last month, a friend asked me what I'd buy if I had to start over with zero pet supplies and a $500 budget. I wrote down these exact products. That's how much I trust them.
+
 **Want specific recommendations for YOUR pet?** Just reply with:
 - Pet type (dog/cat)  
 - Age (puppy/adult/senior)
-- Any special needs
+- Any special needs or behavioral quirks
 
-I'll send you a personalized recommendation list within 24 hours!
+I'll send you a personalized recommendation list within 24 hours - just like I did for my friend!
 
 Happy pet parenting,
-[Your Name]
+SmartPetBuys Team
+
+P.S. Max says "woof" and Luna says... well, she's ignoring me as usual. 😸
 
 ---
 

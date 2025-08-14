@@ -81,9 +81,9 @@
         {{- else }}{{ .Content }}{{ end }}
       </div>
       
-      <!-- Kit Inline Form (only for non-legal pages) -->
+      <!-- MailerLite Inline Form (only for non-legal pages) -->
       {{- if not $isLegalPage }}
-      {{ partial "kit-inline-form.html" . }}
+      {{ partial "mailerlite-inline-form.html" . }}
       {{- end }}
       {{- end }}
 
