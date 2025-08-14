@@ -77,14 +77,11 @@ jobs:
             echo "  - OpenAI API error occurred"
           else
             echo "📝 New content detected. Committing changes..."
-            git commit -m "$(cat <<'EOF'
-Content: Add new AI-generated blog post
+            git commit -m "Content: Add new AI-generated blog post
 
 🤖 Generated with [Claude Code](https://claude.ai/code)
 
-Co-Authored-By: Claude <noreply@anthropic.com>
-EOF
-)"
+Co-Authored-By: Claude <noreply@anthropic.com>"
             echo "🚀 Pushing to repository..."
             git push
             echo "✅ Content published successfully!"
