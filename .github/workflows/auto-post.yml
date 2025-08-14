@@ -34,24 +34,58 @@ jobs:
       - name: 'Install Dependencies'
         run: |
           python -m pip install --upgrade pip
-          pip install openai
+          pip install openai frontmatter
 
       - name: 'Generate New Content'
         id: generate
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
+          echo "🤖 Starting content generation..."
+          if [ -z "$OPENAI_API_KEY" ]; then
+            echo "❌ ERROR: OPENAI_API_KEY not found in secrets"
+            exit 1
+          fi
+          echo "✅ OpenAI API key detected"
+          echo "📊 Checking keywords.csv for publishable content..."
           python scripts/generate_single_post.py
+          echo "✅ Content generation completed."
+        continue-on-error: false
+
+      - name: 'Validate Hugo Build'
+        run: |
+          echo "Installing Hugo..."
+          wget -O hugo.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.120.4/hugo_extended_0.120.4_Linux-64bit.tar.gz
+          tar -xzf hugo.tar.gz
+          sudo mv hugo /usr/local/bin/
+          echo "Testing Hugo build..."
+          hugo --minify --destination public_test
+          echo "Hugo build successful!"
 
       - name: 'Commit and Push Changes'
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add content/posts/
+          git add IMPROVEMENT_ACTION_PLAN.md || true
           # Check if there are changes to commit
           if git diff --staged --quiet; then
-            echo "No new content generated. Nothing to commit."
+            echo "✅ No new content generated. Nothing to commit."
+            echo "This might mean:"
+            echo "  - No keywords marked 'publish=yes' in keywords.csv"
+            echo "  - All keywords already have 3 posts (spam prevention)"
+            echo "  - OpenAI API error occurred"
           else
-            git commit -m "Content: Add new AI-generated posts"
+            echo "📝 New content detected. Committing changes..."
+            git commit -m "$(cat <<'EOF'
+Content: Add new AI-generated blog post
+
+🤖 Generated with [Claude Code](https://claude.ai/code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+EOF
+)"
+            echo "🚀 Pushing to repository..."
             git push
+            echo "✅ Content published successfully!"
           fi

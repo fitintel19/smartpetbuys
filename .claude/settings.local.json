@@ -1,8 +1,10 @@
 {
   "permissions": {
-    "defaultMode": "acceptEdits",
     "allow": [
-      "Bash(git add:*)"
-    ]
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(rm:*)"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }

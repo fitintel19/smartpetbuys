@@ -12,10 +12,11 @@ Disallow: /private/
 Allow: /posts/
 Allow: /categories/
 Allow: /tags/
+Allow: /legal/
 Allow: /legal/about/
-Allow: /privacy/
-Allow: /terms/
-Allow: /disclosure/
+Allow: /legal/privacy/
+Allow: /legal/terms/
+Allow: /legal/disclosure/
 
 # Crawl delay (optional)
 Crawl-delay: 1
