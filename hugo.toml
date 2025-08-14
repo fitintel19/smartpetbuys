@@ -54,6 +54,9 @@ theme = "PaperMod"
   phone = ""
   address = ""
   
+  # Favicon
+  favicon = "/favicon.ico"
+  
   # Business hours for schema
   businessHours = "Monday-Friday 9AM-6PM EST"
   
