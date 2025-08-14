@@ -498,6 +498,57 @@ footer {
   }
 }
 
+/* Inline Email Signup Styles */
+.inline-email-signup {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.inline-email-signup h3 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.inline-email-signup p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.inline-email-signup .cta-note {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+.inline-email-signup .benefits {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+.footer-newsletter {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .inline-email-signup {
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  .inline-email-signup h3 {
+    font-size: 1.3rem;
+  }
+}
+
 /* Animations */
 @keyframes fadeInUp {
   from {

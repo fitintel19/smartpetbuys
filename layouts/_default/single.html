@@ -83,7 +83,16 @@
       
       <!-- Inline Email Signup (only for non-legal pages) -->
       {{- if not $isLegalPage }}
-      {{< email-signup type="inline" >}}
+      <div class="inline-email-signup">
+        <div class="signup-content">
+          <h3>📧 Love these pet product tips?</h3>
+          <p>Get our <strong>FREE Ultimate Pet Buying Guide</strong> plus weekly product recommendations!</p>
+          <p class="cta-note">💡 <strong>Scroll down for the sticky bar signup form</strong> or <strong>wait 10 seconds</strong> for it to appear!</p>
+          <p class="benefits">
+            ✅ Expert product reviews &nbsp;&nbsp; ✅ Money-saving deals &nbsp;&nbsp; ✅ Safety alerts
+          </p>
+        </div>
+      </div>
       {{- end }}
       {{- end }}
 
