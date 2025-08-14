@@ -41,7 +41,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          python scripts/generate_post.py
+          python scripts/generate_single_post.py
 
       - name: 'Commit and Push Changes'
         run: |
