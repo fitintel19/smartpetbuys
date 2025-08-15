@@ -1,16 +1,46 @@
 <header class="header">
     <nav class="nav">
         <div class="nav-wrapper">
+            <!-- Logo -->
             <a href="{{ .Site.BaseURL }}" class="nav-logo">
                 <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="brand-logo">
             </a>
             
-            <div class="nav-menu">
+            <!-- Desktop Navigation -->
+            <div class="nav-menu desktop-nav">
                 {{ range .Site.Menus.main }}
                     <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
                 {{ end }}
             </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button 
+                id="mobile-menu-toggle" 
+                class="mobile-menu-toggle" 
+                aria-label="Toggle mobile menu"
+                aria-expanded="false"
+                aria-controls="mobile-nav">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
+
+        <!-- Mobile Navigation Menu -->
+        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+            <div class="mobile-nav-content">
+                {{ range .Site.Menus.main }}
+                    <a href="{{ .URL }}" class="mobile-nav-link">
+                        <span class="mobile-link-text">{{ .Name }}</span>
+                    </a>
+                {{ end }}
+                
+                <!-- Additional mobile-only links if needed -->
+                <div class="mobile-nav-footer">
+                    <p class="mobile-nav-tagline">🐾 Expert Pet Product Reviews</p>
+                </div>
+            </div>
+        </nav>
     </nav>
 </header>
 {{ partial "affiliate_disclosure.html" . }}
