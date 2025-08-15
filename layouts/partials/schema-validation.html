@@ -60,9 +60,15 @@ document.addEventListener('DOMContentLoaded', function() {
     "email": "{{ site.Params.contact }}"
   },
   "sameAs": [
-    "{{ with site.Params.socialIcons }}{{ range . }}{{ if eq .name "x" }}"{{ .url }}"{{ end }}{{ end }}{{ end }}",
-    "{{ with site.Params.socialIcons }}{{ range . }}{{ if eq .name "instagram" }}"{{ .url }}"{{ end }}{{ end }}{{ end }}",
-    "{{ with site.Params.socialIcons }}{{ range . }}{{ if eq .name "pinterest" }}"{{ .url }}"{{ end }}{{ end }}{{ end }}"
+    {{- $socialUrls := slice -}}
+    {{- with site.Params.socialIcons -}}
+      {{- range . -}}
+        {{- $socialUrls = $socialUrls | append .url -}}
+      {{- end -}}
+    {{- end -}}
+    {{- range $index, $url := $socialUrls -}}
+      {{- if gt $index 0 }},{{ end }}"{{ $url }}"
+    {{- end -}}
   ]
 }
 </script>
