@@ -121,9 +121,10 @@
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
-  gap: 8px !important;
+  gap: 6px !important;
   margin: 0 !important;
   padding: 0 !important;
+  justify-content: flex-start !important;
 }
 
 .mailerlite-sticky-bar .ml-embedded .ml-form-fieldRow {
@@ -162,18 +163,22 @@
   padding: 0 !important;
 }
 
-.mailerlite-sticky-bar .ml-embedded input[type="email"] {
+.mailerlite-sticky-bar .ml-embedded input[type="email"],
+.mailerlite-sticky-bar .ml-embedded input[type="text"] {
   background: rgba(255,255,255,0.9) !important;
   border: 2px solid rgba(255,255,255,0.3) !important;
   border-radius: 6px !important;
   padding: 8px 10px !important;
   color: #333 !important;
   font-size: 14px !important;
-  margin-right: 8px !important;
-  width: 160px !important;
+  margin-right: 10px !important;
+  width: 140px !important;
+  height: 36px !important;
+  box-sizing: border-box !important;
 }
 
-.mailerlite-sticky-bar .ml-embedded input[type="email"]:focus {
+.mailerlite-sticky-bar .ml-embedded input[type="email"]:focus,
+.mailerlite-sticky-bar .ml-embedded input[type="text"]:focus {
   border-color: rgba(255,255,255,0.8) !important;
   outline: none !important;
   background: white !important;
@@ -190,6 +195,9 @@
   font-size: 13px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
+  height: 36px !important;
+  margin-left: 5px !important;
+  box-sizing: border-box !important;
 }
 
 .mailerlite-sticky-bar .ml-embedded button[type="submit"]:hover,
