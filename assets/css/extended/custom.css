@@ -1,8 +1,1910 @@
-/*
- * SmartPetBuys - Main CSS Entry Point
- * Now using modular CSS architecture
- * 
- * This file imports all CSS modules for better maintainability
- */
+/* SmartPetBuys - Clean Professional Design */
 
-@import "main.css";
+:root {
+  --primary-color: #FF7F32;    /* Orange - Primary */
+  --primary-dark: #e66a2b;     /* Darker orange for hover */
+  --secondary-color: #1A2A42;  /* Dark Blue - Secondary */
+  --accent-color: #FFFFFF;     /* White - Accent */
+  --text-color: #2c3e50;       /* Dark text for readability */
+  --text-light: #6c757d;       /* Light text for meta */
+  --background-color: #FFFFFF; /* Clean white background */
+  --card-bg: #FFFFFF;          /* White card background */
+  --border-color: #e9ecef;     /* Light border color */
+  --shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.15);
+  --radius: 8px;
+  /* Override PaperMod CSS variables for wider layout */
+  --main-width: 1500px;
+  --nav-width: 1600px;
+}
+
+/* Import brand fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure PaperMod's parent container ('.main') is wide enough */
+.main {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Ensure the logo inside the flex header keeps a consistent size */
+.main-header img {
+  height: 40px;     /* explicit logo height */
+  width: auto;      /* preserve aspect ratio */
+  display: block;   /* prevents inline-gap issues in flex items */
+  object-fit: contain;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: var(--secondary-color);
+  line-height: 1.3;
+  margin: 0 0 1rem 0;
+}
+
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 1.8rem; font-weight: 600; }
+h3 { font-size: 1.4rem; font-weight: 600; }
+h4 { font-size: 1.2rem; font-weight: 600; }
+
+p {
+  margin: 0 0 1rem 0;
+  color: var(--text-color);
+}
+
+/* Header & Navigation - Clean and Simple */
+.header {
+  background: var(--accent-color);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 120px; /* Increased header height for much bigger logo */
+  padding: 0.5rem 0; /* Add vertical padding */
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.02);
+}
+
+.brand-logo {
+  height: 120px; /* Much bigger logo for better visibility */
+  max-width: 300px; /* Increased max width constraint */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 127, 50, 0.1);
+}
+
+/* Main Content */
+main {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* Override main styles for post pages */
+.post-layout main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section - Clean and Purposeful */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  margin: -2rem -2rem 3rem -2rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-align: center;
+}
+
+.hero-section h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-section p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Post Cards - Clean and Readable */
+.posts-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.post-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-color);
+}
+
+.post-card-content {
+  padding: 2rem;
+}
+
+.post-card h2 {
+  margin-bottom: 1rem;
+}
+
+.post-card h2 a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.post-card h2 a:hover {
+  color: var(--primary-color);
+}
+
+.post-card p {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Post Meta - Clean and Readable */
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.post-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-meta svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary-color);
+}
+
+/* Product Boxes - Clean and Professional */
+.product-box {
+  background: var(--card-bg);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.product-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary-dark);
+}
+
+.product-box img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.product-box-content h3 {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.product-box-content p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.cta-button {
+  background: var(--primary-color);
+  color: var(--accent-color) !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--primary-dark);
+  color: var(--accent-color) !important;
+  transform: translateY(-1px);
+}
+
+/* More specific rule for product box buttons */
+.product-box .cta-button {
+  color: #FFFFFF !important;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.product-box .cta-button:hover {
+  color: #FFFFFF !important;
+  background: var(--primary-dark);
+}
+
+/* Buttons */
+.btn {
+  background: var(--primary-color);
+  color: var(--accent-color);
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Links */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Tags */
+.tag {
+  background: var(--primary-color);
+  color: var(--accent-color);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Footer */
+footer {
+  background: var(--secondary-color);
+  color: var(--accent-color);
+  padding: 2rem;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 1rem;
+  }
+  
+  .nav-menu {
+    display: none;
+    /* TODO: Add mobile hamburger menu */
+  }
+  
+  /* Mobile menu toggle - you may want to add JavaScript for this */
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  .brand-logo {
+    height: 100px; /* Much bigger on mobile too */
+    max-width: 250px;
+  }
+  
+  main {
+    padding: 2rem 1rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .post-card-content {
+    padding: 1.5rem;
+  }
+  
+  .product-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .product-box img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Footer Enhancements */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.footer-section p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--primary-color);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+/* Inline Email Signup Styles */
+.inline-email-signup {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 30px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.inline-email-signup h3 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.inline-email-signup p {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.inline-email-signup .cta-note {
+  background: rgba(255,255,255,0.1);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+.inline-email-signup .benefits {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  margin-top: 20px;
+}
+
+.footer-newsletter {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .inline-email-signup {
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  .inline-email-signup h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Kit Sticky Bar Override - Ensure full visibility */
+.formkit-sticky-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 99999 !important;
+  width: 100% !important;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2) !important;
+}
+
+/* Ensure sticky bar form is visible */
+.formkit-sticky-bar .formkit-form {
+  position: relative !important;
+  z-index: 99999 !important;
+  display: block !important;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ================================
+   HOMEPAGE ENHANCEMENTS
+================================ */
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  margin: -2rem -2rem 3rem -2rem;
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* Categories Section */
+.categories-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.categories-section h2 {
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.category-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  text-align: center;
+  display: block;
+}
+
+.category-card:hover,
+.category-card.active {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  color: inherit;
+  cursor: pointer;
+}
+
+.category-card.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.category-card.active h3,
+.category-card.active p {
+  color: white;
+}
+
+.category-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.category-card h3 {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.category-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Featured Posts Section */
+.featured-posts-section {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+}
+
+.featured-posts-section h2 {
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.featured-posts-section p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mobile Responsiveness for Homepage */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .hero-stats {
+    gap: 1.5rem;
+    flex-direction: column;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .categories-section h2,
+  .featured-posts-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* No Results Message */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--card-bg);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius);
+  margin: 2rem 0;
+}
+
+.no-results-content h3 {
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.no-results-content p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.no-results-content .btn {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.no-results-content .btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   ENHANCED POST LAYOUT & SIDEBAR
+================================ */
+
+/* Post Layout Container */
+.post-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Main Content Area - Widened */
+.post-main {
+  min-width: 0; /* Prevents grid overflow */
+  width: 100%;
+  max-width: 100%;
+}
+
+.post-single {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* HERO header refinements */
+.post-header {
+  position: relative;
+  background: transparent; /* let the image show */
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+/* Soft orange overlay over the featured image */
+.post-featured-image {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  position: relative;
+}
+.post-featured-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,127,50,0.55) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.65) 100%);
+  pointer-events: none;
+}
+
+/* Make meta clearer like a pill bar */
+.post-header.has-hero .post-meta {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: saturate(140%) blur(6px);
+}
+.meta-item { color: rgba(255,255,255,0.95); }
+.meta-item svg { color: rgba(255,255,255,0.9); }
+
+/* Category badge like a button */
+.category-badge {
+  background: #fff;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Enhanced Post Content */
+.post-content {
+  padding: 3rem 2rem;
+  font-size: 1.1rem;
+  line-height: 1.9; /* slightly airier */
+  color: var(--text-color);
+  max-width: 75ch; /* optimal line length */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin: 2.5rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.post-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin: 2rem 0 1rem 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.post-content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin: 1.5rem 0 0.5rem 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  line-height: 1.9;
+}
+
+.post-content ul, .post-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.post-content blockquote {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius);
+  border-left: 5px solid var(--accent-color);
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.post-content blockquote p {
+  margin: 0;
+  color: white;
+}
+
+/* Enhanced Post Footer */
+.post-footer {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-top: 1px solid var(--border-color);
+}
+
+.post-tags {
+  margin-bottom: 2rem;
+}
+
+.post-tags h4 {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.post-tags .tag {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0.25rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.post-tags .tag:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   SIDEBAR STYLING
+================================ */
+
+.post-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: start;
+  position: sticky;
+  top: 2rem;
+  width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+.sidebar-widget {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-widget h3 {
+  font-size: 1.3rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* Author Widget */
+.author-info {
+  text-align: center;
+}
+
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+  display: block;
+  object-fit: contain;
+  background: white;
+  padding: 0.5rem;
+  border: 3px solid var(--primary-color);
+}
+
+.author-info p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Related Posts Widget */
+.related-post {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.related-post:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.related-post-link {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.related-post-link:hover {
+  transform: translateX(5px);
+}
+
+.related-post-link img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.related-post-content h4 {
+  font-size: 1.05rem;
+  color: var(--secondary-color);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.related-post-date {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* Categories Widget */
+.categories-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories-list li {
+  margin-bottom: 0.75rem;
+}
+
+.categories-list a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.categories-list a:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateX(5px);
+}
+
+/* Newsletter Widget */
+.newsletter-widget p {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.newsletter-form input {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.newsletter-form .btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-form .btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ================================
+   RESPONSIVE DESIGN FOR POSTS
+================================ */
+
+@media (max-width: 1200px) {
+  .post-layout {
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .post-title {
+    font-size: 2.4rem;
+  }
+  
+  .post-content {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .post-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .post-sidebar {
+    position: static;
+    order: -1;
+  }
+  
+  .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-header-content {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .post-content {
+    padding: 2rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .post-featured-image {
+    height: 250px;
+  }
+  
+  .meta-left {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .sidebar-widget {
+    padding: 1rem;
+  }
+  
+  .related-post-link {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .related-post-link img {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-layout {
+    padding: 0.5rem;
+  }
+  
+  .post-title {
+    font-size: 1.8rem;
+  }
+  
+  .post-header-content {
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+  
+  .post-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .post-featured-image {
+    height: 200px;
+  }
+}
+
+/* ================================
+   ENHANCED TYPOGRAPHY
+================================ */
+
+/* Improved font hierarchy and spacing */
+.post-content strong {
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+.post-content em {
+  font-style: italic;
+  color: var(--primary-color);
+}
+
+.post-content code {
+  background: #f1f3f4;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  color: var(--secondary-color);
+}
+
+.post-content pre {
+  background: #2c3e50;
+  color: #ecf0f1;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.post-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+/* Enhanced product boxes in posts */
+.post-content .product-box {
+  margin: 2.5rem 0;
+  border: 2px solid var(--primary-color);
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
+.post-content .product-box:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* ================================
+   ANIMATIONS & TRANSITIONS
+================================ */
+
+.post-single {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.sidebar-widget {
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.post-featured-image img {
+  transition: transform 0.5s ease;
+}
+
+.post-featured-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Stagger animation for sidebar widgets */
+.sidebar-widget:nth-child(1) { animation-delay: 0.1s; }
+.sidebar-widget:nth-child(2) { animation-delay: 0.2s; }
+.sidebar-widget:nth-child(3) { animation-delay: 0.3s; }
+.sidebar-widget:nth-child(4) { animation-delay: 0.4s; }
+
+/* Unified image area with dark overlay */
+.post-featured-image {
+  width: 100%;
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+.post-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post-featured-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.75) 70%);
+}
+
+/* Put header content on top of image */
+.post-header { position: relative; }
+.post-header-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 2rem;
+}
+
+/* Breadcrumbs accent in brand orange */
+.post-header-content .breadcrumbs a {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.post-header-content .breadcrumbs { color: rgba(255,255,255,0.85); }
+
+/* Title and meta on unified area (scoped to hero only) */
+.post-header.has-hero .post-title { color: #fff; }
+.post-header.has-hero .post-description { color: rgba(255,255,255,0.92); }
+
+/* Reviews tag/button accented */
+.category-badge {
+  background: #fff;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+/* Meta pill with orange calendar icon */
+.meta-item svg {
+  color: var(--primary-color);
+}
+
+/* Readability: keep container full width but limit text lines */
+.post-content {
+  padding: 3rem 2rem;
+  font-size: 1.1rem;
+  line-height: 1.95;
+  color: var(--text-color);
+}
+/* Constrain only typographic blocks for optimal measure */
+.post-content > p,
+.post-content > ul,
+.post-content > ol,
+.post-content > blockquote,
+.post-content > h2,
+.post-content > h3,
+.post-content > h4 {
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-content p { line-height: 2.0; }
+
+/* Sidebar: stronger card grouping and separation */
+.post-sidebar { gap: 2.5rem; }
+.sidebar-widget {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem 1.5rem 1.25rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.sidebar-widget + .sidebar-widget { margin-top: 1.75rem; }
+.sidebar-widget h3 {
+  margin: -1.25rem -1.25rem 1rem -1.25rem;
+  padding: 0.9rem 1.25rem;
+  background: linear-gradient(180deg, rgba(255,127,50,0.08), rgba(255,127,50,0.03));
+  border-bottom: 2px solid var(--primary-color);
+  font-weight: 700;
+}
+
+/* Allow sticky-sidebar-js to manage positioning */
+.post-sidebar { position: static; }
+.post-sidebar .sidebar__inner {
+  will-change: min-height, transform;
+}
+
+/* Ensure no ancestor clips the sticky sidebar */
+.post-layout, .post-main, .post-sidebar { overflow: visible; }
+
+/* Sticky library requires the sidebar container not to be position: sticky */
+.post-sidebar { position: relative; }
+
+/* Hero background image via ::before, image element, and dark overlay */
+.post-featured-image { position: relative; height: 420px; background: #0f172a; overflow: hidden; }
+.post-featured-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg, url('/images/hero-fallback.jpg'));
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 0;
+}
+.post-featured-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.post-featured-image::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.75)); z-index: 2; }
+.post-header-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 2.5rem 2rem; z-index: 3; }
+
+/* To use a custom background without an <img>, set inline style on the page container, e.g.:
+   <div class="post-featured-image" style="--hero-bg: url('/path/to/your-image.jpg')"></div>
+*/
+
+/* Inline background-image support */
+.post-featured-image { background-position: center center; background-repeat: no-repeat; background-size: cover; }
+
+/* Sticky, elevated, well-aligned header with active link styling */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.nav {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 24px;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 120px; /* Much larger logo for better visibility */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 10px;
+  color: #1A2A42;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  color: #e67e22;
+  background-color: rgba(230, 126, 34, 0.08);
+}
+
+.nav-link.active {
+  color: #e67e22;
+  font-weight: 700;
+  background-color: rgba(230, 126, 34, 0.12);
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 0 16px; }
+  .brand-logo { height: 80px; /* Much larger on mobile too */ }
+  .nav-menu { gap: 14px; }
+}
+
+/* Affiliate disclosure banner */
+.affiliate-disclosure {
+  position: sticky;
+  top: 0; /* sits under sticky header */
+  z-index: 999;
+  background: #fff7ed; /* light orange tint */
+  border-bottom: 1px solid rgba(230, 126, 34, 0.25);
+}
+.affiliate-disclosure__inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #7a5600;
+}
+.affiliate-disclosure__link { color: #e67e22; text-decoration: underline; }
+.affiliate-disclosure__close {
+  border: none; background: transparent; color: #7a5600; font-size: 20px; line-height: 1; cursor: pointer;
+}
+
+/* Site-wide readable text for content areas */
+body, main, .post-single, .post-content, .post-content p,
+.markdown, .markdown p, .content, .content p,
+.page, .page p, .single, .single p {
+  color: #2c3e50 !important;      /* enforce dark text */
+  background-color: #ffffff;      /* ensure white background */
+}
+
+.post-content h1, .post-content h2, .post-content h3,
+.markdown h1, .markdown h2, .markdown h3,
+.page h1, .page h2, .page h3, .single h1, .single h2, .single h3 {
+  color: #1A2A42 !important;
+}
+
+/* Static pages content readability */
+.page-content p {
+  color: #333333 !important; /* enforce dark text for legal/static pages */
+}
+
+/* Static pages: ensure description text is readable */
+.page-content .post-description {
+  color: #333333 !important;
+}
+
+/* Limit white hero text to headers that actually have a hero image */
+.post-header.has-hero .post-description,
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-meta { color: #ffffff; }
+
+/* Non-hero descriptions default to dark for readability */
+.post-header:not(.has-hero) .post-description { color: #2c3e50 !important; }
+
+/* Hero text system: default dark; optional white when .has-hero is present */
+/* Add the class `has-hero` to your .post-header in the HTML when you want white text over a hero image */
+.post-header .post-description {
+  color: #2c3e50 !important; /* default dark text */
+}
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description {
+  color: #ffffff !important; /* white text when header has hero */
+}
+
+/* Hero readability: pure white text and subtle shadow */
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+.post-header.has-hero .post-title { font-weight: 800; letter-spacing: .2px; }
+
+/* Further lighten overlay for a brighter hero */
+.post-header.has-hero .post-featured-image::after {
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.16));
+}
+
+/* Force hero layering: overlay below text; lighten meta pill */
+.post-header.has-hero .post-featured-image::after {
+  z-index: 1 !important; /* overlay under text */
+  background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.14)) !important;
+}
+.post-header.has-hero .post-header-content {
+  position: absolute; inset: 0; z-index: 2 !important; /* text above overlay */
+}
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+.post-header.has-hero .post-meta {
+  background: rgba(0,0,0,0.12) !important;
+}
+
+/* =========================
+   Readability + Hero System
+   Append at END of CSS
+   ========================= */
+
+/* 1) Global readable defaults (content areas) */
+body,
+main,
+.post-single,
+.post-content,
+.page-content,
+.markdown,
+.single,
+.page {
+  color: #2c3e50;
+  background: #ffffff;
+}
+
+.page-content p,
+.markdown p,
+.post-content p,
+.single p,
+.page p {
+  color: #2c3e50;
+}
+
+/* Static pages: guarantee paragraphs and description are dark */
+.page-content p,
+.page-content .post-description {
+  color: #333333 !important;
+}
+
+/* Terms page specific styling */
+.terms h1,
+.terms h2,
+.terms h3,
+.terms h4,
+.terms h5,
+.terms h6,
+.terms p,
+.terms ul,
+.terms ol,
+.terms li {
+  color: #333333 !important;
+}
+
+/* Ensure all content in single pages is visible */
+.single .post-content h1,
+.single .post-content h2,
+.single .post-content h3,
+.single .post-content h4,
+.single .post-content h5,
+.single .post-content h6,
+.single .post-content p,
+.single .post-content ul,
+.single .post-content ol,
+.single .post-content li {
+  color: #333333 !important;
+}
+
+/* Force visibility for any page content */
+.post-single h1,
+.post-single h2,
+.post-single h3,
+.post-single h4,
+.post-single h5,
+.post-single h6,
+.post-single p,
+.post-single ul,
+.post-single ol,
+.post-single li {
+  color: #333333 !important;
+}
+
+/* Legal page specific styling */
+.legal-page .post-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+/* About page specific styling (same as legal pages) */
+.post-single:has(.post-header.legal-header) .post-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.legal-page .post-header {
+  background: #ffffff;
+  border-bottom: 2px solid var(--primary-color);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  position: static !important;
+}
+
+.legal-page .post-header-content {
+  position: static !important;
+  padding: 0 !important;
+  color: var(--secondary-color) !important;
+}
+
+.legal-page .post-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: none !important;
+}
+
+.legal-page .post-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  text-shadow: none !important;
+}
+
+.legal-page .post-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.legal-page .post-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.legal-page .post-content {
+  color: #333333 !important;
+  line-height: 1.8;
+}
+
+.legal-page .post-content h1,
+.legal-page .post-content h2,
+.legal-page .post-content h3,
+.legal-page .post-content h4,
+.legal-page .post-content h5,
+.legal-page .post-content h6 {
+  color: var(--secondary-color) !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.legal-page .post-content p {
+  color: #333333 !important;
+  margin-bottom: 1.5rem;
+}
+
+.legal-page .post-content ul,
+.legal-page .post-content ol {
+  color: #333333 !important;
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.legal-page .post-content li {
+  color: #333333 !important;
+  margin-bottom: 0.5rem;
+}
+
+/* About page header styling */
+.legal-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: none !important;
+}
+
+.legal-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  text-shadow: none !important;
+}
+
+/* Legal pages sidebar styling */
+.legal-pages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legal-pages-list li {
+  margin-bottom: 0.75rem;
+}
+
+.legal-pages-list a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+.legal-pages-list a:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+}
+
+.contact-widget .btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* 2) Post header text system (default dark, optional white with .has-hero)
+   Add class `has-hero` to .post-header when you render a hero image */
+.post-header .post-description,
+.post-header .post-title {
+  color: #2c3e50 !important; /* default dark in headers */
+}
+
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description,
+.post-header.has-hero .post-meta {
+  color: #ffffff !important; /* white only when hero exists */
+}
+
+/* 3) Hero background mechanics (safe and consistent) */
+.post-featured-image {
+  position: relative;
+  min-height: 420px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.post-featured-image::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+}
+
+/* Ensure header content sits above the overlay */
+.post-header .post-header-content {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2.5rem 2rem;
+  z-index: 1;
+}
+
+/* 4) Constrain homepage hero-only styles to homepage context (prevents leaking) */
+.home .hero-section,
+.home .hero-section * {
+  color: #ffffff;
+}
+
+/* 5) Safety: links on light pages */
+.page-content a,
+.markdown a,
+.post-content a { color: #e67e22; }
+
+.page-content a:hover,
+.markdown a:hover,
+.post-content a:hover { color: #d96f17; }
+
+/* Hero overlay/controls – lighten for more inviting look */
+.post-header.has-hero .post-featured-image::after {
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+}
+.post-header.has-hero .post-meta {
+  background: rgba(0,0,0,0.18);
+}

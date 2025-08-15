@@ -236,3 +236,9 @@ Asset changed /css/extended/accessibility.css
 Asset changed /css/extended/accessibility.css.tmp.46172.1755282023493
 Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
 Total in 29 ms
+
+Change detected, rebuilding site (#33).
+2025-08-15 14:36:52.855 -0400
+Asset changed /css/extended/custom.css
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 25 ms
