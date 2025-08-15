@@ -242,3 +242,17 @@ Change detected, rebuilding site (#33).
 Asset changed /css/extended/custom.css
 Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
 Total in 25 ms
+
+Change detected, rebuilding site (#34).
+2025-08-15 14:44:06.355 -0400
+Template changed /partials/mailerlite-sticky-bar.html
+Template added /partials/mailerlite-sticky-bar.html.tmp.46172.1755283446115
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 52 ms
+
+Change detected, rebuilding site (#35).
+2025-08-15 14:44:37.855 -0400
+Template changed /shortcodes/email-signup.html
+Template added /shortcodes/email-signup.html.tmp.46172.1755283477564
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 47 ms
