@@ -4,8 +4,7 @@
     <div class="sticky-bar-content">
       <div class="sticky-bar-text">
         <span class="sticky-bar-emoji">🐾</span>
-        <strong>Get Our FREE Pet Buying Guide!</strong>
-        <span class="sticky-bar-description">Save money & keep your pets safe with expert product reviews</span>
+        <strong>Get Our FREE Pet Guide!</strong>
       </div>
     </div>
     
@@ -42,7 +41,7 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 15px 20px;
+  padding: 10px 20px;
   position: relative;
 }
 
@@ -62,32 +61,27 @@
 }
 
 .sticky-bar-text strong {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-}
-
-.sticky-bar-description {
-  font-size: 0.9rem;
-  opacity: 0.9;
 }
 
 .sticky-bar-form {
   flex: 0 0 auto;
-  min-width: 280px;
+  min-width: 250px;
 }
 
 .sticky-bar-close {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 5px;
+  right: 10px;
   background: none;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   padding: 0;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,11 +104,11 @@
   background: rgba(255,255,255,0.9) !important;
   border: 2px solid rgba(255,255,255,0.3) !important;
   border-radius: 6px !important;
-  padding: 10px 12px !important;
+  padding: 8px 10px !important;
   color: #333 !important;
   font-size: 14px !important;
-  margin-right: 10px !important;
-  width: 180px !important;
+  margin-right: 8px !important;
+  width: 160px !important;
 }
 
 .mailerlite-sticky-bar .ml-embedded input[type="email"]:focus {
@@ -128,10 +122,10 @@
   background: linear-gradient(135deg, #FF7F32 0%, #e66a2b 100%) !important;
   border: none !important;
   border-radius: 6px !important;
-  padding: 10px 20px !important;
+  padding: 8px 16px !important;
   color: white !important;
   font-weight: 600 !important;
-  font-size: 14px !important;
+  font-size: 13px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
 }
@@ -146,21 +140,16 @@
   .sticky-bar-container {
     flex-direction: column;
     text-align: center;
-    padding: 12px 15px;
+    padding: 8px 15px;
   }
   
   .sticky-bar-content {
     margin-right: 0;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
   
-  .sticky-bar-text {
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .sticky-bar-description {
-    font-size: 0.8rem;
+  .sticky-bar-text strong {
+    font-size: 0.9rem;
   }
   
   .sticky-bar-form {
@@ -220,13 +209,14 @@ function closeMailerliteStickyBar() {
 
 // Initialize sticky bar
 document.addEventListener('DOMContentLoaded', function() {
-  // Show after 10 seconds if not previously closed
-  setTimeout(showMailerliteStickyBar, 10000);
+  // Show after 30 seconds if not previously closed
+  setTimeout(showMailerliteStickyBar, 30000);
   
-  // Show on scroll if not previously closed
+  // Show on scroll if not previously closed (after scrolling 70% down the page)
   let scrollTriggered = false;
   window.addEventListener('scroll', function() {
-    if (!scrollTriggered && window.scrollY > 500) {
+    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    if (!scrollTriggered && scrollPercent > 70) {
       scrollTriggered = true;
       showMailerliteStickyBar();
     }
