@@ -52,8 +52,20 @@ theme = "PaperMod"
   
   # Social media
   twitter = "@smartpetbuys"
-  facebook = "smartpetbuys"
-  instagram = "smartpetbuys"
+  instagram = "@smartpetbuys"
+  
+  # Social Icons configuration
+  [[params.socialIcons]]
+  name = "x"
+  url = "https://x.com/smartpetbuys"
+  
+  [[params.socialIcons]]
+  name = "instagram"
+  url = "https://instagram.com/smartpetbuys"
+  
+  [[params.socialIcons]]
+  name = "pinterest"
+  url = "https://www.pinterest.com/SmartPetBuys/"
   
   # Contact information for schema
   contact = "contact@smartpetbuys.com"
