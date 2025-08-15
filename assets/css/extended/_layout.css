@@ -1,0 +1,260 @@
+/*
+ * Layout Systems
+ * Grid systems, containers, and layout utilities
+ */
+
+/* Container Systems */
+.main {
+  max-width: var(--nav-width);
+  margin: 0 auto;
+}
+
+main {
+  max-width: var(--nav-width);
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+}
+
+/* Override main styles for post pages */
+.post-layout main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Layout */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--accent-color);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: var(--shadow);
+}
+
+.nav {
+  max-width: var(--nav-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: var(--spacing-lg);
+}
+
+/* Grid Systems */
+.posts-grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Post Layout System */
+.post-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--spacing-2xl);
+  max-width: var(--nav-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.post-main {
+  min-width: 0; /* Prevents grid overflow */
+  width: 100%;
+  max-width: 100%;
+}
+
+.post-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  align-self: start;
+  position: relative; /* Changed from sticky for JS library */
+  width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+/* Legal pages layout */
+.legal-page .post-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+.post-single:has(.post-header.legal-header) .post-layout {
+  grid-template-columns: 1fr !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+/* Hero Section Layout */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: var(--spacing-3xl) var(--spacing-xl);
+  margin: calc(var(-spacing-xl)) calc(var(--spacing-xl) * -1) var(--spacing-2xl) calc(var(--spacing-xl) * -1);
+  border-radius: 0 0 var(--radius) var(--radius);
+  text-align: center;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-xl);
+}
+
+.stat {
+  text-align: center;
+}
+
+/* Featured Image Layout */
+.post-featured-image {
+  position: relative;
+  min-height: 420px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.post-featured-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.55));
+  z-index: 1;
+}
+
+.post-header .post-header-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem var(--spacing-xl);
+  z-index: 2;
+}
+
+/* Inner Containers */
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Overflow Management */
+.post-layout, 
+.post-main, 
+.post-sidebar {
+  overflow: visible;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+  .post-layout {
+    grid-template-columns: 1fr 280px;
+    gap: var(--spacing-xl);
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 var(--spacing-md);
+  }
+  
+  main {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .post-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md);
+  }
+  
+  .post-sidebar {
+    position: static;
+    order: -1;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-md);
+  }
+  
+  .footer-inner {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero-stats {
+    gap: var(--spacing-lg);
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-layout {
+    padding: var(--spacing-sm);
+  }
+  
+  .post-header .post-header-content {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}

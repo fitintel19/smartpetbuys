@@ -94,9 +94,14 @@ class MobileMenu {
         this.mobileNav.classList.add('is-open');
         this.menuToggle.classList.add('is-active');
         this.menuToggle.setAttribute('aria-expanded', 'true');
+        this.menuToggle.setAttribute('aria-label', 'Close mobile navigation menu');
+        this.mobileNav.setAttribute('aria-hidden', 'false');
         
         // Prevent body scroll when menu is open
         document.body.style.overflow = 'hidden';
+        
+        // Announce menu opening to screen readers
+        this.announceToScreenReader('Mobile navigation menu opened');
         
         // Focus first menu item
         const firstMenuItem = this.mobileNav.querySelector('a');
@@ -115,14 +120,68 @@ class MobileMenu {
         this.mobileNav.classList.remove('is-open', 'is-animated');
         this.menuToggle.classList.remove('is-active');
         this.menuToggle.setAttribute('aria-expanded', 'false');
+        this.menuToggle.setAttribute('aria-label', 'Open mobile navigation menu');
+        this.mobileNav.setAttribute('aria-hidden', 'true');
+        
+        // Announce menu closing to screen readers
+        this.announceToScreenReader('Mobile navigation menu closed');
         
         // Restore body scroll
         document.body.style.overflow = '';
     }
 }
 
+    // Announce changes to screen readers
+    announceToScreenReader(message) {
+        const announcements = document.getElementById('announcements');
+        if (announcements) {
+            announcements.textContent = message;
+            // Clear the announcement after a brief delay
+            setTimeout(() => {
+                announcements.textContent = '';
+            }, 1000);
+        }
+    }
+
+    // Enhanced keyboard navigation
+    handleKeyNavigation(e) {
+        if (!this.isOpen) return;
+
+        const menuLinks = Array.from(this.mobileNav.querySelectorAll('a, button'));
+        const currentIndex = menuLinks.indexOf(document.activeElement);
+
+        switch (e.key) {
+            case 'ArrowDown':
+                e.preventDefault();
+                const nextIndex = currentIndex < menuLinks.length - 1 ? currentIndex + 1 : 0;
+                menuLinks[nextIndex].focus();
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                const prevIndex = currentIndex > 0 ? currentIndex - 1 : menuLinks.length - 1;
+                menuLinks[prevIndex].focus();
+                break;
+            case 'Home':
+                e.preventDefault();
+                menuLinks[0].focus();
+                break;
+            case 'End':
+                e.preventDefault();
+                menuLinks[menuLinks.length - 1].focus();
+                break;
+        }
+    }
+}
+
 // Initialize mobile menu when DOM is ready
 const mobileMenu = new MobileMenu();
+
+// Add enhanced keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (mobileMenu.isOpen) {
+        mobileMenu.handleKeyNavigation(e);
+    }
+});
 
 // Expose to global scope for debugging
 window.SmartPetBuys = window.SmartPetBuys || {};

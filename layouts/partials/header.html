@@ -1,15 +1,22 @@
-<header class="header">
-    <nav class="nav">
+<!-- Skip Links for Keyboard Navigation -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#navigation" class="skip-link">Skip to navigation</a>
+
+<!-- ARIA Live Region for Screen Reader Announcements -->
+<div aria-live="polite" aria-atomic="true" class="sr-only" id="announcements"></div>
+
+<header class="header" role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation" id="navigation">
         <div class="nav-wrapper">
             <!-- Logo -->
-            <a href="{{ .Site.BaseURL }}" class="nav-logo">
-                <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys" class="brand-logo">
+            <a href="{{ .Site.BaseURL }}" class="nav-logo" aria-label="SmartPetBuys homepage">
+                <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys - Expert Pet Product Reviews and Buying Guides" class="brand-logo">
             </a>
             
             <!-- Desktop Navigation -->
-            <div class="nav-menu desktop-nav">
+            <div class="nav-menu desktop-nav" role="menubar">
                 {{ range .Site.Menus.main }}
-                    <a href="{{ .URL }}" class="nav-link">{{ .Name }}</a>
+                    <a href="{{ .URL }}" class="nav-link" role="menuitem">{{ .Name }}</a>
                 {{ end }}
             </div>
 
@@ -17,27 +24,29 @@
             <button 
                 id="mobile-menu-toggle" 
                 class="mobile-menu-toggle" 
-                aria-label="Toggle mobile menu"
+                aria-label="Open mobile navigation menu"
                 aria-expanded="false"
-                aria-controls="mobile-nav">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
+                aria-controls="mobile-nav"
+                aria-haspopup="true">
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="sr-only">Menu</span>
             </button>
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
-            <div class="mobile-nav-content">
+        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation menu" role="dialog" aria-modal="true" aria-hidden="true">
+            <div class="mobile-nav-content" role="menu">
                 {{ range .Site.Menus.main }}
-                    <a href="{{ .URL }}" class="mobile-nav-link">
+                    <a href="{{ .URL }}" class="mobile-nav-link" role="menuitem">
                         <span class="mobile-link-text">{{ .Name }}</span>
                     </a>
                 {{ end }}
                 
                 <!-- Additional mobile-only links if needed -->
-                <div class="mobile-nav-footer">
-                    <p class="mobile-nav-tagline">🐾 Expert Pet Product Reviews</p>
+                <div class="mobile-nav-footer" role="contentinfo">
+                    <p class="mobile-nav-tagline" aria-label="Site tagline">🐾 Expert Pet Product Reviews</p>
                 </div>
             </div>
         </nav>

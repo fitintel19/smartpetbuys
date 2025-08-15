@@ -1,3 +1,21 @@
+<!-- Font Performance Optimizations -->
+<!-- Preconnect to Google Fonts for faster DNS resolution -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- DNS-Prefetch for additional performance -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- Optimized Google Fonts loading with critical weight preload -->
+<!-- Preload the most critical font weights first -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+
+<!-- Load additional font weights asynchronously for better performance -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Open+Sans:wght@500&display=swap" onload="this.onload=null;this.rel='stylesheet'" media="print">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Open+Sans:wght@500&display=swap"></noscript>
+
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -8,25 +26,92 @@
 <!-- Pinterest Site Verification -->
 <meta name="p:domain_verify" content="06dada1659a02925f28a921a1723ba78"/>
 
-<!-- MailerLite Universal -->
+<!-- MailerLite Universal - Optimized Loading with Intersection Observer -->
 <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1736326');
+  // Initialize MailerLite with performance optimizations
+  function initMailerLite() {
+    // Check if user has scrolled past 50% of page or after 3 seconds
+    let hasScrolled = false;
+    let hasTimedOut = false;
+    
+    function loadMailerLite() {
+      if (hasScrolled || hasTimedOut) return; // Prevent double loading
+      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+      ml('account', '1736326');
+    }
+    
+    // Load on scroll past 50%
+    window.addEventListener('scroll', function() {
+      if (hasScrolled) return;
+      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPercent > 50) {
+        hasScrolled = true;
+        loadMailerLite();
+      }
+    }, { passive: true });
+    
+    // Fallback timer
+    setTimeout(function() {
+      if (!hasScrolled) {
+        hasTimedOut = true;
+        loadMailerLite();
+      }
+    }, 3000);
+  }
+  
+  // Initialize after DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMailerLite);
+  } else {
+    initMailerLite();
+  }
 </script>
 <!-- End MailerLite Universal -->
 
 {{- $ga := (.Site.Params.ga4.id | default "G-HHVQX4ENNP") -}}
 {{- if and $ga (eq hugo.Environment "production") -}}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga }}"></script>
+<!-- Google Analytics - Optimized Loading with User Interaction -->
 <script>
+  // Initialize dataLayer immediately for tracking
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);} 
   gtag('js', new Date());
-  gtag('config', '{{ $ga }}');
+  gtag('config', '{{ $ga }}', {
+    // Enhanced performance settings
+    page_title: document.title,
+    page_location: window.location.href,
+    // Reduce impact on Core Web Vitals
+    send_page_view: false
+  });
+  
+  // Load GA script on user interaction or after delay
+  function loadGA() {
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
+    
+    var gaScript = document.createElement('script');
+    gaScript.async = true;
+    gaScript.src = 'https://www.googletagmanager.com/gtag/js?id={{ $ga }}';
+    gaScript.onload = function() {
+      // Send page view after script loads
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+    };
+    document.head.appendChild(gaScript);
+  }
+  
+  // Load GA on first user interaction
+  ['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(function(event) {
+    document.addEventListener(event, loadGA, { once: true, passive: true });
+  });
+  
+  // Fallback: load after 2 seconds if no interaction
+  setTimeout(loadGA, 2000);
 </script>
 <script src="/js/ga-events.js" defer></script>
 {{- end -}}
@@ -34,362 +119,48 @@
 <!-- Schema.org Structured Data -->
 {{ partial "schema-org.html" . }}
 
-<!-- Custom CSS for better readability -->
+<!-- Critical CSS - Inline for fastest initial paint -->
 <style>
-/* Fix footer text color for better readability - High Priority */
-footer.site-footer, 
-.site-footer,
-footer {
-  background: #f8f9fa !important;
-  border-top: 1px solid #e9ecef !important;
-  margin-top: 40px !important;
-  padding: 40px 0 20px 0 !important;
-}
-
-footer.site-footer h4, 
-.site-footer h4,
-footer h4 {
-  color: #333 !important;
-  font-weight: 700 !important;
-  margin-bottom: 15px !important;
-  font-size: 1.1rem !important;
-}
-
-footer.site-footer p, 
-.site-footer p,
-footer p {
-  color: #555 !important;
-  line-height: 1.6 !important;
-  margin-bottom: 10px !important;
-}
-
-footer.site-footer a, 
-.site-footer a,
-footer a {
-  color: #1565c0 !important;
-  text-decoration: none !important;
-  border-bottom: 1px solid transparent !important;
-  transition: all 0.2s ease !important;
-}
-
-footer.site-footer a:hover, 
-.site-footer a:hover,
-footer a:hover {
-  color: #0277bd !important;
-  border-bottom: 1px solid #0277bd !important;
-}
-
-.footer-nav {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 8px !important;
-}
-
-.footer-nav a {
-  font-size: 0.95rem !important;
-}
-
-.footer-bottom {
-  border-top: 1px solid #e9ecef !important;
-  margin-top: 30px !important;
-  padding-top: 20px !important;
-  text-align: center !important;
-}
-
-.footer-bottom p {
-  color: #666 !important;
-  font-size: 0.9rem !important;
-  margin: 0 !important;
-}
-
-/* Override PaperMod footer styles with highest priority */
-body .footer,
-html .footer {
-  color: #555 !important;
-  background: #f8f9fa !important;
-  border-top: 1px solid #e9ecef !important;
-}
-
-body .footer a,
-html .footer a {
-  color: #1565c0 !important;
-  border-bottom: 1px solid transparent !important;
-}
-
-body .footer a:hover,
-html .footer a:hover {
-  color: #0277bd !important;
-  border-bottom: 1px solid #0277bd !important;
-}
-
-/* Ensure custom footer has good contrast and layout */
-.footer-section {
-  margin-bottom: 30px !important;
-}
-
-.footer-content {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
-  gap: 30px !important;
-  margin-bottom: 30px !important;
-  max-width: 1200px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding: 0 20px !important;
-}
-
-.footer-inner {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 20px !important;
-}
-
-/* Force override any theme variables */
-:root {
-  --footer-text: #555 !important;
-  --footer-link: #1565c0 !important;
-  --footer-link-hover: #0277bd !important;
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-  }
-  
-  .footer-nav {
-    gap: 6px !important;
-  }
-  
-  .footer-inner {
-    padding: 0 15px !important;
-  }
-}
-
-/* ==============================================================
-   MOBILE NAVIGATION SYSTEM - Critical Fix
-   ============================================================== */
-
-/* Hide mobile menu toggle on desktop */
-.mobile-menu-toggle {
-  display: none;
-}
-
-/* Show mobile menu toggle on mobile */
-@media (max-width: 768px) {
-  .mobile-menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1001;
-    position: relative;
-  }
-  
-  /* Hide desktop navigation on mobile */
-  .desktop-nav {
-    display: none !important;
-  }
-}
-
-/* Hamburger lines */
-.hamburger-line {
-  width: 24px;
-  height: 2px;
-  background-color: var(--primary, #333);
-  margin: 3px 0;
-  transition: all 0.3s ease;
-  transform-origin: center;
-}
-
-/* Hamburger animation when active */
-.mobile-menu-toggle.is-active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-toggle.is-active .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.mobile-menu-toggle.is-active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Mobile Navigation Menu */
-.mobile-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(28, 59, 108, 0.98);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-  overflow-y: auto;
-}
-
-.mobile-nav.is-open {
-  transform: translateX(0);
-}
-
-.mobile-nav-content {
-  display: flex;
-  flex-direction: column;
-  padding: 80px 20px 40px;
-  min-height: 100vh;
-}
-
-.mobile-nav-link {
-  display: block;
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-  padding: 15px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.mobile-nav.is-animated .mobile-nav-link {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
-.mobile-nav-link:nth-child(2) { transition-delay: 0.2s; }
-.mobile-nav-link:nth-child(3) { transition-delay: 0.3s; }
-.mobile-nav-link:nth-child(4) { transition-delay: 0.4s; }
-.mobile-nav-link:nth-child(5) { transition-delay: 0.5s; }
-
-.mobile-nav-link:hover,
-.mobile-nav-link:focus {
-  color: #FF7F32;
-  background: rgba(255, 255, 255, 0.05);
-  padding-left: 10px;
-}
-
-.mobile-link-text {
-  display: block;
-}
-
-.mobile-nav-footer {
-  margin-top: auto;
-  padding-top: 40px;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.mobile-nav.is-animated .mobile-nav-footer {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.3s ease 0.6s;
-}
-
-.mobile-nav-tagline {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-/* Desktop navigation improvements */
-@media (min-width: 769px) {
-  .mobile-nav {
-    display: none;
-  }
-  
-  .nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .desktop-nav {
-    display: flex !important;
-    gap: 30px;
-  }
-  
-  .nav-link {
-    color: var(--primary, #333);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    position: relative;
-  }
-  
-  .nav-link:hover {
-    color: #FF7F32;
-  }
-  
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #FF7F32;
-    transition: width 0.3s ease;
-  }
-  
-  .nav-link:hover::after {
-    width: 100%;
-  }
-}
-
-/* Header improvements */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--theme, white);
-  border-bottom: 1px solid var(--border, #e5e5e5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.nav {
-  padding: 0;
-}
-
-.brand-logo {
-  height: 40px;
-  width: auto;
-}
-
-/* Accessibility improvements */
-.mobile-menu-toggle:focus {
-  outline: 2px solid #FF7F32;
-  outline-offset: 2px;
-}
-
-.mobile-nav-link:focus {
-  outline: 2px solid #FF7F32;
-  outline-offset: 2px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .mobile-nav,
-  .hamburger-line,
-  .mobile-nav-link {
-    transition: none;
-  }
-}
-
+{{- $critical := resources.Get "css/extended/critical.css" | resources.Minify -}}
+{{ $critical.Content | safeCSS }}
 </style>
+
+<!-- Preload full stylesheet for after initial render -->
+{{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended-full.css" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $extended = $extended | fingerprint -}}
+{{- end -}}
+<link rel="preload" as="style" href="{{ $extended.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link rel="stylesheet" href="{{ $extended.RelPermalink }}" crossorigin="anonymous"></noscript>
+
+<!-- Critical Resource Preloading - Optimized Priority Order -->
+<!-- 1. Highest Priority - Above-the-fold critical scripts -->
+<link rel="preload" as="script" href="/js/mobile-menu.js" crossorigin="anonymous">
+
+<!-- 2. Logo and critical images -->
+<link rel="preload" as="image" href="/images/smartpetbuys_logo.png" crossorigin="anonymous">
+<link rel="preload" as="image" href="/favicon.ico" crossorigin="anonymous">
+
+<!-- 3. Medium Priority - Analytics and tracking -->
+<link rel="preload" as="script" href="/js/ga-events.js" crossorigin="anonymous">
+
+<!-- 4. Lower Priority - Non-critical assets -->
+<link rel="preload" as="script" href="/js/category-filter.js" crossorigin="anonymous">
+
+<!-- Enhanced DNS Prefetch for external resources -->
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://assets.mailerlite.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+<!-- Preconnect to high-priority origins with optimized timing -->
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://assets.mailerlite.com" crossorigin>
+
+<!-- Early hints for resource discovery -->
+<link rel="modulepreload" href="/js/mobile-menu.js">
+
+<!-- Resource hints for better caching -->
+<meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
 
 <!-- Mobile Menu JavaScript -->
 <script src="/js/mobile-menu.js" defer></script>

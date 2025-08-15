@@ -1,0 +1,252 @@
+/*
+ * SmartPetBuys - Main CSS Entry Point
+ * Modular CSS Architecture
+ * 
+ * This file imports all CSS modules in the correct order
+ * to build the complete stylesheet for SmartPetBuys.
+ */
+
+/* 1. Variables - Custom properties and design tokens */
+@import "_variables.css";
+
+/* 2. Base - Reset, normalize, and foundational styles */
+@import "_base.css";
+
+/* 3. Typography - Font definitions and text styles */
+@import "_typography.css";
+
+/* 4. Layout - Grid systems, containers, and layout utilities */
+@import "_layout.css";
+
+/* 5. Components - Reusable UI components */
+@import "_components.css";
+
+/* 6. Utilities - Helper classes and utilities */
+@import "_utilities.css";
+
+/* 7. Accessibility - WCAG 2.1 AA compliance styles */
+@import "accessibility.css";
+
+/* 
+ * ===== SPECIFIC OVERRIDES & ADDITIONS =====
+ * Additional styles that haven't been moved to modules yet
+ * or need to override theme defaults
+ */
+
+/* Footer Readability Enhancements - High Priority Override */
+footer.site-footer, 
+.site-footer,
+footer {
+  background: var(--footer-bg) !important;
+  border-top: 1px solid var(--border-color) !important;
+  margin-top: var(--spacing-3xl) !important;
+  padding: var(--spacing-3xl) 0 var(--spacing-lg) 0 !important;
+}
+
+footer.site-footer h4, 
+.site-footer h4,
+footer h4 {
+  color: var(--secondary-color) !important;
+  font-weight: var(--font-weight-bold) !important;
+  margin-bottom: var(--spacing-md) !important;
+  font-size: 1.1rem !important;
+}
+
+footer.site-footer p, 
+.site-footer p,
+footer p {
+  color: var(--footer-text) !important;
+  line-height: var(--line-height-normal) !important;
+  margin-bottom: var(--spacing-sm) !important;
+}
+
+footer.site-footer a, 
+.site-footer a,
+footer a {
+  color: var(--footer-link) !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: var(--transition-normal) !important;
+}
+
+footer.site-footer a:hover, 
+.site-footer a:hover,
+footer a:hover {
+  color: var(--footer-link-hover) !important;
+  border-bottom: 1px solid var(--footer-link-hover) !important;
+}
+
+.footer-nav {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--spacing-sm) !important;
+}
+
+.footer-nav a {
+  font-size: 0.95rem !important;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color) !important;
+  margin-top: var(--spacing-2xl) !important;
+  padding-top: var(--spacing-lg) !important;
+  text-align: center !important;
+}
+
+.footer-bottom p {
+  color: var(--text-muted) !important;
+  font-size: 0.9rem !important;
+  margin: 0 !important;
+}
+
+/* Override PaperMod footer styles with highest priority */
+body .footer,
+html .footer {
+  color: var(--footer-text) !important;
+  background: var(--footer-bg) !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+body .footer a,
+html .footer a {
+  color: var(--footer-link) !important;
+  border-bottom: 1px solid transparent !important;
+}
+
+body .footer a:hover,
+html .footer a:hover {
+  color: var(--footer-link-hover) !important;
+  border-bottom: 1px solid var(--footer-link-hover) !important;
+}
+
+/* Ensure custom footer has good contrast and layout */
+.footer-section {
+  margin-bottom: var(--spacing-2xl) !important;
+}
+
+/* Hero Text System - Override for posts with hero images */
+.post-header:not(.has-hero) .post-description { 
+  color: var(--text-color) !important; 
+}
+
+.post-header.has-hero .post-title,
+.post-header.has-hero .post-description,
+.post-header.has-hero .post-meta {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+
+.post-header.has-hero .post-title { 
+  font-weight: var(--font-weight-extrabold); 
+  letter-spacing: .2px; 
+}
+
+.post-header.has-hero .post-featured-image::after {
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+  z-index: 1;
+}
+
+/* Content Readability - Final Enforcement */
+.page-content p,
+.page-content .post-description {
+  color: var(--secondary-color) !important;
+}
+
+/* Terms and Legal Pages */
+.terms h1,
+.terms h2,
+.terms h3,
+.terms h4,
+.terms h5,
+.terms h6,
+.terms p,
+.terms ul,
+.terms ol,
+.terms li {
+  color: var(--secondary-color) !important;
+}
+
+/* Legal Page Headers */
+.legal-page .post-header {
+  background: var(--background-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding: var(--spacing-xl) 0;
+  margin-bottom: var(--spacing-xl);
+  position: static !important;
+}
+
+.legal-page .post-header-content {
+  position: static !important;
+  padding: 0 !important;
+  color: var(--secondary-color) !important;
+}
+
+.legal-page .post-header .post-title {
+  color: var(--secondary-color) !important;
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+  text-shadow: none !important;
+}
+
+.legal-page .post-header .post-description {
+  color: var(--text-light) !important;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  text-shadow: none !important;
+}
+
+/* Legal Content */
+.legal-page .post-content {
+  color: var(--secondary-color) !important;
+  line-height: var(--line-height-relaxed);
+}
+
+.legal-page .post-content h1,
+.legal-page .post-content h2,
+.legal-page .post-content h3,
+.legal-page .post-content h4,
+.legal-page .post-content h5,
+.legal-page .post-content h6 {
+  color: var(--secondary-color) !important;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.legal-page .post-content p,
+.legal-page .post-content ul,
+.legal-page .post-content ol,
+.legal-page .post-content li {
+  color: var(--secondary-color) !important;
+}
+
+/* Force visibility for any page content */
+.post-single h1,
+.post-single h2,
+.post-single h3,
+.post-single h4,
+.post-single h5,
+.post-single h6,
+.post-single p,
+.post-single ul,
+.post-single ol,
+.post-single li {
+  color: var(--secondary-color) !important;
+}
+
+/* MailerLite Sticky Bar Override */
+.formkit-sticky-bar {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: var(--z-sticky-bar) !important;
+  width: 100% !important;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.2) !important;
+}
+
+.formkit-sticky-bar .formkit-form {
+  position: relative !important;
+  z-index: var(--z-sticky-bar) !important;
+  display: block !important;
+}

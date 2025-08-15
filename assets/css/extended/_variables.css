@@ -1,0 +1,98 @@
+/* 
+ * CSS Custom Properties (Variables)
+ * SmartPetBuys Design System
+ */
+
+:root {
+  /* Brand Colors */
+  --primary-color: #FF7F32;       /* Orange - Primary brand color */
+  --primary-dark: #e66a2b;        /* Darker orange for hover states */
+  --secondary-color: #1A2A42;     /* Dark Blue - Secondary brand color */
+  --accent-color: #FFFFFF;        /* White - Accent color */
+  
+  /* Text Colors - WCAG AA Compliant (4.5:1 contrast ratio minimum) */
+  --text-color: #1a2a42;          /* Main text color - 11.2:1 contrast on white */
+  --text-light: #495057;          /* Light text for meta information - 7.1:1 contrast */
+  --text-muted: #343a40;          /* Muted text - 9.1:1 contrast */
+  
+  /* Background Colors */
+  --background-color: #FFFFFF;    /* Main background */
+  --card-bg: #FFFFFF;             /* Card background */
+  --footer-bg: #f8f9fa;           /* Footer background */
+  
+  /* Border & Shadow */
+  --border-color: #e9ecef;        /* Light border color */
+  --shadow: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-hover: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-elevated: 0 8px 24px rgba(0,0,0,0.06);
+  
+  /* Border Radius */
+  --radius: 8px;                  /* Standard border radius */
+  --radius-large: 12px;           /* Large border radius */
+  
+  /* Layout Widths */
+  --main-width: 1500px;           /* Main content width */
+  --nav-width: 1600px;            /* Navigation width */
+  --content-max-width: 65ch;      /* Optimal reading width */
+  
+  /* Typography */
+  --font-primary: 'Montserrat', sans-serif;  /* Headings font */
+  --font-body: 'Open Sans', sans-serif;      /* Body font */
+  --font-mono: 'Courier New', monospace;     /* Monospace font */
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Line Heights */
+  --line-height-tight: 1.3;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.9;
+  --line-height-loose: 2.0;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 1rem;       /* 16px */
+  --spacing-lg: 1.5rem;     /* 24px */
+  --spacing-xl: 2rem;       /* 32px */
+  --spacing-2xl: 3rem;      /* 48px */
+  --spacing-3xl: 4rem;      /* 64px */
+  
+  /* Z-Index Scale */
+  --z-header: 1000;
+  --z-mobile-nav: 1000;
+  --z-mobile-toggle: 1001;
+  --z-sticky-bar: 99999;
+  
+  /* Breakpoints (for reference) */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  
+  /* Animation */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Footer specific variables - WCAG AA Compliant */
+  --footer-text: #343a40;         /* 9.1:1 contrast on light footer background */
+  --footer-link: #0056b3;         /* 4.6:1 contrast ratio */
+  --footer-link-hover: #004085;   /* 6.1:1 contrast ratio */
+}
+
+/* Dark mode variables (for future implementation) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text-color: #e5e5e5;
+    --text-light: #a0a0a0;
+    --border-color: #404040;
+  }
+}

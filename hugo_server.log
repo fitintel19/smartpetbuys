@@ -1,0 +1,238 @@
+Watching for changes in C:\Users\johnm\smartpetbuys\{archetypes,assets,content,data,i18n,layouts,postcss.config.js,static,themes}
+Watching for config changes in C:\Users\johnm\smartpetbuys\hugo.toml
+Start building sites … 
+hugo v0.148.2-40c3d8233d4b123eff74725e5766fc6272f0a84d+extended windows/amd64 BuildDate=2025-07-27T12:43:24Z VendorInfo=gohugoio
+
+
+                  │ EN 
+──────────────────┼────
+ Pages            │ 82 
+ Paginator pages  │  5 
+ Non-page files   │  0 
+ Static files     │ 13 
+ Processed images │  0 
+ Aliases          │ 24 
+ Cleaned          │  0 
+
+Built in 87 ms
+Environment: "production"
+Serving pages from disk
+Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1) 
+Press Ctrl+C to stop
+
+Change detected, rebuilding site (#1).
+2025-08-15 14:01:12.355 -0400
+Template changed /partials/extend_head.html
+Template added /partials/extend_head.html.tmp.46172.1755280872007
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 70 ms
+
+Change detected, rebuilding site (#2).
+2025-08-15 14:01:33.356 -0400
+Asset changed /css/extended/critical.css
+Asset changed /css/extended/critical.css.tmp.46172.1755280892992
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change detected, rebuilding site (#3).
+2025-08-15 14:01:50.355 -0400
+Asset changed /css/extended/critical.css
+Asset changed /css/extended/critical.css.tmp.46172.1755280910026
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 20 ms
+
+Change of config file detected, rebuilding site (#4).
+2025-08-15 14:02:07.855 -0400
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Rebuilt in 163 ms
+
+Change of config file detected, rebuilding site (#5).
+2025-08-15 14:02:18.855 -0400
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Rebuilt in 190 ms
+
+Change detected, rebuilding site (#6).
+2025-08-15 14:02:39.355 -0400
+Template changed /partials/extend_head.html
+Template added /partials/extend_head.html.tmp.46172.1755280959295
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 77 ms
+
+Change detected, rebuilding site (#7).
+2025-08-15 14:03:01.855 -0400
+Template changed /partials/extend_head.html
+Template added /partials/extend_head.html.tmp.46172.1755280981781
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 88 ms
+
+Change detected, rebuilding site (#8).
+2025-08-15 14:03:15.855 -0400
+Template changed /partials/extend_head.html
+Template added /partials/extend_head.html.tmp.46172.1755280995489
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 61 ms
+
+Change detected, rebuilding site (#9).
+2025-08-15 14:12:06.855 -0400
+Asset changed /css/extended/accessibility.css.tmp.46172.1755281526418
+Asset changed /css/extended/accessibility.css
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 31 ms
+
+Change detected, rebuilding site (#10).
+2025-08-15 14:12:19.356 -0400
+Asset changed /css/extended/main.css
+Asset changed /css/extended/main.css.tmp.46172.1755281538903
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 28 ms
+
+Change detected, rebuilding site (#11).
+2025-08-15 14:12:49.355 -0400
+Template changed /partials/header.html
+Template added /partials/header.html.tmp.46172.1755281568886
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#12).
+2025-08-15 14:14:10.355 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281649885
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#13).
+2025-08-15 14:14:14.855 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281654843
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#14).
+2025-08-15 14:14:20.356 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281660042
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#15).
+2025-08-15 14:14:26.355 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281666239
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 38 ms
+
+Change detected, rebuilding site (#16).
+2025-08-15 14:14:37.355 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281677253
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#17).
+2025-08-15 14:15:30.356 -0400
+Template changed /_default/list.html
+Template added /_default/list.html.tmp.46172.1755281729928
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 39 ms
+
+Change detected, rebuilding site (#18).
+2025-08-15 14:15:35.855 -0400
+Template changed /_default/list.html
+Template added /_default/list.html.tmp.46172.1755281735415
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change detected, rebuilding site (#19).
+2025-08-15 14:15:40.855 -0400
+Template changed /_default/list.html
+Template added /_default/list.html.tmp.46172.1755281740695
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#20).
+2025-08-15 14:15:46.355 -0400
+Template changed /_default/list.html
+Template added /_default/list.html.tmp.46172.1755281746281
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 36 ms
+
+Change detected, rebuilding site (#21).
+2025-08-15 14:15:51.855 -0400
+Template changed /_default/list.html
+Template added /_default/list.html.tmp.46172.1755281751539
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 37 ms
+
+Change of Static files detected, rebuilding site (#22).
+2025-08-15 14:16:13.355 -0400
+Syncing \js to \
+Syncing \js\mobile-menu.js to \
+
+Change detected, rebuilding site (#23).
+2025-08-15 14:16:31.355 -0400
+Asset changed /css/extended/_variables.css
+Asset changed /css/extended/_variables.css.tmp.46172.1755281791045
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 26 ms
+
+Change detected, rebuilding site (#24).
+2025-08-15 14:16:38.855 -0400
+Asset changed /css/extended/_variables.css
+Asset changed /css/extended/_variables.css.tmp.46172.1755281798547
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#25).
+2025-08-15 14:16:59.855 -0400
+Template changed /shortcodes/product.html
+Template added /shortcodes/product.html.tmp.46172.1755281819840
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 43 ms
+
+Change detected, rebuilding site (#26).
+2025-08-15 14:17:43.855 -0400
+Template changed /shortcodes/email-signup.html
+Template added /shortcodes/email-signup.html.tmp.46172.1755281863389
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 49 ms
+
+Change detected, rebuilding site (#27).
+2025-08-15 14:18:03.855 -0400
+Asset changed /css/extended/_components.css
+Asset changed /css/extended/_components.css.tmp.46172.1755281883783
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 29 ms
+
+Change detected, rebuilding site (#28).
+2025-08-15 14:18:10.855 -0400
+Asset changed /css/extended/_components.css
+Asset changed /css/extended/_components.css.tmp.46172.1755281890445
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 25 ms
+
+Change of Static files detected, rebuilding site (#29).
+2025-08-15 14:18:49.357 -0400
+Syncing \js to \
+Syncing \js\category-filter.js to \
+
+Change detected, rebuilding site (#30).
+2025-08-15 14:19:28.355 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281967973
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 35 ms
+
+Change detected, rebuilding site (#31).
+2025-08-15 14:19:45.855 -0400
+Template changed /_default/single.html
+Template added /_default/single.html.tmp.46172.1755281985586
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 34 ms
+
+Change detected, rebuilding site (#32).
+2025-08-15 14:20:23.855 -0400
+Asset changed /css/extended/accessibility.css
+Asset changed /css/extended/accessibility.css.tmp.46172.1755282023493
+Web Server is available at http://localhost:1314/ (bind address 127.0.0.1)
+Total in 29 ms

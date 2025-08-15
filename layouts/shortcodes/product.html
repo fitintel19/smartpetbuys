@@ -4,25 +4,27 @@
 {{ if not $p }}
 <p style="color:#b00">Product id '{{ $id }}' not found.</p>
 {{ else }}
-<div class="product-box" itemscope itemtype="https://schema.org/Product">
-  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }}" itemprop="image">{{ end }}
+<div class="product-box" itemscope itemtype="https://schema.org/Product" role="region" aria-labelledby="product-{{ $id }}-title">
+  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }} - {{ $p.blurb | default "Pet product" | truncate 50 "..." }}" itemprop="image" loading="lazy">{{ else }}<div class="product-image-placeholder" role="presentation" aria-hidden="true"></div>{{ end }}
   <div class="product-box-content">
-    <h3 itemprop="name">{{ $p.name }}</h3>
-    {{ if $p.blurb }}<p itemprop="description">{{ $p.blurb }}</p>{{ end }}
+    <h3 id="product-{{ $id }}-title" itemprop="name">{{ $p.name }}</h3>
+    {{ if $p.blurb }}<p itemprop="description" aria-describedby="product-{{ $id }}-title">{{ $p.blurb }}</p>{{ end }}
     {{ if $p.brand }}<meta itemprop="brand" content="{{ $p.brand }}">{{ end }}
     {{ if $p.rating }}
-    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" role="img" aria-label="{{ $p.rating }} out of 5 stars rating based on {{ $p.review_count | default "50" }} reviews">
       <meta itemprop="ratingValue" content="{{ $p.rating }}">
       <meta itemprop="bestRating" content="5">
       <meta itemprop="worstRating" content="1">
       <meta itemprop="ratingCount" content="{{ $p.review_count | default "50" }}">
+      <span class="rating-display" aria-hidden="true">★★★★★</span>
+      <span class="sr-only">{{ $p.rating }} out of 5 stars rating</span>
     </div>
     {{ end }}
     <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
       <meta itemprop="availability" content="https://schema.org/InStock">
       <meta itemprop="priceCurrency" content="USD">
       {{ if $p.price }}<meta itemprop="price" content="{{ $p.price }}">{{ end }}
-      <a href="{{ $p.url }}" rel="nofollow sponsored" target="_blank" class="cta-button" itemprop="url">
+      <a href="{{ $p.url }}" rel="nofollow sponsored" target="_blank" class="cta-button" itemprop="url" aria-label="Check price for {{ $p.name }} (opens in new tab)">
          Check Price
       </a>
     </div>

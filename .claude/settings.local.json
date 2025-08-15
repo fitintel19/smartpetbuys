@@ -13,7 +13,14 @@
       "Bash(mv:*)",
       "Bash(git rm:*)",
       "Bash(gh workflow:*)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "Bash(find:*)",
+      "Bash(powershell:*)",
+      "Bash(for file in _variables.css _base.css _typography.css _layout.css _components.css _utilities.css main.css)",
+      "Bash(do wc:*)",
+      "Bash(done)",
+      "Bash(grep:*)",
+      "Bash(python:*)"
     ],
     "defaultMode": "acceptEdits",
     "additionalDirectories": [

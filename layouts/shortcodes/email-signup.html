@@ -3,49 +3,59 @@
 
 {{- if eq $type "sidebar" -}}
 <!-- Sidebar Email Signup -->
-<div class="email-signup sidebar-signup">
-  <h3>🐾 Get Our Free Pet Buying Guide!</h3>
+<div class="email-signup sidebar-signup" role="complementary" aria-labelledby="sidebar-signup-heading">
+  <h3 id="sidebar-signup-heading">🐾 Get Our Free Pet Buying Guide!</h3>
   <p>Make smarter choices for your furry friend with our comprehensive buying guide.</p>
   
   <!-- Kit Form Embed - Replace with your actual Kit form -->
-  <form class="kit-form" data-kit-form="YOUR_KIT_FORM_ID">
+  <form class="kit-form" data-kit-form="YOUR_KIT_FORM_ID" role="form" aria-labelledby="sidebar-signup-heading">
     <div class="form-group">
+      <label for="sidebar-email" class="sr-only">Email address</label>
       <input 
         type="email" 
+        id="sidebar-email"
         name="email_address" 
         placeholder="Enter your email" 
         required
+        aria-required="true"
+        aria-describedby="sidebar-email-help"
         class="email-input"
       >
+      <div id="sidebar-email-help" class="sr-only">Enter your email address to receive our free pet buying guide</div>
     </div>
-    <button type="submit" class="signup-btn">
+    <button type="submit" class="signup-btn" aria-describedby="sidebar-signup-heading">
       Get Free Guide →
     </button>
   </form>
   
-  <p class="privacy-note">
+  <p class="privacy-note" role="note">
     <small>We respect your privacy. Unsubscribe anytime.</small>
   </p>
 </div>
 
 {{- else if eq $type "inline" -}}
 <!-- Inline Content Email Signup -->
-<div class="email-signup inline-signup">
+<div class="email-signup inline-signup" role="region" aria-labelledby="inline-signup-heading">
   <div class="signup-content">
-    <h3>📧 Love these pet product tips?</h3>
+    <h3 id="inline-signup-heading">📧 Love these pet product tips?</h3>
     <p>Get our <strong>FREE Ultimate Pet Buying Guide</strong> plus weekly product recommendations sent to your inbox!</p>
     
     <!-- Kit Form Embed -->
-    <form class="kit-form" data-kit-form="YOUR_KIT_FORM_ID">
+    <form class="kit-form" data-kit-form="YOUR_KIT_FORM_ID" role="form" aria-labelledby="inline-signup-heading">
       <div class="form-row">
+        <label for="inline-email" class="sr-only">Email address</label>
         <input 
           type="email" 
+          id="inline-email"
           name="email_address" 
           placeholder="Enter your email address" 
           required
+          aria-required="true"
+          aria-describedby="inline-email-help"
           class="email-input"
         >
-        <button type="submit" class="signup-btn">
+        <div id="inline-email-help" class="sr-only">Enter your email to get our free pet buying guide and weekly tips</div>
+        <button type="submit" class="signup-btn" aria-describedby="inline-signup-heading">
           Get Free Guide
         </button>
       </div>
@@ -59,38 +69,43 @@
 
 {{- else if eq $type "exit-intent" -}}
 <!-- Exit Intent Popup -->
-<div id="exit-intent-popup" class="email-popup" style="display: none;">
-  <div class="popup-overlay"></div>
+<div id="exit-intent-popup" class="email-popup" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="popup-heading" aria-describedby="popup-description">
+  <div class="popup-overlay" aria-hidden="true"></div>
   <div class="popup-content">
-    <div class="popup-close">&times;</div>
+    <button class="popup-close" aria-label="Close popup">&times;</button>
     <div class="popup-body">
-      <h2>Wait! Don't Leave Empty-Handed 🐾</h2>
-      <p>Get our <strong>FREE Ultimate Pet Buying Guide</strong> before you go!</p>
+      <h2 id="popup-heading">Wait! Don't Leave Empty-Handed 🐾</h2>
+      <p id="popup-description">Get our <strong>FREE Ultimate Pet Buying Guide</strong> before you go!</p>
       
-      <ul class="popup-benefits">
-        <li>✅ Save money on pet products</li>
-        <li>✅ Avoid dangerous products</li>
-        <li>✅ Find the best deals</li>
-        <li>✅ Expert buying advice</li>
+      <ul class="popup-benefits" role="list">
+        <li role="listitem">✅ Save money on pet products</li>
+        <li role="listitem">✅ Avoid dangerous products</li>
+        <li role="listitem">✅ Find the best deals</li>
+        <li role="listitem">✅ Expert buying advice</li>
       </ul>
       
       <!-- Kit Form Embed -->
-      <form class="kit-form popup-form" data-kit-form="YOUR_KIT_FORM_ID">
+      <form class="kit-form popup-form" data-kit-form="YOUR_KIT_FORM_ID" role="form" aria-labelledby="popup-heading">
         <div class="form-group">
+          <label for="popup-email" class="sr-only">Email address</label>
           <input 
             type="email" 
+            id="popup-email"
             name="email_address" 
             placeholder="Enter your email to get the guide" 
             required
+            aria-required="true"
+            aria-describedby="popup-email-help"
             class="email-input"
           >
+          <div id="popup-email-help" class="sr-only">Enter your email address to receive the free pet buying guide</div>
         </div>
-        <button type="submit" class="signup-btn large">
+        <button type="submit" class="signup-btn large" aria-describedby="popup-heading">
           Send Me The Free Guide!
         </button>
       </form>
       
-      <p class="popup-privacy">
+      <p class="popup-privacy" role="note">
         <small>We respect your privacy. No spam, unsubscribe anytime.</small>
       </p>
     </div>
@@ -99,21 +114,26 @@
 
 {{- else if eq $type "footer" -}}
 <!-- Footer Newsletter Signup -->
-<div class="email-signup footer-signup">
-  <h4>📬 Smart Pet Parent Newsletter</h4>
+<div class="email-signup footer-signup" role="complementary" aria-labelledby="footer-signup-heading">
+  <h4 id="footer-signup-heading">📬 Smart Pet Parent Newsletter</h4>
   <p>Weekly product reviews, deals, and pet care tips</p>
   
   <!-- Kit Form Embed -->
-  <form class="kit-form footer-form" data-kit-form="YOUR_KIT_FORM_ID">
+  <form class="kit-form footer-form" data-kit-form="YOUR_KIT_FORM_ID" role="form" aria-labelledby="footer-signup-heading">
     <div class="form-row">
+      <label for="footer-email" class="sr-only">Email address</label>
       <input 
         type="email" 
+        id="footer-email"
         name="email_address" 
         placeholder="Your email" 
         required
+        aria-required="true"
+        aria-describedby="footer-email-help"
         class="email-input compact"
       >
-      <button type="submit" class="signup-btn compact">
+      <div id="footer-email-help" class="sr-only">Subscribe to our newsletter for weekly pet product reviews and tips</div>
+      <button type="submit" class="signup-btn compact" aria-describedby="footer-signup-heading">
         Subscribe
       </button>
     </div>

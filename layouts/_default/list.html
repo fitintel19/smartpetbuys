@@ -5,9 +5,9 @@
 {{- else }}
 
 {{- if not .IsHome | and .Title }}
-<header class="page-header">
+<header class="page-header" role="banner">
   {{- partial "breadcrumbs.html" . }}
-  <h1>{{ .Title }}</h1>
+  <h1 id="page-title">{{ .Title }}</h1>
   {{- if .Description }}
   <div class="post-description">
     {{ .Description | markdownify }}
@@ -17,11 +17,11 @@
 {{- end }}
 
 {{- if .Content }}
-<div class="post-content">
+<section class="post-content" role="region" aria-labelledby="page-title">
   {{- if not (.Param "disableAnchoredHeadings") }}
   {{- partial "anchored_headings.html" .Content -}}
   {{- else }}{{ .Content }}{{ end }}
-</div>
+</section>
 {{- end }}
 
 {{- $pages := union .RegularPages .Sections }}
@@ -34,9 +34,9 @@
 {{- $paginator := .Paginate $pages }}
 
 {{- if and .IsHome site.Params.homeInfoParams (eq $paginator.PageNumber 1) }}
-<div class="hero-section">
+<section class="hero-section" role="banner" aria-label="Website introduction">
   <div class="hero-content">
-    <h1>{{ site.Params.homeInfoParams.Title }}</h1>
+    <h1 id="site-title">{{ site.Params.homeInfoParams.Title }}</h1>
     <p class="hero-description">{{ site.Params.homeInfoParams.Content }}</p>
     <div class="hero-stats">
       <div class="stat">

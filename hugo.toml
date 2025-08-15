@@ -85,6 +85,67 @@ theme = "PaperMod"
   enableFingerprinting = true
   enableMinify = true
 
+# Hugo Minification Settings - Enhanced for Performance
+[minify]
+  disableHTML = false
+  disableCSS = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = true
+      keepDefaultAttrVals = false
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      keepCSS2 = false
+      precision = 2
+      removeImportant = false
+    [minify.tdewolff.js]
+      precision = 2
+      keepVarNames = false
+      noNullishOperator = false
+
+# Build Performance Settings - Enhanced
+[build]
+  useResourceCacheWhen = "fallback"
+  writeStats = true
+
+# Asset Processing and Optimization
+[params.assets]
+  # Enable asset optimization
+  disableFingerprinting = false
+  disableScrollBarStyle = false
+  # CSS Optimization Settings
+  inlineCSS = false
+  minifyCSS = true
+  # JavaScript Optimization
+  minifyJS = true
+
+# Advanced Build Configuration
+[caches]
+  [caches.getcsv]
+    maxAge = "10m"
+  [caches.getjson]
+    maxAge = "10m"
+  [caches.getresource]
+    maxAge = "10m"
+  [caches.images]
+    maxAge = "24h"
+  [caches.modules]
+    maxAge = "24h"
+
+# Resource Processing Pipeline
+[imaging]
+  resampleFilter = "CatmullRom"
+  quality = 85
+  hint = "photo"
+
 [params.ga4]
   id = "G-HHVQX4ENNP"
 
