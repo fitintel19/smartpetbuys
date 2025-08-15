@@ -26,48 +26,13 @@
 <!-- Pinterest Site Verification -->
 <meta name="p:domain_verify" content="06dada1659a02925f28a921a1723ba78"/>
 
-<!-- MailerLite Universal - Optimized Loading with Intersection Observer -->
+<!-- MailerLite Universal -->
 <script>
-  // Initialize MailerLite with performance optimizations
-  function initMailerLite() {
-    // Check if user has scrolled past 50% of page or after 3 seconds
-    let hasScrolled = false;
-    let hasTimedOut = false;
-    
-    function loadMailerLite() {
-      if (hasScrolled || hasTimedOut) return; // Prevent double loading
-      (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-      .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-      n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-      (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-      ml('account', '1736326');
-    }
-    
-    // Load on scroll past 50%
-    window.addEventListener('scroll', function() {
-      if (hasScrolled) return;
-      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      if (scrollPercent > 50) {
-        hasScrolled = true;
-        loadMailerLite();
-      }
-    }, { passive: true });
-    
-    // Fallback timer
-    setTimeout(function() {
-      if (!hasScrolled) {
-        hasTimedOut = true;
-        loadMailerLite();
-      }
-    }, 3000);
-  }
-  
-  // Initialize after DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMailerLite);
-  } else {
-    initMailerLite();
-  }
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1736326');
 </script>
 <!-- End MailerLite Universal -->
 
