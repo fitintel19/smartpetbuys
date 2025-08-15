@@ -1,0 +1,54 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c3b6c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2b4d7d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF7F32;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Pattern overlay -->
+    <pattern id="petPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <circle cx="50" cy="50" r="3" fill="rgba(255,255,255,0.1)"/>
+      <circle cx="150" cy="100" r="2" fill="rgba(255,255,255,0.08)"/>
+      <circle cx="100" cy="150" r="2.5" fill="rgba(255,255,255,0.06)"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <rect width="1200" height="630" fill="url(#petPattern)"/>
+  
+  <!-- Main content container -->
+  <g transform="translate(600,315)">
+    <!-- Logo/Brand -->
+    <text x="0" y="-80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="64" font-weight="bold">
+      🐾 SmartPetBuys
+    </text>
+    
+    <!-- Tagline -->
+    <text x="0" y="-20" text-anchor="middle" fill="rgba(255,255,255,0.95)" font-family="Arial, sans-serif" font-size="32" font-weight="400">
+      Expert Pet Product Reviews
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="20" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Arial, sans-serif" font-size="22" font-weight="300">
+      Find the best products for your furry friends
+    </text>
+    
+    <!-- Bottom accent -->
+    <text x="0" y="70" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="18">
+      Trusted Reviews • Buying Guides • Expert Recommendations
+    </text>
+  </g>
+  
+  <!-- Decorative pet icons -->
+  <g opacity="0.15">
+    <text x="100" y="150" font-size="80" fill="white" transform="rotate(-15 100 150)">🐕</text>
+    <text x="1000" y="200" font-size="70" fill="white" transform="rotate(20 1000 200)">🐱</text>
+    <text x="150" y="500" font-size="60" fill="white" transform="rotate(-25 150 500)">🎾</text>
+    <text x="1050" y="450" font-size="75" fill="white" transform="rotate(15 1050 450)">🦴</text>
+    <text x="500" y="100" font-size="50" fill="white" transform="rotate(10 500 100)">🐾</text>
+    <text x="700" y="550" font-size="55" fill="white" transform="rotate(-10 700 550)">🐾</text>
+  </g>
+</svg>

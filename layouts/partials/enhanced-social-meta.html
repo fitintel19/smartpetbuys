@@ -1,0 +1,140 @@
+{{/* Enhanced Social Media Meta Tags for Better Share Cards */}}
+
+{{/* Determine the best image for sharing */}}
+{{- $socialImage := "" -}}
+{{- $imageWidth := "1200" -}}
+{{- $imageHeight := "630" -}}
+
+{{/* Priority: featured_image > cover.image > fallback brand image */}}
+{{- with .Params.featured_image -}}
+  {{- $socialImage = . | absURL -}}
+{{- else -}}
+  {{- with .Params.cover.image -}}
+    {{- if (ne $.Params.cover.relative true) -}}
+      {{- $socialImage = . | absURL -}}
+    {{- else -}}
+      {{- $socialImage = (path.Join $.RelPermalink .) | absURL -}}
+    {{- end -}}
+  {{- else -}}
+    {{/* Use a default SmartPetBuys branded image for social sharing */}}
+    {{- $socialImage = "/images/smartpetbuys-social-default.svg" | absURL -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Enhanced title for social media */}}
+{{- $socialTitle := .Title -}}
+{{- if .IsPage -}}
+  {{- if findRE `review|best|top` .Title -}}
+    {{- $socialTitle = printf "🐾 %s | Expert Pet Product Review" .Title -}}
+  {{- else -}}
+    {{- $socialTitle = printf "🐾 %s | SmartPetBuys Guide" .Title -}}
+  {{- end -}}
+{{- else -}}
+  {{- $socialTitle = printf "%s | Expert Pet Product Reviews & Guides" site.Title -}}
+{{- end -}}
+
+{{/* Enhanced description for social media */}}
+{{- $socialDescription := "" -}}
+{{- with .Description -}}
+  {{- $socialDescription = . -}}
+{{- else -}}
+  {{- if .IsPage -}}
+    {{- with .Summary -}}
+      {{- $socialDescription = . | plainify | truncate 155 -}}
+    {{- else -}}
+      {{- $socialDescription = "Expert pet product reviews, buying guides, and deals. Find the best products for your furry friends with our comprehensive testing and recommendations." -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $socialDescription = site.Params.description -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Enhanced Open Graph Tags */}}
+<meta property="og:title" content="{{ $socialTitle }}">
+<meta property="og:description" content="{{ $socialDescription }}">
+<meta property="og:image" content="{{ $socialImage }}">
+<meta property="og:image:width" content="{{ $imageWidth }}">
+<meta property="og:image:height" content="{{ $imageHeight }}">
+<meta property="og:image:alt" content="{{ $socialTitle }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:locale" content="{{ with .Params.locale }}{{ . }}{{ else }}en_US{{ end }}">
+
+{{- if .IsPage -}}
+<meta property="og:type" content="article">
+<meta property="article:author" content="{{ site.Params.author }}">
+<meta property="article:publisher" content="{{ site.Title }}">
+{{- with .Section -}}
+<meta property="article:section" content="{{ . | title }}">
+{{- end -}}
+{{- $ISO8601 := "2006-01-02T15:04:05-07:00" -}}
+{{- with .PublishDate -}}
+<meta property="article:published_time" content="{{ .Format $ISO8601 }}">
+{{- end -}}
+{{- with .Lastmod -}}
+<meta property="article:modified_time" content="{{ .Format $ISO8601 }}">
+{{- end -}}
+{{- range .GetTerms "tags" | first 4 -}}
+<meta property="article:tag" content="{{ .Page.Title }}">
+{{- end -}}
+{{- else -}}
+<meta property="og:type" content="website">
+{{- end -}}
+
+{{/* Enhanced Twitter Card Tags */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $socialTitle }}">
+<meta name="twitter:description" content="{{ $socialDescription }}">
+<meta name="twitter:image" content="{{ $socialImage }}">
+<meta name="twitter:image:alt" content="{{ $socialTitle }}">
+{{- with site.Params.twitter -}}
+<meta name="twitter:site" content="{{ if strings.HasPrefix . "@" }}{{ . }}{{ else }}@{{ . }}{{ end }}">
+<meta name="twitter:creator" content="{{ if strings.HasPrefix . "@" }}{{ . }}{{ else }}@{{ . }}{{ end }}">
+{{- end -}}
+
+{{/* Pinterest Rich Pins */}}
+<meta name="pinterest-rich-pin" content="true">
+<meta property="og:rich_attachment" content="true">
+
+{{/* Additional social platform support */}}
+{{- if .IsPage -}}
+<meta name="author" content="{{ site.Params.author }}">
+<meta name="article:author" content="{{ site.Params.author }}">
+{{- end -}}
+
+{{/* LinkedIn specific tags */}}
+<meta property="og:image:type" content="image/jpeg">
+
+{{/* Schema.org JSON-LD for enhanced social sharing */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ if .IsPage }}Article{{ else }}WebSite{{ end }}",
+  "headline": "{{ $socialTitle | safeJS }}",
+  "description": "{{ $socialDescription | safeJS }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ $socialImage }}",
+    "width": "{{ $imageWidth }}",
+    "height": "{{ $imageHeight }}"
+  },
+  "url": "{{ .Permalink }}",
+  {{- if .IsPage }}
+  "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.Params.author }}",
+    "url": "{{ site.BaseURL }}"
+  },
+  {{- end }}
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.Title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.BaseURL }}{{ site.Params.logo }}"
+    }
+  }
+}
+</script>
