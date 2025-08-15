@@ -41,8 +41,9 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 20px;
+  padding: 8px 20px;
   position: relative;
+  min-height: 50px;
 }
 
 .sticky-bar-content {
@@ -98,6 +99,67 @@
 .mailerlite-sticky-bar .ml-embedded * {
   background: transparent !important;
   background-color: transparent !important;
+}
+
+/* Reduce dead space and improve form layout */
+.mailerlite-sticky-bar .ml-embedded .ml-form-embedContainer,
+.mailerlite-sticky-bar .ml-embedded .ml-form-embedWrapper,
+.mailerlite-sticky-bar .ml-embedded .ml-form-embedBody {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
+.mailerlite-sticky-bar .ml-embedded .ml-form-embedContent {
+  padding: 8px !important;
+  margin: 0 !important;
+  border-radius: 6px !important;
+  max-width: none !important;
+}
+
+.mailerlite-sticky-bar .ml-embedded .ml-form-formContent {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mailerlite-sticky-bar .ml-embedded .ml-form-fieldRow {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 1 !important;
+  max-width: none !important;
+}
+
+.mailerlite-sticky-bar .ml-embedded .ml-form-fieldWrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove all extra spacing from MailerLite form elements */
+.mailerlite-sticky-bar .ml-embedded h1,
+.mailerlite-sticky-bar .ml-embedded h2,
+.mailerlite-sticky-bar .ml-embedded h3,
+.mailerlite-sticky-bar .ml-embedded h4,
+.mailerlite-sticky-bar .ml-embedded p,
+.mailerlite-sticky-bar .ml-embedded div {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.2 !important;
+}
+
+/* Hide any MailerLite form titles/headers to save space */
+.mailerlite-sticky-bar .ml-embedded .ml-form-title,
+.mailerlite-sticky-bar .ml-embedded .ml-form-description {
+  display: none !important;
+}
+
+/* Compact form button styling */
+.mailerlite-sticky-bar .ml-embedded .ml-form-submitWrapper {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .mailerlite-sticky-bar .ml-embedded input[type="email"] {
