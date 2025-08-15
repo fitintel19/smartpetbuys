@@ -1,0 +1,68 @@
+{{/* Schema.org Validation and Enhancement Script */}}
+<script>
+// Client-side schema validation
+document.addEventListener('DOMContentLoaded', function() {
+  // Check for required Product schema fields
+  const products = document.querySelectorAll('[itemtype="https://schema.org/Product"]');
+  products.forEach(product => {
+    // Validate required fields
+    const name = product.querySelector('[itemprop="name"]');
+    const offers = product.querySelector('[itemprop="offers"]');
+    const image = product.querySelector('[itemprop="image"]');
+    
+    if (!name || !offers || !image) {
+      console.warn('Product missing required schema fields:', product);
+    }
+  });
+  
+  // Check JSON-LD schemas
+  const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
+  jsonLdScripts.forEach(script => {
+    try {
+      const data = JSON.parse(script.textContent);
+      
+      // Validate Product schemas
+      if (data['@type'] === 'Product') {
+        const required = ['name', 'offers'];
+        const missing = required.filter(field => !data[field]);
+        if (missing.length > 0) {
+          console.warn('Product JSON-LD missing required fields:', missing, data);
+        }
+      }
+      
+      // Validate Review schemas
+      if (data['@type'] === 'Review') {
+        const required = ['itemReviewed', 'reviewRating'];
+        const missing = required.filter(field => !data[field]);
+        if (missing.length > 0) {
+          console.warn('Review JSON-LD missing required fields:', missing, data);
+        }
+      }
+    } catch (e) {
+      console.warn('Invalid JSON-LD schema:', script.textContent);
+    }
+  });
+});
+</script>
+
+{{/* Enhanced Organization Schema for better site recognition */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.Title }}",
+  "url": "{{ site.BaseURL }}",
+  "logo": "{{ site.BaseURL }}{{ site.Params.logo }}",
+  "description": "{{ site.Params.description }}",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "email": "{{ site.Params.contact }}"
+  },
+  "sameAs": [
+    "{{ with site.Params.socialIcons }}{{ range . }}{{ if eq .name "x" }}"{{ .url }}"{{ end }}{{ end }}{{ end }}",
+    "{{ with site.Params.socialIcons }}{{ range . }}{{ if eq .name "instagram" }}"{{ .url }}"{{ end }}{{ end }}{{ end }}",
+    "{{ with site.Params.socialIcons }}{{ range . }}{{ if eq .name "pinterest" }}"{{ .url }}"{{ end }}{{ end }}{{ end }}"
+  ]
+}
+</script>

@@ -167,6 +167,9 @@ html .footer a:hover {
 }
 </style>
 
+<!-- Schema.org validation and enhancement -->
+{{ partial "schema-validation.html" . }}
+
 <!-- MailerLite Exit-Intent Popup (only for blog posts) -->
 {{- if eq .Section "posts" }}
 {{ partial "mailerlite-exit-intent.html" . }}

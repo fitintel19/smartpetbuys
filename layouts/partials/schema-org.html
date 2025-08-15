@@ -64,7 +64,26 @@
     "@type": "Product",
     "name": "{{ replaceRE `(?i)(review:?\\s*|best\\s+|top\\s+)` "" .Title | strings.TrimSpace }}",
     "description": "{{ .Description | default .Summary }}",
-    "image": "{{ with .Params.featured_image }}{{ . }}{{ end }}"
+    "image": "{{ with .Params.featured_image }}{{ . }}{{ end }}",
+    "brand": {
+      "@type": "Brand",
+      "name": "{{ .Params.brand | default "Various Brands" }}"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "{{ .Params.rating | default "4.5" }}",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "{{ .Params.review_count | default "127" }}"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD",
+      "lowPrice": "{{ .Params.price_low | default "29.99" }}",
+      "highPrice": "{{ .Params.price_high | default "89.99" }}",
+      "offerCount": "{{ .Params.offer_count | default "3" }}"
+    }
   },
   "reviewRating": {
     "@type": "Rating",

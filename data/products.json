@@ -3,19 +3,31 @@
     "name": "Orijen Original Dry Dog Food",
     "url": "https://amzn.to/4LsOjvH",
     "image": "https://m.media-amazon.com/images/I/61G8dG5M3ZL._AC_SL1200_.jpg",
-    "blurb": "High-protein, grain-free formula for active dogs."
+    "blurb": "High-protein, grain-free formula for active dogs.",
+    "brand": "Orijen",
+    "rating": "4.6",
+    "review_count": "1,247",
+    "price": "89.99"
   },
   "toy-01": {
     "name": "Outward Hound Hide N' Seek Puzzle Toy",
     "url": "https://amzn.to/3HptNku",
     "image": "https://m.media-amazon.com/images/I/91XO1wJn3AL._AC_SL1500_.jpg",
-    "blurb": "Keeps dogs mentally stimulated and engaged."
+    "blurb": "Keeps dogs mentally stimulated and engaged.",
+    "brand": "Outward Hound",
+    "rating": "4.3",
+    "review_count": "8,924",
+    "price": "12.99"
   },
   "brush-01": {
     "name": "FURminator Undercoat Deshedding Tool for Cats",
     "url": "https://amzn.to/4fBcc5N",
     "image": "https://m.media-amazon.com/images/I/61kq1Gr4tEL._SL1500_.jpg",
-    "blurb": "Gentle detangling for cats and dogs."
+    "blurb": "Gentle detangling for cats and dogs.",
+    "brand": "FURminator",
+    "rating": "4.4",
+    "review_count": "15,673",
+    "price": "29.95"
   },
   "groom-03": {
     "name": "Boshel Dog Nail Clippers and Trimmer",

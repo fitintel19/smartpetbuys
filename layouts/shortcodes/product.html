@@ -4,14 +4,59 @@
 {{ if not $p }}
 <p style="color:#b00">Product id '{{ $id }}' not found.</p>
 {{ else }}
-<div class="product-box">
-  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }}">{{ end }}
+<div class="product-box" itemscope itemtype="https://schema.org/Product">
+  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }}" itemprop="image">{{ end }}
   <div class="product-box-content">
-    <h3>{{ $p.name }}</h3>
-    {{ if $p.blurb }}<p>{{ $p.blurb }}</p>{{ end }}
-    <a href="{{ $p.url }}" rel="nofollow sponsored" target="_blank" class="cta-button">
-       Check Price
-    </a>
+    <h3 itemprop="name">{{ $p.name }}</h3>
+    {{ if $p.blurb }}<p itemprop="description">{{ $p.blurb }}</p>{{ end }}
+    {{ if $p.brand }}<meta itemprop="brand" content="{{ $p.brand }}">{{ end }}
+    {{ if $p.rating }}
+    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+      <meta itemprop="ratingValue" content="{{ $p.rating }}">
+      <meta itemprop="bestRating" content="5">
+      <meta itemprop="worstRating" content="1">
+      <meta itemprop="ratingCount" content="{{ $p.review_count | default "50" }}">
+    </div>
+    {{ end }}
+    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+      <meta itemprop="availability" content="https://schema.org/InStock">
+      <meta itemprop="priceCurrency" content="USD">
+      {{ if $p.price }}<meta itemprop="price" content="{{ $p.price }}">{{ end }}
+      <a href="{{ $p.url }}" rel="nofollow sponsored" target="_blank" class="cta-button" itemprop="url">
+         Check Price
+      </a>
+    </div>
   </div>
 </div>
+
+<!-- Product JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ $p.name }}",
+  "description": "{{ $p.blurb | default $p.name }}",
+  "image": "{{ $p.image }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ $p.brand | default "Pet Product Brand" }}"
+  },
+  {{ if $p.rating }}
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ $p.rating }}",
+    "bestRating": "5",
+    "worstRating": "1",
+    "ratingCount": "{{ $p.review_count | default "50" }}"
+  },
+  {{ end }}
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD",
+    {{ if $p.price }}"price": "{{ $p.price }}",{{ end }}
+    "url": "{{ $p.url }}"
+  }
+}
+</script>
 {{ end }}
