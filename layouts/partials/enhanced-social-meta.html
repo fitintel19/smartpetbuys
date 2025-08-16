@@ -16,8 +16,8 @@
       {{- $socialImage = (path.Join $.RelPermalink .) | absURL -}}
     {{- end -}}
   {{- else -}}
-    {{/* Use a default SmartPetBuys branded image for social sharing */}}
-    {{- $socialImage = "/images/smartpetbuys-social-default.svg" | absURL -}}
+    {{/* Use a default SmartPetBuys branded image for social sharing - JPG for better platform compatibility */}}
+    {{- $socialImage = "/images/smartpetbuys-social-default.jpg" | absURL -}}
   {{- end -}}
 {{- end -}}
 
@@ -49,16 +49,33 @@
   {{- end -}}
 {{- end -}}
 
+{{/* Determine image type for proper og:image:type */}}
+{{- $imageType := "image/jpeg" -}}
+{{- if strings.HasSuffix $socialImage ".png" -}}
+  {{- $imageType = "image/png" -}}
+{{- else if strings.HasSuffix $socialImage ".jpg" -}}
+  {{- $imageType = "image/jpeg" -}}
+{{- else if strings.HasSuffix $socialImage ".jpeg" -}}
+  {{- $imageType = "image/jpeg" -}}
+{{- else if strings.HasSuffix $socialImage ".webp" -}}
+  {{- $imageType = "image/webp" -}}
+{{- end -}}
+
 {{/* Enhanced Open Graph Tags */}}
 <meta property="og:title" content="{{ $socialTitle }}">
 <meta property="og:description" content="{{ $socialDescription }}">
 <meta property="og:image" content="{{ $socialImage }}">
 <meta property="og:image:width" content="{{ $imageWidth }}">
 <meta property="og:image:height" content="{{ $imageHeight }}">
+<meta property="og:image:type" content="{{ $imageType }}">
 <meta property="og:image:alt" content="{{ $socialTitle }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="{{ with .Params.locale }}{{ . }}{{ else }}en_US{{ end }}">
+
+{{/* Facebook/Meta specific tags for Threads compatibility */}}
+<meta property="fb:app_id" content="">
+<meta property="og:image:secure_url" content="{{ $socialImage }}">
 
 {{- if .IsPage -}}
 <meta property="og:type" content="article">
@@ -102,8 +119,9 @@
 <meta name="article:author" content="{{ site.Params.author }}">
 {{- end -}}
 
-{{/* LinkedIn specific tags */}}
-<meta property="og:image:type" content="image/jpeg">
+{{/* Additional Meta/Instagram specific tags */}}
+<meta name="theme-color" content="#1c3b6c">
+<meta property="og:updated_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
 
 {{/* Schema.org JSON-LD for enhanced social sharing */}}
 <script type="application/ld+json">

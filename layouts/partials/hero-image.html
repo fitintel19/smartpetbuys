@@ -1,0 +1,134 @@
+{{- /*
+  Hero Image Partial with WebP priority and Unsplash fallback
+  
+  Usage:
+  {{ partial "hero-image.html" (dict "keywords" "dog food|nutrition" "alt" "Dog eating healthy food" "class" "post-hero") }}
+  
+  Parameters:
+  - keywords: Keywords to match against CSV (required)
+  - alt: Alt text for the image (required)
+  - class: CSS class for the image element (optional)
+  - priority: Priority level to filter by (optional: "high", "medium", "low")
+*/ -}}
+
+{{- $keywords := .keywords | default "" -}}
+{{- $alt := .alt | default "Pet product hero image" -}}
+{{- $class := .class | default "hero-image" -}}
+{{- $priority := .priority | default "" -}}
+
+{{- if $keywords -}}
+  {{- /* Load and parse the hero images CSV */ -}}
+  {{- $csvPath := "hero-images-library.csv" -}}
+  {{- $csvData := "" -}}
+  {{- with resources.Get $csvPath -}}
+    {{- $csvData = .Content -}}
+  {{- end -}}
+  
+  {{- if $csvData -}}
+    {{- /* Parse CSV lines */ -}}
+    {{- $lines := split $csvData "\n" -}}
+    {{- $selectedImage := dict -}}
+    {{- $bestMatch := dict "score" 0 -}}
+    
+    {{- /* Skip header line and process each image entry */ -}}
+    {{- range $index, $line := after 1 $lines -}}
+      {{- if and $line (ne $line "") -}}
+        {{- $fields := split $line "," -}}
+        {{- if ge (len $fields) 6 -}}
+          {{- $filename := index $fields 0 -}}
+          {{- $category := index $fields 1 -}}
+          {{- $description := index $fields 2 -}}
+          {{- $imageKeywords := index $fields 3 -}}
+          {{- $imagePriority := index $fields 4 -}}
+          {{- $unsplashUrl := index $fields 5 -}}
+          
+          {{- /* Skip if priority filter is set and doesn't match */ -}}
+          {{- $priorityMatch := true -}}
+          {{- if $priority -}}
+            {{- $priorityMatch = eq $imagePriority $priority -}}
+          {{- end -}}
+          
+          {{- if $priorityMatch -}}
+            {{- /* Calculate match score based on keyword overlap */ -}}
+            {{- $searchKeywords := split $keywords "|" -}}
+            {{- $imageKeywordList := split $imageKeywords "|" -}}
+            {{- $matchScore := 0 -}}
+            
+            {{- range $searchKeyword := $searchKeywords -}}
+              {{- $searchKeyword = trim $searchKeyword " " -}}
+              {{- range $imageKeyword := $imageKeywordList -}}
+                {{- $imageKeyword = trim $imageKeyword " " -}}
+                {{- if or (eq $searchKeyword $imageKeyword) (in $imageKeyword $searchKeyword) (in $searchKeyword $imageKeyword) -}}
+                  {{- $matchScore = add $matchScore 1 -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+            
+            {{- /* Boost score for high priority images */ -}}
+            {{- if eq $imagePriority "high" -}}
+              {{- $matchScore = add $matchScore 2 -}}
+            {{- else if eq $imagePriority "medium" -}}
+              {{- $matchScore = add $matchScore 1 -}}
+            {{- end -}}
+            
+            {{- /* Update best match if this score is higher */ -}}
+            {{- if gt $matchScore ($bestMatch.score | default 0) -}}
+              {{- $selectedImage = dict 
+                  "filename" $filename
+                  "category" $category
+                  "description" $description
+                  "keywords" $imageKeywords
+                  "priority" $imagePriority
+                  "unsplashUrl" $unsplashUrl
+                  "score" $matchScore -}}
+              {{- $bestMatch = dict "score" $matchScore -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    
+    {{- /* Generate image HTML if we found a match */ -}}
+    {{- if $selectedImage.filename -}}
+      {{- $localPath := printf "/images/heroes/%s" $selectedImage.filename -}}
+      {{- $fallbackUrl := $selectedImage.unsplashUrl -}}
+      
+      <picture class="{{ $class }}">
+        {{- /* Try WebP first */ -}}
+        <source srcset="{{ $localPath }}" type="image/webp">
+        {{- /* Fallback to Unsplash URL */ -}}
+        <img 
+          src="{{ $fallbackUrl }}" 
+          alt="{{ $alt }}"
+          loading="lazy"
+          onerror="this.style.display='none'"
+          class="{{ $class }}-img"
+          data-hero-category="{{ $selectedImage.category }}"
+          data-hero-keywords="{{ $selectedImage.keywords }}"
+        >
+      </picture>
+      
+      {{- /* Debug info in development */ -}}
+      {{- if eq hugo.Environment "development" -}}
+        <!-- Hero Image Debug: {{ $selectedImage.filename }} (score: {{ $selectedImage.score }}, priority: {{ $selectedImage.priority }}) -->
+      {{- end -}}
+      
+    {{- else -}}
+      {{- /* No match found - use default fallback */ -}}
+      {{- if eq hugo.Environment "development" -}}
+        <!-- No hero image match found for keywords: {{ $keywords }} -->
+      {{- end -}}
+      <div class="{{ $class }} hero-placeholder">
+        <div class="hero-placeholder-content">
+          <span class="hero-placeholder-icon">🐾</span>
+          <span class="hero-placeholder-text">{{ $alt }}</span>
+        </div>
+      </div>
+    {{- end -}}
+    
+  {{- else -}}
+    {{- warnf "Hero images CSV file not found: %s" $csvPath -}}
+  {{- end -}}
+{{- else -}}
+  {{- warnf "Hero image partial called without keywords parameter" -}}
+{{- end -}}
