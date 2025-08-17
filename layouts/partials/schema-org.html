@@ -74,14 +74,37 @@
       "ratingValue": "{{ .Params.rating | default "4.5" }}",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "{{ .Params.review_count | default "127" }}"
+      "ratingCount": {{ .Params.review_count | default 127 | replaceRE "[^0-9]" "" }}
     },
+    "review": [
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "{{ .Params.rating | default "4.5" }}",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "{{ site.Params.author }}"
+        },
+        "reviewBody": "{{ .Description | default .Summary | truncate 200 }}"
+      }
+    ],
     "offers": {
       "@type": "AggregateOffer",
       "availability": "https://schema.org/InStock",
       "priceCurrency": "USD",
       "lowPrice": "{{ .Params.price_low | default "29.99" }}",
       "highPrice": "{{ .Params.price_high | default "89.99" }}",
+      "price": "{{ .Params.price_low | default "29.99" }}",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "{{ .Params.price_low | default "29.99" }}",
+        "priceCurrency": "USD"
+      },
+      "priceValidUntil": "{{ now.AddDate 1 0 0 | dateFormat "2006-01-02" }}",
       "offerCount": "{{ .Params.offer_count | default "3" }}"
     }
   },

@@ -15,7 +15,7 @@
       <meta itemprop="ratingValue" content="{{ $p.rating }}">
       <meta itemprop="bestRating" content="5">
       <meta itemprop="worstRating" content="1">
-      <meta itemprop="ratingCount" content="{{ $p.review_count | default "50" }}">
+      <meta itemprop="ratingCount" content="{{ $p.review_count | default "50" | replaceRE "[^0-9]" "" }}">
       <span class="rating-display" aria-hidden="true">★★★★★</span>
       <span class="sr-only">{{ $p.rating }} out of 5 stars rating</span>
     </div>
@@ -49,14 +49,43 @@
     "ratingValue": "{{ $p.rating }}",
     "bestRating": "5",
     "worstRating": "1",
-    "ratingCount": "{{ $p.review_count | default "50" }}"
+    "ratingCount": {{ $p.review_count | default "50" | replaceRE "[^0-9]" "" }}
   },
+  {{ end }}
+  {{ if $p.rating }}
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "{{ $p.rating }}",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "SmartPetBuys Team"
+      },
+      "reviewBody": "{{ $p.blurb | default $p.name }}"
+    }
+  ],
   {{ end }}
   "offers": {
     "@type": "Offer",
     "availability": "https://schema.org/InStock",
     "priceCurrency": "USD",
-    {{ if $p.price }}"price": "{{ $p.price }}",{{ end }}
+    {{ if $p.price }}"price": "{{ $p.price }}",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "{{ $p.price }}",
+      "priceCurrency": "USD"
+    },{{ else }}"price": "0.00",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },{{ end }}
+    "priceValidUntil": "{{ now.AddDate 1 0 0 | dateFormat "2006-01-02" }}",
     "url": "{{ $p.url }}"
   }
 }
