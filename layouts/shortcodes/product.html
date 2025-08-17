@@ -4,6 +4,24 @@
 {{ if not $p }}
 <p style="color:#b00">Product id '{{ $id }}' not found.</p>
 {{ else }}
+  {{/* Schema validation: Check for required fields to ensure Google compliance */}}
+  {{ $hasBrand := and $p.brand (ne $p.brand "") }}
+  {{ $hasRating := and $p.rating (ne $p.rating "") }}
+  {{ $hasReviewCount := and $p.review_count (ne $p.review_count "") }}
+  {{ $hasPrice := and $p.price (ne $p.price "") }}
+  {{ $hasAllRequiredFields := and $hasBrand $hasRating $hasReviewCount }}
+  
+  {{/* Build validation message for missing fields */}}
+  {{ $missingFields := slice }}
+  {{ if not $hasBrand }}{{ $missingFields = $missingFields | append "brand" }}{{ end }}
+  {{ if not $hasRating }}{{ $missingFields = $missingFields | append "rating" }}{{ end }}
+  {{ if not $hasReviewCount }}{{ $missingFields = $missingFields | append "review_count" }}{{ end }}
+  {{ if not $hasPrice }}{{ $missingFields = $missingFields | append "price" }}{{ end }}
+  
+  {{/* Hugo build warning for incomplete products */}}
+  {{ if not $hasAllRequiredFields }}
+    {{ warnf "Product '%s' missing schema fields for Google compliance: %s" $id (delimit $missingFields ", ") }}
+  {{ end }}
 <div class="product-box" itemscope itemtype="https://schema.org/Product" role="region" aria-labelledby="product-{{ $id }}-title">
   {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }} - {{ $p.blurb | default "Pet product" | truncate 50 "..." }}" itemprop="image" loading="lazy">{{ else }}<div class="product-image-placeholder" role="presentation" aria-hidden="true"></div>{{ end }}
   <div class="product-box-content">
@@ -33,6 +51,12 @@
 
 <!-- Product JSON-LD Schema -->
 <script type="application/ld+json">
+{{/* 
+  Product Schema.org JSON-LD for Google Search compliance
+  Required by Google: name, brand, offers
+  Recommended: aggregateRating, review, image, description
+  For products without ratings/reviews, we provide offers only (still valid)
+*/}}
 {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -41,7 +65,7 @@
   "image": "{{ $p.image }}",
   "brand": {
     "@type": "Brand",
-    "name": "{{ $p.brand | default "Pet Product Brand" }}"
+    "name": "{{ $p.brand | default "Unknown Brand" }}"
   },
   {{ if $p.rating }}
   "aggregateRating": {

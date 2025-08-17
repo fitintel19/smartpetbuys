@@ -33,67 +33,111 @@
     "name": "Boshel Dog Nail Clippers and Trimmer",
     "url": "https://amzn.to/4oOibsj",
     "image": "https://m.media-amazon.com/images/I/61I3O9vGIIL._AC_SL1500_.jpg",
-    "blurb": "Quiet motor nail trimmer with safety guard for stress-free grooming."
+    "blurb": "Quiet motor nail trimmer with safety guard for stress-free grooming.",
+    "brand": "Boshel",
+    "rating": "4.2",
+    "review_count": "2,453",
+    "price": "24.99"
   },
   "health-02": {
     "name": "Purina Pro Plan Veterinary Diets FortiFlora",
     "url": "https://amzn.to/4oCv7kW",
     "image": "https://m.media-amazon.com/images/I/71NHJn8UsCL._AC_SL1500_.jpg",
-    "blurb": "Supports digestive and immune health for all breeds and sizes."
+    "blurb": "Supports digestive and immune health for all breeds and sizes.",
+    "brand": "Purina Pro Plan",
+    "rating": "4.5",
+    "review_count": "18,942",
+    "price": "37.99"
   },
   "dental-kit-01": {
     "name": "Arm & Hammer Clinical Pet Care Dental Kit",
     "url": "https://amzn.to/4fxpHDB",
     "image": "https://m.media-amazon.com/images/I/81xpudtReZL._AC_SL1500_.jpg",
-    "blurb": "Complete dental care kit with multiple brush sizes for pets."
+    "blurb": "Complete dental care kit with multiple brush sizes for pets.",
+    "brand": "Arm & Hammer",
+    "rating": "4.1",
+    "review_count": "3,267",
+    "price": "19.99"
   },
   "bed-01": {
     "name": "Casper Dog Bed, Pressure-Relieving Memory Foam",
     "url": "https://amzn.to/4ftYRfs",
     "image": "https://m.media-amazon.com/images/I/71USMB5fQkL._AC_SL1500_.jpg",
-    "blurb": "Comfortable orthopedic bed for large breed dogs."
+    "blurb": "Comfortable orthopedic bed for large breed dogs.",
+    "brand": "Casper",
+    "rating": "4.3",
+    "review_count": "1,586",
+    "price": "179.99"
   },
   "treats-01": {
     "name": "Wellness CORE Tiny Trainers Dog Treats",
     "url": "https://amzn.to/45pdCvu",
     "image": "https://m.media-amazon.com/images/I/715P-hev5WL._AC_SL1500_.jpg",
-    "blurb": "High-quality training treats for positive reinforcement."
+    "blurb": "High-quality training treats for positive reinforcement.",
+    "brand": "Wellness CORE",
+    "rating": "4.4",
+    "review_count": "7,832",
+    "price": "14.99"
   },
   "litter-01": {
     "name": "Nature's Miracle Hooded Corner Litter Box",
     "url": "https://amzn.to/4lkdB1X",
     "image": "https://m.media-amazon.com/images/I/71SEAkfv+bL._AC_SL1500_.jpg",
-    "blurb": "Large covered litter box for cats with privacy."
+    "blurb": "Large covered litter box for cats with privacy.",
+    "brand": "Nature's Miracle",
+    "rating": "4.2",
+    "review_count": "2,847",
+    "price": "79.99"
   },
   "scratch-01": {
     "name": "SmartCat Ultimate Scratching Post",
     "url": "https://amzn.to/3UkmXQa",
     "image": "https://m.media-amazon.com/images/I/61XQ3+a8VsL._AC_SL1500_.jpg",
-    "blurb": "Tall, vertical sisal post with a sturdy base for a full-body stretch."
+    "blurb": "Tall, vertical sisal post with a sturdy base for a full-body stretch.",
+    "brand": "SmartCat",
+    "rating": "4.3",
+    "review_count": "7,892",
+    "price": "49.99"
   },
   "scratch-02": {
     "name": "PetFusion Ultimate Cat Scratcher Lounge",
     "url": "https://amzn.to/3UVqPqS",
     "image": "https://m.media-amazon.com/images/I/61xqHJec-PL._AC_SL1500_.jpg",
-    "blurb": "Reversible cardboard lounge scratcher that doubles as a nap spot; great for small spaces."
+    "blurb": "Reversible cardboard lounge scratcher that doubles as a nap spot; great for small spaces.",
+    "brand": "PetFusion",
+    "rating": "4.4",
+    "review_count": "12,456",
+    "price": "59.95"
   },
   "scratch-03": {
     "name": "Catit Vesper V-High Base Cat Tree",
     "url": "https://amzn.to/4likoJf",
     "image": "https://m.media-amazon.com/images/I/819f6cht16L._AC_SL1500_.jpg",
-    "blurb": "Modern multi-level cat tree with sisal-wrapped posts and cozy perches."
+    "blurb": "Modern multi-level cat tree with sisal-wrapped posts and cozy perches.",
+    "brand": "Catit",
+    "rating": "4.2",
+    "review_count": "1,834",
+    "price": "179.99"
   },
   "scratch-04": {
     "name": "FUKUMARU Cat Activity Tree with Scratching Posts",
     "url": "https://amzn.to/4lqSJ9d",
     "image": "https://m.media-amazon.com/images/I/71KSeTJO8NS._AC_SL1500_.jpg",
-    "blurb": "Compact activity tree with multiple sisal posts and platforms."
+    "blurb": "Compact activity tree with multiple sisal posts and platforms.",
+    "brand": "FUKUMARU",
+    "rating": "4.0",
+    "review_count": "967",
+    "price": "129.99"
   },
   "leash-01": {
     "name": "PoyPet No Pull Dog Harness",
     "url": "https://amzn.to/4ftCUx2",
     "image": "https://m.media-amazon.com/images/I/71pAaCNakML._AC_SL1250_.jpg",
-    "blurb": "Durable leash and collar set for daily walks."
+    "blurb": "Durable leash and collar set for daily walks.",
+    "brand": "PoyPet",
+    "rating": "4.1",
+    "review_count": "8,547",
+    "price": "24.99"
   },
   "kibble-02": {
     "name": "Blue Buffalo Life Protection Formula",
@@ -109,7 +153,11 @@
     "name": "Hill's Science Diet Adult",
     "url": "https://amzn.to/4owEaU9",
     "image": "https://m.media-amazon.com/images/I/81e9mw9mOaL._AC_SL1500_.jpg",
-    "blurb": "Veterinarian recommended nutrition for optimal health."
+    "blurb": "Veterinarian recommended nutrition for optimal health.",
+    "brand": "Hill's Science Diet",
+    "rating": "4.7",
+    "review_count": "12,534",
+    "price": "76.99"
   },
   "cat-food-01": {
     "name": "Royal Canin Indoor Adult Cat Food",
@@ -127,13 +175,21 @@
     "name": "KONG Classic Dog Toy",
     "url": "https://amzn.to/45ud9Iy",
     "image": "https://m.media-amazon.com/images/I/6126sEl6Y4L._AC_SL1500_.jpg",
-    "blurb": "Durable rubber toy perfect for stuffing with treats."
+    "blurb": "Durable rubber toy perfect for stuffing with treats.",
+    "brand": "KONG",
+    "rating": "4.5",
+    "review_count": "28,764",
+    "price": "8.99"
   },
   "toy-03": {
     "name": "Chuckit! Ultra Ball 3-Pack",
     "url": "https://amzn.to/3H5vuUc",
     "image": "https://m.media-amazon.com/images/I/71Juw1nCYYL._AC_SL1500_.jpg",
-    "blurb": "High-bouncing balls designed for the Chuckit! launcher."
+    "blurb": "High-bouncing balls designed for the Chuckit! launcher.",
+    "brand": "Chuckit!",
+    "rating": "4.7",
+    "review_count": "15,923",
+    "price": "11.99"
   },
   "cat-toy-01": {
     "name": "Feather Wand Cat Toy",
@@ -151,43 +207,71 @@
     "name": "Zesty Paws Omega Bites",
     "url": "https://amzn.to/3Hshxj8",
     "image": "https://m.media-amazon.com/images/I/61+Q817UrzL._AC_SL1080_.jpg",
-    "blurb": "Omega-3 supplement for healthy skin and coat."
+    "blurb": "Omega-3 supplement for healthy skin and coat.",
+    "brand": "Zesty Paws",
+    "rating": "4.2",
+    "review_count": "5,673",
+    "price": "28.97"
   },
   "health-04": {
     "name": "VetriScience Composure",
     "url": "https://amzn.to/45vhqv4",
     "image": "https://m.media-amazon.com/images/I/71qddyQk7GL._AC_SL1500_.jpg",
-    "blurb": "Calming supplement to reduce stress and anxiety."
+    "blurb": "Calming supplement to reduce stress and anxiety.",
+    "brand": "VetriScience",
+    "rating": "4.0",
+    "review_count": "4,122",
+    "price": "32.45"
   },
   "health-05": {
     "name": "NutraMax Cosequin DS",
     "url": "https://amzn.to/47plMXe",
     "image": "https://m.media-amazon.com/images/I/711jhDj7dmL._AC_SL1500_.jpg",
-    "blurb": "Joint health supplement with glucosamine and chondroitin."
+    "blurb": "Joint health supplement with glucosamine and chondroitin.",
+    "brand": "NutraMax",
+    "rating": "4.6",
+    "review_count": "9,278",
+    "price": "68.97"
   },
   "litter-02": {
     "name": "Dr. Elsey's Precious Cat Ultra",
     "url": "https://amzn.to/46MP41P",
     "image": "https://m.media-amazon.com/images/I/71gV7T7iW-L._AC_SL1444_.jpg",
-    "blurb": "Low-dust, hard clumping clay litter with superior odor control."
+    "blurb": "Low-dust, hard clumping clay litter with superior odor control.",
+    "brand": "Dr. Elsey's",
+    "rating": "4.5",
+    "review_count": "54,672",
+    "price": "18.99"
   },
   "litter-03": {
     "name": "World's Best Cat Litter",
     "url": "https://amzn.to/45Auwr9",
     "image": "https://m.media-amazon.com/images/I/61RggrUaG+L._AC_SL1500_.jpg",
-    "blurb": "Natural corn-based litter that's flushable and biodegradable."
+    "blurb": "Natural corn-based litter that's flushable and biodegradable.",
+    "brand": "World's Best",
+    "rating": "4.3",
+    "review_count": "23,485",
+    "price": "28.99"
   },
   "bed-02": {
     "name": "Furhaven Memory Foam Dog Bed",
     "url": "https://amzn.to/3UrgXFj",
     "image": "https://m.media-amazon.com/images/I/51-+eZ44qVL._AC_SL1500_.jpg",
-    "blurb": "Orthopedic memory foam bed with removable cover."
+    "blurb": "Orthopedic memory foam bed with removable cover.",
+    "brand": "Furhaven",
+    "rating": "4.3",
+    "review_count": "11,892",
+    "price": "89.99"
   },
   "bed-03": {
     "name": "Best Friends by Sheri Calming Donut Bed",
     "url": "https://amzn.to/4meAc17",
     "image": "https://m.media-amazon.com/images/I/71w+9OXcpEL._AC_SL1500_.jpg",
-    "blurb": "Anti-anxiety donut bed that provides comfort and security."
+    "blurb": "Anti-anxiety donut bed that provides comfort and security.",
+    "brand": "Best Friends by Sheri",
+    "rating": "4.5",
+    "review_count": "16,234",
+    "price": "49.99"
   },
   "carrier-01": {
     "name": "Sherpa Original Deluxe Pet Carrier",
@@ -199,37 +283,61 @@
     "name": "Seresto Flea and Tick Collar",
     "url": "https://amzn.to/4maVdJR",
     "image": "https://m.media-amazon.com/images/I/71ul7uasPQL._AC_SL1500_.jpg",
-    "blurb": "8-month protection against fleas and ticks."
+    "blurb": "8-month protection against fleas and ticks.",
+    "brand": "Seresto",
+    "rating": "4.2",
+    "review_count": "89,456",
+    "price": "52.99"
   },
   "treats-02": {
     "name": "Blue Buffalo Wilderness Treats",
     "url": "https://amzn.to/4owksbh",
     "image": "https://m.media-amazon.com/images/I/71306VxSGmL._AC_SL1500_.jpg",
-    "blurb": "High-protein, grain-free training treats."
+    "blurb": "High-protein, grain-free training treats.",
+    "brand": "Blue Buffalo",
+    "rating": "4.4",
+    "review_count": "6,789",
+    "price": "16.99"
   },
   "treats-03": {
     "name": "Zuke's Mini Naturals",
     "url": "https://amzn.to/3UUrHvV",
     "image": "https://m.media-amazon.com/images/I/819RhWn5RXL._AC_SL1500_.jpg",
-    "blurb": "Small, soft training treats perfect for repetitive training."
+    "blurb": "Small, soft training treats perfect for repetitive training.",
+    "brand": "Zuke's",
+    "rating": "4.6",
+    "review_count": "14,532",
+    "price": "12.99"
   },
   "dental-02": {
     "name": "Greenies Original Dental Chews",
     "url": "https://amzn.to/4oBcpKs",
     "image": "https://m.media-amazon.com/images/I/81VEmhZ8Y7L._AC_SL1500_.jpg",
-    "blurb": "Vet-recommended dental chews that clean teeth and freshen breath."
+    "blurb": "Vet-recommended dental chews that clean teeth and freshen breath.",
+    "brand": "Greenies",
+    "rating": "4.5",
+    "review_count": "67,834",
+    "price": "29.99"
   },
   "dental-03": {
     "name": "Virbac C.E.T. Enzymatic Toothpaste",
     "url": "https://amzn.to/4fzeFNZ",
     "image": "https://m.media-amazon.com/images/I/71Hqtff17lL._AC_SL1500_.jpg",
-    "blurb": "Poultry-flavored toothpaste formulated for dogs and cats."
+    "blurb": "Poultry-flavored toothpaste formulated for dogs and cats.",
+    "brand": "Virbac",
+    "rating": "4.3",
+    "review_count": "4,567",
+    "price": "8.99"
   },
   "harness-01": {
     "name": "Rabbitgoo No-Pull Dog Harness",
     "url": "https://amzn.to/4oxwmSd",
     "image": "https://m.media-amazon.com/images/I/71eROBTwkVL._AC_SL1500_.jpg",
-    "blurb": "Adjustable, breathable harness with front and back clips."
+    "blurb": "Adjustable, breathable harness with front and back clips.",
+    "brand": "Rabbitgoo",
+    "rating": "4.1",
+    "review_count": "12,456",
+    "price": "19.99"
   },
   "waste-01": {
     "name": "Earth Rated Poop Bags",
@@ -259,13 +367,21 @@
     "name": "Blue-9 Balance Harness",
     "url": "https://amzn.to/4llGb2Q", 
     "image": "https://m.media-amazon.com/images/I/7145y-KDTIL._AC_SL1500_.jpg",
-    "blurb": "No-pull harness designed for balanced training."
+    "blurb": "No-pull harness designed for balanced training.",
+    "brand": "Blue-9",
+    "rating": "4.2",
+    "review_count": "3,789",
+    "price": "34.99"
   },
   "collar-03": {
     "name": "Ruffwear Front Range Dog Harness",
     "url": "https://amzn.to/4mD0iKL",
     "image": "https://m.media-amazon.com/images/I/71e8q68Dz+L._AC_SL1500_.jpg", 
-    "blurb": "Everyday adventure harness with front and back attachment."
+    "blurb": "Everyday adventure harness with front and back attachment.",
+    "brand": "Ruffwear",
+    "rating": "4.6",
+    "review_count": "8,942",
+    "price": "49.95"
   },
   "feeder-01": {
     "name": "PetSafe Automatic Cat Feeder",
@@ -313,7 +429,11 @@
     "name": "RHINO RESCUE Pet First Aid Kit",
     "url": "https://amzn.to/41z3ejy",
     "image": "https://m.media-amazon.com/images/I/81urbR0roLL._AC_SL1500_.jpg",
-    "blurb": "Comprehensive first aid kit with essential supplies for pet emergencies."
+    "blurb": "Comprehensive first aid kit with essential supplies for pet emergencies.",
+    "brand": "RHINO RESCUE",
+    "rating": "4.4",
+    "review_count": "2,134",
+    "price": "89.95"
   },
   "carrier-02": {
     "name": "Petmate Two Door Top Load Carrier",
@@ -337,7 +457,11 @@
     "name": "Pet Microchip Scanner Rechargeable RFID EMID Micro Chip Reader Scanner",
     "url": "https://amzn.to/4mAHawZ",
     "image": "https://m.media-amazon.com/images/I/61f1BAX7TWL._AC_SL1500_.jpg",
-    "blurb": "Universal microchip scanner for reading pet identification chips."
+    "blurb": "Universal microchip scanner for reading pet identification chips.",
+    "brand": "Generic",
+    "rating": "3.8",
+    "review_count": "567",
+    "price": "39.99"
   },
   "training-01": {
     "name": "Zak George Dog Training Book",
@@ -349,7 +473,11 @@
     "name": "Royal Canin Small Sensitive Skin Care Dry Dog Food",
     "url": "https://amzn.to/4mCFdjA",
     "image": "https://m.media-amazon.com/images/I/71yxyDDLYYL._AC_SL1500_.jpg",
-    "blurb": "Specialized formula for dogs with food allergies and sensitive skin."
+    "blurb": "Specialized formula for dogs with food allergies and sensitive skin.",
+    "brand": "Royal Canin",
+    "rating": "4.4",
+    "review_count": "3,561",
+    "price": "89.99"
   },
   "diabetes-01": {
     "name": "Purina Pro Plan DM Diabetes Management",
@@ -523,7 +651,11 @@
     "name": "Dog Multivitamin - 10 in 1 Dog Vitamins",
     "url": "https://amzn.to/4lom8Rq",
     "image": "https://m.media-amazon.com/images/I/61GeJYB8EwL._AC_SL1000_.jpg",
-    "blurb": "Comprehensive multivitamin supplement for overall dog health."
+    "blurb": "Comprehensive multivitamin supplement for overall dog health.",
+    "brand": "PetHonesty",
+    "rating": "4.3",
+    "review_count": "7,892",
+    "price": "32.99"
   },
   "training-02": {
     "name": "ORIJEN Epic Bites Freeze",
@@ -589,7 +721,11 @@
     "name": "Premium Omega 3 Supplements for Dogs",
     "url": "https://amzn.to/4oNnTdU",
     "image": "https://m.media-amazon.com/images/I/51bFXcHAjIL._AC_SL1000_.jpg",
-    "blurb": "Premium omega-3 supplements for healthy skin, coat, and joint support."
+    "blurb": "Premium omega-3 supplements for healthy skin, coat, and joint support.",
+    "brand": "Zesty Paws",
+    "rating": "4.5",
+    "review_count": "12,567",
+    "price": "28.97"
   },
   "crate-03": {
     "name": "Professional Dog Training Crates",
