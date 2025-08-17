@@ -99,7 +99,11 @@
     "name": "Blue Buffalo Life Protection Formula",
     "url": "https://amzn.to/4121sHx",
     "image": "https://m.media-amazon.com/images/I/71rO9VJGfxL._AC_SL1500_.jpg",
-    "blurb": "Natural dog food with real chicken and LifeSource Bits."
+    "blurb": "Natural dog food with real chicken and LifeSource Bits.",
+    "brand": "Blue Buffalo",
+    "rating": "4.3",
+    "review_count": "3,892",
+    "price": "54.99"
   },
   "kibble-03": {
     "name": "Hill's Science Diet Adult",
