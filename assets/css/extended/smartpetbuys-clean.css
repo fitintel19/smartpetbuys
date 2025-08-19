@@ -240,12 +240,14 @@ body {
 
 /* Hamburger Lines */
 .hamburger-line {
+  display: block;
   width: 24px;
-  height: 2px;
+  height: 3px;
   background-color: var(--text-color);
   margin: 2px 0;
   transition: var(--transition-normal);
   transform-origin: center;
+  border-radius: 2px;
 }
 
 /* Hamburger Animation */
