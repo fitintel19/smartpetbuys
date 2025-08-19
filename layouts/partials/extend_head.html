@@ -337,18 +337,27 @@ html.fonts-loaded .content {
 {{ partial "schema-org.html" . }}
 
 <!-- Critical CSS - Inline for fastest initial paint -->
-<style>
+<!-- Temporarily disabled for testing new clean CSS -->
+<!--<style>
 {{- $critical := resources.Get "css/extended/critical.css" | resources.Minify -}}
 {{ $critical.Content | safeCSS }}
-</style>
+</style>-->
 
-<!-- Preload full stylesheet for after initial render -->
+<!-- Load New Clean CSS Architecture -->
+{{- $cleanCSS := resources.Get "css/extended/smartpetbuys-clean.css" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $cleanCSS = $cleanCSS | fingerprint -}}
+{{- end -}}
+<link rel="preload" as="style" href="{{ $cleanCSS.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link rel="stylesheet" href="{{ $cleanCSS.RelPermalink }}" crossorigin="anonymous"></noscript>
+
+<!-- Legacy CSS Fallback (will be removed after testing) -->
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended-full.css" | resources.Minify -}}
 {{- if not site.Params.assets.disableFingerprinting -}}
 {{- $extended = $extended | fingerprint -}}
 {{- end -}}
-<link rel="preload" as="style" href="{{ $extended.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-<noscript><link rel="stylesheet" href="{{ $extended.RelPermalink }}" crossorigin="anonymous"></noscript>
+<!--<link rel="preload" as="style" href="{{ $extended.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link rel="stylesheet" href="{{ $extended.RelPermalink }}" crossorigin="anonymous"></noscript>-->
 
 <!-- LCP Optimization - Hero Image Priority Preloading -->
 {{- if .Params.featured_image }}
