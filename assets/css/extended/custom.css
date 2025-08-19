@@ -393,63 +393,141 @@ footer {
   text-align: center;
 }
 
-/* Responsive Design */
+/* MOBILE-ONLY RESPONSIVE DESIGN - CORRECTED */
 @media (max-width: 768px) {
   .nav {
     padding: 0 1rem;
   }
   
-  .nav-menu {
+  /* HIDE DESKTOP NAV ON MOBILE ONLY */
+  .nav-menu,
+  .nav-menu.desktop-nav {
     display: none !important;
   }
   
+  /* SHOW MOBILE TOGGLE ON MOBILE ONLY */
   .mobile-menu-toggle {
-    display: block !important;
+    display: flex !important;
     background: none;
     border: none;
     color: var(--secondary-color);
     font-size: 1.5rem;
     cursor: pointer;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* MOBILE BRAND LOGO SIZE */
+  .brand-logo {
+    height: 80px;
+    max-width: 250px;
+  }
+  
+  /* MOBILE PRODUCT BOX LAYOUT */
+  .product-box {
+    flex-direction: column !important;
+    text-align: center !important;
+  }
+  
+  .product-box img {
+    width: 100px !important;
+    height: 100px !important;
   }
 }
 
-/* EMERGENCY: Desktop navigation must be visible */
+/* EMERGENCY DESKTOP FIXES - CRITICAL DESKTOP LAYOUT RESTORATION */
+/* Force navigation visibility on ALL desktop screens */
 @media (min-width: 769px) {
-  .nav-menu {
+  /* FORCE DESKTOP NAVIGATION TO BE VISIBLE */
+  .nav-menu,
+  .nav-menu.desktop-nav {
     display: flex !important;
-    gap: 2rem;
-    align-items: center;
+    gap: 2rem !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
   }
   
   .mobile-menu-toggle {
     display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* DESKTOP NAVIGATION LINKS - FORCE HORIZONTAL DISPLAY */
+  .nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    writing-mode: initial !important;
+    text-orientation: initial !important;
+    transform: none !important;
+    white-space: nowrap !important;
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem !important;
+    color: var(--secondary-color) !important;
+  }
+  
+  /* DESKTOP HEADER IMPROVEMENTS */
+  .nav-wrapper {
+    min-height: 72px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
   
   .brand-logo {
-    height: 100px; /* Much bigger on mobile too */
-    max-width: 250px;
+    height: 120px !important;
+    max-width: 400px !important;
   }
   
+  /* DESKTOP MAIN CONTENT IMPROVEMENTS */
   main {
-    padding: 2rem 1rem;
+    padding: 3rem 2rem !important;
   }
   
+  /* DESKTOP HERO SECTION */
   .hero-section h1 {
-    font-size: 2rem;
+    font-size: 3rem !important;
   }
   
+  /* DESKTOP POST CARDS */
   .post-card-content {
-    padding: 1.5rem;
+    padding: 2rem !important;
   }
   
+  /* DESKTOP PRODUCT BOXES - RESTORE HORIZONTAL LAYOUT */
   .product-box {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row !important;
+    text-align: left !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
   }
   
   .product-box img {
-    width: 100px;
-    height: 100px;
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  /* FORCE SIDEBAR TEXT TO BE HORIZONTAL */
+  .post-sidebar,
+  .sidebar-widget,
+  .sidebar-widget * {
+    writing-mode: initial !important;
+    text-orientation: initial !important;
+    transform: none !important;
+    rotate: none !important;
+  }
+  
+  .sidebar-widget h3,
+  .sidebar-widget p,
+  .sidebar-widget a,
+  .sidebar-widget li {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    transform: rotate(0deg) !important;
+    display: block !important;
   }
 }
 
@@ -1932,4 +2010,369 @@ main,
 }
 .post-header.has-hero .post-meta {
   background: rgba(0,0,0,0.18);
+}
+
+/* ================================
+   EMERGENCY DESKTOP LAYOUT FIXES
+   CRITICAL FIXES FOR DESKTOP UX
+   ================================ */
+
+/* DESKTOP-FIRST EMERGENCY OVERRIDES (1200px+) */
+@media (min-width: 1200px) {
+  /* FORCE PROPER DESKTOP GRID SPACING */
+  .post-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 320px !important;
+    gap: 3rem !important;
+    max-width: var(--nav-width) !important;
+    margin: 0 auto !important;
+    padding: 2rem !important;
+    align-items: start !important;
+  }
+  
+  /* DESKTOP SIDEBAR PROPER SPACING */
+  .post-sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+    position: sticky !important;
+    top: 100px !important;
+    width: 320px !important;
+    max-width: 320px !important;
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    transform: none !important;
+  }
+  
+  /* DESKTOP SIDEBAR WIDGET SPACING */
+  .sidebar-widget {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-large) !important;
+    padding: 1.5rem !important;
+    box-shadow: var(--shadow-elevated) !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .sidebar-widget h3 {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    transform: none !important;
+    font-size: 1.3rem !important;
+    color: var(--secondary-color) !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid var(--primary-color) !important;
+  }
+  
+  /* DESKTOP FOOTER PROPER SPACING */
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 3rem !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+  
+  .footer-section {
+    margin-bottom: 0 !important;
+  }
+  
+  .footer-section h4 {
+    color: var(--primary-color) !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .footer-section p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+    color: var(--text-light) !important;
+  }
+  
+  /* DESKTOP MAIN CONTENT PROPER WIDTH */
+  main {
+    max-width: var(--nav-width) !important;
+    margin: 0 auto !important;
+    padding: 3rem 2rem !important;
+  }
+  
+  /* DESKTOP NAVIGATION PROPER SPACING */
+  .nav {
+    max-width: var(--nav-width) !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+  
+  .nav-wrapper {
+    min-height: 80px !important;
+    gap: 2rem !important;
+  }
+  
+  .nav-menu {
+    gap: 2.5rem !important;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem !important;
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 500 !important;
+  }
+}
+
+/* DESKTOP TABLET LANDSCAPE (1024px - 1199px) */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .post-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 280px !important;
+    gap: 2.5rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 1.5rem !important;
+  }
+  
+  .post-sidebar {
+    width: 280px !important;
+    max-width: 280px !important;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+/* TABLET PORTRAIT DESKTOP NAV (769px - 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .post-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 250px !important;
+    gap: 2rem !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    padding: 1rem !important;
+  }
+  
+  .post-sidebar {
+    width: 250px !important;
+    max-width: 250px !important;
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  .nav-menu {
+    gap: 1.5rem !important;
+  }
+  
+  .nav-link {
+    font-size: 0.95rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+/* FORCE DESKTOP STYLES TO OVERRIDE MOBILE-FIRST */
+@media (min-width: 769px) {
+  /* CRITICAL: FORCE SIDEBAR TEXT HORIZONTAL */
+  .sidebar-widget,
+  .sidebar-widget *,
+  .sidebar-widget h3,
+  .sidebar-widget p,
+  .sidebar-widget a,
+  .sidebar-widget span,
+  .sidebar-widget div {
+    writing-mode: horizontal-tb !important;
+    text-orientation: mixed !important;
+    transform: rotate(0deg) !important;
+    -webkit-transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg) !important;
+    -ms-transform: rotate(0deg) !important;
+    -o-transform: rotate(0deg) !important;
+  }
+  
+  /* RESET ANY VERTICAL TEXT TRANSFORMS */
+  .post-sidebar * {
+    writing-mode: unset !important;
+    text-orientation: unset !important;
+    transform: none !important;
+  }
+  
+  /* DESKTOP HEADER ALWAYS VISIBLE */
+  .header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: var(--z-sticky-header) !important;
+    background: var(--accent-color) !important;
+    border-bottom: 2px solid var(--primary-color) !important;
+    box-shadow: var(--shadow) !important;
+  }
+  
+  /* OVERRIDE ANY LAYOUT CSS CONFLICTS */
+  .nav-menu.desktop-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* FORCE DESKTOP NAV LINKS PROPER DISPLAY */
+  .nav-menu .nav-link {
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+}
+
+/* CRITICAL: DESKTOP NAVIGATION EMERGENCY OVERRIDES */
+/* Apply to ALL desktop sizes to ensure navigation is always visible */
+@media (min-width: 769px) {
+  /* OVERRIDE ANY CONFLICTING CSS FROM OTHER FILES */
+  .nav-menu,
+  .desktop-nav,
+  .nav-menu.desktop-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    transform: none !important;
+  }
+  
+  /* FORCE NAV LINKS TO BE VISIBLE AND CLICKABLE */
+  .nav-link {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
+    pointer-events: auto !important;
+  }
+  
+  /* HIDE MOBILE TOGGLE ON DESKTOP */
+  .mobile-menu-toggle {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* HIDE MOBILE NAV ON DESKTOP */
+  .mobile-nav,
+  #mobile-nav {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    transform: translateX(-100%) !important;
+  }
+  
+  /* DESKTOP MAIN CONTENT SPACING */
+  main {
+    max-width: var(--nav-width) !important;
+    margin: 0 auto !important;
+    padding: 2rem !important;
+  }
+  
+  /* DESKTOP POST LAYOUT GRID */
+  .post-layout {
+    display: grid !important;
+    grid-template-columns: 1fr 320px !important;
+    gap: 2.5rem !important;
+    max-width: var(--nav-width) !important;
+    margin: 0 auto !important;
+    padding: 2rem !important;
+    align-items: start !important;
+  }
+  
+  /* DESKTOP FOOTER SPACING */
+  footer,
+  .site-footer,
+  footer.site-footer {
+    padding: 3rem 0 2rem 0 !important;
+    margin-top: 4rem !important;
+  }
+  
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 2.5rem !important;
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+  
+  .footer-section {
+    margin-bottom: 0 !important;
+  }
+  
+  .footer-section h4 {
+    margin-bottom: 1.5rem !important;
+    font-size: 1.2rem !important;
+  }
+  
+  .footer-section p {
+    margin-bottom: 1rem !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* DESKTOP CATEGORY GRID */
+  .categories-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-top: 2rem !important;
+  }
+  
+  /* DESKTOP POSTS GRID */
+  .posts-grid {
+    display: grid !important;
+    gap: 2.5rem !important;
+  }
+  
+  /* DESKTOP HERO SECTION */
+  .hero-section {
+    padding: 4rem 2rem !important;
+    margin: -2rem -2rem 3rem -2rem !important;
+  }
+  
+  .hero-stats {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 3rem !important;
+    margin-top: 2rem !important;
+    flex-direction: row !important;
+  }
+}
+
+/* ULTRA-WIDE DESKTOP OPTIMIZATIONS (1400px+) */
+@media (min-width: 1400px) {
+  .post-layout {
+    max-width: 1800px !important;
+    grid-template-columns: 1fr 400px !important;
+    gap: 3rem !important;
+    padding: 3rem !important;
+  }
+  
+  .post-sidebar {
+    width: 400px !important;
+    max-width: 400px !important;
+  }
+  
+  main {
+    padding: 3rem !important;
+  }
+  
+  .nav {
+    padding: 0 3rem !important;
+  }
+  
+  .footer-content {
+    max-width: 1600px !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 3rem !important;
+    padding: 0 3rem !important;
+  }
 }
