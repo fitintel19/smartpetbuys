@@ -43,7 +43,7 @@ body {
 
 /* Ensure the logo inside the flex header keeps a consistent size */
 .main-header img {
-  height: 40px;     /* explicit logo height */
+  height: 160px;    /* much larger logo height for better brand visibility */
   width: auto;      /* preserve aspect ratio */
   display: block;   /* prevents inline-gap issues in flex items */
   object-fit: contain;
@@ -88,8 +88,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 140px; /* Increased header height for much bigger logo */
-  padding: 0.5rem 0; /* Add vertical padding */
+  height: 180px; /* Much taller header to accommodate larger logo */
+  padding: 1rem 0; /* Increased vertical padding */
 }
 
 .nav-logo {
@@ -104,8 +104,8 @@ p {
 }
 
 .brand-logo {
-  height: 120px; /* Much larger logo size for better readability */
-  max-width: 300px; /* Increased max width constraint */
+  height: 160px; /* Much larger logo size for maximum brand visibility */
+  max-width: 450px; /* Increased max width constraint */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
@@ -444,8 +444,8 @@ footer {
   
   /* MOBILE BRAND LOGO SIZE */
   .brand-logo {
-    height: 80px;
-    max-width: 250px;
+    height: 120px;
+    max-width: 350px;
   }
   
   /* MOBILE PRODUCT BOX LAYOUT */
@@ -501,8 +501,8 @@ footer {
   }
   
   .brand-logo {
-    height: 120px !important;
-    max-width: 400px !important;
+    height: 160px !important;
+    max-width: 450px !important;
   }
   
   /* DESKTOP MAIN CONTENT IMPROVEMENTS */
@@ -1626,7 +1626,7 @@ footer {
 }
 
 .brand-logo {
-  height: 120px; /* Much larger logo for better visibility */
+  height: 160px; /* Much larger logo for maximum brand visibility */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
@@ -1663,7 +1663,7 @@ footer {
 
 @media (max-width: 768px) {
   .nav { padding: 0 16px; }
-  .brand-logo { height: 80px; /* Much larger on mobile too */ }
+  .brand-logo { height: 120px; /* Much larger on mobile too */ }
   .nav-menu { gap: 14px; }
 }
 

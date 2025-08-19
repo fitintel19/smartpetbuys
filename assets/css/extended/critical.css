@@ -88,7 +88,7 @@ body {
 }
 
 .nav-logo img {
-  max-height: 40px !important;
+  max-height: 160px !important;
   width: auto !important;
   display: block !important;
 }
