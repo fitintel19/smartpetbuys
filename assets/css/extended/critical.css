@@ -49,28 +49,48 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Header - Above the fold */
+/* Header - Above the fold - EMERGENCY VISIBILITY FIX */
 .header {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-header);
-  background: var(--accent-color);
-  border-bottom: 2px solid var(--primary-color);
-  box-shadow: var(--shadow);
+  position: sticky !important;
+  top: 0 !important;
+  z-index: var(--z-header) !important;
+  background: var(--accent-color) !important;
+  border-bottom: 2px solid var(--primary-color) !important;
+  box-shadow: var(--shadow) !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: 60px !important;
 }
 
 .nav {
-  max-width: var(--nav-width);
-  margin: 0 auto;
-  padding: 0 var(--spacing-xl);
+  max-width: var(--nav-width) !important;
+  margin: 0 auto !important;
+  padding: 0 var(--spacing-xl) !important;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .nav-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 72px;
-  gap: var(--spacing-lg);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  min-height: 72px !important;
+  gap: var(--spacing-lg) !important;
+}
+
+/* EMERGENCY: Force navigation menu visibility */
+.nav-logo {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.nav-logo img {
+  max-height: 40px !important;
+  width: auto !important;
+  display: block !important;
 }
 
 /* Essential Typography - Above the fold */
@@ -122,25 +142,32 @@ main {
 
 .logo:hover { color: var(--primary-color); }
 
+/* EMERGENCY: Force desktop navigation menu visibility */
 .nav-links,
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: var(--spacing-xl);
-  margin: 0;
-  padding: 0;
-  align-items: center;
+.nav-menu,
+.desktop-nav {
+  display: flex !important;
+  list-style: none !important;
+  gap: var(--spacing-xl) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center !important;
 }
 
 .nav-links a,
 .nav-link {
-  color: var(--secondary-color);
-  font-weight: var(--font-weight-semibold);
-  font-size: 1rem;
-  text-decoration: none;
-  transition: var(--transition-normal);
-  padding: var(--spacing-sm) 0;
-  border-bottom: 2px solid transparent;
+  color: var(--secondary-color) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  font-size: 1rem !important;
+  text-decoration: none !important;
+  transition: var(--transition-normal) !important;
+  padding: var(--spacing-sm) 0 !important;
+  border-bottom: 2px solid transparent !important;
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .nav-links a:hover,
@@ -253,17 +280,29 @@ main {
   transform: translateY(-2px);
 }
 
-/* Critical Hero Image Styles - Above the fold */
+/* EMERGENCY: Force hero image visibility */
 .post-featured-image {
-  position: relative;
-  min-height: 420px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: hidden;
-  width: 100%;
-  height: 420px;
-  display: block;
+  position: relative !important;
+  min-height: 420px !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 420px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force responsive featured image display */
+.responsive-featured-image {
+  display: block !important;
+  width: 100% !important;
+  height: 420px !important;
+  object-fit: cover !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .post-featured-image::after {
@@ -366,4 +405,30 @@ main {
   .post-header.has-hero {
     height: 300px;
   }
+}
+
+/* EMERGENCY: Global fixes for all rendering issues */
+.post-sidebar,
+.post-sidebar *,
+.sidebar__inner,
+.sidebar__inner *,
+.sidebar-widget,
+.sidebar-widget * {
+  writing-mode: initial !important;
+  text-orientation: initial !important;
+  transform: none !important;
+  rotate: none !important;
+  direction: ltr !important;
+}
+
+/* EMERGENCY: Force all elements to be visible */
+.header, .nav, .nav-wrapper, .nav-menu, .nav-links, .nav-link, .desktop-nav,
+.post-featured-image, .responsive-featured-image {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.nav-menu, .nav-links, .desktop-nav {
+  display: flex !important;
 }
