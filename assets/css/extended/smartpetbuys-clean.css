@@ -319,14 +319,59 @@ body {
   font-size: var(--text-sm);
 }
 
+/* Mobile Menu - Ensure visibility on mobile devices */
+@media (max-width: 767px) {
+  .mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 48px !important;
+    height: 48px !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    z-index: var(--z-mobile-toggle) !important;
+    position: relative !important;
+    border-radius: 6px !important;
+    transition: var(--transition-fast) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .hamburger-line {
+    display: block !important;
+    width: 24px !important;
+    height: 3px !important;
+    background-color: var(--text-color) !important;
+    margin: 2px 0 !important;
+    transition: var(--transition-fast) !important;
+    border-radius: 2px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Desktop navigation hidden on mobile */
+  .nav-menu {
+    display: none !important;
+  }
+}
+
 /* Hide mobile menu on desktop */
 @media (min-width: 768px) {
   .mobile-menu-toggle {
-    display: none;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
   }
   
   .mobile-nav {
-    display: none;
+    display: none !important;
+  }
+  
+  /* Desktop navigation visible */
+  .nav-menu {
+    display: flex !important;
   }
 }
 
