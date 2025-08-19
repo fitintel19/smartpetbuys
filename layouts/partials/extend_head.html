@@ -351,13 +351,15 @@ html.fonts-loaded .content {
 <link rel="preload" as="style" href="{{ $cleanCSS.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
 <noscript><link rel="stylesheet" href="{{ $cleanCSS.RelPermalink }}" crossorigin="anonymous"></noscript>
 
-<!-- Legacy CSS Fallback (will be removed after testing) -->
+<!-- Legacy CSS Fallback DISABLED - Conflicts with smartpetbuys-clean.css -->
+<!-- 
 {{- $extended := (resources.Match "css/extended/*.css") | resources.Concat "assets/css/extended-full.css" | resources.Minify -}}
 {{- if not site.Params.assets.disableFingerprinting -}}
 {{- $extended = $extended | fingerprint -}}
 {{- end -}}
-<!--<link rel="preload" as="style" href="{{ $extended.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
-<noscript><link rel="stylesheet" href="{{ $extended.RelPermalink }}" crossorigin="anonymous"></noscript>-->
+<link rel="preload" as="style" href="{{ $extended.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
+<noscript><link rel="stylesheet" href="{{ $extended.RelPermalink }}" crossorigin="anonymous"></noscript>
+-->
 
 <!-- LCP Optimization - Hero Image Priority Preloading -->
 {{- if .Params.featured_image }}
