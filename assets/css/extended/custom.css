@@ -104,11 +104,34 @@ p {
 }
 
 .brand-logo {
-  height: 120px; /* Much bigger logo for better visibility */
-  max-width: 300px; /* Increased max width constraint */
+  height: 80px; /* Optimal logo size for better visibility */
+  max-width: 250px; /* Increased max width constraint */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
+}
+
+/* Hide skip navigation links unless focused (accessibility) */
+.skip-link {
+  position: absolute !important;
+  top: -40px !important;
+  left: 6px !important;
+  z-index: 999999 !important;
+  background: var(--primary-color) !important;
+  color: white !important;
+  padding: 8px 16px !important;
+  text-decoration: none !important;
+  border-radius: 0 0 4px 4px !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.skip-link:focus {
+  top: 0 !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .nav-menu {
