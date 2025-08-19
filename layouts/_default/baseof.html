@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{- site.LanguageCode | default "en" }}" dir="{{- .Language.LanguageDirection | default "auto" }}">
+<head>
+    {{- partial "head.html" . }}
+</head>
+
+<body class="
+    {{- if (or (ne .Kind "page") (eq .Layout "home") ) -}}
+        {{- print "list" -}}
+    {{- end -}}
+    {{- if eq site.Params.defaultTheme "dark" -}}
+        {{- print " dark" }}
+    {{- end -}}
+    " id="top">
+
+{{- partialCached "header.html" . .Page -}}
+<main class="main">
+    {{- block "main" . }}{{- end }}
+</main>
+
+{{- partialCached "footer.html" . .Page -}}
+
+{{- if (not site.Params.disableScrollToTop) }}
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="m12 6-6-6-6 6 2-2 4-4 4 4 2 2Z" />
+    </svg>
+</a>
+{{- end }}
+
+{{- partial "extend_footer.html" . -}}
+
+<!-- Mobile Menu Script -->
+<script src="/js/mobile-menu.js" defer></script>
+
+<!-- MailerLite Sticky Bar (Global) -->
+{{ partial "mailerlite-sticky-bar.html" . }}
+
+</body>
+</html>
