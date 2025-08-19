@@ -22,32 +22,75 @@
   {{ if not $hasAllRequiredFields }}
     {{ warnf "Product '%s' missing schema fields for Google compliance: %s" $id (delimit $missingFields ", ") }}
   {{ end }}
-<div class="product-box" itemscope itemtype="https://schema.org/Product" role="region" aria-labelledby="product-{{ $id }}-title">
-  {{ if $p.image }}<img src="{{ $p.image }}" alt="{{ $p.name }} - {{ $p.blurb | default "Pet product" | truncate 50 "..." }}" itemprop="image" loading="lazy">{{ else }}<div class="product-image-placeholder" role="presentation" aria-hidden="true"></div>{{ end }}
-  <div class="product-box-content">
-    <h3 id="product-{{ $id }}-title" itemprop="name">{{ $p.name }}</h3>
-    {{ if $p.blurb }}<p itemprop="description" aria-describedby="product-{{ $id }}-title">{{ $p.blurb }}</p>{{ end }}
-    {{ if $p.brand }}<meta itemprop="brand" content="{{ $p.brand }}">{{ end }}
+<article class="product-card" itemscope itemtype="https://schema.org/Product" role="region" aria-labelledby="product-{{ $id }}-title">
+  <div class="product-image-container">
+    {{ if $p.image }}
+    <img src="{{ $p.image }}" 
+         alt="{{ $p.name }} - {{ $p.blurb | default "Pet product" | truncate 50 "..." }}" 
+         itemprop="image" 
+         loading="lazy"
+         class="product-image">
+    {{ else }}
+    <div class="product-image-placeholder" role="presentation" aria-hidden="true">
+      <svg class="product-placeholder-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+      </svg>
+    </div>
+    {{ end }}
+    {{ if $p.brand }}
+    <div class="product-brand-badge" itemprop="brand">{{ $p.brand }}</div>
+    {{ end }}
+  </div>
+  
+  <div class="product-content">
+    <div class="product-header">
+      <h3 id="product-{{ $id }}-title" class="product-title" itemprop="name">{{ $p.name }}</h3>
+      {{ if $p.price }}
+      <div class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+        <meta itemprop="availability" content="https://schema.org/InStock">
+        <meta itemprop="priceCurrency" content="USD">
+        <meta itemprop="price" content="{{ $p.price }}">
+        <span class="price-label">From</span>
+        <span class="price-value">${{ $p.price }}</span>
+      </div>
+      {{ end }}
+    </div>
+    
     {{ if $p.rating }}
-    <div itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" role="img" aria-label="{{ $p.rating }} out of 5 stars rating based on {{ $p.review_count | default "50" }} reviews">
+    <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating" role="img" aria-label="{{ $p.rating }} out of 5 stars rating based on {{ $p.review_count | default "50" }} reviews">
       <meta itemprop="ratingValue" content="{{ $p.rating }}">
       <meta itemprop="bestRating" content="5">
       <meta itemprop="worstRating" content="1">
       <meta itemprop="ratingCount" content="{{ $p.review_count | default "50" | replaceRE "[^0-9]" "" }}">
-      <span class="rating-display" aria-hidden="true">★★★★★</span>
-      <span class="sr-only">{{ $p.rating }} out of 5 stars rating</span>
+      <div class="rating-stars" aria-hidden="true">
+        {{ $rating := $p.rating | float }}
+        {{ range seq 1 5 }}
+        <span class="star {{ if le . $rating }}filled{{ else if and (gt $rating (sub . 1)) (lt $rating .) }}half{{ end }}">★</span>
+        {{ end }}
+      </div>
+      <span class="rating-text">{{ $p.rating }} ({{ $p.review_count | default "50" }} reviews)</span>
     </div>
     {{ end }}
-    <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-      <meta itemprop="availability" content="https://schema.org/InStock">
-      <meta itemprop="priceCurrency" content="USD">
-      {{ if $p.price }}<meta itemprop="price" content="{{ $p.price }}">{{ end }}
-      <a href="{{ $p.url }}" rel="nofollow sponsored" target="_blank" class="cta-button" itemprop="url" aria-label="Check price for {{ $p.name }} (opens in new tab)">
-         Check Price
+    
+    {{ if $p.blurb }}
+    <p class="product-description" itemprop="description" aria-describedby="product-{{ $id }}-title">{{ $p.blurb }}</p>
+    {{ end }}
+    
+    <div class="product-actions">
+      <a href="{{ $p.url }}" 
+         rel="nofollow sponsored" 
+         target="_blank" 
+         class="product-cta-button" 
+         itemprop="url" 
+         aria-label="Check price for {{ $p.name }} (opens in new tab)">
+        <span class="cta-text">Check Price</span>
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
       </a>
     </div>
   </div>
-</div>
+</article>
 
 <!-- Product JSON-LD Schema -->
 <script type="application/ld+json">

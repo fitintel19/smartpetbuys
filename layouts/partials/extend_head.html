@@ -1,20 +1,272 @@
-<!-- Font Performance Optimizations -->
-<!-- Preconnect to Google Fonts for faster DNS resolution -->
+<!-- Advanced Font Performance Optimizations -->
+<!-- Critical: Preconnect to Google Fonts for fastest DNS resolution -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- DNS-Prefetch for additional performance -->
+<!-- DNS-Prefetch for additional performance optimization -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-<!-- Optimized Google Fonts loading with critical weight preload -->
-<!-- Preload the most critical font weights first -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<!-- Enhanced Critical Font Loading Strategy: Mobile-First with advanced optimizations -->
+<!-- Load only essential font weights immediately for LCP optimization with better CLS prevention -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
 
-<!-- Load additional font weights asynchronously for better performance -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Open+Sans:wght@500&display=swap" onload="this.onload=null;this.rel='stylesheet'" media="print">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&family=Open+Sans:wght@500&display=swap"></noscript>
+<!-- Subset loading for even faster initial render -->
+<script>
+  // Load full font sets after critical render
+  const loadFullFonts = () => {
+    if (window.fullFontsLoaded) return;
+    window.fullFontsLoaded = true;
+    
+    const fullFontLink = document.createElement('link');
+    fullFontLink.rel = 'stylesheet';
+    fullFontLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap';
+    document.head.appendChild(fullFontLink);
+  };
+  
+  // Load full fonts on interaction or after short delay
+  ['mousedown', 'touchstart', 'scroll'].forEach(event => {
+    document.addEventListener(event, loadFullFonts, { once: true, passive: true });
+  });
+  setTimeout(loadFullFonts, 1000);
+</script>
+
+<!-- Enhanced Progressive Font Loading for CLS Prevention -->
+<script>
+// Advanced progressive font loading for superior CLS prevention and mobile performance
+document.documentElement.classList.add('fonts-loading');
+
+// Enhanced font loading with better error handling and performance
+if ('fonts' in document) {
+  // Set up performance timing
+  const fontLoadStart = performance.now();
+  
+  // Define font loading timeout for better UX
+  const fontTimeout = setTimeout(() => {
+    document.documentElement.classList.remove('fonts-loading');
+    document.documentElement.classList.add('fonts-timeout');
+    console.warn('Font loading timed out, using system fonts');
+  }, 3000); // 3 second timeout
+  
+  // Load critical fonts with enhanced error handling
+  const loadCriticalFonts = async () => {
+    try {
+      const fontPromises = [
+        document.fonts.load('600 16px Montserrat').catch(() => console.warn('Montserrat 600 failed to load')),
+        document.fonts.load('400 16px Open Sans').catch(() => console.warn('Open Sans 400 failed to load'))
+      ];
+      
+      // Wait for all fonts with individual error handling
+      await Promise.allSettled(fontPromises);
+      
+      clearTimeout(fontTimeout);
+      document.documentElement.classList.remove('fonts-loading');
+      document.documentElement.classList.add('fonts-loaded');
+      
+      // Track font loading performance
+      const fontLoadTime = performance.now() - fontLoadStart;
+      if (window.gtag) {
+        gtag('event', 'font_load_time', {
+          value: Math.round(fontLoadTime),
+          custom_map: { 'load_time': fontLoadTime }
+        });
+      }
+      
+      // Mark specific fonts as loaded for granular control
+      document.fonts.check('600 16px Montserrat') && 
+        document.documentElement.classList.add('montserrat-600-loaded');
+      document.fonts.check('400 16px Open Sans') && 
+        document.documentElement.classList.add('opensans-400-loaded');
+        
+    } catch (error) {
+      clearTimeout(fontTimeout);
+      document.documentElement.classList.remove('fonts-loading');
+      document.documentElement.classList.add('fonts-failed');
+      console.error('Font loading failed:', error);
+    }
+  };
+  
+  // Start loading immediately
+  loadCriticalFonts();
+  
+  // Enhanced font ready monitoring
+  document.fonts.ready.then(() => {
+    document.documentElement.classList.add('fonts-ready');
+    
+    // Additional font metrics for performance monitoring
+    if (window.performance && window.performance.mark) {
+      performance.mark('fonts-ready');
+    }
+  });
+  
+  // Progressive enhancement: Load additional font weights
+  const loadExtraFonts = () => {
+    if (window.extraFontsLoaded) return;
+    window.extraFontsLoaded = true;
+    
+    // Connection-aware font loading
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const isSlowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g' || connection.saveData);
+    
+    if (!isSlowConnection) {
+      const extraFontsLink = document.createElement('link');
+      extraFontsLink.rel = 'stylesheet';
+      extraFontsLink.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Open+Sans:wght@300;500;600;700&display=swap';
+      extraFontsLink.onload = () => {
+        document.documentElement.classList.add('extra-fonts-loaded');
+      };
+      extraFontsLink.onerror = () => {
+        console.warn('Extra fonts failed to load');
+      };
+      document.head.appendChild(extraFontsLink);
+    }
+  };
+  
+  // Load extra fonts on user interaction or after delay
+  const interactionEvents = ['mousedown', 'touchstart', 'keydown', 'scroll', 'wheel'];
+  interactionEvents.forEach(event => {
+    document.addEventListener(event, loadExtraFonts, { once: true, passive: true });
+  });
+  
+  // Fallback timeout for extra fonts (longer for non-critical)
+  setTimeout(loadExtraFonts, 5000);
+  
+} else {
+  // Enhanced fallback for browsers without Font Loading API
+  document.documentElement.classList.remove('fonts-loading');
+  document.documentElement.classList.add('fonts-fallback');
+  
+  // Use setTimeout to simulate font loading for consistency
+  setTimeout(() => {
+    document.documentElement.classList.add('fonts-ready');
+  }, 100);
+}
+
+// Monitor font swap events for CLS tracking
+if ('PerformanceObserver' in window) {
+  try {
+    const fontObserver = new PerformanceObserver((list) => {
+      const entries = list.getEntries();
+      entries.forEach(entry => {
+        if (entry.name.includes('font')) {
+          console.log('Font load event:', entry.name, entry.duration + 'ms');
+        }
+      });
+    });
+    fontObserver.observe({ entryTypes: ['measure'] });
+  } catch (e) {
+    // Silently fail if PerformanceObserver not supported
+  }
+}
+</script>
+
+<!-- Enhanced Font Display Fallbacks for CLS Prevention -->
+<style>
+/* Advanced font loading optimization with size-adjust and better CLS prevention */
+@font-face {
+  font-family: 'Montserrat';
+  font-display: swap;
+  font-weight: 600;
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold');
+  size-adjust: 100.5%; /* Match system font metrics */
+  ascent-override: 105%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-display: swap;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans');
+  size-adjust: 100.3%; /* Match system font metrics */
+  ascent-override: 103%;
+  descent-override: 27%;
+  line-gap-override: 0%;
+}
+
+/* Enhanced system font fallbacks during loading with size matching */
+.font-loading body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.003em; /* Slightly adjust to match Open Sans */
+}
+
+.font-loading h1, .font-loading h2, .font-loading h3 {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 1.005em; /* Slightly adjust to match Montserrat */
+  letter-spacing: -0.01em;
+}
+
+/* CSS Font Loading API support with fallback font metrics */
+@supports (font-display: swap) {
+  html.fonts-loading * {
+    font-family: var(--font-fallback-stack, system-ui, -apple-system, 'Segoe UI', 'Roboto', sans-serif) !important;
+  }
+}
+
+/* Font loading state management with smooth transitions */
+html.fonts-loading {
+  --font-primary: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-secondary: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-scale-adjustment: 1.003;
+}
+
+html.fonts-loaded {
+  --font-primary: 'Montserrat', system-ui, sans-serif;
+  --font-secondary: 'Open Sans', system-ui, sans-serif;
+  --font-scale-adjustment: 1;
+}
+
+/* Apply font variables for consistent rendering */
+html.fonts-loaded h1,
+html.fonts-loaded h2,
+html.fonts-loaded h3,
+html.fonts-loaded .nav-links a {
+  font-family: var(--font-primary);
+  font-size: calc(1em / var(--font-scale-adjustment));
+  transition: font-family 0.3s ease-out, font-size 0.3s ease-out;
+}
+
+html.fonts-loaded body,
+html.fonts-loaded p,
+html.fonts-loaded .content {
+  font-family: var(--font-secondary);
+  font-size: calc(1em / var(--font-scale-adjustment));
+  transition: font-family 0.3s ease-out, font-size 0.3s ease-out;
+}
+
+/* Font loading skeleton prevention */
+.font-loading-skeleton {
+  background: linear-gradient(90deg, transparent 25%, rgba(0,0,0,0.04) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: font-loading-shimmer 1.2s ease-in-out infinite;
+  min-height: 1.2em;
+  border-radius: 4px;
+}
+
+@keyframes font-loading-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .font-loading-skeleton {
+    animation: none;
+    background: rgba(0,0,0,0.1);
+  }
+  
+  html.fonts-loaded h1,
+  html.fonts-loaded h2,
+  html.fonts-loaded h3,
+  html.fonts-loaded .nav-links a,
+  html.fonts-loaded body,
+  html.fonts-loaded p,
+  html.fonts-loaded .content {
+    transition: none;
+  }
+}
+</style>
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -98,37 +350,144 @@
 <link rel="preload" as="style" href="{{ $extended.RelPermalink }}" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous">
 <noscript><link rel="stylesheet" href="{{ $extended.RelPermalink }}" crossorigin="anonymous"></noscript>
 
-<!-- Critical Resource Preloading - Optimized Priority Order -->
-<!-- 1. Highest Priority - Above-the-fold critical scripts -->
+<!-- LCP Optimization - Hero Image Priority Preloading -->
+{{- if .Params.featured_image }}
+  {{- $featuredImage := .Params.featured_image }}
+  {{- if findRE "images\\.unsplash\\.com" $featuredImage }}
+    <!-- Mobile-first hero image preloading for LCP optimization -->
+    <link rel="preload" as="image" href="{{ printf "%s&w=414&q=85&auto=format&fm=webp" (replaceRE "&w=[0-9]+" "" $featuredImage) }}" media="(max-width: 414px)" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ printf "%s&w=768&q=85&auto=format&fm=webp" (replaceRE "&w=[0-9]+" "" $featuredImage) }}" media="(min-width: 415px) and (max-width: 1024px)" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ printf "%s&w=1200&q=85&auto=format&fm=webp" (replaceRE "&w=[0-9]+" "" $featuredImage) }}" media="(min-width: 1025px)" fetchpriority="high">
+  {{- else }}
+    <!-- Fallback for non-Unsplash hero images -->
+    <link rel="preload" as="image" href="{{ $featuredImage }}" fetchpriority="high" crossorigin="anonymous">
+  {{- end }}
+{{- end }}
+
+<!-- Critical Resource Preloading - LCP-Optimized Priority Order -->
+<!-- 1. Highest Priority - Critical fonts for immediate text rendering with enhanced preloading -->
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVQUwaEQbjwN71k.woff2" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
+
+<!-- Additional critical font subsets for better coverage -->
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/montserrat/v25/JTUSjIg1_i6t8kCHKm459W1hzw.woff2" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/opensans/v34/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsg-1y4gaVQUwaEQbg.woff2" type="font/woff2" crossorigin="anonymous">
+
+<!-- 2. Above-the-fold critical scripts -->
 <link rel="preload" as="script" href="/js/mobile-menu.js" crossorigin="anonymous">
 
-<!-- 2. Logo and critical images -->
+<!-- 3. Logo for header rendering -->
 <link rel="preload" as="image" href="/images/smartpetbuys_logo.png" crossorigin="anonymous">
-<link rel="preload" as="image" href="/favicon.ico" crossorigin="anonymous">
 
-<!-- 3. Medium Priority - Analytics and tracking -->
+<!-- 4. Medium Priority - Analytics and tracking (deferred) -->
 <link rel="preload" as="script" href="/js/ga-events.js" crossorigin="anonymous">
 
-<!-- 4. Lower Priority - Non-critical assets -->
+<!-- 5. Lower Priority - Non-critical assets -->
 <link rel="preload" as="script" href="/js/category-filter.js" crossorigin="anonymous">
 
-<!-- Enhanced DNS Prefetch for external resources -->
-<link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="dns-prefetch" href="https://assets.mailerlite.com">
-<link rel="dns-prefetch" href="https://www.google-analytics.com">
-
-<!-- Preconnect to high-priority origins with optimized timing -->
+<!-- Advanced Resource Hints for Mobile Performance -->
+<!-- Critical: High-priority origins for immediate connection -->
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 <link rel="preconnect" href="https://assets.mailerlite.com" crossorigin>
 
-<!-- Early hints for resource discovery -->
-<link rel="modulepreload" href="/js/mobile-menu.js">
+<!-- DNS Prefetch for additional third-party services -->
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://assets.mailerlite.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://stats.g.doubleclick.net">
 
-<!-- Resource hints for better caching -->
-<meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+<!-- Connection-Aware Resource Hints -->
+<script>
+// Advanced connection-aware resource loading
+(function() {
+  const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+  const isSlowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g' || connection.saveData);
+  
+  if (!isSlowConnection) {
+    // Only prefetch for faster connections
+    const prefetchLinks = [
+      '/',
+      '/posts/',
+      '/about/'
+    ];
+    
+    prefetchLinks.forEach(url => {
+      const link = document.createElement('link');
+      link.rel = 'prefetch';
+      link.href = url;
+      document.head.appendChild(link);
+    });
+  }
+})();
+</script>
+
+<!-- Module Preload for Modern Browsers -->
+<link rel="modulepreload" href="/js/mobile-menu.js">
+<link rel="modulepreload" href="/js/performance-loader.js">
+
+<!-- Advanced Caching Headers -->
+<meta http-equiv="Cache-Control" content="public, max-age=3600, stale-while-revalidate=86400">
 
 <!-- Mobile Menu JavaScript -->
 <script src="/js/mobile-menu.js" defer></script>
+
+<!-- Mobile-Optimized Sticky Elements JavaScript -->
+{{- $stickyMobile := resources.Get "js/sticky-mobile.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $stickyMobile = $stickyMobile | fingerprint -}}
+{{- end -}}
+<script src="{{ $stickyMobile.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $stickyMobile.Data.Integrity }}"{{- end }}></script>
+
+<!-- MailerLite Mobile Form Enhancements -->
+{{- $mailerLiteMobile := resources.Get "js/mailerlite-mobile-enhancements.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $mailerLiteMobile = $mailerLiteMobile | fingerprint -}}
+{{- end -}}
+<script src="{{ $mailerLiteMobile.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $mailerLiteMobile.Data.Integrity }}"{{- end }}></script>
+
+<!-- Mobile Form Validation System -->
+{{- $formValidation := resources.Get "js/mobile-form-validation.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $formValidation = $formValidation | fingerprint -}}
+{{- end -}}
+<script src="{{ $formValidation.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $formValidation.Data.Integrity }}"{{- end }}></script>
+
+<!-- Advanced Performance Loader with Intersection Observer -->
+{{- $performanceLoader := resources.Get "js/performance-loader.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $performanceLoader = $performanceLoader | fingerprint -}}
+{{- end -}}
+<script src="{{ $performanceLoader.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $performanceLoader.Data.Integrity }}"{{- end }}></script>
+
+<!-- Service Worker Registration for Offline Capabilities -->
+{{- if hugo.IsProduction | or (eq site.Params.env "production") }}
+{{- $swRegister := resources.Get "js/sw-register.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $swRegister = $swRegister | fingerprint -}}
+{{- end -}}
+<script src="{{ $swRegister.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $swRegister.Data.Integrity }}"{{- end }}></script>
+{{- end -}}
+
+<!-- Performance Monitoring for Core Web Vitals -->
+{{- $performanceMonitor := resources.Get "js/performance-monitor.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $performanceMonitor = $performanceMonitor | fingerprint -}}
+{{- end -}}
+<script src="{{ $performanceMonitor.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $performanceMonitor.Data.Integrity }}"{{- end }}></script>
+
+<!-- Core Web Vitals Optimizer - Mobile-Focused LCP, CLS, FID Optimization -->
+{{- $coreWebVitalsOptimizer := resources.Get "js/core-web-vitals-optimizer.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $coreWebVitalsOptimizer = $coreWebVitalsOptimizer | fingerprint -}}
+{{- end -}}
+<script src="{{ $coreWebVitalsOptimizer.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $coreWebVitalsOptimizer.Data.Integrity }}"{{- end }}></script>
+
+<!-- Performance Budget Monitor - Mobile Performance Budget Enforcement -->
+{{- $performanceBudget := resources.Get "js/performance-budget.js" | resources.Minify -}}
+{{- if not site.Params.assets.disableFingerprinting -}}
+{{- $performanceBudget = $performanceBudget | fingerprint -}}
+{{- end -}}
+<script src="{{ $performanceBudget.RelPermalink }}" defer crossorigin="anonymous"{{- if not site.Params.assets.disableFingerprinting }} integrity="{{ $performanceBudget.Data.Integrity }}"{{- end }}></script>
 
 <!-- Enhanced Social Media Meta Tags -->
 {{ partial "enhanced-social-meta.html" . }}

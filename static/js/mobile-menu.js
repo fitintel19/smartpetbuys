@@ -97,17 +97,24 @@ class MobileMenu {
         this.menuToggle.setAttribute('aria-label', 'Close mobile navigation menu');
         this.mobileNav.setAttribute('aria-hidden', 'false');
         
+        // Enable tabbing through menu items
+        this.mobileNav.removeAttribute('tabindex');
+        const menuLinks = this.mobileNav.querySelectorAll('a');
+        menuLinks.forEach(link => link.removeAttribute('tabindex'));
+        
         // Prevent body scroll when menu is open
         document.body.style.overflow = 'hidden';
         
         // Announce menu opening to screen readers
         this.announceToScreenReader('Mobile navigation menu opened');
         
-        // Focus first menu item
-        const firstMenuItem = this.mobileNav.querySelector('a');
-        if (firstMenuItem) {
-            firstMenuItem.focus();
-        }
+        // Focus first menu item after a short delay for better UX
+        setTimeout(() => {
+            const firstMenuItem = this.mobileNav.querySelector('a');
+            if (firstMenuItem) {
+                firstMenuItem.focus();
+            }
+        }, 100);
         
         // Add animation delay for better UX
         setTimeout(() => {
@@ -123,13 +130,22 @@ class MobileMenu {
         this.menuToggle.setAttribute('aria-label', 'Open mobile navigation menu');
         this.mobileNav.setAttribute('aria-hidden', 'true');
         
+        // Disable tabbing through menu items when closed
+        this.mobileNav.setAttribute('tabindex', '-1');
+        const menuLinks = this.mobileNav.querySelectorAll('a');
+        menuLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+        
         // Announce menu closing to screen readers
         this.announceToScreenReader('Mobile navigation menu closed');
         
         // Restore body scroll
         document.body.style.overflow = '';
+        
+        // Add animation delay for smoother closing
+        setTimeout(() => {
+            this.mobileNav.classList.remove('is-animated');
+        }, 50);
     }
-}
 
     // Announce changes to screen readers
     announceToScreenReader(message) {

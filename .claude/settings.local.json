@@ -22,7 +22,17 @@
       "Bash(grep:*)",
       "Bash(python:*)",
       "Bash(dir:*)",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "WebSearch",
+      "Bash(pip install:*)",
+      "WebFetch(domain:developers.google.com)",
+      "Bash(curl:*)",
+      "Bash(npm install)",
+      "Bash(npx playwright:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run test:accessibility:*)",
+      "Bash(npm install:*)"
     ],
     "defaultMode": "acceptEdits",
     "additionalDirectories": [

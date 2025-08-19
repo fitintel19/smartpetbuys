@@ -1,0 +1,64 @@
+{{/* 
+  Products Grid Shortcode - Mobile-Optimized Product Grid Layout
+  
+  Usage:  
+  {{< products-grid >}}
+  {{< product id="product-1" >}}
+  {{< product id="product-2" >}}
+  {{< product id="product-3" >}}
+  {{< /products-grid >}}
+  
+  Or with parameters:
+  {{< products-grid class="featured" columns="2" >}}
+  {{< product id="product-1" >}}
+  {{< product id="product-2" >}}
+  {{< /products-grid >}}
+  
+  Parameters:
+  - class: Additional CSS class (optional)
+  - columns: Number of columns on desktop (1-4, optional, defaults to auto-fit)
+  - gap: Grid gap size (sm, md, lg, xl, optional)
+  - variant: Style variant (default, featured, compact, optional)
+*/}}
+
+{{ $class := .Get "class" | default "" }}
+{{ $columns := .Get "columns" | default "auto" }}
+{{ $gap := .Get "gap" | default "lg" }}
+{{ $variant := .Get "variant" | default "default" }}
+
+{{/* Build CSS classes */}}
+{{ $gridClasses := slice "products-grid" }}
+{{ if $class }}{{ $gridClasses = $gridClasses | append $class }}{{ end }}
+{{ if ne $variant "default" }}{{ $gridClasses = $gridClasses | append (printf "products-grid--%s" $variant) }}{{ end }}
+{{ if ne $gap "lg" }}{{ $gridClasses = $gridClasses | append (printf "products-grid--gap-%s" $gap) }}{{ end }}
+
+{{/* Set up grid template columns based on columns parameter */}}
+{{ $gridStyle := "" }}
+{{ if and (ne $columns "auto") (ne $columns "") }}
+  {{ $minWidth := "280px" }}
+  {{ if eq $variant "compact" }}{{ $minWidth = "220px" }}{{ end }}
+  {{ $gridStyle = printf "grid-template-columns: repeat(auto-fit, minmax(%s, 1fr)); max-width: calc(%s * %s + (%s - 1) * var(--fluid-space-%s));" $minWidth $minWidth $columns $columns $gap }}
+{{ end }}
+
+<div class="{{ delimit $gridClasses " " }}" 
+     {{ if $gridStyle }}style="{{ $gridStyle }}"{{ end }}
+     role="region" 
+     aria-label="Product recommendations">
+  {{ .Inner }}
+</div>
+
+{{/* Add structured data for product collection */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Product Recommendations",
+  "description": "Curated selection of pet products",
+  "url": "{{ .Page.Permalink }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "SmartPetBuys",
+    "url": "{{ .Site.BaseURL }}"
+  }
+}
+</script>

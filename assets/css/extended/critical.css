@@ -1,7 +1,8 @@
 /*
  * Critical CSS - Above-the-fold styles for fastest initial paint
- * This file contains only the essential styles needed for the first screen view
- * Optimized for Core Web Vitals - LCP, FID, CLS
+ * Mobile-First Design: Optimized for Core Web Vitals - LCP, FID, CLS
+ * Only includes styles for content visible within initial viewport (above-the-fold)
+ * Version: 1.1 - Enhanced mobile loading performance
  */
 
 /* CSS Variables - Essential only with font fallbacks */

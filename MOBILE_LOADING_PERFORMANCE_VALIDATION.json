@@ -1,0 +1,487 @@
+{
+  "timestamp": "2025-08-18 20:53:48",
+  "tests": [
+    {
+      "id": "CRITICAL_CSS_EXISTS",
+      "description": "Critical CSS file should exist",
+      "status": "PASS",
+      "details": "File: assets\\css\\extended\\critical.css",
+      "timestamp": 1755564828.0844765
+    },
+    {
+      "id": "CRITICAL_CSS_CSS_VARIABLES",
+      "description": "CSS custom properties defined",
+      "status": "PASS",
+      "details": "Pattern: :root {",
+      "timestamp": 1755564828.084584
+    },
+    {
+      "id": "CRITICAL_CSS_ESSENTIAL_RESET",
+      "description": "Box-sizing reset present",
+      "status": "PASS",
+      "details": "Pattern: *,*::before,*::after",
+      "timestamp": 1755564828.0845904
+    },
+    {
+      "id": "CRITICAL_CSS_BODY_STYLES",
+      "description": "Body base styles defined",
+      "status": "PASS",
+      "details": "Pattern: body {",
+      "timestamp": 1755564828.0845945
+    },
+    {
+      "id": "CRITICAL_CSS_HEADER_STYLES",
+      "description": "Header styles for above-the-fold",
+      "status": "PASS",
+      "details": "Pattern: .header {",
+      "timestamp": 1755564828.0845976
+    },
+    {
+      "id": "CRITICAL_CSS_NAVIGATION",
+      "description": "Navigation styles for critical render",
+      "status": "PASS",
+      "details": "Pattern: .nav {",
+      "timestamp": 1755564828.0846007
+    },
+    {
+      "id": "CRITICAL_CSS_TYPOGRAPHY",
+      "description": "Essential typography styles",
+      "status": "PASS",
+      "details": "Pattern: h1,h2,h3",
+      "timestamp": 1755564828.0846033
+    },
+    {
+      "id": "CRITICAL_CSS_MOBILE-FIRST",
+      "description": "Mobile-first responsive design",
+      "status": "PASS",
+      "details": "Pattern: @media (max-width: 768px)",
+      "timestamp": 1755564828.0846066
+    },
+    {
+      "id": "FONT_TEMPLATE_EXISTS",
+      "description": "Extend head template should exist",
+      "status": "PASS",
+      "details": "File: layouts\\partials\\extend_head.html",
+      "timestamp": 1755564828.0846488
+    },
+    {
+      "id": "FONT_PRECONNECT",
+      "description": "Font preconnect implemented",
+      "status": "PASS",
+      "details": "Pattern: rel=\"preconnect\" href=\"https://fonts.googleapis.com\"",
+      "timestamp": 1755564828.0847301
+    },
+    {
+      "id": "FONT_DNS_PREFETCH",
+      "description": "Font DNS prefetch present",
+      "status": "PASS",
+      "details": "Pattern: rel=\"dns-prefetch\" href=\"https://fonts.googleapis.com\"",
+      "timestamp": 1755564828.084735
+    },
+    {
+      "id": "FONT_FONT_DISPLAY",
+      "description": "Font-display swap strategy used",
+      "status": "PASS",
+      "details": "Pattern: display=swap",
+      "timestamp": 1755564828.084739
+    },
+    {
+      "id": "FONT_PROGRESSIVE_LOADING",
+      "description": "Progressive font loading script",
+      "status": "PASS",
+      "details": "Pattern: document.fonts.load",
+      "timestamp": 1755564828.0847433
+    },
+    {
+      "id": "FONT_FALLBACK_FONTS",
+      "description": "System font fallbacks defined",
+      "status": "PASS",
+      "details": "Pattern: font-family: system-ui",
+      "timestamp": 1755564828.0847478
+    },
+    {
+      "id": "FONT_FONT_LOADING_CLASSES",
+      "description": "Font loading state classes",
+      "status": "PASS",
+      "details": "Pattern: montserrat-600-loaded",
+      "timestamp": 1755564828.0847516
+    },
+    {
+      "id": "RESOURCE_HINT_PRECONNECT_GTM",
+      "description": "Google Tag Manager preconnect",
+      "status": "PASS",
+      "details": "Pattern: preconnect\" href=\"https://www.googletagmanager.com\"",
+      "timestamp": 1755564828.0848289
+    },
+    {
+      "id": "RESOURCE_HINT_PRECONNECT_MAILERLITE",
+      "description": "MailerLite preconnect",
+      "status": "PASS",
+      "details": "Pattern: preconnect\" href=\"https://assets.mailerlite.com\"",
+      "timestamp": 1755564828.0848346
+    },
+    {
+      "id": "RESOURCE_HINT_DNS_PREFETCH_ANALYTICS",
+      "description": "Analytics DNS prefetch",
+      "status": "PASS",
+      "details": "Pattern: dns-prefetch\" href=\"https://www.google-analytics.com\"",
+      "timestamp": 1755564828.0848393
+    },
+    {
+      "id": "RESOURCE_HINT_MODULE_PRELOAD",
+      "description": "JavaScript module preloading",
+      "status": "PASS",
+      "details": "Pattern: rel=\"modulepreload\"",
+      "timestamp": 1755564828.0848448
+    },
+    {
+      "id": "RESOURCE_HINT_CONNECTION_AWARE",
+      "description": "Connection-aware loading logic",
+      "status": "PASS",
+      "details": "Pattern: navigator.connection",
+      "timestamp": 1755564828.084852
+    },
+    {
+      "id": "RESOURCE_HINT_CACHE_CONTROL",
+      "description": "Advanced caching headers",
+      "status": "PASS",
+      "details": "Pattern: Cache-Control",
+      "timestamp": 1755564828.084859
+    },
+    {
+      "id": "LAZY_LOADING_SCRIPT",
+      "description": "Performance loader script should exist",
+      "status": "PASS",
+      "details": "File: assets\\js\\performance-loader.js",
+      "timestamp": 1755564828.0848906
+    },
+    {
+      "id": "LAZY_INTERSECTION_OBSERVER",
+      "description": "Modern lazy loading API used",
+      "status": "PASS",
+      "details": "Pattern: IntersectionObserver",
+      "timestamp": 1755564828.0849557
+    },
+    {
+      "id": "LAZY_IMAGE_LAZY_LOADING",
+      "description": "Image lazy loading function",
+      "status": "PASS",
+      "details": "Pattern: lazyLoadImages",
+      "timestamp": 1755564828.0849612
+    },
+    {
+      "id": "LAZY_IFRAME_LAZY_LOADING",
+      "description": "Iframe lazy loading function",
+      "status": "PASS",
+      "details": "Pattern: lazyLoadIframes",
+      "timestamp": 1755564828.084966
+    },
+    {
+      "id": "LAZY_CONNECTION_AWARE",
+      "description": "Connection-aware loading",
+      "status": "PASS",
+      "details": "Pattern: getConnectionInfo",
+      "timestamp": 1755564828.08497
+    },
+    {
+      "id": "LAZY_FALLBACK_SUPPORT",
+      "description": "Fallback for unsupported browsers",
+      "status": "PASS",
+      "details": "Pattern: loadAllImagesImmediately",
+      "timestamp": 1755564828.0849743
+    },
+    {
+      "id": "LAZY_PERFORMANCE_MONITORING",
+      "description": "Performance tracking integrated",
+      "status": "PASS",
+      "details": "Pattern: setupPerformanceMonitoring",
+      "timestamp": 1755564828.0849786
+    },
+    {
+      "id": "LAZY_LOADING_CSS",
+      "description": "Performance loading CSS should exist",
+      "status": "PASS",
+      "details": "File: assets\\css\\extended\\performance-loading.css",
+      "timestamp": 1755564828.0850089
+    },
+    {
+      "id": "JS_DEFER_LOADING",
+      "description": "JavaScript files loaded with defer",
+      "status": "PASS",
+      "details": "Pattern: defer",
+      "timestamp": 1755564828.0850928
+    },
+    {
+      "id": "JS_ASYNC_ANALYTICS",
+      "description": "Analytics loaded asynchronously",
+      "status": "PASS",
+      "details": "Pattern: async=1",
+      "timestamp": 1755564828.0850985
+    },
+    {
+      "id": "JS_USER_INTERACTION",
+      "description": "GA loaded on interaction",
+      "status": "PASS",
+      "details": "Pattern: addEventListener(event, loadGA",
+      "timestamp": 1755564828.085104
+    },
+    {
+      "id": "JS_PROGRESSIVE_ENHANCEMENT",
+      "description": "Progressive enhancement pattern",
+      "status": "PASS",
+      "details": "Pattern: if ('fonts' in document)",
+      "timestamp": 1755564828.0851078
+    },
+    {
+      "id": "JS_MODULE_SUPPORT",
+      "description": "Modern module loading support",
+      "status": "PASS",
+      "details": "Pattern: modulepreload",
+      "timestamp": 1755564828.0851135
+    },
+    {
+      "id": "JS_INTEGRITY_HASHES",
+      "description": "Subresource integrity verification",
+      "status": "PASS",
+      "details": "Pattern: integrity=\"",
+      "timestamp": 1755564828.0851195
+    },
+    {
+      "id": "SERVICE_WORKER_FILE",
+      "description": "Service worker file should exist",
+      "status": "PASS",
+      "details": "File: static\\sw.js",
+      "timestamp": 1755564828.0851483
+    },
+    {
+      "id": "SW_CACHE_STRATEGIES",
+      "description": "Multiple caching strategies defined",
+      "status": "PASS",
+      "details": "Pattern: CACHE_STRATEGIES",
+      "timestamp": 1755564828.0852077
+    },
+    {
+      "id": "SW_OFFLINE_SUPPORT",
+      "description": "Offline page support",
+      "status": "PASS",
+      "details": "Pattern: offline.html",
+      "timestamp": 1755564828.0852125
+    },
+    {
+      "id": "SW_CACHE_FIRST",
+      "description": "Cache-first strategy for static assets",
+      "status": "PASS",
+      "details": "Pattern: cacheFirst",
+      "timestamp": 1755564828.0852165
+    },
+    {
+      "id": "SW_NETWORK_FIRST",
+      "description": "Network-first for dynamic content",
+      "status": "PASS",
+      "details": "Pattern: networkFirst",
+      "timestamp": 1755564828.0852203
+    },
+    {
+      "id": "SW_BACKGROUND_SYNC",
+      "description": "Background sync capability",
+      "status": "PASS",
+      "details": "Pattern: background-sync",
+      "timestamp": 1755564828.0852265
+    },
+    {
+      "id": "SW_PUSH_NOTIFICATIONS",
+      "description": "Push notification support",
+      "status": "PASS",
+      "details": "Pattern: addEventListener('push'",
+      "timestamp": 1755564828.0852342
+    },
+    {
+      "id": "SW_REGISTRATION",
+      "description": "Service worker registration should exist",
+      "status": "PASS",
+      "details": "File: assets\\js\\sw-register.js",
+      "timestamp": 1755564828.0852811
+    },
+    {
+      "id": "OFFLINE_PAGE",
+      "description": "Offline page should exist",
+      "status": "PASS",
+      "details": "File: content\\offline.md",
+      "timestamp": 1755564828.0853012
+    },
+    {
+      "id": "CONNECTION_CONNECTION_DETECTION",
+      "description": "Network connection detection",
+      "status": "PASS",
+      "details": "Pattern: navigator.connection",
+      "timestamp": 1755564828.0853627
+    },
+    {
+      "id": "CONNECTION_EFFECTIVE_TYPE",
+      "description": "Connection type awareness",
+      "status": "PASS",
+      "details": "Pattern: effectiveType",
+      "timestamp": 1755564828.0853684
+    },
+    {
+      "id": "CONNECTION_SAVE_DATA",
+      "description": "Data saver mode detection",
+      "status": "PASS",
+      "details": "Pattern: saveData",
+      "timestamp": 1755564828.085373
+    },
+    {
+      "id": "CONNECTION_SLOW_CONNECTION",
+      "description": "Slow connection handling",
+      "status": "PASS",
+      "details": "Pattern: isSlowConnection",
+      "timestamp": 1755564828.0853848
+    },
+    {
+      "id": "CONNECTION_ADAPTIVE_LOADING",
+      "description": "Adaptive loading strategy",
+      "status": "PASS",
+      "details": "Pattern: setupConnectionAwareLoading",
+      "timestamp": 1755564828.0853891
+    },
+    {
+      "id": "CONNECTION_REDUCED_ANIMATIONS",
+      "description": "Animation reduction for slow connections",
+      "status": "PASS",
+      "details": "Pattern: disableNonEssentialAnimations",
+      "timestamp": 1755564828.0853941
+    },
+    {
+      "id": "PERFORMANCE_MONITOR",
+      "description": "Performance monitor script should exist",
+      "status": "PASS",
+      "details": "File: assets\\js\\performance-monitor.js",
+      "timestamp": 1755564828.0854206
+    },
+    {
+      "id": "MONITOR_CORE_WEB_VITALS",
+      "description": "Core Web Vitals tracking",
+      "status": "PASS",
+      "details": "Pattern: setupCoreWebVitalsMonitoring",
+      "timestamp": 1755564828.0854797
+    },
+    {
+      "id": "MONITOR_LCP_MONITORING",
+      "description": "Largest Contentful Paint tracking",
+      "status": "PASS",
+      "details": "Pattern: largest-contentful-paint",
+      "timestamp": 1755564828.0854862
+    },
+    {
+      "id": "MONITOR_FID_MONITORING",
+      "description": "First Input Delay tracking",
+      "status": "PASS",
+      "details": "Pattern: first-input",
+      "timestamp": 1755564828.0854921
+    },
+    {
+      "id": "MONITOR_CLS_MONITORING",
+      "description": "Cumulative Layout Shift tracking",
+      "status": "PASS",
+      "details": "Pattern: layout-shift",
+      "timestamp": 1755564828.0854976
+    },
+    {
+      "id": "MONITOR_RESOURCE_TIMING",
+      "description": "Resource performance tracking",
+      "status": "PASS",
+      "details": "Pattern: setupResourceTimingMonitoring",
+      "timestamp": 1755564828.0855024
+    },
+    {
+      "id": "MONITOR_ERROR_MONITORING",
+      "description": "Error tracking implementation",
+      "status": "PASS",
+      "details": "Pattern: setupErrorMonitoring",
+      "timestamp": 1755564828.0855072
+    },
+    {
+      "id": "MONITOR_MOBILE_SPECIFIC",
+      "description": "Mobile-specific performance tracking",
+      "status": "PASS",
+      "details": "Pattern: setupMobileSpecificMonitoring",
+      "timestamp": 1755564828.0855124
+    },
+    {
+      "id": "MOBILE_MOBILE_MEDIA_QUERY",
+      "description": "Mobile-first media queries",
+      "status": "PASS",
+      "details": "Pattern: @media (max-width: 768px)",
+      "timestamp": 1755564828.0855753
+    },
+    {
+      "id": "MOBILE_TOUCH_TARGETS",
+      "description": "Minimum touch target sizes",
+      "status": "PASS",
+      "details": "Pattern: min-width: 44px",
+      "timestamp": 1755564828.0855799
+    },
+    {
+      "id": "MOBILE_VIEWPORT_UNITS",
+      "description": "Responsive viewport units",
+      "status": "FAIL",
+      "details": "Pattern: vw",
+      "timestamp": 1755564828.0855837
+    },
+    {
+      "id": "MOBILE_MOBILE_MENU",
+      "description": "Mobile navigation toggle",
+      "status": "PASS",
+      "details": "Pattern: .mobile-menu-toggle",
+      "timestamp": 1755564828.0855885
+    },
+    {
+      "id": "MOBILE_RESPONSIVE_LAYOUT",
+      "description": "Flexible layout systems",
+      "status": "PASS",
+      "details": "Pattern: flex",
+      "timestamp": 1755564828.0855913
+    },
+    {
+      "id": "PERF_MOBILE_REDUCED_MOTION",
+      "description": "Respects reduced motion preference",
+      "status": "PASS",
+      "details": "Pattern: prefers-reduced-motion",
+      "timestamp": 1755564828.0856602
+    },
+    {
+      "id": "PERF_MOBILE_TOUCH_OPTIMIZATIONS",
+      "description": "Touch-specific optimizations",
+      "status": "PASS",
+      "details": "Pattern: hover: none",
+      "timestamp": 1755564828.0856664
+    },
+    {
+      "id": "PERF_MOBILE_HIGH_CONTRAST",
+      "description": "High contrast mode support",
+      "status": "PASS",
+      "details": "Pattern: prefers-contrast: high",
+      "timestamp": 1755564828.0856717
+    },
+    {
+      "id": "PERF_MOBILE_DARK_MODE",
+      "description": "Dark mode optimizations",
+      "status": "PASS",
+      "details": "Pattern: prefers-color-scheme: dark",
+      "timestamp": 1755564828.085676
+    },
+    {
+      "id": "PERF_MOBILE_MOBILE_PERFORMANCE",
+      "description": "Mobile-specific performance styles",
+      "status": "PASS",
+      "details": "Pattern: @media (max-width: 768px)",
+      "timestamp": 1755564828.0856798
+    }
+  ],
+  "summary": {
+    "total_tests": 68,
+    "passed": 67,
+    "failed": 1,
+    "warnings": 0
+  }
+}

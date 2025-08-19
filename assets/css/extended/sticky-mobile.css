@@ -1,0 +1,379 @@
+/*
+ * Mobile-Optimized Sticky Elements
+ * Comprehensive sticky element positioning system for mobile devices
+ * 
+ * Features:
+ * - Mobile-safe positioning with safe area insets
+ * - Proper z-index layering system
+ * - iOS Safari quirks handling
+ * - Keyboard visibility adaptations
+ * - Touch-friendly interaction zones
+ */
+
+/* ===== SAFE AREA VARIABLES ===== */
+:root {
+  /* Modern mobile safe area support */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  
+  /* Enhanced Z-Index System for Mobile */
+  --z-sticky-backdrop: 999;
+  --z-sticky-header: 1000;
+  --z-sticky-sidebar: 1001;
+  --z-mobile-nav-backdrop: 9997;
+  --z-mobile-nav: 9998;
+  --z-mobile-toggle: 9999;
+  --z-sticky-bar: 10000;
+  --z-modal-backdrop: 10001;
+  --z-modal: 10002;
+  
+  /* Mobile Sticky Dimensions */
+  --sticky-header-height: 72px;
+  --sticky-bar-height: 60px;
+  --mobile-sticky-spacing: 8px;
+}
+
+/* ===== ENHANCED HEADER STICKY BEHAVIOR ===== */
+.header {
+  position: sticky;
+  top: var(--safe-area-inset-top);
+  z-index: var(--z-sticky-header);
+  background: var(--accent-color);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: var(--shadow);
+  
+  /* Mobile optimizations */
+  will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  /* Handle iOS Safari bounce */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Ensure header content respects safe areas */
+.nav-wrapper {
+  padding-left: max(var(--spacing-xl), var(--safe-area-inset-left));
+  padding-right: max(var(--spacing-xl), var(--safe-area-inset-right));
+}
+
+/* ===== MOBILE-OPTIMIZED MAILERLITE STICKY BAR ===== */
+.formkit-sticky-bar {
+  position: fixed !important;
+  bottom: var(--safe-area-inset-bottom) !important;
+  left: var(--safe-area-inset-left) !important;
+  right: var(--safe-area-inset-right) !important;
+  z-index: var(--z-sticky-bar) !important;
+  width: calc(100% - var(--safe-area-inset-left) - var(--safe-area-inset-right)) !important;
+  
+  /* Enhanced mobile styling */
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  
+  /* Mobile performance optimizations */
+  will-change: transform, opacity !important;
+  -webkit-transform: translateZ(0) !important;
+  transform: translateZ(0) !important;
+  
+  /* Responsive height adjustments */
+  min-height: var(--sticky-bar-height) !important;
+}
+
+/* Enhanced sticky bar form styling */
+.formkit-sticky-bar .formkit-form {
+  position: relative !important;
+  z-index: var(--z-sticky-bar) !important;
+  display: block !important;
+  
+  /* Mobile padding adjustments */
+  padding: var(--mobile-sticky-spacing) !important;
+  margin: 0 !important;
+}
+
+/* Mobile-specific sticky bar improvements */
+.formkit-sticky-bar .formkit-fields {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--mobile-sticky-spacing) !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Touch-friendly form controls */
+.formkit-sticky-bar input[type="email"] {
+  min-height: 44px !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  border: 2px solid var(--border-color) !important;
+  font-size: 16px !important; /* Prevents zoom on iOS */
+  flex: 1 !important;
+  min-width: 200px !important;
+  
+  /* Touch optimizations */
+  -webkit-appearance: none !important;
+  -webkit-tap-highlight-color: rgba(255, 127, 50, 0.3) !important;
+  touch-action: manipulation !important;
+}
+
+.formkit-sticky-bar button[type="submit"] {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  background: var(--primary-color) !important;
+  color: var(--accent-color) !important;
+  border: none !important;
+  font-weight: var(--font-weight-semibold) !important;
+  font-size: 14px !important;
+  
+  /* Touch optimizations */
+  -webkit-tap-highlight-color: rgba(255, 127, 50, 0.3) !important;
+  touch-action: manipulation !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.formkit-sticky-bar button[type="submit"]:hover,
+.formkit-sticky-bar button[type="submit"]:focus {
+  background: var(--primary-dark) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ===== MOBILE NAVIGATION ENHANCEMENTS ===== */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
+  z-index: var(--z-mobile-nav);
+  
+  /* Safe area handling */
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
+  
+  /* Performance optimizations */
+  will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Mobile toggle positioning */
+.mobile-menu-toggle {
+  z-index: var(--z-mobile-toggle);
+  position: relative;
+}
+
+/* ===== SIDEBAR MOBILE STICKY BEHAVIOR ===== */
+@media (min-width: 768px) {
+  .post-sidebar {
+    position: sticky;
+    top: calc(var(--sticky-header-height) + var(--safe-area-inset-top) + var(--spacing-lg));
+    z-index: var(--z-sticky-sidebar);
+    align-self: flex-start;
+    
+    /* Height constraint to prevent overflow */
+    max-height: calc(100vh - var(--sticky-header-height) - var(--safe-area-inset-top) - var(--spacing-lg) * 2);
+    overflow-y: auto;
+    
+    /* Smooth scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .post-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===== KEYBOARD VISIBILITY HANDLING ===== */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Landscape mobile adjustments when keyboard is visible */
+  .formkit-sticky-bar {
+    transform: translateY(100%) !important;
+    transition: transform 0.3s ease !important;
+  }
+  
+  .formkit-sticky-bar.keyboard-visible {
+    transform: translateY(0) !important;
+  }
+}
+
+/* ===== TOUCH INTERACTION ZONES ===== */
+.sticky-touch-target {
+  position: relative;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Enhanced touch feedback */
+  -webkit-tap-highlight-color: rgba(255, 127, 50, 0.3);
+  touch-action: manipulation;
+}
+
+/* Add touch target enhancement to existing sticky elements */
+.header .nav-link,
+.formkit-sticky-bar button,
+.formkit-sticky-bar input,
+.mobile-menu-toggle {
+  @extend .sticky-touch-target;
+}
+
+/* ===== MODAL AND OVERLAY SYSTEM ===== */
+.sticky-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--z-sticky-backdrop);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sticky-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+@media (prefers-reduced-motion: reduce) {
+  .formkit-sticky-bar,
+  .header,
+  .mobile-nav {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .formkit-sticky-bar {
+    border: 2px solid var(--text-color) !important;
+  }
+  
+  .header {
+    border-bottom: 3px solid var(--text-color) !important;
+  }
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 480px) {
+  .formkit-sticky-bar .formkit-fields {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .formkit-sticky-bar input[type="email"] {
+    width: 100% !important;
+    min-width: unset !important;
+  }
+  
+  .formkit-sticky-bar button[type="submit"] {
+    width: 100% !important;
+    justify-self: stretch !important;
+  }
+}
+
+@media (max-width: 390px) {
+  /* Ultra-compact mobile adjustments */
+  .formkit-sticky-bar {
+    min-height: 50px !important;
+  }
+  
+  .formkit-sticky-bar .formkit-form {
+    padding: 6px !important;
+  }
+  
+  .nav-wrapper {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+/* ===== iOS SAFARI SPECIFIC FIXES ===== */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific sticky positioning fixes */
+  .header {
+    -webkit-position: sticky;
+    position: -webkit-sticky;
+    position: sticky;
+  }
+  
+  .formkit-sticky-bar {
+    /* Prevent iOS bounce affecting sticky bar */
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    transform: translate3d(0, 0, 0) !important;
+  }
+  
+  /* Fix for iOS Safari viewport units */
+  .mobile-nav {
+    height: -webkit-fill-available;
+  }
+}
+
+/* ===== ANDROID CHROME SPECIFIC FIXES ===== */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .formkit-sticky-bar {
+    /* Prevent Chrome mobile address bar issues */
+    bottom: max(var(--safe-area-inset-bottom), 0px) !important;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+.header,
+.formkit-sticky-bar,
+.mobile-nav {
+  /* GPU acceleration for smooth scrolling */
+  will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  
+  /* Optimize repaints */
+  contain: layout style paint;
+}
+
+/* ===== DEBUGGING HELPERS (Development Only) ===== */
+/* Uncomment these for debugging sticky element positioning */
+/*
+.header::after {
+  content: 'Header: z-' attr(style);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  z-index: 999999;
+}
+
+.formkit-sticky-bar::after {
+  content: 'Sticky Bar: z-' attr(style);
+  position: absolute;
+  top: -20px;
+  left: 0;
+  background: blue;
+  color: white;
+  font-size: 10px;
+  padding: 2px 4px;
+  z-index: 999999;
+}
+*/

@@ -1,0 +1,291 @@
+# Page snapshot
+
+```yaml
+- link "Skip to main content":
+  - /url: "#main-content"
+- link "Skip to navigation":
+  - /url: "#navigation"
+- banner:
+  - navigation "Main navigation":
+    - link "SmartPetBuys homepage":
+      - /url: http://localhost:1313/
+      - img "SmartPetBuys - Expert Pet Product Reviews and Buying Guides"
+    - menubar:
+      - menuitem "Home"
+      - menuitem "Posts"
+      - menuitem "Categories"
+      - menuitem "About"
+    - button "Open mobile navigation menu": Menu
+- region "Affiliate Disclosure":
+  - paragraph:
+    - strong: "Affiliate Disclosure:"
+    - text: SmartPetBuys may earn a commission when you purchase through links on our site. This helps keep our reviews free.
+    - link "Learn more":
+      - /url: /disclosure/
+    - text: .
+  - button "Close disclosure": ×
+- main:
+  - banner "Website introduction":
+    - heading "Smart Choices for Your Pets 🐾" [level=1]
+    - paragraph: Discover the best products for your furry friends with our expert reviews, detailed buying guides, and unbeatable deals. From premium dog food to cozy cat beds — we've tested it all so you don't have to.
+    - text: 22+ Expert Reviews 50+ Tested Products 100% Honest Reviews
+    - heading "Shop by Category" [level=2]
+    - button "🐕 Dog Products Food, toys, beds & more":
+      - text: 🐕
+      - heading "Dog Products" [level=3]
+      - paragraph: Food, toys, beds & more
+    - button "🐱 Cat Essentials Litter, scratching posts & treats":
+      - text: 🐱
+      - heading "Cat Essentials" [level=3]
+      - paragraph: Litter, scratching posts & treats
+    - button "💊 Health & Wellness Supplements & dental care":
+      - text: 💊
+      - heading "Health & Wellness" [level=3]
+      - paragraph: Supplements & dental care
+    - button "🏃 All Products View all reviews & guides" [pressed]:
+      - text: 🏃
+      - heading "All Products" [level=3]
+      - paragraph: View all reviews & guides
+    - heading "Latest Reviews & Guides" [level=2]
+    - paragraph: Our most recent expert reviews and buying guides to help you make the best choices for your pets.
+    - article:
+      - heading "Mobile Form Testing Page" [level=2]:
+        - link "Mobile Form Testing Page":
+          - /url: /posts/mobile-form-testing/
+      - paragraph
+      - heading "Mobile Form Testing - Task 8 Validation" [level=1]
+      - paragraph: This page tests all mobile form usability enhancements implemented in Task 8.
+      - heading "Test Cases" [level=2]
+      - heading "1. Search Form Testing" [level=3]
+      - paragraph: "Use the search functionality to test:"
+      - list:
+        - listitem: ✅ Mobile search keyboard appears
+        - listitem: ✅ 16px font size prevents iOS zoom
+        - listitem: ✅ Touch-friendly submit button
+        - listitem: ✅ Proper focus states and transitions
+      - heading "2. MailerLite Sticky Bar Testing" [level=3]
+      - paragraph: "The sticky bar should appear after scrolling or time delay:"
+      - list:
+        - listitem: ✅ Email keyboard triggers for email input
+        - listitem: ✅ Proper autocomplete attributes
+        - listitem: ✅ Touch-friendly layout on mobile
+        - listitem: ✅ No iOS zoom on input focus
+        - listitem: ✅ Real-time validation with mobile-friendly messages
+      - heading "3. Inline MailerLite Form Testing" [level=3]
+      - region "📧 Love these pet product tips?":
+        - heading "📧 Love these pet product tips?" [level=3]
+        - paragraph:
+          - text: Get our
+          - strong: FREE Ultimate Pet Buying Guide
+          - text: plus weekly product recommendations sent to your inbox!
+        - paragraph
+        - img
+        - text: August 18, 2025
+        - img
+        - text: 3 min read 3 tags
+    - article:
+      - heading "Best Dog Food for Allergies — SmartPetBuys" [level=2]:
+        - link "Best Dog Food for Allergies — SmartPetBuys":
+          - /url: /posts/best-dog-food-for-allergies-20250818-141133/
+      - paragraph
+      - paragraph: In today’s world, ensuring our furry friends are healthy and happy is a top priority for many pet owners. Dogs, like humans, can suffer from allergies that significantly affect their well-being. These allergies can arise from ingredients commonly found in dog food, and choosing the right diet can alleviate many of these symptoms. In this guide, we will explore the best dog food for allergies, providing valuable insights and recommendations to help your beloved pet thrive.
+      - paragraph
+      - img
+      - text: August 18, 2025
+      - img
+      - text: 4 min read 3 tags
+    - article:
+      - heading "Best Dog Food for Allergies — SmartPetBuys" [level=2]:
+        - link "Best Dog Food for Allergies — SmartPetBuys":
+          - /url: /posts/best-dog-food-for-allergies-20250815-141014/
+      - paragraph
+      - paragraph: Choosing the right dog food is crucial for pet owners who have dogs with allergies. Allergies in dogs can manifest as skin issues, digestive problems, and even respiratory issues. Providing the best nutrition can alleviate these symptoms and significantly enhance a dog’s quality of life. In this guide, we explore the best dog food for allergies, focusing on products that are not only nutritious but also specifically designed to support dogs with sensitive skin and stomachs.
+      - paragraph
+      - img
+      - text: August 15, 2025
+      - img
+      - text: 4 min read 3 tags
+    - article:
+      - heading "Pet Insurance Comparison Guide — SmartPetBuys" [level=2]:
+        - link "Pet Insurance Comparison Guide — SmartPetBuys":
+          - /url: /posts/pet-insurance-comparison-guide-20250814-181829/
+      - paragraph
+      - paragraph: Understanding the multitude of options available for pet insurance can seem daunting. With the right guidance, you can make informed choices that protect both your pet’s health and your wallet. This pet insurance comparison guide helps navigate your way to pick the best insurance option suited for you and your furry companion. Let’s explore some top pet insurance plans, their essential features, benefits, and a few must-have products for ensuring your pet’s well-being.
+      - paragraph
+      - img
+      - text: August 14, 2025
+      - img
+      - text: 5 min read 3 tags
+    - article:
+      - heading "Pet Health Supplements — SmartPetBuys" [level=2]:
+        - link "Pet Health Supplements — SmartPetBuys":
+          - /url: /posts/pet-health-supplements-20250813-172646/
+      - paragraph
+      - paragraph: Keeping pets healthy doesn’t end with a great diet and routine vet visits. For many dogs and cats, the right pet health supplements can fill nutritional gaps, support joints and digestion, and help them feel their best. Below, you’ll find a practical guide to choosing safe, effective options—plus our top picks to simplify your search.
+      - heading "What are pet health supplements?" [level=2]
+      - paragraph: Pet health supplements are products designed to support normal functions like digestion, joint mobility, skin and coat quality, immune response, and calm behavior. They are not drugs and aren’t intended to diagnose, treat, or cure disease. Instead, they complement a balanced diet and healthy lifestyle.
+      - paragraph
+      - img
+      - text: August 13, 2025
+      - img
+      - text: 8 min read 3 tags
+    - article:
+      - heading "Memory Foam Dog Beds — SmartPetBuys" [level=2]:
+        - link "Memory Foam Dog Beds — SmartPetBuys":
+          - /url: /posts/memory-foam-dog-beds/
+      - paragraph
+      - paragraph: As a dog owner, choosing the right bed for your furry friend is crucial for their comfort and health. Memory foam dog beds are a popular choice due to their ability to provide excellent support and alleviate pressure points, ensuring your pet has a restful sleep. Whether your dog is young and energetic or older with joint issues, a memory foam bed can make a significant difference in their quality of life. In this guide, we’ll explore some of the best memory foam dog beds available from SmartPetBuys, helping you make an informed decision based on your dog’s specific needs.
+      - paragraph
+      - img
+      - text: August 12, 2025
+      - img
+      - text: 4 min read 3 tags
+    - article:
+      - heading "Flea and Tick Prevention — SmartPetBuys" [level=2]:
+        - link "Flea and Tick Prevention — SmartPetBuys":
+          - /url: /posts/flea-and-tick-prevention/
+      - paragraph
+      - paragraph: Keeping our pets healthy and active is a key concern for any pet owner. One significant challenge, especially during warmer months, is dealing with pests like fleas and ticks. These can cause discomfort and potentially serious health issues for our beloved animals. This article dives into effective solutions by focusing on top-rated flea and tick prevention products.
+      - heading "Understanding Flea and Tick Prevention" [level=2]
+      - paragraph:
+        - strong: What Are Fleas and Ticks?
+      - paragraph: Fleas are small, wingless insects that live by consuming the blood of their hosts. Ticks are arachnids akin to spiders and also survive on the blood they drain from their hosts.
+      - paragraph
+      - img
+      - text: August 12, 2025
+      - img
+      - text: 3 min read 3 tags
+    - article:
+      - heading "Best Cat Litter Clumping — SmartPetBuys" [level=2]:
+        - link "Best Cat Litter Clumping — SmartPetBuys":
+          - /url: /posts/best-cat-litter-clumping/
+      - paragraph
+      - paragraph:
+        - text: Finding the
+        - strong: best cat litter clumping
+        - text: product might not sound thrilling, but when you love your feline friend, everything that contributes to their comfort and your convenience is crucial. Clumping cat litter particularly makes cleaning up after your cat easier and reduces odors, so choosing the right one can significantly improve your daily routine and your cat’s hygiene.
+      - heading "What to Look for in Clumping Cat Litter" [level=2]
+      - heading "Absorbency and Odor Control" [level=3]
+      - paragraph: Clumping cat litter should be highly absorbent and be able to control odors effectively. This will not only keep your home smelling fresh but also make the litter box more appealing to your cat.
+      - paragraph
+      - img
+      - text: August 12, 2025
+      - img
+      - text: 3 min read 3 tags
+    - article:
+      - heading "Dog Harness vs Collar — SmartPetBuys" [level=2]:
+        - link "Dog Harness vs Collar — SmartPetBuys":
+          - /url: /posts/dog-harness-vs-collar/
+      - paragraph
+      - paragraph:
+        - text: Choosing the right equipment for walking and training your dog is crucial for both the comfort and safety of your furry friend. When deciding between a
+        - strong: dog harness and a collar
+        - text: ", there are several factors to consider, including your dog’s size, breed, and behavior. This comprehensive guide will delve into the pros and cons of both dog harnesses and collars, helping you make an informed decision."
+      - 'heading "Dog Harness: What Is It and When to Use It?" [level=2]'
+      - paragraph: A dog harness is worn around a dog’s body, typically fastening around the neck and under the belly, which distributes pressure more broadly than a traditional collar.
+      - paragraph
+      - img
+      - text: August 12, 2025
+      - img
+      - text: 4 min read 3 tags
+    - article:
+      - heading "KONG dog toys review — SmartPetBuys" [level=2]:
+        - link "KONG dog toys review — SmartPetBuys":
+          - /url: /posts/kong-dog-toys-review/
+      - paragraph
+      - paragraph: Dog toys are more than just playthings; they’re essential tools that aid in the mental and physical development of our pets. KONG dog toys, in particular, have built a reputation for durability and engagement. Today, we delve into why these toys are so revered among pet owners, with a focus on the pros, cons, and specifics of three popular models available on SmartPetBuys.
+      - heading "Key Benefits of KONG Dog Toys" [level=2]
+      - paragraph: KONG has been a leading name in the world of pet toys for over four decades. Their toys are designed with a dog’s need for play while doubling as instruments for feeding and behavior training. Here, we explore the benefits of incorporating KONG toys into your pet’s routine.
+      - paragraph
+      - img
+      - text: August 12, 2025
+      - img
+      - text: 4 min read 3 tags
+    - navigation:
+      - link "Next →":
+        - /url: /page/2/
+- contentinfo:
+  - heading "SmartPetBuys" [level=4]
+  - paragraph: Expert pet product reviews and buying guides to help you make the best choices for your furry friends.
+  - heading "📬 Smart Pet Parent Newsletter" [level=4]
+  - paragraph: Weekly product reviews, deals, and pet care tips
+  - paragraph:
+    - text: 💡
+    - emphasis: Use the sticky bar form for instant signup!
+  - heading "Legal" [level=4]
+  - navigation:
+    - link "Affiliate Disclosure":
+      - /url: /legal/disclosure/
+    - link "Privacy Policy":
+      - /url: /legal/privacy/
+    - link "Terms":
+      - /url: /legal/terms/
+  - paragraph: © 2025 SmartPetBuys. All rights reserved.
+- text: 🐾
+- strong: Get Our FREE Pet Guide!
+- heading "Get More Pet Product Tips!" [level=4]
+- paragraph: Join thousands of smart pet parents getting our FREE buying guides and weekly product recommendations
+- textbox "Email"
+- textbox "First Name"
+- button "Get My Free Guide!"
+- button "Close": ×
+- text: 10 all posts found
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1686903, \"budget\": 1000000, \"overagePercentage\": 69 }"
+- strong: Performance Budget Violation
+- text: "single_resource: large_resource { \"type\": \"large_resource\", \"resource\": \"http://localhost:1313/images/smartpetbuys_logo.png\", \"resourceType\": \"link\", \"actual\": 1232240, \"budget\": 200000, \"overageBytes\": 1032240 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1694105, \"budget\": 1000000, \"overagePercentage\": 69 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1695609, \"budget\": 1000000, \"overagePercentage\": 70 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1702932, \"budget\": 1000000, \"overagePercentage\": 70 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1703232, \"budget\": 1000000, \"overagePercentage\": 70 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1710681, \"budget\": 1000000, \"overagePercentage\": 71 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1715139, \"budget\": 1000000, \"overagePercentage\": 72 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1723422, \"budget\": 1000000, \"overagePercentage\": 72 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1730088, \"budget\": 1000000, \"overagePercentage\": 73 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1738742, \"budget\": 1000000, \"overagePercentage\": 74 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1754739, \"budget\": 1000000, \"overagePercentage\": 75 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1775566, \"budget\": 1000000, \"overagePercentage\": 78 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1775566, \"budget\": 1000000, \"overagePercentage\": 78 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1775866, \"budget\": 1000000, \"overagePercentage\": 78 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1842078, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1842378, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1842378, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1842378, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1842378, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+- strong: Performance Budget Violation
+- text: "resource_total: totalPageSize { \"type\": \"totalPageSize\", \"actual\": 1844497, \"budget\": 1000000, \"overagePercentage\": 84 }"
+```

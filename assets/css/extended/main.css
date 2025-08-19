@@ -27,6 +27,21 @@
 /* 7. Accessibility - WCAG 2.1 AA compliance styles */
 @import "accessibility.css";
 
+/* 8. Touch Targets - Mobile-friendly touch target optimizations */
+@import "touch-targets.css";
+
+/* 9. Responsive Breakpoints - Comprehensive mobile-first responsive system */
+@import "responsive-breakpoints.css";
+
+/* 10. Product Cards - Mobile-optimized product card layouts */
+@import "product-cards.css";
+
+/* 11. Sticky Mobile - Mobile-optimized sticky element positioning */
+@import "sticky-mobile.css";
+
+/* 12. Forms Mobile - Mobile keyboard support and form usability optimizations */
+@import "forms-mobile.css";
+
 /* 
  * ===== SPECIFIC OVERRIDES & ADDITIONS =====
  * Additional styles that haven't been moved to modules yet
@@ -43,27 +58,38 @@ footer {
   padding: var(--spacing-3xl) 0 var(--spacing-lg) 0 !important;
 }
 
+/* ===== FLUID FOOTER TYPOGRAPHY ===== */
 footer.site-footer h4, 
 .site-footer h4,
 footer h4 {
   color: var(--secondary-color) !important;
   font-weight: var(--font-weight-bold) !important;
-  margin-bottom: var(--spacing-md) !important;
-  font-size: 1.1rem !important;
+  font-size: var(--fluid-text-lg) !important;
+  line-height: var(--fluid-line-height-snug) !important;
+  letter-spacing: var(--fluid-letter-spacing-normal) !important;
+  margin-bottom: clamp(var(--spacing-sm), 1.5vw + var(--spacing-xs), var(--spacing-lg)) !important;
+  font-family: var(--font-primary) !important;
+  text-wrap: balance !important;
 }
 
 footer.site-footer p, 
 .site-footer p,
 footer p {
   color: var(--footer-text) !important;
-  line-height: var(--line-height-normal) !important;
-  margin-bottom: var(--spacing-sm) !important;
+  font-size: var(--fluid-text-sm) !important;
+  line-height: var(--fluid-line-height-relaxed) !important;
+  letter-spacing: var(--fluid-letter-spacing-normal) !important;
+  margin-bottom: clamp(var(--spacing-xs), 1vw + var(--spacing-2xs), var(--spacing-md)) !important;
+  text-wrap: pretty !important;
 }
 
 footer.site-footer a, 
 .site-footer a,
 footer a {
   color: var(--footer-link) !important;
+  font-size: var(--fluid-text-sm) !important;
+  line-height: var(--fluid-line-height-normal) !important;
+  letter-spacing: var(--fluid-letter-spacing-normal) !important;
   text-decoration: none !important;
   border-bottom: 1px solid transparent !important;
   transition: var(--transition-normal) !important;
@@ -83,7 +109,9 @@ footer a:hover {
 }
 
 .footer-nav a {
-  font-size: 0.95rem !important;
+  font-size: var(--fluid-text-sm) !important;
+  line-height: var(--fluid-line-height-normal) !important;
+  letter-spacing: var(--fluid-letter-spacing-normal) !important;
 }
 
 .footer-bottom {
@@ -95,8 +123,11 @@ footer a:hover {
 
 .footer-bottom p {
   color: var(--text-muted) !important;
-  font-size: 0.9rem !important;
+  font-size: var(--fluid-text-xs) !important;
+  line-height: var(--fluid-line-height-normal) !important;
+  letter-spacing: var(--fluid-letter-spacing-normal) !important;
   margin: 0 !important;
+  text-wrap: balance !important;
 }
 
 /* Override PaperMod footer styles with highest priority */
@@ -234,19 +265,5 @@ html .footer a:hover {
   color: var(--secondary-color) !important;
 }
 
-/* MailerLite Sticky Bar Override */
-.formkit-sticky-bar {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  z-index: var(--z-sticky-bar) !important;
-  width: 100% !important;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.2) !important;
-}
-
-.formkit-sticky-bar .formkit-form {
-  position: relative !important;
-  z-index: var(--z-sticky-bar) !important;
-  display: block !important;
-}
+/* MailerLite Sticky Bar - Now handled by sticky-mobile.css */
+/* See sticky-mobile.css for comprehensive mobile-optimized implementation */

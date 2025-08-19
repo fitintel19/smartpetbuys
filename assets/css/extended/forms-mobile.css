@@ -1,0 +1,802 @@
+/*
+ * Mobile Form Optimization CSS
+ * SmartPetBuys - Task 8: Mobile Keyboard Support & Form Usability
+ * 
+ * Provides comprehensive mobile form optimizations including:
+ * - Mobile keyboard support with proper input types
+ * - Touch-friendly layouts and interactions
+ * - Accessibility improvements for mobile devices
+ * - Form validation and error handling for mobile
+ * - iOS zoom prevention and Android keyboard optimization
+ */
+
+/* ===== CORE MOBILE FORM STYLES ===== */
+
+/* Prevent iOS zoom on input focus by ensuring 16px minimum font size */
+input[type="email"],
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  font-size: 16px !important; /* Prevents iOS zoom */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  
+  /* Enhanced touch target */
+  min-height: 48px;
+  padding: 12px 16px;
+  
+  /* Mobile-optimized border and focus states */
+  border: 2px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--text-color, #333333);
+  
+  /* Smooth transitions for better UX */
+  transition: border-color 0.2s ease, 
+              box-shadow 0.2s ease,
+              background-color 0.2s ease;
+  
+  /* Touch optimization */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  touch-action: manipulation;
+  
+  /* Prevent zoom on double-tap */
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Enhanced focus states for mobile */
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--primary-color, #2563eb);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  background-color: #ffffff;
+}
+
+/* Mobile-specific input type optimizations */
+input[type="email"] {
+  /* Trigger email keyboard on mobile */
+  autocomplete: email;
+  autocapitalize: none;
+  autocorrect: off;
+  spellcheck: false;
+  inputmode: email;
+}
+
+input[type="tel"] {
+  /* Trigger numeric keypad on mobile */
+  autocomplete: tel;
+  autocapitalize: none;
+  autocorrect: off;
+  inputmode: tel;
+}
+
+input[type="url"] {
+  /* Trigger URL keyboard on mobile */
+  autocomplete: url;
+  autocapitalize: none;
+  autocorrect: off;
+  spellcheck: false;
+  inputmode: url;
+}
+
+input[type="search"] {
+  /* Trigger search keyboard on mobile */
+  autocomplete: off;
+  autocapitalize: words;
+  autocorrect: on;
+  spellcheck: true;
+  inputmode: search;
+}
+
+/* ===== MOBILE FORM BUTTON OPTIMIZATIONS ===== */
+
+button[type="submit"],
+input[type="submit"],
+.form-submit-btn,
+.submit-button {
+  font-size: 16px !important; /* Prevents iOS zoom */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.2;
+  
+  /* Touch-friendly sizing */
+  min-height: 48px;
+  min-width: 120px;
+  padding: 12px 24px;
+  
+  /* Enhanced visual design */
+  background: linear-gradient(135deg, var(--primary-color, #2563eb) 0%, var(--primary-dark, #1d4ed8) 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  
+  /* Touch optimization */
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(37, 99, 235, 0.3);
+  touch-action: manipulation;
+  
+  /* Smooth interactions */
+  transition: all 0.2s ease;
+}
+
+button[type="submit"]:hover,
+input[type="submit"]:hover,
+.form-submit-btn:hover,
+.submit-button:hover {
+  background: linear-gradient(135deg, var(--primary-dark, #1d4ed8) 0%, var(--primary-darker, #1e40af) 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+button[type="submit"]:focus,
+input[type="submit"]:focus,
+.form-submit-btn:focus,
+.submit-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3),
+              0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+button[type="submit"]:active,
+input[type="submit"]:active,
+.form-submit-btn:active,
+.submit-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== MAILERLITE FORM OPTIMIZATIONS ===== */
+
+/* Enhanced MailerLite sticky bar form */
+.mailerlite-sticky-bar .ml-embedded input[type="email"],
+.mailerlite-sticky-bar .ml-embedded input[type="text"] {
+  font-size: 16px !important; /* Prevents iOS zoom */
+  autocomplete: email !important;
+  autocapitalize: none !important;
+  autocorrect: off !important;
+  spellcheck: false !important;
+  inputmode: email !important;
+  
+  /* Enhanced mobile layout */
+  min-height: 48px !important;
+  height: 48px !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #333333 !important;
+  
+  /* Touch optimization */
+  -webkit-tap-highlight-color: rgba(255, 127, 50, 0.3) !important;
+  touch-action: manipulation !important;
+}
+
+.mailerlite-sticky-bar .ml-embedded input[type="email"]:focus,
+.mailerlite-sticky-bar .ml-embedded input[type="text"]:focus {
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(255, 127, 50, 0.2) !important;
+  outline: none !important;
+}
+
+/* Enhanced MailerLite inline form */
+.mailerlite-inline-form .ml-embedded input[type="email"],
+.mailerlite-inline-form .ml-embedded input[type="text"] {
+  font-size: 16px !important; /* Prevents iOS zoom */
+  autocomplete: email !important;
+  autocapitalize: none !important;
+  autocorrect: off !important;
+  spellcheck: false !important;
+  inputmode: email !important;
+  
+  /* Enhanced styling */
+  min-height: 48px !important;
+  height: auto !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  border: 2px solid #e0e0e0 !important;
+  background: #ffffff !important;
+  color: #333333 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  
+  /* Mobile optimization */
+  -webkit-tap-highlight-color: rgba(21, 101, 192, 0.3) !important;
+  touch-action: manipulation !important;
+}
+
+.mailerlite-inline-form .ml-embedded input[type="email"]:focus,
+.mailerlite-inline-form .ml-embedded input[type="text"]:focus {
+  border-color: var(--primary-color, #1565c0) !important;
+  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1) !important;
+  outline: none !important;
+}
+
+/* ===== SEARCH FORM OPTIMIZATIONS ===== */
+
+#searchInput,
+.search-input,
+input[type="search"] {
+  font-size: 16px !important; /* Prevents iOS zoom */
+  autocomplete: off !important;
+  autocapitalize: words !important;
+  autocorrect: on !important;
+  spellcheck: true !important;
+  inputmode: search !important;
+  
+  /* Enhanced mobile layout */
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid var(--border-color, #e0e0e0);
+  background: #ffffff;
+  color: var(--text-color, #333333);
+  
+  /* Touch optimization */
+  -webkit-tap-highlight-color: rgba(37, 99, 235, 0.3);
+  touch-action: manipulation;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#searchInput:focus,
+.search-input:focus,
+input[type="search"]:focus {
+  border-color: var(--primary-color, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* Search results for mobile */
+#searchResults {
+  background: #ffffff;
+  border: 1px solid var(--border-color, #e0e0e0);
+  border-radius: 8px;
+  max-height: 60vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== FORM LAYOUT OPTIMIZATIONS ===== */
+
+.form-group,
+.form-field,
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.form-label,
+label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #333333);
+  margin-bottom: 8px;
+  display: block;
+  line-height: 1.3;
+}
+
+/* Required field indicators */
+.required::after {
+  content: " *";
+  color: #dc2626;
+  font-weight: bold;
+}
+
+/* ===== FORM VALIDATION & ERROR HANDLING ===== */
+
+.form-error,
+.error-message,
+.field-error {
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 6px;
+  display: block;
+  line-height: 1.4;
+}
+
+.form-success,
+.success-message {
+  color: #059669;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 6px;
+  display: block;
+  line-height: 1.4;
+}
+
+/* Error state styling */
+.has-error input,
+.has-error textarea,
+.has-error select,
+input.error,
+textarea.error,
+select.error {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* Success state styling */
+.has-success input,
+.has-success textarea,
+.has-success select,
+input.success,
+textarea.success,
+select.success {
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* ===== MOBILE RESPONSIVE FORM LAYOUTS ===== */
+
+@media (max-width: 767px) {
+  /* Stack form rows on mobile */
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Full-width inputs on mobile */
+  input[type="email"],
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Larger touch targets on mobile */
+  button[type="submit"],
+  input[type="submit"],
+  .form-submit-btn,
+  .submit-button {
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  
+  /* Enhanced MailerLite mobile layout */
+  .mailerlite-sticky-bar .ml-embedded .ml-form-formContent {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  
+  .mailerlite-sticky-bar .ml-embedded input[type="email"] {
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .mailerlite-sticky-bar .ml-embedded button[type="submit"],
+  .mailerlite-sticky-bar .ml-embedded input[type="submit"] {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens optimization */
+  input[type="email"],
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+  
+  button[type="submit"],
+  input[type="submit"],
+  .form-submit-btn,
+  .submit-button {
+    min-height: 56px;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+  
+  .form-label,
+  label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus indicators for keyboard navigation */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary-color, #2563eb);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  input[type="email"],
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select {
+    border-width: 3px;
+  }
+  
+  button[type="submit"],
+  input[type="submit"],
+  .form-submit-btn,
+  .submit-button {
+    border: 3px solid #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  input[type="email"],
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select,
+  button[type="submit"],
+  input[type="submit"],
+  .form-submit-btn,
+  .submit-button {
+    transition: none;
+  }
+  
+  button[type="submit"]:hover,
+  input[type="submit"]:hover,
+  .form-submit-btn:hover,
+  .submit-button:hover {
+    transform: none;
+  }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+
+@media (prefers-color-scheme: dark) {
+  input[type="email"],
+  input[type="text"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="password"],
+  textarea,
+  select {
+    background: #1f2937;
+    color: #f9fafb;
+    border-color: #4b5563;
+  }
+  
+  input[type="email"]:focus,
+  input[type="text"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    background: #111827;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+  
+  .form-label,
+  label {
+    color: #f9fafb;
+  }
+  
+  #searchResults {
+    background: #1f2937;
+    border-color: #4b5563;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Hardware acceleration for smooth interactions */
+input[type="email"],
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select,
+button[type="submit"],
+input[type="submit"],
+.form-submit-btn,
+.submit-button {
+  will-change: transform, box-shadow;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Optimize for touch scrolling */
+.form-container,
+.form-wrapper {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== FORM-SPECIFIC OVERRIDES ===== */
+
+/* Newsletter forms */
+.newsletter-form input[type="email"] {
+  font-size: 16px !important;
+  autocomplete: email;
+  autocapitalize: none;
+  autocorrect: off;
+  spellcheck: false;
+  inputmode: email;
+}
+
+/* Email signup forms */
+.email-signup input[type="email"] {
+  font-size: 16px !important;
+  autocomplete: email;
+  autocapitalize: none;
+  autocorrect: off;
+  spellcheck: false;
+  inputmode: email;
+}
+
+/* Contact forms */
+.contact-form input[type="email"] {
+  font-size: 16px !important;
+  autocomplete: email;
+  autocapitalize: none;
+  autocorrect: off;
+  spellcheck: false;
+  inputmode: email;
+}
+
+.contact-form input[type="tel"] {
+  font-size: 16px !important;
+  autocomplete: tel;
+  autocapitalize: none;
+  autocorrect: off;
+  inputmode: tel;
+}
+
+.contact-form textarea {
+  font-size: 16px !important;
+  autocapitalize: sentences;
+  autocorrect: on;
+  spellcheck: true;
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ===== MOBILE KEYBOARD HANDLING ===== */
+
+/* Handle mobile keyboard visibility changes */
+body.mobile-keyboard-visible {
+  /* Adjust layout when mobile keyboard is visible */
+  padding-bottom: 0;
+}
+
+/* Smooth scroll behavior for mobile form interactions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improve focus visibility on mobile */
+@media (max-width: 767px) {
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid var(--primary-color, #2563eb);
+    outline-offset: 2px;
+  }
+}
+
+/* ===== FORM CONTAINER OPTIMIZATIONS ===== */
+
+/* Ensure forms don't cause horizontal scroll on mobile */
+.form-container,
+.form-wrapper,
+.form-group,
+.form-field {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Improve touch scrolling for form containers */
+.form-container,
+.form-wrapper {
+  -webkit-overflow-scrolling: touch;
+  overflow-anchor: none; /* Prevent scroll anchoring issues */
+}
+
+/* ===== EDGE CASE HANDLING ===== */
+
+/* Handle forms within iframes (like some MailerLite embeds) */
+iframe {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure submit buttons are always accessible */
+button[type="submit"],
+input[type="submit"],
+.form-submit-btn,
+.submit-button {
+  position: relative;
+  z-index: 1;
+}
+
+/* Handle long form labels on mobile */
+@media (max-width: 480px) {
+  .form-label,
+  label {
+    word-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.4;
+  }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Improve contrast for placeholder text on mobile */
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280;
+  opacity: 1;
+}
+
+@media (prefers-contrast: high) {
+  input::placeholder,
+  textarea::placeholder {
+    color: #374151;
+    opacity: 1;
+  }
+}
+
+/* Ensure focus indicators work with touch */
+@media (pointer: coarse) {
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    outline-width: 3px;
+    outline-offset: 2px;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Optimize rendering for form elements */
+input,
+textarea,
+select,
+button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduce reflows during input */
+input,
+textarea {
+  contain: layout style;
+}
+
+/* ===== MAILERLITE ADDITIONAL FIXES ===== */
+
+/* Handle MailerLite specific mobile issues */
+.ml-embedded input,
+.ml-embedded button,
+.ml-embedded textarea {
+  font-size: 16px !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Fix MailerLite form width issues on mobile */
+.ml-embedded .ml-form-embedWrapper,
+.ml-embedded .ml-form-embedContainer {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Ensure MailerLite buttons are touch-friendly */
+.ml-embedded button,
+.ml-embedded input[type="submit"] {
+  min-height: 48px !important;
+  min-width: 48px !important;
+  touch-action: manipulation !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ===== VIEWPORT UNIT FALLBACKS ===== */
+
+/* Fallback for devices that don't support dvh */
+@supports not (height: 100dvh) {
+  .form-container {
+    min-height: 100vh;
+  }
+}
+
+@supports (height: 100dvh) {
+  .form-container {
+    min-height: 100dvh;
+  }
+}
+
+/* ===== FINAL OVERRIDES FOR CONSISTENCY ===== */
+
+/* Ensure all form elements follow mobile conventions */
+* input[type="email"],
+* input[type="text"],
+* input[type="search"],
+* input[type="tel"],
+* input[type="url"],
+* input[type="password"],
+* textarea,
+* select {
+  font-size: 16px !important;
+  box-sizing: border-box !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Ensure all buttons follow mobile conventions */
+* button[type="submit"],
+* input[type="submit"],
+* .btn,
+* .button,
+* .form-submit-btn,
+* .submit-button {
+  font-size: 16px !important;
+  min-height: 48px !important;
+  touch-action: manipulation !important;
+  box-sizing: border-box !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}

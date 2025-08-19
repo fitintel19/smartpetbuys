@@ -9,12 +9,13 @@
   <main class="post-main" id="main-content" role="main" aria-label="Article content">
     <article class="post-single{{ if $isLegalPage }} legal-page{{ end }}" role="article" itemscope itemtype="https://schema.org/Article">
       
-      <!-- Enhanced Header with Featured Image (skip for legal pages) -->
+      <!-- Enhanced Header with Responsive Featured Image (skip for legal pages) -->
       {{- if not $isLegalPage }}
       <header class="post-header{{ with .Params.featured_image }} has-hero{{ end }}" role="banner">
         {{ with .Params.featured_image }}
-        <div class="post-featured-image" style="background-image: url('{{ . }}')" role="img" aria-label="{{ $.Title }} featured image">
-        </div>
+        {{/* Use responsive featured image partial */}}
+        {{ $heroAlt := printf "%s featured image" $.Title }}
+        {{ partial "responsive-featured-image.html" (dict "src" . "alt" $heroAlt) }}
         {{ else }}
         <div class="post-featured-image" role="presentation">
         </div>
@@ -141,7 +142,14 @@
         <div class="related-post">
           <a href="{{ .RelPermalink }}" class="related-post-link">
             {{- if .Params.featured_image }}
-            <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" loading="lazy">
+            {{/* Use optimized image for related posts */}}
+            {{ $relatedImageUrl := .Params.featured_image }}
+            {{ if findRE "images\\.unsplash\\.com" $relatedImageUrl }}
+              {{ $optimizedUrl := printf "%s&w=200&h=150&q=80&auto=format&fit=crop" (replaceRE "&w=[0-9]+" "" $relatedImageUrl) }}
+              <img src="{{ $optimizedUrl }}" alt="{{ .Title }}" loading="lazy" class="related-post-image">
+            {{ else }}
+              <img src="{{ $relatedImageUrl }}" alt="{{ .Title }}" loading="lazy" class="related-post-image">
+            {{ end }}
             {{- end }}
             <div class="related-post-content">
               <h3 class="related-post-title">{{ .Title }}</h3>

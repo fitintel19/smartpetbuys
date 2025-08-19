@@ -36,10 +36,10 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation menu" role="dialog" aria-modal="true" aria-hidden="true">
+        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation menu" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
             <div class="mobile-nav-content" role="menu">
                 {{ range .Site.Menus.main }}
-                    <a href="{{ .URL }}" class="mobile-nav-link" role="menuitem">
+                    <a href="{{ .URL }}" class="mobile-nav-link" role="menuitem" tabindex="-1">
                         <span class="mobile-link-text">{{ .Name }}</span>
                     </a>
                 {{ end }}

@@ -1,0 +1,85 @@
+{{/* 
+Hugo partial for local responsive images with Hugo's image processing
+Usage: {{ partial "local-responsive-image.html" (dict "src" "images/my-image.jpg" "alt" "Description" "sizes" "100vw") }}
+*/}}
+
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "(max-width: 414px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 80vw, 1200px" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $fetchpriority := .fetchpriority | default "" -}}
+
+{{/* Mobile-first breakpoints */}}
+{{- $breakpoints := slice 320 414 568 768 1024 1200 1600 -}}
+
+{{/* Try to get image as Hugo resource */}}
+{{- $image := false -}}
+{{- $cleanSrc := strings.TrimPrefix "/" $src -}}
+
+{{/* Look for image in assets first, then static */}}
+{{- with resources.Get $cleanSrc -}}
+  {{- $image = . -}}
+{{- else -}}
+  {{/* Try in static folder */}}
+  {{- $staticPath := printf "/static/%s" $cleanSrc -}}
+  {{- if fileExists $staticPath -}}
+    {{- $image = resources.Get $cleanSrc -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* If we have a local image resource, generate responsive variants */}}
+{{- if $image -}}
+  {{- $webpSrcset := slice -}}
+  {{- $jpegSrcset := slice -}}
+  
+  {{/* Generate WebP and JPEG variants for each breakpoint */}}
+  {{- range $breakpoints -}}
+    {{- $width := . -}}
+    {{- if le $width $image.Width -}}
+      {{/* Generate JPEG variant */}}
+      {{- $resizedJpeg := $image.Resize (printf "%dx q85" $width) -}}
+      {{- $jpegSrcset = $jpegSrcset | append (printf "%s %dw" $resizedJpeg.RelPermalink $width) -}}
+      
+      {{/* Generate WebP variant */}}
+      {{- $resizedWebp := $image.Resize (printf "%dx webp q85" $width) -}}
+      {{- $webpSrcset = $webpSrcset | append (printf "%s %dw" $resizedWebp.RelPermalink $width) -}}
+    {{- end -}}
+  {{- end -}}
+  
+  {{/* Generate fallback images */}}
+  {{- $fallbackJpeg := $image.Resize "1200x q85" -}}
+  {{- $fallbackWebp := $image.Resize "1200x webp q85" -}}
+  
+  {{/* Output picture element with WebP and JPEG sources */}}
+  <picture class="responsive-image{{ with $class }} {{ . }}{{ end }}">
+    {{- if $webpSrcset -}}
+    <source type="image/webp" 
+            srcset="{{ delimit $webpSrcset ", " }}" 
+            sizes="{{ $sizes }}">
+    {{- end -}}
+    
+    {{- if $jpegSrcset -}}
+    <source type="image/jpeg" 
+            srcset="{{ delimit $jpegSrcset ", " }}" 
+            sizes="{{ $sizes }}">
+    {{- end -}}
+    
+    <img src="{{ $fallbackJpeg.RelPermalink }}" 
+         alt="{{ $alt }}"
+         loading="{{ $loading }}"
+         {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}
+         {{- with $class }} class="{{ . }}"{{ end }}
+         width="{{ $fallbackJpeg.Width }}"
+         height="{{ $fallbackJpeg.Height }}">
+  </picture>
+
+{{/* Fallback for images that couldn't be processed */}}
+{{- else -}}
+  <img src="{{ $src }}" 
+       alt="{{ $alt }}"
+       loading="{{ $loading }}"
+       {{- with $fetchpriority }} fetchpriority="{{ . }}"{{ end }}
+       {{- with $class }} class="responsive-image{{ with $class }} {{ . }}{{ end }}"{{ end }}
+       style="width: 100%; height: auto; max-width: 100%;">
+{{- end -}}
