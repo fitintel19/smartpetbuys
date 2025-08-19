@@ -88,7 +88,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 120px; /* Increased header height for much bigger logo */
+  height: 140px; /* Increased header height for much bigger logo */
   padding: 0.5rem 0; /* Add vertical padding */
 }
 
@@ -104,8 +104,8 @@ p {
 }
 
 .brand-logo {
-  height: 80px; /* Optimal logo size for better visibility */
-  max-width: 250px; /* Increased max width constraint */
+  height: 120px; /* Much larger logo size for better readability */
+  max-width: 300px; /* Increased max width constraint */
   width: auto;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); /* Add subtle shadow for better definition */
