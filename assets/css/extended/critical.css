@@ -369,11 +369,26 @@ main {
   .nav-links,
   .nav-menu,
   .desktop-nav {
-    display: none; /* Hidden by default on mobile */
+    display: none !important; /* Hidden on mobile only */
   }
   
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
+  }
+}
+
+/* Desktop navigation - EMERGENCY FIX */
+@media (min-width: 769px) {
+  .nav-links,
+  .nav-menu,
+  .desktop-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: none !important;
   }
   
   .logo {
@@ -431,4 +446,25 @@ main {
 
 .nav-menu, .nav-links, .desktop-nav {
   display: flex !important;
+}
+
+/* EMERGENCY DESKTOP NAVIGATION FIX - HIGHEST PRIORITY */
+@media (min-width: 769px) {
+  .nav-menu,
+  .nav-links,
+  .desktop-nav,
+  .nav-menu.desktop-nav {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 100 !important;
+  }
+  
+  .mobile-menu-toggle,
+  .mobile-menu-toggle.is-active,
+  .mobile-menu-toggle.is-open {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }

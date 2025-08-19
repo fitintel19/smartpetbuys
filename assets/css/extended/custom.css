@@ -400,18 +400,29 @@ footer {
   }
   
   .nav-menu {
-    display: none;
-    /* TODO: Add mobile hamburger menu */
+    display: none !important;
   }
   
-  /* Mobile menu toggle - you may want to add JavaScript for this */
   .mobile-menu-toggle {
-    display: block;
+    display: block !important;
     background: none;
     border: none;
     color: var(--secondary-color);
     font-size: 1.5rem;
     cursor: pointer;
+  }
+}
+
+/* EMERGENCY: Desktop navigation must be visible */
+@media (min-width: 769px) {
+  .nav-menu {
+    display: flex !important;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .mobile-menu-toggle {
+    display: none !important;
   }
   
   .brand-logo {

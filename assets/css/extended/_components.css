@@ -936,13 +936,26 @@
 
 /* ===== ENHANCED RESPONSIVE COMPONENTS ===== */
 
-/* Base mobile styles (320px+) */
+/* Base mobile styles (320px+) - FIXED */
 .mobile-menu-toggle {
-  display: flex; /* Show on all mobile sizes */
+  display: none; /* Hide by default */
 }
 
 .nav-menu {
-  display: none; /* Hide desktop menu on mobile */
+  display: flex; /* Show desktop menu by default */
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+/* Mobile-specific overrides */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex !important; /* Show on mobile */
+  }
+  
+  .nav-menu {
+    display: none !important; /* Hide desktop menu on mobile */
+  }
 }
 
 .brand-logo {
