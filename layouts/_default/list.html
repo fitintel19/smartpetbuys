@@ -89,8 +89,9 @@
   <p>Our most recent expert reviews and buying guides to help you make the best choices for your pets.</p>
 </div>
 {{- end }}
-<div class="posts-grid">
-  {{- range $paginator.Pages }}
+<div class="posts-container">
+  <div class="posts-grid">
+    {{- range $paginator.Pages }}
   {{- $category := "all" }}
   {{- $tags := .Params.tags | default slice }}
   {{- $tagsString := delimit $tags " " }}
@@ -125,17 +126,19 @@
       </div>
     </div>
   </article>
-  {{- end }}
+    {{- end }}
+  </div>
 </div>
 {{- end }}
 
-{{- if gt $paginator.TotalPages 1 }}
-<nav class="pagination">
+{{/* Pagination - Completely separate from posts grid */}}
+{{- if and $paginator.Pages (gt $paginator.TotalPages 1) }}
+<nav class="pagination" role="navigation" aria-label="pagination">
   {{- if $paginator.HasPrev }}
-  <a href="{{ $paginator.Prev.URL }}" class="btn">← Previous</a>
+  <a href="{{ $paginator.Prev.URL }}" class="btn" rel="prev" aria-label="Previous page">← Previous</a>
   {{- end }}
   {{- if $paginator.HasNext }}
-  <a href="{{ $paginator.Next.URL }}" class="btn">Next →</a>
+  <a href="{{ $paginator.Next.URL }}" class="btn" rel="next" aria-label="Next page">Next →</a>
   {{- end }}
 </nav>
 {{- end }}

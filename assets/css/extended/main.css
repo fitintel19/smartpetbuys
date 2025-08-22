@@ -854,12 +854,25 @@ article .product-card-content,
   margin: 0 auto;
 }
 
+/* Posts Container - wrapper for posts grid */
+.posts-container {
+  width: 100%;
+  display: block;
+  /* Ensure container doesn't interfere with pagination */
+  contain: layout;
+  isolation: isolate;
+}
+
 /* Posts Grid */
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-xl);
   margin: var(--spacing-xl) 0;
+  /* Ensure grid doesn't affect external elements */
+  isolation: isolate;
+  /* Prevent pagination from being pulled into grid */
+  contain: layout;
 }
 
 .post-card {
@@ -1689,6 +1702,66 @@ textarea {
 .search-button:hover {
   background: var(--primary-orange-dark);
   transform: translateY(-50%) scale(1.05);
+}
+
+/* ==========================================================================
+   PAGINATION
+   ========================================================================== */
+
+/* Pagination container - positioned outside posts grid */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-md) 0;
+  width: 100%;
+  clear: both;
+  position: relative;
+  /* Ensure pagination is completely isolated from grid layout */
+  isolation: isolate;
+  z-index: 1;
+  /* Prevent any flex/grid inheritance */
+  flex: none;
+  grid-column: unset;
+  grid-row: unset;
+}
+
+/* Original smaller button style */
+.pagination .btn,
+.pagination a {
+  display: inline-block;
+  padding: 8px 16px;
+  background: var(--primary-orange);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.pagination .btn:hover,
+.pagination a:hover {
+  background: var(--primary-orange-hover);
+  color: var(--white);
+}
+
+/* Mobile responsive pagination */
+@media (max-width: 768px) {
+  .pagination {
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-sm) 0;
+    gap: var(--spacing-sm);
+  }
+  
+  .pagination .btn,
+  .pagination a {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
 
 /* ==========================================================================
