@@ -1,0 +1,13 @@
+{{/* Post navigation links */}}
+<div class="post-nav-links">
+  {{- with .Next }}
+  <div class="post-nav-link next">
+    <a href="{{ .RelPermalink }}">← {{ .Title }}</a>
+  </div>
+  {{- end }}
+  {{- with .Prev }}
+  <div class="post-nav-link prev">
+    <a href="{{ .RelPermalink }}">{{ .Title }} →</a>
+  </div>
+  {{- end }}
+</div>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Logo Size Test</title>
+    <style>
+        /* Test our logo sizing rules */
+        .header .nav .logo a .logo-image,
+        .nav .logo a .logo-image,
+        .logo a .logo-image,
+        .logo-image,
+        img.logo-image,
+        img[src*="smartpetbuys_logo"],
+        .header img[src*="smartpetbuys_logo"],
+        .nav img[src*="smartpetbuys_logo"],
+        .header .nav .logo a img,
+        .nav .logo a img,
+        .logo a img,
+        html .header .nav .logo a img,
+        html .nav .logo a img,
+        html body .header .nav .logo a img {
+          height: 110px !important;
+          width: auto !important;
+          max-width: 400px !important;
+          min-height: 110px !important;
+          margin: 0 8px 0 0 !important;
+          transition: transform 0.2s ease, filter 0.2s ease !important;
+          display: inline-block !important;
+          vertical-align: middle !important;
+          transform: none !important;
+          border-radius: 6px !important;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+          border: 2px solid green !important; /* Test border */
+        }
+        
+        body .header .nav .logo a img[src*="smartpetbuys"],
+        html body .header .nav .logo a img,
+        html body div.header nav.nav div.logo a img,
+        .header .nav .logo a img.logo-image {
+          height: 110px !important;
+          width: auto !important;
+          max-width: 400px !important;
+          min-height: 110px !important;
+          margin: 0 8px 0 0 !important;
+          display: inline-block !important;
+          vertical-align: middle !important;
+          transform: none !important;
+          border-radius: 6px !important;
+          border: 2px solid blue !important; /* Secondary test border */
+        }
+        
+        .header {
+          background: white;
+          border-bottom: 2px solid orange;
+          min-height: 140px !important;
+          height: auto !important;
+        }
+        
+        .nav {
+          min-height: 140px !important;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+        }
+        
+        .logo {
+          display: flex;
+          align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys - Expert Pet Product Reviews" class="logo-image">
+                </a>
+            </div>
+        </nav>
+    </div>
+    
+    <h1>Logo Size Test</h1>
+    <p>The logo should appear above with a height of 110px and colored border indicating which CSS rule is being applied.</p>
+    <p>Green border = First rule set applied</p>
+    <p>Blue border = Second (more specific) rule set applied</p>
+</body>
+</html>

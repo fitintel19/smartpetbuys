@@ -1,188 +1,188 @@
-// Category Filtering Functionality with Accessibility
+/**
+ * Category Filter Functionality for SmartPetBuys
+ * Enables filtering of post cards based on category selection
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    const categoryCards = document.querySelectorAll('.category-card[data-filter]');
-    const postCards = document.querySelectorAll('.post-card[data-category]');
+    const categoryCards = document.querySelectorAll('.category-card');
+    const postCards = document.querySelectorAll('.post-card');
+    const postsGrid = document.querySelector('.posts-grid');
     
-    // Add event listeners for both click and keyboard interactions
+    // Add click event listeners to category cards
     categoryCards.forEach(card => {
-        // Click event
-        card.addEventListener('click', function() {
-            handleCategorySelection(this);
-        });
+        // Make cards focusable for accessibility
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `Filter by ${card.querySelector('h3').textContent}`);
         
-        // Keyboard event
+        // Add click handler
+        card.addEventListener('click', handleCategoryClick);
+        
+        // Add keyboard navigation
         card.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                handleCategorySelection(this);
+                handleCategoryClick.call(this);
             }
         });
         
-        // Ensure cards are focusable
-        if (!card.hasAttribute('tabindex')) {
-            card.setAttribute('tabindex', '0');
-        }
+        // Add hover styles
+        card.style.cursor = 'pointer';
     });
     
-    function handleCategorySelection(card) {
-        const filter = card.getAttribute('data-filter');
+    function handleCategoryClick() {
+        const selectedFilter = this.getAttribute('data-filter');
         
         // Update active state
-        categoryCards.forEach(c => {
-            c.classList.remove('active');
-            c.setAttribute('aria-pressed', 'false');
+        categoryCards.forEach(card => {
+            card.classList.remove('active');
         });
-        card.classList.add('active');
-        card.setAttribute('aria-pressed', 'true');
+        this.classList.add('active');
         
         // Filter posts
-        filterPosts(filter);
+        filterPosts(selectedFilter);
         
-        // Update section title
-        updateSectionTitle(filter);
+        // Update URL without page reload for better UX
+        if (history.pushState) {
+            const newUrl = selectedFilter === 'all' 
+                ? window.location.pathname 
+                : `${window.location.pathname}?category=${selectedFilter}`;
+            history.pushState({category: selectedFilter}, '', newUrl);
+        }
         
-        // Announce change to screen readers
-        announceFilterChange(filter);
+        // Announce to screen readers
+        announceFilter(selectedFilter);
     }
     
     function filterPosts(filter) {
         let visibleCount = 0;
         
         postCards.forEach(post => {
-            const category = post.getAttribute('data-category');
+            const postCategory = post.getAttribute('data-category');
+            const shouldShow = filter === 'all' || postCategory === filter;
             
-            if (filter === 'all' || category === filter) {
+            if (shouldShow) {
                 post.style.display = 'block';
-                post.style.animation = 'fadeInUp 0.6s ease-out';
-                post.removeAttribute('aria-hidden');
+                post.setAttribute('aria-hidden', 'false');
                 visibleCount++;
+                
+                // Add fade-in animation
+                post.style.opacity = '0';
+                setTimeout(() => {
+                    post.style.opacity = '1';
+                }, 50);
             } else {
                 post.style.display = 'none';
                 post.setAttribute('aria-hidden', 'true');
             }
         });
         
-        // Update ARIA live region with results count
-        updateResultsCount(visibleCount, filter);
+        // Show message if no posts found
+        showEmptyState(visibleCount === 0, filter);
         
-        if (visibleCount === 0) {
-            showNoResultsMessage(filter);
-        } else {
-            hideNoResultsMessage();
+        // Smooth scroll to posts section
+        if (postsGrid && window.innerWidth > 768) {
+            postsGrid.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
         }
     }
     
-    function updateSectionTitle(filter) {
-        const sectionTitle = document.querySelector('.featured-posts-section h2, #latest-posts-heading');
-        if (sectionTitle) {
-            const titles = {
-                'all': 'Latest Reviews & Guides',
-                'dog': 'Dog Product Reviews & Guides',
-                'cat': 'Cat Product Reviews & Guides',
-                'health': 'Pet Health & Wellness Guides'
-            };
-            
-            sectionTitle.textContent = titles[filter] || 'Latest Reviews & Guides';
-        }
-    }
-    
-    function announceFilterChange(filter) {
-        const announcements = document.getElementById('announcements');
-        if (announcements) {
-            const filterName = getFilterDisplayName(filter);
-            announcements.textContent = `Showing ${filterName.toLowerCase()} posts`;
-            
-            // Clear announcement after delay
-            setTimeout(() => {
-                announcements.textContent = '';
-            }, 2000);
-        }
-    }
-    
-    function updateResultsCount(count, filter) {
-        // Create or update results count for screen readers
-        let resultsCount = document.getElementById('results-count');
-        if (!resultsCount) {
-            resultsCount = document.createElement('div');
-            resultsCount.id = 'results-count';
-            resultsCount.className = 'sr-only';
-            resultsCount.setAttribute('aria-live', 'polite');
-            document.body.appendChild(resultsCount);
+    function showEmptyState(isEmpty, filter) {
+        const existingMessage = document.querySelector('.no-posts-message');
+        if (existingMessage) {
+            existingMessage.remove();
         }
         
-        const filterName = getFilterDisplayName(filter);
-        resultsCount.textContent = `${count} ${filterName.toLowerCase()} ${count === 1 ? 'post' : 'posts'} found`;
-    }
-    
-    function showNoResultsMessage(filter) {
-        hideNoResultsMessage(); // Remove any existing message
-        
-        const postsGrid = document.querySelector('.posts-grid');
-        const noResults = document.createElement('div');
-        noResults.className = 'no-results';
-        noResults.innerHTML = `
-            <div class="no-results-content" role="status" aria-live="polite">
-                <h3>No ${getFilterDisplayName(filter)} posts yet</h3>
-                <p>We're working on adding more ${getFilterDisplayName(filter).toLowerCase()} content. Check back soon!</p>
-                <button onclick="showAllPosts()" class="btn" aria-label="View all posts">View All Posts</button>
-            </div>
-        `;
-        
-        // Set focus to no results message for screen reader users
-        noResults.setAttribute('tabindex', '-1');
-        noResults.focus();
-        
-        postsGrid.appendChild(noResults);
-    }
-    
-    function hideNoResultsMessage() {
-        const noResults = document.querySelector('.no-results');
-        if (noResults) {
-            noResults.remove();
+        if (isEmpty) {
+            const message = document.createElement('div');
+            message.className = 'no-posts-message';
+            message.innerHTML = `
+                <div style="text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 8px; margin: 1rem 0;">
+                    <h3>No posts found</h3>
+                    <p>We don't have any posts in the "${getFilterDisplayName(filter)}" category yet.</p>
+                    <button onclick="document.querySelector('[data-filter=\"all\"]').click()" 
+                            style="background: #FF7F32; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">
+                        View All Posts
+                    </button>
+                </div>
+            `;
+            postsGrid.parentNode.insertBefore(message, postsGrid.nextSibling);
         }
     }
     
     function getFilterDisplayName(filter) {
-        const names = {
-            'dog': 'Dog Product',
-            'cat': 'Cat Product', 
+        const displayNames = {
+            'dog': 'Dog Products',
+            'cat': 'Cat Essentials', 
             'health': 'Health & Wellness',
-            'all': 'All'
+            'all': 'All Products'
         };
-        return names[filter] || 'Product';
+        return displayNames[filter] || filter;
     }
     
-    // Global function to show all posts (used by no-results button)
-    window.showAllPosts = function() {
-        const allCard = document.querySelector('.category-card[data-filter="all"]');
-        if (allCard) {
-            allCard.click();
+    function announceFilter(filter) {
+        // Create or update screen reader announcement
+        let announcement = document.getElementById('filter-announcement');
+        if (!announcement) {
+            announcement = document.createElement('div');
+            announcement.id = 'filter-announcement';
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.style.position = 'absolute';
+            announcement.style.left = '-10000px';
+            announcement.style.width = '1px';
+            announcement.style.height = '1px';
+            announcement.style.overflow = 'hidden';
+            document.body.appendChild(announcement);
         }
-    };
-    
-    // Set initial state with proper ARIA attributes
-    const allCard = document.querySelector('.category-card[data-filter="all"]');
-    if (allCard) {
-        allCard.classList.add('active');
-        allCard.setAttribute('aria-pressed', 'true');
+        
+        const displayName = getFilterDisplayName(filter);
+        announcement.textContent = `Showing posts for ${displayName}`;
     }
     
-    // Initialize ARIA attributes for all category cards
-    categoryCards.forEach(card => {
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-pressed', card.classList.contains('active') ? 'true' : 'false');
+    // Handle back/forward browser navigation
+    window.addEventListener('popstate', function(e) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category') || 'all';
+        
+        // Update active card
+        categoryCards.forEach(card => {
+            card.classList.remove('active');
+            if (card.getAttribute('data-filter') === category) {
+                card.classList.add('active');
+            }
+        });
+        
+        // Filter posts
+        filterPosts(category);
     });
     
-    // Add initial results count
-    updateResultsCount(postCards.length, 'all');
+    // Initialize on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialCategory = urlParams.get('category') || 'all';
     
-    // Create announcement area if it doesn't exist
-    if (!document.getElementById('announcements')) {
-        const announcements = document.createElement('div');
-        announcements.id = 'announcements';
-        announcements.className = 'sr-only';
-        announcements.setAttribute('aria-live', 'polite');
-        announcements.setAttribute('aria-atomic', 'true');
-        document.body.insertBefore(announcements, document.body.firstChild);
+    // Set initial active state
+    categoryCards.forEach(card => {
+        if (card.getAttribute('data-filter') === initialCategory) {
+            card.classList.add('active');
+        }
+    });
+    
+    // Apply initial filter if not 'all'
+    if (initialCategory !== 'all') {
+        filterPosts(initialCategory);
+    } else {
+        // Set 'all' as active by default
+        const allCard = document.querySelector('[data-filter="all"]');
+        if (allCard) {
+            allCard.classList.add('active');
+        }
     }
+    
+    // Add smooth transitions to post cards
+    postCards.forEach(post => {
+        post.style.transition = 'opacity 0.3s ease-in-out';
+    });
 });

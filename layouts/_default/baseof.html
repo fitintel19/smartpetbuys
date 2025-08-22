@@ -13,54 +13,7 @@
     {{- end -}}
     " id="top">
 
-<!-- FORCE CUSTOM HEADER WITH MOBILE NAV -->
-<header class="header" role="banner">
-    <nav class="nav" role="navigation" aria-label="Main navigation" id="navigation">
-        <div class="nav-wrapper">
-            <!-- Logo -->
-            <a href="{{ .Site.BaseURL }}" class="nav-logo" aria-label="SmartPetBuys homepage">
-                <img src="/images/smartpetbuys_logo.png" alt="SmartPetBuys - Expert Pet Product Reviews and Buying Guides" class="brand-logo">
-            </a>
-            
-            <!-- Desktop Navigation -->
-            <div class="nav-menu desktop-nav" role="menubar">
-                {{ range .Site.Menus.main }}
-                    <a href="{{ .URL }}" class="nav-link" role="menuitem">{{ .Name }}</a>
-                {{ end }}
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button 
-                id="mobile-menu-toggle" 
-                class="mobile-menu-toggle" 
-                aria-label="Open mobile navigation menu"
-                aria-expanded="false"
-                aria-controls="mobile-nav"
-                aria-haspopup="true">
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="hamburger-line" aria-hidden="true"></span>
-                <span class="sr-only">Menu</span>
-            </button>
-        </div>
-
-        <!-- Mobile Navigation Menu -->
-        <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation menu" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
-            <div class="mobile-nav-content" role="menu">
-                {{ range .Site.Menus.main }}
-                    <a href="{{ .URL }}" class="mobile-nav-link" role="menuitem" tabindex="-1">
-                        <span class="mobile-link-text">{{ .Name }}</span>
-                    </a>
-                {{ end }}
-                
-                <!-- Additional mobile-only links if needed -->
-                <div class="mobile-nav-footer" role="contentinfo">
-                    <p class="mobile-nav-tagline" aria-label="Site tagline">🐾 Expert Pet Product Reviews</p>
-                </div>
-            </div>
-        </nav>
-    </nav>
-</header>
+{{- partial "header.html" . -}}
 <main class="main">
     {{- block "main" . }}{{- end }}
 </main>
@@ -76,12 +29,6 @@
 {{- end }}
 
 {{- partial "extend_footer.html" . -}}
-
-<!-- Mobile Menu Script -->
-<script src="/js/mobile-menu.js" defer></script>
-
-<!-- MailerLite Sticky Bar (Global) -->
-{{ partial "mailerlite-sticky-bar.html" . }}
 
 </body>
 </html>

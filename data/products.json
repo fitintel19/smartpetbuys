@@ -639,7 +639,11 @@
     "name": "Nina Ottosson Dog Puzzle Toys",
     "url": "https://amzn.to/3HvIB0P",
     "image": "https://m.media-amazon.com/images/I/81YiWtmTBEL._AC_SL1500_.jpg",
-    "blurb": "Interactive puzzle toys that challenge dogs mentally and physically."
+    "blurb": "Interactive puzzle toys that challenge dogs mentally and physically.",
+    "brand": "Nina Ottosson",
+    "rating": "4.4",
+    "review_count": "6,782",
+    "price": "24.99"
   },
   "grooming-02": {
     "name": "Tweezerman Dog and Cat Slicker Brush for Large Pets",
@@ -703,7 +707,11 @@
     "name": "KONG Dog Toys Collection",
     "url": "https://amzn.to/3J6sDLl",
     "image": "https://m.media-amazon.com/images/I/716ORfD-dBL._AC_SL1200_.jpg",
-    "blurb": "Collection of durable KONG toys for interactive play and training."
+    "blurb": "Collection of durable KONG toys for interactive play and training.",
+    "brand": "KONG",
+    "rating": "4.6",
+    "review_count": "15,234",
+    "price": "18.99"
   },
   "harnesscollar-01": {
     "name": "Dog Harness vs Collar Comparison",

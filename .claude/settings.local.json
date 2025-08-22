@@ -33,7 +33,8 @@
       "Bash(npm test:*)",
       "Bash(npm run test:accessibility:*)",
       "Bash(npm install:*)",
-      "Bash(sed:*)"
+      "Bash(sed:*)",
+      "Bash(taskkill:*)"
     ],
     "defaultMode": "acceptEdits",
     "additionalDirectories": [

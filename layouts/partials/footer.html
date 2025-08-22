@@ -1,34 +1,47 @@
 <footer class="site-footer">
-  <div class="footer-inner">
+  <div class="footer-container">
     <div class="footer-content">
-      <div class="footer-section">
-        <h4>SmartPetBuys</h4>
-        <p>Expert pet product reviews and buying guides to help you make the best choices for your furry friends.</p>
+      <!-- Brand Section -->
+      <div class="footer-section footer-brand">
+        <div class="footer-logo">
+          <h3>SmartPetBuys</h3>
+        </div>
+        <p class="footer-description">Expert pet product reviews and buying guides to help you make the best choices for your furry friends.</p>
+        <p class="footer-tagline">Making pet parenting smarter, one review at a time.</p>
       </div>
       
-      <div class="footer-section">
-        <h4>📬 Smart Pet Parent Newsletter</h4>
-        <p>Weekly product reviews, deals, and pet care tips</p>
-        <div class="footer-newsletter">
-          <p><small>💡 <em>Use the sticky bar form for instant signup!</em></small></p>
+      <!-- Newsletter Section -->
+      <div class="footer-section footer-newsletter">
+        <h4>Smart Pet Parent Newsletter</h4>
+        <p class="newsletter-description">Get weekly product reviews, deals, and expert pet care tips delivered to your inbox.</p>
+        <div class="newsletter-signup-info">
+          <p class="newsletter-cta">
+            <span class="newsletter-icon">📧</span>
+            <em>Use the orange sticky bar above for instant signup!</em>
+          </p>
         </div>
       </div>
       
-      <div class="footer-section">
-        <h4>Legal</h4>
+      <!-- Legal & Links Section -->
+      <div class="footer-section footer-legal">
+        <h4>Legal & Information</h4>
         <nav class="footer-nav">
-          <a href="/legal/disclosure/">Affiliate Disclosure</a>
-          <a href="/legal/privacy/">Privacy Policy</a>
-          <a href="/legal/terms/">Terms</a>
+          <ul class="footer-links">
+            <li><a href="/legal/disclosure/">Affiliate Disclosure</a></li>
+            <li><a href="/legal/privacy/">Privacy Policy</a></li>
+            <li><a href="/legal/terms/">Terms of Service</a></li>
+            <li><a href="/legal/about/">About Us</a></li>
+          </ul>
         </nav>
       </div>
     </div>
     
     <div class="footer-bottom">
-      <p>&copy; {{ now.Year }} SmartPetBuys. All rights reserved.</p>
+      <div class="footer-bottom-content">
+        <p class="copyright">&copy; {{ now.Year }} SmartPetBuys. All rights reserved.</p>
+        <p class="footer-note">Helping pet parents make informed decisions since {{ now.Year }}.</p>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- MailerLite Sticky Bar - Loads on all pages -->
-{{ partial "mailerlite-sticky-bar.html" . }}

@@ -1,456 +1,694 @@
+#!/usr/bin/env python3
+"""
+AI-Powered Blog Post Generation Script for SmartPetBuys
+Creates high-quality, SEO-optimized pet product content with duplicate prevention.
+"""
+
 import os
 import csv
-import openai
-from datetime import datetime
-import random
+import json
+import hashlib
+import logging
+import re
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
-# Set the OPENAI_API_KEY in your GitHub repository secrets.
-client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+try:
+    import frontmatter
+    import openai
+except ImportError as e:
+    print(f"❌ Missing required dependency: {e}")
+    print("Install with: pip install openai frontmatter")
+    exit(1)
 
-def prompt_for(keyword: str) -> str:
-    return f"""
-You are writing an SEO-optimized affiliate blog post for SmartPetBuys.
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
-Keyword: "{keyword}"
-
-Write 1200–1500 words in Markdown, but **do NOT include an H1**. The H1 comes from front matter.
-Start with a short intro paragraph, then use H2/H3 sections.
-
-🎯 CONTENT FOCUS: The entire article must be focused on "{keyword}". Every section, product recommendation, and piece of advice should directly relate to this specific topic.
-
-ONLY include product sections if they are DIRECTLY relevant to the keyword topic. For example:
-- Insurance guides = firstaid-01, emergency-01, health products
-- Food reviews = kibble-01, kibble-02, cat-food-01, etc.
-- Toy reviews = toy-01, toy-02, cat-toy-01, etc.
-- Training topics = treats-01, training-01, crate-01, etc.
-
-If products are relevant, use this shortcode format exactly:
-{{{{< product id="relevant-product-id" >}}}} 
-
-**Why we like it**
-- [Key benefit 1]
-- [Key benefit 2]
-
-**Pros**
-- [Pro 1]
-- [Pro 2]
-- [Pro 3]
-
-**Cons**
-- [Con 1]
-- [Con 2]
-
-**Best for**
-- [Target audience 1]
-- [Target audience 2]
-
-🚨 CRITICAL: DO NOT include random products. Only use products that DIRECTLY relate to the article topic.
-
-**TOPIC-SPECIFIC PRODUCT GUIDANCE:**
-- **Insurance/Emergency topics**: firstaid-01, emergency-01, microchip-01
-- **Health/Medical topics**: health-02, health-03, joint-01, supplements-01, omega-01
-- **Food topics**: kibble-01, kibble-02, cat-food-01, puppy-01, senior-01, weight-01
-- **Training topics**: treats-01, treats-02, training-01, crate-01, crate-02
-- **Toy topics**: toy-01, toy-02, toy-03, cat-toy-01, cat-toy-02, puzzle-01
-- **Grooming topics**: brush-01, groom-03, grooming-01, shampoo-01
-- **Dental topics**: dental-kit-01, dental-02, dental-03, Minties-01
-- **Behavior topics**: behavior-01, anxiety-01, calming-01, separation-01
-
-🚨 CRITICAL: ONLY use these EXACT product IDs from data/products.json.
-❌ DO NOT create collar-02, collar-03, collar-04 - ONLY collar-01 exists!
-❌ DO NOT create toy-04, toy-05 - ONLY toy-01, toy-02, toy-03 exist!
-❌ DO NOT invent new IDs - stick to the list below EXACTLY:
-
-**DOG FOOD:**
-- kibble-01 (Orijen Original Dry Dog Food)
-- kibble-02 (Blue Buffalo Life Protection Formula)
-- kibble-03 (Hill's Science Diet Adult)
-- puppy-01 (Blue Buffalo Puppy Food)
-- senior-02 (Blue Buffalo Senior Dog Food)
-- weight-01 (Hill's Science Diet Weight Management)
-- weightloss-01 (Royal Canin Weight Control Dog Food)
-- senior-01 (Hill's Science Diet Senior Dog Food)
-- allergies-01 (Royal Canin Small Sensitive Skin Care Dry Dog Food)
-
-**CAT FOOD:**
-- cat-food-01 (Royal Canin Indoor Adult Cat Food)
-- cat-food-02 (Purina Pro Plan SAVOR)
-- indoorcat-01 (Premium Indoor Cat Food)
-- diabetes-01 (Purina Pro Plan DM Diabetes Management)
-- kidney-01 (Royal Canin Renal Support Cat Food)
-- urinary-01 (Royal Canin Urinary SO Cat Food)
-
-**DOG TOYS:**
-- toy-01 (Outward Hound Hide N' Seek Puzzle Toy)
-- toy-02 (KONG Classic Dog Toy)
-- toy-03 (Chuckit! Ultra Ball 3-Pack)
-- kong-01 (KONG Dog Toys Collection)
-- puzzle-01 (Nina Ottosson Dog Puzzle Toys)
-
-**CAT TOYS:**
-- cat-toy-01 (Feather Wand Cat Toy)
-- cat-toy-02 (SmartyKat Skitter Critters)
-- feather-01 (Interactive Feather Cat Toys)
-- enrichment-01 (ORSDA Cat Toys for Indoor Cats)
-
-**HEALTH & SUPPLEMENTS:**
-- health-02 (Purina Pro Plan Veterinary Diets FortiFlora)
-- health-03 (Zesty Paws Omega Bites)
-- health-04 (VetriScience Composure)
-- health-05 (NutraMax Cosequin DS)
-- joint-01 (Wuffes Advanced Dog Hip and Joint Supplement)
-- supplements-01 (Dog Multivitamin - 10 in 1 Dog Vitamins)
-- omega-01 (Premium Omega 3 Supplements for Dogs)
-
-**GROOMING:**
-- brush-01 (FURminator Undercoat Deshedding Tool for Cats)
-- groom-03 (Boshel Dog Nail Clippers and Trimmer)
-- grooming-01 (36''Large Dog Grooming Table)
-- grooming-02 (Tweezerman Dog and Cat Slicker Brush for Large Pets)
-- shampoo-01 (Burt's Bees Dog Shampoo)
-
-**DENTAL CARE:**
-- dental-kit-01 (Arm & Hammer Clinical Pet Care Dental Kit)
-- dental-02 (Greenies Original Dental Chews)
-- dental-03 (Virbac C.E.T. Enzymatic Toothpaste)
-- dental-04 (Oxyfresh Premium Pet Dental Kit for Dogs & Cats)
-- dental-05 (Professional Pet Dental Care Products)
-- Minties-01 (Minties Dental Chews for Dogs)
-
-**BEDS:**
-- bed-01 (Casper Dog Bed, Pressure-Relieving Memory Foam)
-- bed-02 (Furhaven Memory Foam Dog Bed)
-- bed-03 (Best Friends by Sheri Calming Donut Bed)
-- memory-01 (Barkbox Orthopedic Dog Bed with Memory Foam)
-- largebed-01 (Extra Large Dog Beds for Big Breeds)
-
-**LITTER & LITTER BOXES:**
-- litter-01 (Nature's Miracle Hooded Corner Litter Box)
-- litter-02 (Dr. Elsey's Precious Cat Ultra)
-- litter-03 (World's Best Cat Litter)
-- litterbox-01 (Premium Cat Litter Boxes)
-- clumping-01 (Premium Clumping Cat Litter)
-
-**TRAINING TREATS:**
-- treats-01 (Wellness CORE Tiny Trainers Dog Treats)
-- treats-02 (Blue Buffalo Wilderness Treats)
-- treats-03 (Zuke's Mini Naturals)
-- treats-04 (Pupford Freeze Dried Training Treats)
-- training-02 (ORIJEN Epic Bites Freeze)
-
-**LEASHES & COLLARS:**
-- leash-01 (PoyPet No Pull Dog Harness)
-- leash-02 (Flexi Classic Retractable Dog Leash)
-- harness-01 (Rabbitgoo No-Pull Dog Harness)
-- collar-01 (Seresto Flea and Tick Collar)
-- collar-02 (Blue-9 Balance Harness)
-- collar-03 (Ruffwear Front Range Dog Harness)
-- leashcollar-01 (Premium Dog Leash and Collar Sets)
-- harnesscollar-01 (Dog Harness vs Collar Comparison)
-
-**SCRATCHING POSTS:**
-- scratch-01 (SmartCat Ultimate Scratching Post)
-- scratch-02 (PetFusion Ultimate Cat Scratcher Lounge)
-- scratch-03 (Catit Vesper V-High Base Cat Tree)
-- scratch-04 (FUKUMARU Cat Activity Tree with Scratching Posts)
-- scratching-01 (Premium Cat Scratching Posts)
-
-**CARRIERS & TRAVEL:**
-- carrier-01 (Sherpa Original Deluxe Pet Carrier)
-- carrier-02 (Petmate Two Door Top Load Carrier)
-- crate-01 (MidWest Homes for Pets Dog Crate)
-- crate-02 (Amazon Basics 2-Door Top-Load Hard-Sided Dogs, Cats Pet Travel Carrier)
-- crate-03 (Professional Dog Training Crates)
-- airline-01 (Airline Approved Pet Carriers)
-- travel-01 (Complete - LG Deluxe Pet Airline Travel Kit)
-
-**ESSENTIALS:**
-- waste-01 (Earth Rated Poop Bags)
-- waste-02 (Biodegradable Poop Bags)
-- water-01 (PetSafe Drinkwell Fountain)
-- fountain-01 (Cat Water Fountain)
-- feeder-01 (PetSafe Automatic Cat Feeder)
-- cooling-01 (K&H Pet Products Cooling Mat)
-- perch-01 (K&H Pet Products Window Perch)
-
-**BEHAVIOR & TRAINING:**
-- behavior-01 (Total Cat Mojo: The Ultimate Guide to Life with Your Cat)
-- behavior-02 (CAT SCHOOL Clicker Training Kit)
-- training-01 (Zak George Dog Training Book)
-- agility-01 (Outward Hound Agility Set)
-- agility-02 (SparklyPets Dog Agility Training Equipment)
-
-**HEALTH & SAFETY:**
-- firstaid-01 (RHINO RESCUE Pet First Aid Kit)
-- emergency-01 (Dr Brahmsy's Pet First Aid Kit for Dogs)
-- microchip-01 (Pet Microchip Scanner Rechargeable RFID EMID Micro Chip Reader Scanner)
-- anxiety-01 (Thundershirt Classic Dog Anxiety Jacket)
-- separation-01 (Furbo Dog Camera with Treat Dispenser)
-- calming-01 (Adaptil Calming Collar)
-
-**HEALTH CONDITIONS:**
-- flea-01 (Frontline Plus Flea Treatment)
-- nutrition-01 (The Pill Book Guide to Medication for Your Dog and Cat)
-
-**GUIDES & RESOURCES:**
-- insurance-01 (Pet Insurance Comparison Guide)
-
-🚨 CRITICAL REMINDER: 
-- For collars/harnesses: ONLY use collar-01, collar-02, collar-03, harness-01, leashcollar-01, harnesscollar-01
-- For leashes: ONLY use leash-01, leash-02
-- For scratching posts: ONLY use scratch-01, scratch-02, scratch-03, scratch-04, scratching-01
-- For carriers: ONLY use carrier-01, carrier-02, airline-01
-- For crates: ONLY use crate-01, crate-02, crate-03
-- DO NOT invent new IDs - stick to the exact list above
-- DOUBLE-CHECK each product ID exists in the list above before using it.
-- If you're unsure, use the main products: collar-01, leash-01, harness-01
-
-FAILURE TO FOLLOW THIS WILL BREAK THE WEBSITE.
-
-Include:
-- Skimmable subheads (H2/H3)
-- Pros/cons bullets where helpful
-- 3-question FAQ with **bold Q:** format and A: on new lines
-
-Example FAQ format:
-**Q: [Question here]?**
-
-A: [Answer here with proper spacing and formatting.]
-
-**Q: [Second question]?**
-
-A: [Second answer with proper spacing.]
-
-- Clear CTA in the conclusion
-
-IMPORTANT: Do not use "---" anywhere in the article body.
-
-Avoid prices. Keep tone trustworthy and concise.
-""".strip()
-
-def generate_post_content(keyword):
-    """Generates blog post content using the OpenAI API."""
-    print(f"Generating prompt for keyword: {keyword}")
-    prompt = prompt_for(keyword)
-
-    print("Calling OpenAI API...")
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o",  # Latest GPT-4 model
-            messages=[
-                {"role": "system", "content": "You are an expert affiliate blog post writer."},
-                {"role": "user", "content": prompt}
-            ]
-        )
-        ai_content = response.choices[0].message.content
-    except Exception as e:
-        print(f"Error calling OpenAI API: {e}")
-        ai_content = f"<p>Error generating content for {keyword}. Please check API key and configuration.</p>"
-
-    return ai_content.strip()
-
-def to_title_case(text):
-    """Convert text to proper title case."""
-    # Common words that should remain lowercase unless they're the first word
-    minor_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'up', 'yet'}
+class ContentTracker:
+    """Manages content tracking database for duplicate prevention and analytics."""
     
-    words = text.lower().split()
-    if not words:
-        return text
+    def __init__(self, tracker_path: str = "data/content_tracker.json"):
+        self.tracker_path = Path(tracker_path)
+        self.data = self._load_tracker()
     
-    # Capitalize the first word
-    result = [words[0].capitalize()]
-    
-    # Capitalize other words unless they're minor words
-    for word in words[1:]:
-        if word in minor_words:
-            result.append(word)
-        else:
-            result.append(word.capitalize())
-    
-    return ' '.join(result)
-
-def get_featured_image(keyword):
-    """Get a relevant featured image URL based on the keyword."""
-    # Define reliable image URLs with quality parameters for better loading
-    image_urls = {
-        'dog': [
-            'https://images.unsplash.com/photo-1552053831-71594a27632d?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1546527868-ccb7ee7dfa6a?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1200&h=600&fit=crop&q=80&auto=format'
-        ],
-        'cat': [
-            'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1574158622682-e40e69881006?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=1200&h=600&fit=crop&q=80&auto=format'
-        ],
-        'pet': [
-            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1415369629372-26f2fe60c467?w=1200&h=600&fit=crop&q=80&auto=format'
-        ],
-        'insurance': [
-            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=600&fit=crop&q=80&auto=format'
-        ],
-        'health': [
-            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&h=600&fit=crop&q=80&auto=format'
-        ],
-        'food': [
-            'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=1200&h=600&fit=crop&q=80&auto=format',
-            'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format'
-        ]
-    }
-    
-    keyword_lower = keyword.lower()
-    
-    # Determine which category the keyword belongs to (most specific first)
-    if 'insurance' in keyword_lower or 'emergency' in keyword_lower:
-        category = 'insurance'
-    elif 'health' in keyword_lower or 'supplement' in keyword_lower or 'medical' in keyword_lower:
-        category = 'health'
-    elif 'food' in keyword_lower or 'kibble' in keyword_lower or 'treat' in keyword_lower or 'nutrition' in keyword_lower:
-        category = 'food'
-    elif 'dog' in keyword_lower:
-        category = 'dog'
-    elif 'cat' in keyword_lower:
-        category = 'cat'
-    else:
-        category = 'pet'
-    
-    # Return a random image from the appropriate category
-    return random.choice(image_urls[category])
-
-def read_keywords(path="keywords.csv"):
-    """Reads keywords from a CSV, handling BOMs and cleaning headers."""
-    # utf-8-sig strips BOM if present (common when saving from Excel)
-    try:
-        with open(path, newline="", encoding="utf-8-sig") as f:
-            rows = [r for r in csv.reader(f) if any(cell.strip() for cell in r)]
-    except FileNotFoundError:
-        raise RuntimeError(f"Error: {path} not found.")
-
-    if not rows:
-        return []
-    
-    header = [h.strip().lower() for h in rows[0]]
-    try:
-        k_idx = header.index("keyword")
-        p_idx = header.index("publish")
-        priority_idx = header.index("priority") if "priority" in header else None
-    except ValueError:
-        raise RuntimeError(f"keywords.csv must have 'keyword' and 'publish' headers. Got: {header}")
-    
-    out = []
-    for r in rows[1:]:
-        if len(r) <= max(k_idx, p_idx):
-            continue
-        kw = r[k_idx].strip()
-        pub = r[p_idx].strip().lower()
-        priority = r[priority_idx].strip().lower() if priority_idx and len(r) > priority_idx else "medium"
-        if kw:
-            out.append((kw, pub, priority))
-    return out
-
-def write_post(keyword, posts_dir):
-    """Generates and writes a single post file."""
-    print(f"Processing keyword: {keyword}")
-    
-    # Create unique slug with timestamp to avoid conflicts
-    base_slug = keyword.lower().replace(' ', '-')
-    timestamp = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
-    slug = f"{base_slug}-{timestamp}"
-    post_path = os.path.join(posts_dir, slug)
-
-    # Check if we already have too many posts for this keyword (limit to 3)
-    existing_posts = [d for d in os.listdir(posts_dir) if d.startswith(base_slug)] if os.path.exists(posts_dir) else []
-    if len(existing_posts) >= 3:
-        print(f"Already have {len(existing_posts)} posts for '{keyword}'. Skipping to avoid spam.")
-        return False
-
-    os.makedirs(post_path, exist_ok=True)
-    
-    content = generate_post_content(keyword)
-    
-    # Convert keyword to proper title case
-    title_case_keyword = to_title_case(keyword)
-    
-    # Get a featured image
-    featured_image = get_featured_image(keyword)
-    
-    fm = f"""+++
-title = "{title_case_keyword} — SmartPetBuys"
-date = "{datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ")}"
-slug = "{slug}"
-tags = ["{keyword}","pet products","reviews"]
-categories = ["Reviews"]
-description = "Best {title_case_keyword} for pets — tested picks and buying guide."
-featured_image = "{featured_image}"
-draft = false
-+++
-"""
-    
-    with open(os.path.join(post_path, 'index.md'), 'w', encoding='utf-8') as f:
-        f.write(fm + "\n" + content)
-        print(f"SUCCESS: Created post: {post_path}/index.md")
-    
-    return True
-
-def get_next_keyword_to_publish():
-    """Get the next keyword to publish, prioritizing high priority keywords."""
-    try:
-        pairs = read_keywords()
-        # Filter to only keywords marked as "yes" for publishing
-        to_publish = [(kw, pub, priority) for kw, pub, priority in pairs if pub == "yes"]
+    def _load_tracker(self) -> Dict:
+        """Load existing tracker data or create new."""
+        if self.tracker_path.exists():
+            try:
+                with open(self.tracker_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except (json.JSONDecodeError, FileNotFoundError):
+                logger.warning("Could not load content tracker, creating new one")
         
-        if not to_publish:
-            print("No keywords marked for publishing found.")
+        return {
+            "posts": {},
+            "keywords": {},
+            "metadata": {
+                "created": datetime.now(timezone.utc).isoformat(),
+                "last_updated": datetime.now(timezone.utc).isoformat()
+            }
+        }
+    
+    def _save_tracker(self):
+        """Save tracker data to file."""
+        self.tracker_path.parent.mkdir(exist_ok=True)
+        self.data["metadata"]["last_updated"] = datetime.now(timezone.utc).isoformat()
+        
+        with open(self.tracker_path, 'w', encoding='utf-8') as f:
+            json.dump(self.data, f, indent=2, ensure_ascii=False)
+    
+    def add_post(self, keyword: str, title: str, content_hash: str, file_path: str):
+        """Track a new post."""
+        post_id = hashlib.sha256(f"{keyword}_{title}".encode()).hexdigest()[:12]
+        
+        self.data["posts"][post_id] = {
+            "keyword": keyword,
+            "title": title,
+            "content_hash": content_hash,
+            "file_path": file_path,
+            "created": datetime.now(timezone.utc).isoformat(),
+            "status": "published"
+        }
+        
+        # Update keyword tracking
+        if keyword not in self.data["keywords"]:
+            self.data["keywords"][keyword] = {
+                "usage_count": 0,
+                "last_used": None,
+                "posts": []
+            }
+        
+        self.data["keywords"][keyword]["usage_count"] += 1
+        self.data["keywords"][keyword]["last_used"] = datetime.now(timezone.utc).isoformat()
+        self.data["keywords"][keyword]["posts"].append(post_id)
+        
+        self._save_tracker()
+        return post_id
+    
+    def is_duplicate(self, keyword: str, title: str) -> bool:
+        """Check if content would be duplicate."""
+        # Check exact title matches
+        for post in self.data["posts"].values():
+            if post["title"].lower() == title.lower():
+                return True
+        
+        # Check keyword usage limit (max 3 posts per keyword)
+        if keyword in self.data["keywords"]:
+            if self.data["keywords"][keyword]["usage_count"] >= 3:
+                return True
+        
+        return False
+    
+    def get_keyword_usage(self, keyword: str) -> int:
+        """Get usage count for a keyword."""
+        return self.data["keywords"].get(keyword, {}).get("usage_count", 0)
+
+
+class SmartPetBuysGenerator:
+    """AI-powered content generator for SmartPetBuys."""
+    
+    def __init__(self):
+        self.client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        self.content_tracker = ContentTracker()
+        self.products = self._load_products()
+        
+    def _load_products(self) -> Dict:
+        """Load products database."""
+        products_path = Path("data/products.json")
+        if products_path.exists():
+            with open(products_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        return {}
+    
+    def _load_keywords(self) -> List[Dict]:
+        """Load and parse keywords.csv."""
+        keywords = []
+        keywords_path = Path("keywords.csv")
+        
+        if not keywords_path.exists():
+            logger.error("keywords.csv not found")
+            return keywords
+        
+        with open(keywords_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get('publish', '').lower() == 'yes':
+                    keywords.append({
+                        'keyword': row['keyword'].strip(),
+                        'priority': row.get('priority', 'medium').strip(),
+                        'estimated_volume': int(row.get('estimated_volume', 0))
+                    })
+        
+        return keywords
+    
+    def _select_keyword(self, keywords: List[Dict]) -> Optional[Dict]:
+        """Select the best keyword for content generation."""
+        # Filter out overused keywords
+        available_keywords = []
+        for kw in keywords:
+            if self.content_tracker.get_keyword_usage(kw['keyword']) < 3:
+                available_keywords.append(kw)
+        
+        if not available_keywords:
+            logger.info("No available keywords for content generation")
             return None
         
-        # Sort by priority: high -> medium -> low
-        priority_order = {'high': 1, 'medium': 2, 'low': 3}
-        to_publish.sort(key=lambda x: priority_order.get(x[2], 2))
+        # Prioritize by priority and search volume
+        priority_weights = {'high': 3, 'medium': 2, 'low': 1}
         
-        posts_dir = 'content/posts'
+        available_keywords.sort(key=lambda x: (
+            priority_weights.get(x['priority'], 1),
+            x['estimated_volume']
+        ), reverse=True)
         
-        # Find the first keyword that doesn't already have 3 posts
-        for keyword, _, priority in to_publish:
-            base_slug = keyword.lower().replace(' ', '-')
-            existing_posts = [d for d in os.listdir(posts_dir) if d.startswith(base_slug)] if os.path.exists(posts_dir) else []
+        return available_keywords[0]
+    
+    def _get_relevant_products(self, keyword: str) -> List[Dict]:
+        """Find products relevant to the keyword."""
+        relevant_products = []
+        keyword_lower = keyword.lower()
+        
+        # Enhanced relevance matching with priorities and keyword-specific filtering
+        keyword_filters = {
+            'treat': ['treat', 'training', 'snack', 'bites'],
+            'training': ['treat', 'training', 'snack', 'bites'],
+            'food': ['food', 'kibble', 'nutrition', 'diet'],
+            'weight': ['weight', 'diet', 'nutrition', 'food'],
+            'toy': ['toy', 'play', 'puzzle', 'ball'],
+            'health': ['health', 'supplement', 'vitamin', 'probiotic'],
+            'grooming': ['groom', 'brush', 'nail', 'clip', 'shampoo'],
+            'dental': ['dental', 'teeth', 'chew', 'oral'],
+            'bed': ['bed', 'mattress', 'cushion', 'sleep'],
+            'leash': ['leash', 'collar', 'harness', 'walk'],
+            'litter': ['litter', 'box', 'toilet', 'waste'],
+            'carrier': ['carrier', 'crate', 'transport', 'travel']
+        }
+        
+        # Extract main category from keyword
+        primary_filter = None
+        for category, terms in keyword_filters.items():
+            if any(term in keyword_lower for term in terms):
+                primary_filter = terms
+                break
+        
+        # Score products based on relevance
+        scored_products = []
+        for product_id, product in self.products.items():
+            product_text = f"{product['name']} {product.get('blurb', '')}".lower()
+            score = 0
             
-            if len(existing_posts) < 3:
-                print(f"Selected keyword: '{keyword}' (priority: {priority}, existing posts: {len(existing_posts)})")
-                return keyword
+            # Primary keyword match (highest priority)
+            if primary_filter:
+                score += sum(3 for term in primary_filter if term in product_text)
+            
+            # Secondary keyword matches
+            score += sum(1 for term in keyword_lower.split() if term in product_text)
+            
+            # Pet type matching
+            if 'dog' in keyword_lower and 'dog' in product_text:
+                score += 2
+            if 'cat' in keyword_lower and 'cat' in product_text:
+                score += 2
+            
+            # Boost specific product categories for training keywords
+            if 'training' in keyword_lower or 'treat' in keyword_lower:
+                if product_id.startswith('treats-') or 'treat' in product_text or 'training' in product_text:
+                    score += 5
+            
+            if score > 0:
+                product['id'] = product_id
+                product['relevance_score'] = score
+                scored_products.append(product)
         
-        print("All keywords marked for publishing already have 3 posts. No new content needed.")
-        return None
+        # Sort by relevance score and return top products
+        scored_products.sort(key=lambda x: x['relevance_score'], reverse=True)
+        return scored_products[:5]  # Limit to top 5 products
+    
+    def _create_content_prompt(self, keyword: str, products: List[Dict]) -> str:
+        """Create the AI prompt for content generation."""
         
-    except RuntimeError as e:
-        print(e)
+        product_info = ""
+        if products:
+            product_info = "\n\nRELEVANT PRODUCTS TO FEATURE (must include these with exact details):\n"
+            for product in products:
+                # Enhanced error handling with better fallbacks
+                brand = product.get('brand')
+                if not brand:
+                    # Try to extract brand from product name
+                    name_parts = product['name'].split()
+                    brand = name_parts[0] if name_parts else 'Quality Brand'
+                
+                rating = product.get('rating', '4.5')  # Default to good rating
+                review_count = product.get('review_count', '1,000+')  # Default review count
+                price = product.get('price', '29.99')  # Default reasonable price
+                
+                product_info += f"""
+PRODUCT: {product['name']} by {brand}
+- Price: ${price}
+- Rating: {rating}★ ({review_count} reviews)
+- Description: {product['blurb']}
+- Affiliate URL: {product['url']}
+- Product Image: {product['image']}
+- Product ID: {product['id']}
+"""
+        
+        return f"""You are a professional pet content writer for SmartPetBuys, a trusted pet product review and recommendation site. 
+
+Write a comprehensive, SEO-optimized blog post about "{keyword}". 
+
+REQUIREMENTS:
+- 1200-1500 words minimum for SEO optimization
+- Professional, helpful, and engaging tone that builds E-A-T (Expertise, Authoritativeness, Trustworthiness)
+- Include practical advice and buying guide information
+- Use markdown formatting with proper headings (##, ###) for better structure
+- Include a compelling introduction that hooks readers and includes target keyword
+- Add bullet points and lists for readability and featured snippets
+- Use semantic keyword variations naturally throughout content
+- End with a strong conclusion that encourages engagement and includes a call-to-action
+- Write in a helpful, authoritative voice that builds trust
+- Focus on providing genuine value to pet owners
+- Include FAQ-style sections when appropriate for featured snippets
+- Use action verbs and specific details for better engagement
+- Optimize for user intent and search queries
+
+CRITICAL PRODUCT INTEGRATION REQUIREMENTS:
+- MUST include a "## Top Product Recommendations" section
+- For each product, use this EXACT HTML format for better styling:
+
+<div class="product-card" itemscope itemtype="https://schema.org/Product">
+  <div class="product-card-image">
+    <img src="[Product Image URL]" alt="[Product Name]" loading="lazy" itemprop="image">
+  </div>
+  <div class="product-card-content">
+    <div class="product-card-header">
+      <h4 itemprop="name">[Product Name] by <span itemprop="brand">[Brand]</span></h4>
+      <div class="product-card-meta">
+        <span class="product-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+          <span itemprop="price">$[Price]</span>
+          <meta itemprop="priceCurrency" content="USD">
+          <meta itemprop="availability" content="https://schema.org/InStock">
+          <meta itemprop="url" content="[Affiliate URL]">
+        </span>
+        <div class="product-rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+          <span class="stars" itemprop="ratingValue">[Rating]</span>★
+          <span>(<span itemprop="reviewCount">[Review Count]</span> reviews)</span>
+          <meta itemprop="bestRating" content="5">
+          <meta itemprop="worstRating" content="1">
+        </div>
+      </div>
+    </div>
+    <p class="product-description" itemprop="description">[Product Description/Blurb]</p>
+    <div class="product-features">
+      <ul>
+        <li>[Feature 1]</li>
+        <li>[Feature 2]</li>
+        <li>[Feature 3]</li>
+      </ul>
+    </div>
+    <div class="product-cta">
+      <a href="[Affiliate URL]" target="_blank" rel="noopener nofollow">View on Amazon →</a>
+    </div>
+  </div>
+</div>
+
+STRUCTURE (SEO-Optimized):
+1. Engaging introduction (hook + problem/benefit statement + target keyword in first 100 words)
+2. Main educational sections (2-3 sections with ## headings using semantic keywords)
+3. ## Top Product Recommendations (with products in exact format above)
+4. ## Buying Guide: What to Look For (include comparison criteria)
+5. ## Frequently Asked Questions (if applicable - great for featured snippets)
+6. Conclusion with call-to-action and target keyword
+
+SEO CONTENT GUIDELINES:
+- Use target keyword "{keyword}" naturally 3-5 times throughout
+- Include semantic variations like "best [keyword]", "[keyword] reviews", "top [keyword]"
+- Create scannable content with bullet points and numbered lists
+- Include specific details, measurements, and comparisons
+- Use question-based subheadings for FAQ sections
+- End paragraphs with engaging questions to increase dwell time
+- Include actionable tips and step-by-step guidance
+
+TONE: Friendly expert who genuinely cares about pets and their owners. Avoid overly promotional language.
+
+CONTENT GUIDELINES:
+- Make it specific and actionable
+- Include personal touches like "your furry friend" or "your pet"
+- Use natural keyword integration (don't stuff keywords)
+- Focus on benefits to the pet and owner
+- Add credibility with specific details and considerations
+- ALWAYS use the exact product data provided (name, price, rating, image, affiliate URL)
+
+{product_info}
+
+Write the blog post content only (no frontmatter - that will be added separately). Start with the introduction.
+"""
+
+    def _generate_content(self, keyword: str, products: List[Dict]) -> Optional[str]:
+        """Generate content using OpenAI with retry logic."""
+        max_retries = 3
+        base_delay = 1
+        
+        for attempt in range(max_retries):
+            try:
+                prompt = self._create_content_prompt(keyword, products)
+                
+                response = self.client.chat.completions.create(
+                    model="gpt-4o-mini",
+                    messages=[
+                        {"role": "system", "content": "You are a professional pet content writer specializing in helpful, SEO-optimized articles about pet products and care."},
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=4000,
+                    temperature=0.7
+                )
+                
+                return response.choices[0].message.content
+                
+            except openai.RateLimitError:
+                if attempt < max_retries - 1:
+                    delay = base_delay * (2 ** attempt)
+                    logger.warning(f"Rate limited, retrying in {delay}s...")
+                    time.sleep(delay)
+                    continue
+                else:
+                    logger.error("Rate limit exceeded, max retries reached")
+                    return None
+                    
+            except Exception as e:
+                logger.error(f"OpenAI API error (attempt {attempt + 1}): {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(base_delay)
+                    continue
+                return None
+        
         return None
+    
+    def _validate_content_quality(self, content: str) -> bool:
+        """Validate generated content meets quality standards."""
+        if not content or len(content.strip()) < 1000:
+            logger.warning("Content too short (minimum 1000 characters)")
+            return False
+        
+        # Check for proper structure
+        if content.count('#') < 3:
+            logger.warning("Content lacks proper heading structure")
+            return False
+        
+        # Check for reasonable paragraph structure
+        paragraphs = [p.strip() for p in content.split('\n\n') if p.strip()]
+        if len(paragraphs) < 5:
+            logger.warning("Content has too few paragraphs")
+            return False
+        
+        return True
+    
+    def _load_existing_posts(self) -> List[Dict]:
+        """Load existing posts for duplicate checking."""
+        posts = []
+        posts_dir = Path("content/posts")
+        
+        if not posts_dir.exists():
+            return posts
+        
+        for post_dir in posts_dir.iterdir():
+            if post_dir.is_dir():
+                index_file = post_dir / "index.md"
+                if index_file.exists():
+                    try:
+                        with open(index_file, 'r', encoding='utf-8') as f:
+                            post = frontmatter.load(f)
+                            posts.append({
+                                'title': post.get('title', ''),
+                                'content': post.content,
+                                'slug': post.get('slug', ''),
+                            })
+                    except Exception as e:
+                        logger.warning(f"Could not load post {index_file}: {e}")
+        
+        return posts
+    
+    def _calculate_similarity(self, text1: str, text2: str) -> float:
+        """Calculate basic similarity between two texts."""
+        if not text1 or not text2:
+            return 0.0
+        
+        # Simple word-based similarity
+        words1 = set(text1.lower().split())
+        words2 = set(text2.lower().split())
+        
+        if not words1 or not words2:
+            return 0.0
+        
+        intersection = words1.intersection(words2)
+        union = words1.union(words2)
+        
+        return len(intersection) / len(union) if union else 0.0
+    
+    def _create_title(self, keyword: str) -> str:
+        """Create SEO-optimized title."""
+        # Capitalize first letters and add branding
+        title_parts = keyword.split()
+        capitalized = [word.capitalize() for word in title_parts]
+        return f"{' '.join(capitalized)} — SmartPetBuys"
+    
+    def _create_slug(self, keyword: str) -> str:
+        """Create URL-friendly slug with timestamp."""
+        # Clean keyword and add timestamp for uniqueness
+        slug_base = re.sub(r'[^a-zA-Z0-9\s-]', '', keyword)
+        slug_base = re.sub(r'\s+', '-', slug_base.lower())
+        timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        return f"{slug_base}-{timestamp}"
+    
+    def _select_hero_image(self, keyword: str) -> str:
+        """Select appropriate hero image."""
+        # Default image selection based on keyword content
+        if 'dog' in keyword.lower():
+            return "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?w=1200&h=600&fit=crop&q=80&auto=format"
+        elif 'cat' in keyword.lower():
+            return "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1200&h=600&fit=crop&q=80&auto=format"
+        elif 'food' in keyword.lower():
+            return "https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=1200&h=600&fit=crop&q=80&auto=format"
+        elif 'toy' in keyword.lower():
+            return "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=1200&h=600&fit=crop&q=80&auto=format"
+        else:
+            return "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&h=600&fit=crop&q=80&auto=format"
+    
+    def _create_frontmatter(self, keyword: str, title: str, slug: str) -> Dict:
+        """Create Hugo frontmatter with comprehensive SEO and schema markup."""
+        # Extract main category
+        if any(word in keyword.lower() for word in ['review', 'best', 'top']):
+            category = "Reviews"
+        elif any(word in keyword.lower() for word in ['guide', 'how', 'tips']):
+            category = "Guides"
+        else:
+            category = "Reviews"  # Default
+        
+        # Create comprehensive tags for SEO
+        base_tags = [keyword.lower(), "pet products"]
+        if category == "Reviews":
+            base_tags.extend(["reviews", "buying guide"])
+        
+        # Add pet-specific tags
+        if 'dog' in keyword.lower():
+            base_tags.extend(["dog supplies", "dog care"])
+        if 'cat' in keyword.lower():
+            base_tags.extend(["cat supplies", "cat care"])
+        if 'puppy' in keyword.lower():
+            base_tags.append("puppy care")
+        
+        # Enhanced SEO description
+        seo_description = f"Expert review of the best {keyword.lower()} for pets. Compare top products, read detailed buying guides, and find the perfect {keyword.lower()} for your furry friend."
+        
+        # Schema.org structured data
+        schema = {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": title,
+            "description": seo_description,
+            "image": self._select_hero_image(keyword),
+            "author": {
+                "@type": "Organization",
+                "name": "SmartPetBuys",
+                "url": "https://www.smartpetbuys.com"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "SmartPetBuys",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.smartpetbuys.com/images/smartpetbuys_logo.png"
+                },
+                "url": "https://www.smartpetbuys.com"
+            },
+            "datePublished": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+            "dateModified": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": f"https://www.smartpetbuys.com/posts/{slug}/"
+            },
+            "articleSection": category,
+            "keywords": ", ".join(base_tags)
+        }
+        
+        return {
+            'title': title,
+            'date': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+            'lastmod': datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
+            'slug': slug,
+            'tags': base_tags,
+            'categories': [category],
+            'description': seo_description,
+            'featured_image': self._select_hero_image(keyword),
+            'draft': False,
+            'canonical': f"https://www.smartpetbuys.com/posts/{slug}/",
+            'robots': "index, follow",
+            'schema': schema,
+            # SEO enhancements
+            'keywords': ", ".join(base_tags),
+            'author': "SmartPetBuys Editorial Team",
+            'readingTime': True,
+            'wordCount': True,
+            # Social media optimization
+            'socialImage': self._select_hero_image(keyword),
+            'twitterCard': "summary_large_image",
+            'ogType': "article",
+            'ogTitle': title,
+            'ogDescription': seo_description,
+            'ogImage': self._select_hero_image(keyword),
+            # Performance hints
+            'weight': 1 if category == "Reviews" else 2,
+            'priority': 0.8 if 'best' in keyword.lower() else 0.6
+        }
+    
+    def generate_post(self) -> bool:
+        """Generate a single blog post with comprehensive validation."""
+        logger.info("[GENERATION] Starting blog post generation...")
+        
+        # Validate API key
+        if not os.getenv('OPENAI_API_KEY'):
+            logger.error("[ERROR] OPENAI_API_KEY environment variable not set")
+            return False
+        
+        # Load available keywords
+        keywords = self._load_keywords()
+        if not keywords:
+            logger.info("[INFO] No keywords marked for publishing")
+            return False
+        
+        # Select keyword
+        selected_keyword = self._select_keyword(keywords)
+        if not selected_keyword:
+            logger.info("[INFO] No available keywords (all may be overused)")
+            return False
+        
+        keyword = selected_keyword['keyword']
+        logger.info(f"[KEYWORD] Selected keyword: {keyword}")
+        
+        # Enhanced duplicate checking
+        title = self._create_title(keyword)
+        if self.content_tracker.is_duplicate(keyword, title):
+            logger.info(f"[DUPLICATE] Duplicate content detected for keyword: {keyword}")
+            return False
+        
+        # Get relevant products
+        products = self._get_relevant_products(keyword)
+        logger.info(f"[PRODUCTS] Found {len(products)} relevant products")
+        
+        # Generate content with validation
+        content = self._generate_content(keyword, products)
+        if not content:
+            logger.error("[ERROR] Failed to generate content")
+            return False
+        
+        # Validate content quality
+        if not self._validate_content_quality(content):
+            logger.error("[ERROR] Generated content failed quality checks")
+            return False
+        
+        # Additional duplicate check on generated content
+        for existing_post in self._load_existing_posts():
+            similarity = self._calculate_similarity(content, existing_post.get('content', ''))
+            if similarity > 0.75:
+                logger.warning(f"[WARNING] High similarity ({similarity:.1%}) with existing post, skipping")
+                return False
+        
+        # Create post structure
+        slug = self._create_slug(keyword)
+        frontmatter_data = self._create_frontmatter(keyword, title, slug)
+        
+        # Create post directory and file
+        post_dir = Path(f"content/posts/{slug}")
+        post_dir.mkdir(parents=True, exist_ok=True)
+        
+        post_path = post_dir / "index.md"
+        
+        # Create full post with frontmatter
+        post_content = frontmatter.dumps(frontmatter.Post(content, **frontmatter_data))
+        
+        # Save post
+        with open(post_path, 'w', encoding='utf-8') as f:
+            f.write(post_content)
+        
+        # Track the post
+        content_hash = hashlib.sha256(content.encode()).hexdigest()
+        post_id = self.content_tracker.add_post(keyword, title, content_hash, str(post_path))
+        
+        # Mark keyword as used in CSV
+        self.update_keywords_csv(keyword)
+        
+        logger.info(f"[SUCCESS] Successfully generated post: {post_path}")
+        logger.info(f"[STATS] Post ID: {post_id}")
+        logger.info(f"[STATS] Content length: {len(content)} characters")
+        logger.info(f"[STATS] Keyword usage count: {self.content_tracker.get_keyword_usage(keyword)}")
+        
+        return True
+    
+    def update_keywords_csv(self, used_keyword: str):
+        """Update keywords.csv to mark used keyword as unpublished."""
+        keywords_path = Path("keywords.csv")
+        if not keywords_path.exists():
+            return
+        
+        # Read current keywords
+        rows = []
+        with open(keywords_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row['keyword'].strip() == used_keyword:
+                    row['publish'] = 'no'  # Mark as used
+                rows.append(row)
+        
+        # Write back
+        if rows:
+            with open(keywords_path, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=rows[0].keys())
+                writer.writeheader()
+                writer.writerows(rows)
+
 
 def main():
-    """Main function to run the script - processes only ONE keyword per run."""
-    print("Script started - Single post generation mode")
-    posts_dir = 'content/posts'
-    
-    # Get the next keyword to publish
-    keyword = get_next_keyword_to_publish()
-    
-    if keyword:
-        success = write_post(keyword, posts_dir)
+    """Main execution function."""
+    try:
+        generator = SmartPetBuysGenerator()
+        success = generator.generate_post()
+        
         if success:
-            print(f"Successfully generated post for: {keyword}")
+            logger.info("[SUCCESS] Blog post generation completed successfully!")
+            return 0
         else:
-            print(f"Skipped keyword due to existing post limit: {keyword}")
-    else:
-        print("No keyword selected for publishing.")
-    
-    print("Script finished.")
+            logger.info("[INFO] No post generated (no available keywords or duplicates prevented)")
+            return 0
+            
+    except Exception as e:
+        logger.error(f"[ERROR] Error during generation: {e}")
+        return 1
+
 
 if __name__ == "__main__":
-    main()
+    exit(main())

@@ -33,7 +33,10 @@ theme = "PaperMod"
       unsafe = true
 
 [params]
-  defaultTheme = "auto"
+  defaultTheme = "light"
+  disableThemeToggle = true
+  themeColor = "#FF7F32"
+  
   description  = "Expert pet product reviews, buying guides, and deals. Find the best dog food, cat toys, pet beds, and more with our comprehensive testing and recommendations."
   mainSections = ["posts"]
   ShowReadingTime = true
@@ -126,6 +129,9 @@ theme = "PaperMod"
   minifyCSS = true
   # JavaScript Optimization
   minifyJS = true
+  # Override PaperMod theme colors to use brand colors
+  theme_color = "#FF7F32"
+  msapplication_TileColor = "#FF7F32"
 
 # Advanced Build Configuration
 [caches]

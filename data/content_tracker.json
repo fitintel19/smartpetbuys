@@ -1,0 +1,82 @@
+{
+  "posts": {
+    "655cccca450a": {
+      "keyword": "dog food for puppies",
+      "title": "Dog Food For Puppies — SmartPetBuys",
+      "content_hash": "e3c0995dd6bb84686c7ea1688ba54d6a6239b933a6f4439df6826d68267c5972",
+      "file_path": "content\\posts\\dog-food-for-puppies-20250821-142746\\index.md",
+      "created": "2025-08-21T18:27:46.459783+00:00",
+      "status": "published"
+    },
+    "06f59fe7fb0a": {
+      "keyword": "pet health supplements",
+      "title": "Pet Health Supplements — SmartPetBuys",
+      "content_hash": "cb8a967ad60195b65e28e15a604e6c23591d2910e728f27df656db7b7ede0082",
+      "file_path": "content\\posts\\pet-health-supplements-20250821-184123\\index.md",
+      "created": "2025-08-21T22:41:23.574569+00:00",
+      "status": "published"
+    },
+    "2aeef52e1fde": {
+      "keyword": "best dog puzzle toys",
+      "title": "Best Dog Puzzle Toys — SmartPetBuys",
+      "content_hash": "1c3b5d007a59103bfa1ae394d892f4d3903db99f370fe1331c8a090541f9ebec",
+      "file_path": "content\\posts\\best-dog-puzzle-toys-20250821-185925\\index.md",
+      "created": "2025-08-21T22:59:25.758657+00:00",
+      "status": "published"
+    },
+    "1e27075d5a5f": {
+      "keyword": "dog training treats",
+      "title": "Dog Training Treats — SmartPetBuys",
+      "content_hash": "fd64594f6440d42e29fe5a374b749d5ddac5f58a188f5a950502cd6c2715dd73",
+      "file_path": "content\\posts\\dog-training-treats-20250821-190750\\index.md",
+      "created": "2025-08-21T23:07:50.225308+00:00",
+      "status": "published"
+    }
+  },
+  "keywords": {
+    "dog food for puppies": {
+      "usage_count": 1,
+      "last_used": "2025-08-21T18:27:46.459792+00:00",
+      "posts": [
+        "655cccca450a"
+      ]
+    },
+    "pet health supplements": {
+      "usage_count": 1,
+      "last_used": "2025-08-21T22:41:23.574577+00:00",
+      "posts": [
+        "06f59fe7fb0a"
+      ]
+    },
+    "best dog puzzle toys": {
+      "usage_count": 1,
+      "last_used": "2025-08-21T22:59:25.758672+00:00",
+      "posts": [
+        "2aeef52e1fde"
+      ]
+    },
+    "dog training treats": {
+      "usage_count": 1,
+      "last_used": "2025-08-21T23:07:50.225316+00:00",
+      "posts": [
+        "1e27075d5a5f"
+      ]
+    }
+  },
+  "metadata": {
+    "created": "2025-08-21T15:00:00Z",
+    "last_updated": "2025-08-21T23:07:50.225414+00:00",
+    "version": "1.0.0",
+    "description": "Content tracking database for SmartPetBuys blog automation"
+  },
+  "stats": {
+    "total_posts_generated": 0,
+    "keywords_used": 0,
+    "duplicate_attempts_prevented": 0
+  },
+  "settings": {
+    "max_posts_per_keyword": 3,
+    "duplicate_content_threshold": 0.8,
+    "minimum_content_length": 1000
+  }
+}
