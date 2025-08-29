@@ -422,11 +422,11 @@ Write the blog post content only (no frontmatter - that will be added separately
                 if index_file.exists():
                     try:
                         with open(index_file, 'r', encoding='utf-8') as f:
-                            post = frontmatter.load(f)
+                            post = frontmatter.loads(f.read())
                             posts.append({
-                                'title': post.get('title', ''),
+                                'title': post.metadata.get('title', ''),
                                 'content': post.content,
-                                'slug': post.get('slug', ''),
+                                'slug': post.metadata.get('slug', ''),
                             })
                     except Exception as e:
                         logger.warning(f"Could not load post {index_file}: {e}")
@@ -629,7 +629,8 @@ Write the blog post content only (no frontmatter - that will be added separately
         post_path = post_dir / "index.md"
         
         # Create full post with frontmatter
-        post_content = frontmatter.dumps(frontmatter.Post(content, **frontmatter_data))
+        post = frontmatter.Post(content, **frontmatter_data)
+        post_content = frontmatter.dumps(post)
         
         # Save post
         with open(post_path, 'w', encoding='utf-8') as f:

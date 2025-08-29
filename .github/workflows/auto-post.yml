@@ -34,7 +34,7 @@ jobs:
       - name: 'Install Dependencies'
         run: |
           python -m pip install --upgrade pip
-          pip install openai frontmatter
+          pip install openai python-frontmatter
 
       - name: 'Generate New Content'
         id: generate
