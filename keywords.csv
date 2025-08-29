@@ -1,15 +1,15 @@
 keyword,publish,priority,estimated_volume
 best dog puzzle toys,no,high,1200
 cat grooming brush,yes,medium,800
-dog food for puppies,no,high,2000
-pet health supplements,no,high,1500
+dog food for puppies,yes,high,2000
+pet health supplements,yes,high,1500
 dog training treats,no,medium,900
 cat scratching post,yes,medium,700
 dog bed for large breeds,no,high,1100
 pet dental care products,no,high,1300
 cat litter box,no,medium,600
-dog leash and collar,no,high,1800
-best cat food for indoor cats,no,high,1600
+dog leash and collar,yes,high,1800
+best cat food for indoor cats,yes,high,1600
 KONG dog toys review,no,medium,800
 dog harness vs collar,no,high,1400
 best cat litter clumping,no,medium,900
@@ -17,17 +17,17 @@ omega 3 supplements for dogs,no,high,1200
 calming supplements for anxious pets,no,high,1100
 best dog crate for training,no,high,1300
 pet carrier for airline travel,no,medium,500
-flea and tick prevention,no,high,1700
+flea and tick prevention,yes,high,1700
 dog waste bags biodegradable,no,medium,400
 pet water fountain benefits,no,medium,300
 greenies dental chews review,no,medium,600
-memory foam dog beds,no,high,1400
+memory foam dog beds,yes,high,1400
 cat feather toys interactive,no,medium,400
-joint supplements for senior dogs,no,high,1000
-best automatic cat feeder,no,high,800
+joint supplements for senior dogs,yes,high,1000
+best automatic cat feeder,yes,high,800
 dog cooling mat for summer,no,medium,600
 cat window perch installation,no,medium,300
-pet insurance comparison guide,no,high,2000
+pet insurance comparison guide,yes,high,2000
 best dog shampoo for sensitive skin,no,medium,700
 cat behavior training tips,no,medium,500
 dog agility equipment backyard,no,medium,400
@@ -38,7 +38,7 @@ pet grooming table professional,no,medium,300
 cat microchip registration guide,no,medium,400
 dog obedience training classes,no,high,1200
 pet emergency vet finder,no,medium,300
-best dog food for allergies,no,high,1500
+best dog food for allergies,yes,high,1500
 cat diabetes management products,no,medium,400
 pet travel accessories checklist,no,medium,500
 dog agility training equipment,no,medium,400
