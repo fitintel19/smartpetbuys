@@ -3,6 +3,9 @@ languageCode = "en-us"
 title = "SmartPetBuys - Expert Pet Product Reviews & Buying Guides"
 theme = "PaperMod"
 
+# Critical: Set environment to production for SEO indexing
+environment = "production"
+
 # Enable sitemap generation
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -52,6 +55,13 @@ theme = "PaperMod"
   keywords = ["pet products", "dog supplies", "cat accessories", "pet reviews", "best pet products", "dog food reviews", "cat toys", "pet beds", "pet health", "pet care"]
   author = "SmartPetBuys Team"
   logo = "/images/smartpetbuys_logo.png"
+  
+  # Search Console and SEO Tools Verification
+  [params.analytics]
+    [params.analytics.google]
+      SiteVerificationTag = ""  # Add your Google Search Console verification code here
+    [params.analytics.bing]  
+      SiteVerificationTag = ""  # Add your Bing Webmaster verification code here
   
   # Social media
   twitter = "@smartpetbuys"

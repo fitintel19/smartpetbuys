@@ -40,12 +40,13 @@
 <script src="/js/mobile-menu.js" defer></script>
 
 <!-- Enhanced SEO Meta Tags -->
-{{- if .IsPage -}}
-<!-- Canonical URL -->
+<!-- Canonical URL - Apply to all pages -->
 <link rel="canonical" href="{{ .Params.canonical | default .Permalink }}">
 
-<!-- Robots Meta -->
+<!-- Robots Meta - Critical: Apply to ALL pages for proper indexing -->
 <meta name="robots" content="{{ .Params.robots | default "index, follow" }}">
+
+{{- if .IsPage -}}
 
 <!-- Enhanced Keywords -->
 {{- if .Params.keywords -}}
@@ -88,6 +89,27 @@
 {{- if .Params.readingTime -}}
 <meta name="reading-time" content="{{ .ReadingTime }}">
 {{- end -}}
+{{- end -}}
+
+<!-- Global Open Graph Meta Tags for all pages -->
+{{- if not .IsPage -}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ .Title | default .Site.Title }}">
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}images/smartpetbuys-og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Global Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title | default .Site.Title }}">
+<meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+{{- if .Site.Params.twitter -}}
+<meta name="twitter:site" content="{{ .Site.Params.twitter }}">
+{{- end -}}
+<meta name="twitter:image" content="{{ .Site.BaseURL }}images/smartpetbuys-twitter-card.jpg">
 {{- end -}}
 
 <!-- Schema.org Structured Data -->
